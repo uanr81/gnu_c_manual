@@ -1,13 +1,13 @@
-@c ??? It might be a good idea to turn each example of an expression
-@c into a small program that prints output and thus shows what
-@c the expression does.
+@c ??? Это может быть хорошей идеей, чтобы превратить каждый пример выражения
+@c в небольшую программу, которая печатает выходные и, таким образом,
+@c показывает, что выражение делает.
 
-@c This is part of The GNU C Reference Manual
+@c Это является частью GNU C Reference Manual
 @c Copyright (C) 2007-2016 Free Software Foundation, Inc.
-@c See the file gnu-c-manual.texi for copying conditions.
+@c Смотрите файл gnu-c-manual.texi условия копирования.
 
 @node Expressions and Operators
-@chapter Expressions and Operators
+@chapter Выражения и Операторы
 
 @menu
 * Expressions::
@@ -33,52 +33,56 @@
 @end menu
 
 @node Expressions
-@section Expressions
+@section Выражения
 @cindex expressions
 
-An @dfn{expression} consists of at least one operand and zero or more
-operators.  Operands are typed objects such as constants, variables,
-and function calls that return values.  Here are some examples:
+@dfn{Выражение} состоит, по меньшей мере, из одного операнда и содержит ноль
+или более операторов.  Операнды - это типизированные объекты, такие как
+константы, переменные и вызовы функций, которые возвращают значение.  Вот
+некоторые примеры:
 
 @example
 @group
 47
 2 + 2
-cosine(3.14159) /* @r{We presume this returns a floating point value.} */
+cosine(3.14159) /* @r{Мы предполагаем, это возвращает значение с плавающей
+точкой.} */
 @end group
 @end example
 
-Parentheses group subexpressions:
+Круглые скобки для группировки подвыражений:
 
 @example
 ( 2 * ( ( 3 + 10 ) - ( 2 * 6 ) ) )
 @end example
 
 @noindent
-Innermost expressions are evaluated first.  In the above example,
-@code{3 + 10} and @code{2 * 6} evaluate to @code{13} and @code{12},
-respectively.  Then @code{12} is subtracted
-from @code{13}, resulting in @code{1}.  Finally, @code{1} is multiplied by
-@code{2}, resulting in @code{2}.  The outermost parentheses are completely
-optional.
+Вложенные выражения вычисляются первыми.  В приведенном выше примере,
+вначале оцениваются выражения @code{3 + 10} и @code{2 * 6}, затем оцениваются
+полученные выражения @code{13} и @code{12}, соответственно.  Затем @code{12}
+вычитается из @code{13}, в результате чего получается @code{1}.  Наконец,
+@code{1} умножается на @code{2}, в результате чего появляется @code{2}.
+Самые внешние круглые скобки в примере не являются обязательными.
 
 @cindex operators
 
-An @dfn{operator} specifies an operation to be performed on its operand(s).
-Operators may have one, two, or three operands, depending on the operator.
+@dfn{Оператор} определяет операцию, которая будет выполняться над его
+операндом(ами).  Операторы могут иметь один, два или три операнда, в
+зависимости от оператора.
 
 @node Assignment Operators
-@section Assignment Operators
+@section Операторы Присваивания
 @cindex assignment operators
 @cindex operators, assignment
 
-Assignment operators store values in variables.  C provides several
-variations of assignment operators.
+Операторы присваивания сохраняют значения в переменных.  Си обеспечивает
+несколько вариантов операторов присваивания.
 
-The standard assignment operator @code{=} simply stores the value of its
-right operand in the variable specified by its left operand.  As with
-all assignment operators, the left operand (commonly referred to as the
-``lvalue'') cannot be a literal or constant value.
+Стандартный оператор присваивания @code{=} просто сохранит значение правого
+операнда в переменную, указанную в левом операнде.  Как и со всеми
+операторами присваивания, левый операнд (обычно называемый как
+``lvalue (левое значение)'') не может быть буквальным или постоянным
+значением.
 
 @example
 @group
@@ -94,91 +98,93 @@ struct foo @{
 @end example
 
 @noindent
-Note that, unlike the other assignment operators described below, you
-can use the plain assignment operator to store values of a structure
-type.
+Обратите внимание, что, в отличие от других операторов присваивания,
+описанных ниже, можно использовать простой оператор присваивания для
+хранения значений структурного типа.
 
-Compound assignment operators perform an operation involving
-both the left and right operands, and then assign the resulting
-expression to the left operand.  Here is a list of the compound
-assignment operators, and a brief description of what they do:
+Составные операторы присваивания выполняют операцию с участием как левого,
+так и правый операнда, затем присваивают полученное выражение левому
+операнду.  Вот список составных операторов присваивания и краткое описание
+того, что они делают:
 
 @itemize
 
 @item
 @code{+=}
 
-Adds the two operands together, and then assign the result of
-the addition to the left operand.
+Складывает два операнда вместе, затем присваивает результат сложения левому
+операнду.
 
 @item
 @code{-=}
 
-Subtract the right operand from the left operand, and
-then assign the result of the subtraction to the left operand.
+Вычитает правый операнд из левого операнда, затем присваивает результат
+вычитания левому операнду.
 
 @item
 @code{*=}
 
-Multiply the two operands together, and then assign the
-result of the multiplication to the left operand.
+Перемножает два операнда, затем присваивает результат умножения левому
+операнду.
 
 @item
 @code{/=}
 
-Divide the left operand by the right operand, and assign
-the result of the division to the left operand.
+Делит левый операнд на правый операнд, присваивает результат деления левому
+операнду.
 
 @item
 @code{%=}
 
-Perform modular division on the two operands, and assign the
-result of the division to the left operand.
+Выполняет деление по модулю деление двух операндов, присваивает результат
+деления левому операнду.
 
 @item
 @code{<<=}
 
-Perform a left shift operation on the left operand, shifting
-by the number of bits specified by the right operand, and assign the
-result of the shift to the left operand.
+Выполненяет операцию сдвига влево с левым операндом, сдвигая на число битов,
+заданное с помощью правого операнда, присваивает результат сдвига левому
+операнду.
 
 @item
 @code{>>=}
 
-Perform a right shift operation on the left operand,
-shifting by the number of bits specified by the right operand, and assign
-the result of the shift to the left operand.
+Выполняет операцию сдвига вправо с левым операндом, сдвигая на число битов,
+заданное с помощью правого операнда, и присваивает результат сдвига левому
+операнду.
 
 @item
 @code{&=}
 
-Perform a bitwise conjunction operation on the two operands, and
-assign the result of the operation to the left operand.
+Выполняет поразрядную операцию @code{И} для двух операндов, и присваивает
+результат операции левому операнду.
 
 @item
 @code{^=}
 
-Performs a bitwise exclusive disjunction operation on the two operands,
-and assign the result of the operation to the left operand.
+Выполняет поразрядную операцию @code{исключающего ИЛИ} для двух операндов,
+и присваивает результат операции левому операнду.
 
 @item
 @code{|=}
 
-Performs a bitwise inclusive disjunction operation on the two
-operands, and assign the result of the operation to the left operand.
+Выполняет поразрядную операцию @code{ИЛИ} для двух операндов,
+и присваивает результат операции левому операнду.
 
 @end itemize
-@comment  __End of compound assignment operator list
+@comment  __End из соединения назначений списка операторов
 
-Here is an example of using one of the compound assignment operators:
+Ниже приведен пример использования одного из составных операторов
+присваивания:
 
 @example
 x += y;
 @end example
 
 @noindent
-Since there are no side effects wrought by evaluating the variable
-@code{x} as an lvalue, the above code produces the same result as:
+Поскольку нет никаких влияющих побочных эффектов при оценки переменной
+@code{x} как lvalue (левого значения), приведенный выше код дает тот же
+результат, что и код:
 
 @example
 x = x + y;
@@ -198,87 +204,89 @@ x = x + y;
 @c @cindex extensions, @code{?:}
 @c @cindex @code{?:} extensions
 @c 
-@c Compound expressions, conditional expressions and casts are allowed as
-@c lvalues provided their operands are lvalues.  This means that you can take
-@c their addresses or store values into them.
+@c Составные выражения, условные выражения и сдвиги разрешены, как lvalues
+@c (левые значения) при ​​условии, что их операнды  также lvalues.  Это
+@c означает, что можно взять их адрес или хранимое значение в них.
 @c 
-@c For example, you can assign a value to a compound expression, provided the
-@c last expression in the sequence is an lvalue.  These two expressions are
-@c equivalent:
+@c Например, можно присвоить значение выражения соединения, при условии, что @c последнее выражение в последовательности является именованным.  Эти два
+@c выражения эквивалентны:
 @c 
 @c @example
 @c (a, b) += 5
 @c a, (b += 5)
 @c @end example
 @c 
-@c Similarly, you can take the address of a compound expression.  So, these two
-@c expressions are equivalent:
+@c Кроме того, можно взять адрес выражения соединения.  Таким образом, эти
+@c два выражения эквивалентны:
 @c 
 @c @example
 @c &(a, b)
 @c a, &b
 @c @end example
 @c 
-@c A conditional expression is a valid lvalue if its type is not void and if
-@c both the second and third operands are valid lvalues.  For example, these two
-@c expressions are equivalent:
+@c Условное выражение является допустимым, если их именованный тип не
+@c является недействительным, и если оба и второй и третий операнды являются
+@c действительными lvalues (левыми выражениями).  Например, эти два выражения
+@c эквивалентны:
 @c 
 @c @example
 @c (a ? b : c) = 5
 @c (a ? b = 5 : (c = 5))
 @c @end example
 @c 
-@c A type cast is a valid lvalue if its operand is an lvalue.  A simple
-@c assignment whose left-hand side is a cast works by converting the
-@c right-hand side first to the specified type, then to the type of the
-@c inner left-hand side expression.  After this is stored, the value is
-@c converted back to the specified type to become the value of the
-@c assignment.  Thus, if @code{a} has type @code{char *}, the following two
-@c expressions are equivalent:
+@c Составной тип является допустимым, если его именованный операнд является
+@c именным.  Простое назначение которого сторона left-hand представляет
+@c собой отливка работает путем преобразования в стороне right-hand первой
+@c указанного типа, а затем к типу внутренней стороны выражения left-hand.
+@c После этого сохраняется, значение преобразуется обратно к указанному типу,
+@c чтобы стать значением задания.  Таким образом, если @code{a} имеет тип
+@c @code{char *}, следующие два выражения эквивалентны:
+@c (ВопросExpressions 244)
 @c 
 @c @example
 @c (int)a = 5
 @c (int)(a = (char *)(int)5)
 @c @end example
 @c 
-@c An assignment-with-arithmetic operation such as @code{+=} applied to a cast
-@c performs the arithmetic using the type resulting from the cast, and then
-@c continues as in the previous case.  Therefore, these two expressions are
-@c equivalent:
+@c Назначение-с-арифметической операции, такие как @code{+=}, приложенного к
+@c литым выполняет арифметические операции, используя тип полученного из
+@c литой, а затем продолжается, как и в предыдущем случае. Таким образом,
+@c эти два выражения эквивалентны:
 @c 
 @c @example
 @c (int)a += 5
 @c (int)(a = (char *)(int) ((int)a + 5))
 @c @end example
 
-@c You cannot take the address of an lvalue cast, because the use of its
-@c address would not work out coherently.  Suppose that @code{&(int)f} were
-@c permitted, where @code{f} has type @code{float}.  Then the following
-@c statement would try to store an integer bit-pattern where a floating
-@c point number belongs:
+@c Вы не можете взять адрес именующее гипсе, потому что использование его
+@c адреса не будет работать слаженно.  Предположим, что @code{&(int)f} были
+@c разрешены, где @code{f} имеет тип @code{float}. Тогда следующий оператор
+@c попытается сохранить целое битового шаблона, где число с плавающей точкой
+@c принадлежит:
 @c 
 @c @example
 @c *&(int)f = 1;
 @c @end example
 @c 
-@c This is quite different from what @code{(int)f = 1} would do---that
-@c would convert 1 to floating point and store it.  Rather than cause this
-@c inconsistency, we think it is better to prohibit use of @code{&} on a cast.
+@c Это совершенно отличается от того, что @code{(int)f = 1} будет делать ---
+@c что бы преобразовать 1 с плавающей точкой и хранить его.  Вместо того,
+@c чтобы причина этого несоответствия, мы считаем, что лучше запретить
+@c использование @code{&} на гипсе.
 @c 
-@c If you really do want an @code{int *} pointer with the address of
-@c @code{f}, you can simply write @code{(int *)&f}.
+@c Если вы действительно хотите указатель @code{int *} с адресом @code{f},
+@c вы можете просто написать @code{(int *)&f}.
 
 @node Incrementing and Decrementing
-@section Incrementing and Decrementing
+@section Увеличение и Уменьшение
 @cindex increment operator
 @cindex decrement operator
 @cindex operator, increment
 @cindex operator, decrement
 
-The increment operator @code{++} adds 1 to its operand.  The operand must
-be a either a variable of one of the primitive data types, a pointer, or an
-enumeration variable.  You can apply the increment operator either before or after
-the operand.  Here are some examples:
+Оператор инкремента @code{++} добавляет 1 (еденицу) к своему операнду.
+Операнд должен быть либо переменной одного из примитивных типов данных,
+указателем или переменной перечисления.  Можжно применить оператор
+инкремента либо до, либо после операнда. вот несколько примеров:
 
 @example
 @group
@@ -288,34 +296,36 @@ char y = 'B';
 float z = 5.2;
 int *p = &x;
 
-++w;   /* @r{@code{w} is now the character `2' (not the value 2).} */
-x++;   /* @r{@code{x} is now 6.} */
-++y;   /* @r{@code{y} is now `C' (on ASCII systems).} */
-z++;   /* @r{@code{z} is now 6.2.} */
-++p;   /* @r{@code{p} is now @code{&x} + @code{sizeof(int)}.} */
+++w;   /* @r{@code{w} теперь символ `2' (не число 2).} */
+x++;   /* @r{@code{x} теперь 6.} */
+++y;   /* @r{@code{y} теперь `C' (в системах ASCII).} */
+z++;   /* @r{@code{z} теперь 6.2.} */
+++p;   /* @r{@code{p} теперь @code{&x} + @code{sizeof(int)}.} */
 @end group
 @end example
 
 @noindent
-(Note that incrementing a pointer only makes sense if you have reason to believe
-that the new pointer value will be a valid memory address.)
+(Обратите внимание, что увеличивающийся указатель имеет смысл только если
+есть основания полагать, что новое значение указателя будет допустимым
+адресом памяти.)
 
-A prefix increment adds 1 before the operand is evaluated.  A postfix
-increment adds 1 after the operand is evaluated.  In the previous
-examples, changing the position of the operator would make no difference.
-However, there are cases where it does make a difference:
+Префиксное приращение, добавляет 1 к операнду перед вычислением операнда.
+Постфиксное приращение добавляет 1 после того, как операнд вычислен.  В
+предыдущих примерах, изменение положения оператора не будет иметь никакого
+значения.  Однако, бывают случаи, когда это имеет значение:
 
 @example
 @group
 int x = 5;
-printf ("%d \n", x++);    /* @r{Print @code{x} and then increment it.} */
-/* @r{@code{x} is now equal to 6.} */
-printf ("%d \n", ++x);    /* @r{Increment @code{x} and then print it.} */
+printf ("%d \n", x++); /* @r{Распечатает @code{x}, а затем увеличит его.} */
+/* @r{Вывод 5, хотя переменная @code{x} теперь равна 6.} */
+printf ("%d \n", ++x); /* @r{Приращение к @code{x}, а затем печать его.} */
+/* @r{Вывод и переменная @code{x} теперь равна 7.} */
 @end group
 @end example
 
 @noindent
-The output of the above example is:
+Вывод приведенного выше примера:
 
 @example
 @group
@@ -324,32 +334,31 @@ The output of the above example is:
 @end group
 @end example
 
-Likewise, you can subtract 1 from an operand using the decrement operator:
+Кроме того, можно вычесть 1 из операнда с помощью оператора декремента:
 
 @example
 @group
 int x = 5;
 
-x--; /* @r{@code{x} is now 4.} */
+x--; /* @r{@code{x} теперь 4.} */
 @end group
 @end example
 
 @noindent
-The concepts of prefix and postfix application apply here as with the
-increment operator.
+Понятия префикс и постфикс, применяются также и с оператором инкремента.
 
 @node Arithmetic Operators
-@section Arithmetic Operators
+@section Арифметические Операторы
 @cindex arithmetic operators
 @cindex operators, arithmetic
 
-C provides operators for standard arithmetic operations: addition, subtraction,
-multiplication, and division, along with modular division and negation.  Usage
-of these operators is straightforward; here are some examples:
+Си обеспечивает операторы для стандартных арифметических операций: сложения,
+вычитания, умножения деления, деление по модулю и отрицание.  Использование
+этих операторов просто; вот несколько примеров:
 
 @example
 @group
-/* @r{Addition.} */
+/* @r{Сложение.} */
 x = 5 + 3;
 y = 10.23 + 37.332;
 quux_pointer = foo_pointer + bar_pointer;
@@ -358,7 +367,7 @@ quux_pointer = foo_pointer + bar_pointer;
 
 @example
 @group
-/* @r{Subtraction.} */
+/* @r{Вычитание.} */
 x = 5 - 3;
 y = 57.223 - 10.903;
 quux_pointer = foo_pointer - bar_pointer;
@@ -366,12 +375,12 @@ quux_pointer = foo_pointer - bar_pointer;
 @end example
 
 @noindent
-You can add and subtract memory pointers, but you cannot multiply
-or divide them.
+Можно складывать и вычитать указатели памяти, но нельзя перемножать и делить
+их.
 
 @example
 @group
-/* @r{Multiplication.} */
+/* @r{Умножение.} */
 x = 5 * 3;
 y = 47.4 * 1.001;
 @end group
@@ -379,56 +388,56 @@ y = 47.4 * 1.001;
 
 @example
 @group
-/* @r{Division.} */
+/* @r{Деление.} */
 x = 5 / 3;
 y = 940.0 / 20.2;
 @end group
 @end example
 
 @noindent
-Integer division of positive values truncates towards zero, so 5/3 is
-1.  However, if either operand is negative, the direction of rounding
-is implementation-defined.  @ref{Signed Integer Division} for
-information about overflow in signed integer division.
+Целочисленное деление положительных значений обрезает по направлению к нулю,
+так что 5/3 равен 1.  Однако, если один из операндов является отрицательным,
+то направление округления зависит от реализации.
+@ref{Signed Integer Division} для информации о переполнении в знаковом
+целочисленном делении.
 
-@c We should state how GCC behaves if an operand is negative.
+@c Нужно указать GCC, как ему вести себя, если операнд отрицателен.
 
 
-You use the modulus operator @code{%} to obtain the remainder produced
-by dividing its two operands.  You put the operands on either side of
-the operator, and it does matter which operand goes on which
-side:  @code{3 % 5} and @code{5 % 3} do not have the same result.
-The operands must be expressions of a primitive data type.
+Оператор деление по модулю @code{%} используется, чтобы получить остаток от
+деления его двух операндов.  Операнды устанавливаются по обе стороны от
+оператора, и имеет значение, какой операнд на какой стороне: @code{3 % 5} или
+@code{5 % 3} имеют разный результат.  Операнды должны быть выражениями
+примитивного типа данных.
 
 @example
 @group
-/* @r{Modular division.} */
+/* @r{Деление по модулю.} */
 x = 5 % 3;
 y = 74 % 47;
 @end group
 @end example
 
 @noindent
-Modular division returns the remainder produced after performing
-integer division on the two operands. The operands must be of a
-primitive integer type.
+Деление по модулю возвращает остаток, полученный после выполнения деления
+целых чисел двух операндов.  Операнды должны быть примитивного целого типа.
 
 @example
 @group
-/* @r{Negation.} */
+/* @r{Отрицание.} */
 int x = -5;
 float y = -3.14159;
 @end group
 @end example
 
-If the operand you use with the negative operator is of an unsigned data
-type, then the result cannot negative, but rather is the
-maximum value of the unsigned data type, minus the value of the operand.
+Если операнд используемый с оператором отрицания имеет беззнаковый тип
+данных, то результат не станет отрицательным, а будет иметь максимальное
+значение беззнакового типа данных, за вычетом значения операнда.
 
-Many systems use twos-complement arithmetic, and on such systems the
-most negative value a signed type can hold is further away from zero
-than the most positive value.   For example, on one platform, this
-program:
+Многие системы используют в коде арифметику с дополнением до двух, и на таких
+системах самое отрицательное значение, знакового типа, может находится дальше
+от нуля, чем самое положительное значение.  Например, на одной платформе, эта
+программа:
 
 @example
 @group
@@ -449,7 +458,7 @@ int main (int argc, char *argv[])
 @end group
 @end example
 
-Produces this output:
+Производит этот вывод:
 
 @example
 @group
@@ -459,26 +468,26 @@ INT_MIN  = -2147483648
 @end group
 @end example
 
-Trivially, you can also apply a positive operator to a numeric
-expression:
+Можно также применить положительный оператор для числового выражения:
 
 @example
 int x = +42;
 @end example
 
 @noindent
-Numeric values are assumed to be positive unless explicitly made
-negative, so this operator has no effect on program operation.
+Числовые значения считаются положительными, если явно не сделать его
+отрицательным, поэтому этот оператор не оказывает никакого влияния на работу
+программы.
 
 @node Complex Conjugation
-@section Complex Conjugation
+@section Комплексное Сопряжение
 @cindex complex conjugation
 @cindex conjugation
  
-As a GNU extension, you can use the complex conjugation operator @code{~} to
-perform complex conjugation on its operand --- that is, it reverses the sign of
-its imaginary component.   The operand must be an expression of a complex number
-type.  Here is an example:
+В качестве расширения GNU, можно использовать оператор комплексного
+сопряжения @code{~}, выполняет комплексное сопряжение на операнде --- то
+есть, он меняет знак мнимой составляющей.  Операнд должен быть выражением
+типа комплесного числа.  Вот пример:
  
 @example
 @group
@@ -488,20 +497,20 @@ printf ("%d  \n", (x * ~x));
 @end group
 @end example
  
-Since an imaginary number @math{(a + bi)} multiplied by its conjugate is equal
-to @math{a^2 + b^2}, the above @code{printf} statement will print 314, which
-is equal to @math{25 + 289}.
+Так как мнимое число @math{(a + bi)} умноженное на его сопряжённое число
+равное @math{a^2 + b^2}, приведенное выше выражение @code{printf} выведет на
+печатать число 314, которое получилось из выражения @math{25 + 289}.
 
 @node Comparison Operators
-@section Comparison Operators
+@section Операторы Сравнения
 @cindex comparison operators
 @cindex operators, comparison
 
-You use the comparison operators to determine how two operands relate to
-each other: are they equal to each other, is one larger than the other,
-is one smaller than the other, and so on.   When you use any of the
-comparison operators, the result is either 1 or 0, meaning true or false,
-respectively.
+Можно использовать операторы сравнения для определения того, как два операнда
+соотносятся друг с другом: они равны друг другу, один больше, чем другой,
+один меньше другого, и так далее.  При использовании любого из операторов
+сравнения, результат всегда равен 1 или 0, то есть является истинной или
+ложью, соответственно.
 
 (In the following code examples, the variables @code{x} and @code{y} stand
 for any two expressions of arithmetic types, or pointers.)

@@ -9,18 +9,14 @@ any later version published by the Free Software Foundation; with no
 Invariant Sections, with no Front-Cover Texts and no Back-Cover Texts.
 A copy of the license is included in the section entitled "GNU Free
 Documentation License."
-INFO-DIR-SECTION Software development
-START-INFO-DIR-ENTRY
-* C: (gnu-c-manual).            GNU C reference manual.
-END-INFO-DIR-ENTRY
 
 
 File: gnu-c-manual.info,  Node: Top,  Next: Preface,  Up: (dir)
 
-The GNU C Reference Manual
-**************************
+GNU C Справочное руководство
+****************************
 
-This is the GNU C reference manual.
+Это справочное руководство GNU C.
 
 * Menu:
 
@@ -1972,8 +1968,8 @@ more information.
 
 File: gnu-c-manual.info,  Node: Expressions and Operators,  Next: Statements,  Prev: Data Types,  Up: Top
 
-3 Expressions and Operators
-***************************
+3 Выражения и Операторы
+***********************
 
 * Menu:
 
@@ -2001,44 +1997,48 @@ File: gnu-c-manual.info,  Node: Expressions and Operators,  Next: Statements,  P
 
 File: gnu-c-manual.info,  Node: Expressions,  Next: Assignment Operators,  Up: Expressions and Operators
 
-3.1 Expressions
-===============
+3.1 Выражения
+=============
 
-An "expression" consists of at least one operand and zero or more
-operators.  Operands are typed objects such as constants, variables, and
-function calls that return values.  Here are some examples:
+"Выражение" состоит, по меньшей мере, из одного операнда и содержит ноль
+или более операторов.  Операнды - это типизированные объекты, такие как
+константы, переменные и вызовы функций, которые возвращают значение.
+Вот некоторые примеры:
 
      47
      2 + 2
-     cosine(3.14159) /* We presume this returns a floating point value. */
+     cosine(3.14159) /* Мы предполагаем, это возвращает значение с плавающей
+     точкой. */
 
-   Parentheses group subexpressions:
+   Круглые скобки для группировки подвыражений:
 
      ( 2 * ( ( 3 + 10 ) - ( 2 * 6 ) ) )
 
-Innermost expressions are evaluated first.  In the above example, '3 +
-10' and '2 * 6' evaluate to '13' and '12', respectively.  Then '12' is
-subtracted from '13', resulting in '1'.  Finally, '1' is multiplied by
-'2', resulting in '2'.  The outermost parentheses are completely
-optional.
+Вложенные выражения вычисляются первыми.  В приведенном выше примере,
+вначале оцениваются выражения '3 + 10' и '2 * 6', затем оцениваются
+полученные выражения '13' и '12', соответственно.  Затем '12' вычитается
+из '13', в результате чего получается '1'.  Наконец, '1' умножается на
+'2', в результате чего появляется '2'.  Самые внешние круглые скобки в
+примере не являются обязательными.
 
-   An "operator" specifies an operation to be performed on its
-operand(s).  Operators may have one, two, or three operands, depending
-on the operator.
+   "Оператор" определяет операцию, которая будет выполняться над его
+операндом(ами).  Операторы могут иметь один, два или три операнда, в
+зависимости от оператора.
 
 
 File: gnu-c-manual.info,  Node: Assignment Operators,  Next: Incrementing and Decrementing,  Prev: Expressions,  Up: Expressions and Operators
 
-3.2 Assignment Operators
-========================
+3.2 Операторы Присваивания
+==========================
 
-Assignment operators store values in variables.  C provides several
-variations of assignment operators.
+Операторы присваивания сохраняют значения в переменных.  Си обеспечивает
+несколько вариантов операторов присваивания.
 
-   The standard assignment operator '=' simply stores the value of its
-right operand in the variable specified by its left operand.  As with
-all assignment operators, the left operand (commonly referred to as the
-"lvalue") cannot be a literal or constant value.
+   Стандартный оператор присваивания '=' просто сохранит значение
+правого операнда в переменную, указанную в левом операнде.  Как и со
+всеми операторами присваивания, левый операнд (обычно называемый как
+"lvalue (левое значение)") не может быть буквальным или постоянным
+значением.
 
      int x = 10;
      float y = 45.12 + 2.0;
@@ -2049,88 +2049,88 @@ all assignment operators, the left operand (commonly referred to as the
        int baz;
      } quux = {3, 4};
 
-Note that, unlike the other assignment operators described below, you
-can use the plain assignment operator to store values of a structure
-type.
+Обратите внимание, что, в отличие от других операторов присваивания,
+описанных ниже, можно использовать простой оператор присваивания для
+хранения значений структурного типа.
 
-   Compound assignment operators perform an operation involving both the
-left and right operands, and then assign the resulting expression to the
-left operand.  Here is a list of the compound assignment operators, and
-a brief description of what they do:
+   Составные операторы присваивания выполняют операцию с участием как
+левого, так и правый операнда, затем присваивают полученное выражение
+левому операнду.  Вот список составных операторов присваивания и краткое
+описание того, что они делают:
 
    * '+='
 
-     Adds the two operands together, and then assign the result of the
-     addition to the left operand.
+     Складывает два операнда вместе, затем присваивает результат
+     сложения левому операнду.
 
    * '-='
 
-     Subtract the right operand from the left operand, and then assign
-     the result of the subtraction to the left operand.
+     Вычитает правый операнд из левого операнда, затем присваивает
+     результат вычитания левому операнду.
 
    * '*='
 
-     Multiply the two operands together, and then assign the result of
-     the multiplication to the left operand.
+     Перемножает два операнда, затем присваивает результат умножения
+     левому операнду.
 
    * '/='
 
-     Divide the left operand by the right operand, and assign the result
-     of the division to the left operand.
+     Делит левый операнд на правый операнд, присваивает результат
+     деления левому операнду.
 
    * '%='
 
-     Perform modular division on the two operands, and assign the result
-     of the division to the left operand.
+     Выполняет деление по модулю деление двух операндов, присваивает
+     результат деления левому операнду.
 
    * '<<='
 
-     Perform a left shift operation on the left operand, shifting by the
-     number of bits specified by the right operand, and assign the
-     result of the shift to the left operand.
+     Выполненяет операцию сдвига влево с левым операндом, сдвигая на
+     число битов, заданное с помощью правого операнда, присваивает
+     результат сдвига левому операнду.
 
    * '>>='
 
-     Perform a right shift operation on the left operand, shifting by
-     the number of bits specified by the right operand, and assign the
-     result of the shift to the left operand.
+     Выполняет операцию сдвига вправо с левым операндом, сдвигая на
+     число битов, заданное с помощью правого операнда, и присваивает
+     результат сдвига левому операнду.
 
    * '&='
 
-     Perform a bitwise conjunction operation on the two operands, and
-     assign the result of the operation to the left operand.
+     Выполняет поразрядную операцию 'И' для двух операндов, и
+     присваивает результат операции левому операнду.
 
    * '^='
 
-     Performs a bitwise exclusive disjunction operation on the two
-     operands, and assign the result of the operation to the left
-     operand.
+     Выполняет поразрядную операцию 'исключающего ИЛИ' для двух
+     операндов, и присваивает результат операции левому операнду.
 
    * '|='
 
-     Performs a bitwise inclusive disjunction operation on the two
-     operands, and assign the result of the operation to the left
-     operand.
+     Выполняет поразрядную операцию 'ИЛИ' для двух операндов, и
+     присваивает результат операции левому операнду.
 
-   Here is an example of using one of the compound assignment operators:
+   Ниже приведен пример использования одного из составных операторов
+присваивания:
 
      x += y;
 
-Since there are no side effects wrought by evaluating the variable 'x'
-as an lvalue, the above code produces the same result as:
+Поскольку нет никаких влияющих побочных эффектов при оценки переменной
+'x' как lvalue (левого значения), приведенный выше код дает тот же
+результат, что и код:
 
      x = x + y;
 
 
 File: gnu-c-manual.info,  Node: Incrementing and Decrementing,  Next: Arithmetic Operators,  Prev: Assignment Operators,  Up: Expressions and Operators
 
-3.3 Incrementing and Decrementing
-=================================
+3.3 Увеличение и Уменьшение
+===========================
 
-The increment operator '++' adds 1 to its operand.  The operand must be
-a either a variable of one of the primitive data types, a pointer, or an
-enumeration variable.  You can apply the increment operator either
-before or after the operand.  Here are some examples:
+Оператор инкремента '++' добавляет 1 (еденицу) к своему операнду.
+Операнд должен быть либо переменной одного из примитивных типов данных,
+указателем или переменной перечисления.  Можжно применить оператор
+инкремента либо до, либо после операнда.  вот несколько примеров:
 
      char w = '1';
      int x = 5;
@@ -2138,103 +2138,106 @@ before or after the operand.  Here are some examples:
      float z = 5.2;
      int *p = &x;
 
-     ++w;   /* 'w' is now the character '2' (not the value 2). */
-     x++;   /* 'x' is now 6. */
-     ++y;   /* 'y' is now 'C' (on ASCII systems). */
-     z++;   /* 'z' is now 6.2. */
-     ++p;   /* 'p' is now '&x' + 'sizeof(int)'. */
+     ++w;   /* 'w' теперь символ '2' (не число 2). */
+     x++;   /* 'x' теперь 6. */
+     ++y;   /* 'y' теперь 'C' (в системах ASCII). */
+     z++;   /* 'z' теперь 6.2. */
+     ++p;   /* 'p' теперь '&x' + 'sizeof(int)'. */
 
-(Note that incrementing a pointer only makes sense if you have reason to
-believe that the new pointer value will be a valid memory address.)
+(Обратите внимание, что увеличивающийся указатель имеет смысл только
+если есть основания полагать, что новое значение указателя будет
+допустимым адресом памяти.)
 
-   A prefix increment adds 1 before the operand is evaluated.  A postfix
-increment adds 1 after the operand is evaluated.  In the previous
-examples, changing the position of the operator would make no
-difference.  However, there are cases where it does make a difference:
+   Префиксное приращение, добавляет 1 к операнду перед вычислением
+операнда.  Постфиксное приращение добавляет 1 после того, как операнд
+вычислен.  В предыдущих примерах, изменение положения оператора не будет
+иметь никакого значения.  Однако, бывают случаи, когда это имеет
+значение:
 
      int x = 5;
-     printf ("%d \n", x++);    /* Print 'x' and then increment it. */
-     /* 'x' is now equal to 6. */
-     printf ("%d \n", ++x);    /* Increment 'x' and then print it. */
+     printf ("%d \n", x++); /* Распечатает 'x', а затем увеличит его. */
+     /* Вывод 5, хотя переменная 'x' теперь равна 6. */
+     printf ("%d \n", ++x); /* Приращение к 'x', а затем печать его. */
+     /* Вывод и переменная 'x' теперь равна 7. */
 
-The output of the above example is:
+Вывод приведенного выше примера:
 
      5
      7
 
-   Likewise, you can subtract 1 from an operand using the decrement
-operator:
+   Кроме того, можно вычесть 1 из операнда с помощью оператора
+декремента:
 
      int x = 5;
 
-     x--; /* 'x' is now 4. */
+     x--; /* 'x' теперь 4. */
 
-The concepts of prefix and postfix application apply here as with the
-increment operator.
+Понятия префикс и постфикс, применяются также и с оператором инкремента.
 
 
 File: gnu-c-manual.info,  Node: Arithmetic Operators,  Next: Complex Conjugation,  Prev: Incrementing and Decrementing,  Up: Expressions and Operators
 
-3.4 Arithmetic Operators
-========================
+3.4 Арифметические Операторы
+============================
 
-C provides operators for standard arithmetic operations: addition,
-subtraction, multiplication, and division, along with modular division
-and negation.  Usage of these operators is straightforward; here are
-some examples:
+Си обеспечивает операторы для стандартных арифметических операций:
+сложения, вычитания, умножения деления, деление по модулю и отрицание.
+Использование этих операторов просто; вот несколько примеров:
 
-     /* Addition. */
+     /* Сложение. */
      x = 5 + 3;
      y = 10.23 + 37.332;
      quux_pointer = foo_pointer + bar_pointer;
 
-     /* Subtraction. */
+     /* Вычитание. */
      x = 5 - 3;
      y = 57.223 - 10.903;
      quux_pointer = foo_pointer - bar_pointer;
 
-You can add and subtract memory pointers, but you cannot multiply or
-divide them.
+Можно складывать и вычитать указатели памяти, но нельзя перемножать и
+делить их.
 
-     /* Multiplication. */
+     /* Умножение. */
      x = 5 * 3;
      y = 47.4 * 1.001;
 
-     /* Division. */
+     /* Деление. */
      x = 5 / 3;
      y = 940.0 / 20.2;
 
-Integer division of positive values truncates towards zero, so 5/3 is 1.
-However, if either operand is negative, the direction of rounding is
-implementation-defined.  *note Signed Integer Division:: for information
-about overflow in signed integer division.
+Целочисленное деление положительных значений обрезает по направлению к
+нулю, так что 5/3 равен 1.  Однако, если один из операндов является
+отрицательным, то направление округления зависит от реализации.  *note
+Signed Integer Division:: для информации о переполнении в знаковом
+целочисленном делении.
 
-   You use the modulus operator '%' to obtain the remainder produced by
-dividing its two operands.  You put the operands on either side of the
-operator, and it does matter which operand goes on which side: '3 % 5'
-and '5 % 3' do not have the same result.  The operands must be
-expressions of a primitive data type.
+   Оператор деление по модулю '%' используется, чтобы получить остаток
+от деления его двух операндов.  Операнды устанавливаются по обе стороны
+от оператора, и имеет значение, какой операнд на какой стороне: '3 % 5'
+или '5 % 3' имеют разный результат.  Операнды должны быть выражениями
+примитивного типа данных.
 
-     /* Modular division. */
+     /* Деление по модулю. */
      x = 5 % 3;
      y = 74 % 47;
 
-Modular division returns the remainder produced after performing integer
-division on the two operands.  The operands must be of a primitive
-integer type.
+Деление по модулю возвращает остаток, полученный после выполнения
+деления целых чисел двух операндов.  Операнды должны быть примитивного
+целого типа.
 
-     /* Negation. */
+     /* Отрицание. */
      int x = -5;
      float y = -3.14159;
 
-   If the operand you use with the negative operator is of an unsigned
-data type, then the result cannot negative, but rather is the maximum
-value of the unsigned data type, minus the value of the operand.
+   Если операнд используемый с оператором отрицания имеет беззнаковый
+тип данных, то результат не станет отрицательным, а будет иметь
+максимальное значение беззнакового типа данных, за вычетом значения
+операнда.
 
-   Many systems use twos-complement arithmetic, and on such systems the
-most negative value a signed type can hold is further away from zero
-than the most positive value.  For example, on one platform, this
-program:
+   Многие системы используют в коде арифметику с дополнением до двух, и
+на таких системах самое отрицательное значение, знакового типа, может
+находится дальше от нуля, чем самое положительное значение.  Например,
+на одной платформе, эта программа:
 
      #include <limits.h>
      #include <stdio.h>
@@ -2251,50 +2254,50 @@ program:
        return 0;
      }
 
-   Produces this output:
+   Производит этот вывод:
 
      INT_MAX  = 2147483647
      INT_MIN  = -2147483648
      -INT_MIN = -2147483648
 
-   Trivially, you can also apply a positive operator to a numeric
-expression:
+   Можно также применить положительный оператор для числового выражения:
 
      int x = +42;
 
-Numeric values are assumed to be positive unless explicitly made
-negative, so this operator has no effect on program operation.
+Числовые значения считаются положительными, если явно не сделать его
+отрицательным, поэтому этот оператор не оказывает никакого влияния на
+работу программы.
 
 
 File: gnu-c-manual.info,  Node: Complex Conjugation,  Next: Comparison Operators,  Prev: Arithmetic Operators,  Up: Expressions and Operators
 
-3.5 Complex Conjugation
-=======================
+3.5 Комплексное Сопряжение
+==========================
 
-As a GNU extension, you can use the complex conjugation operator '~' to
-perform complex conjugation on its operand -- that is, it reverses the
-sign of its imaginary component.  The operand must be an expression of a
-complex number type.  Here is an example:
+В качестве расширения GNU, можно использовать оператор комплексного
+сопряжения '~', выполняет комплексное сопряжение на операнде -- то есть,
+он меняет знак мнимой составляющей.  Операнд должен быть выражением типа
+комплесного числа.  Вот пример:
 
      __complex__ int x = 5 + 17i;
 
      printf ("%d  \n", (x * ~x));
 
-   Since an imaginary number (a + bi) multiplied by its conjugate is
-equal to a^2 + b^2, the above 'printf' statement will print 314, which
-is equal to 25 + 289.
+   Так как мнимое число (a + bi) умноженное на его сопряжённое число
+равное a^2 + b^2, приведенное выше выражение 'printf' выведет на
+печатать число 314, которое получилось из выражения 25 + 289.
 
 
 File: gnu-c-manual.info,  Node: Comparison Operators,  Next: Logical Operators,  Prev: Complex Conjugation,  Up: Expressions and Operators
 
-3.6 Comparison Operators
-========================
+3.6 Операторы Сравнения
+=======================
 
-You use the comparison operators to determine how two operands relate to
-each other: are they equal to each other, is one larger than the other,
-is one smaller than the other, and so on.  When you use any of the
-comparison operators, the result is either 1 or 0, meaning true or
-false, respectively.
+Можно использовать операторы сравнения для определения того, как два
+операнда соотносятся друг с другом: они равны друг другу, один больше,
+чем другой, один меньше другого, и так далее.  При использовании любого
+из операторов сравнения, результат всегда равен 1 или 0, то есть
+является истинной или ложью, соответственно.
 
    (In the following code examples, the variables 'x' and 'y' stand for
 any two expressions of arithmetic types, or pointers.)
@@ -5666,7 +5669,7 @@ Index
                                                                (line  6)
 * operator, increment:                   Incrementing and Decrementing.
                                                                (line  6)
-* operators:                             Expressions.          (line 24)
+* operators:                             Expressions.          (line 27)
 * operators as lexical elements:         Operators.            (line  6)
 * operators, arithmetic:                 Arithmetic Operators. (line  6)
 * operators, assignment:                 Assignment Operators. (line  6)
@@ -5818,132 +5821,132 @@ Index
 
 
 Tag Table:
-Node: Top651
-Node: Preface1038
-Node: Lexical Elements3354
-Node: Identifiers3900
-Node: Keywords4504
-Node: Constants5638
-Node: Integer Constants6142
-Node: Character Constants7930
-Node: Real Number Constants9945
-Node: String Constants11312
-Node: Operators13542
-Node: Separators13905
-Node: White Space14237
-Node: Data Types15725
-Node: Primitive Types16053
-Node: Integer Types16268
-Node: Real Number Types20288
-Node: Complex Number Types22857
-Ref: Complex Number Types-Footnote-123344
-Node: Standard Complex Number Types23436
-Node: GNU Extensions for Complex Number Types24817
-Node: Enumerations26523
-Node: Defining Enumerations27157
-Node: Declaring Enumerations28554
-Node: Unions30047
-Node: Defining Unions30548
-Node: Declaring Union Variables31650
-Node: Declaring Union Variables at Definition32128
-Node: Declaring Union Variables After Definition32852
-Node: Initializing Union Members33567
-Node: Accessing Union Members34776
-Node: Size of Unions35437
-Node: Structures36109
-Node: Defining Structures36503
-Node: Declaring Structure Variables37856
-Node: Declaring Structure Variables at Definition38382
-Node: Declaring Structure Variables After Definition39117
-Node: Initializing Structure Members39845
-Node: Accessing Structure Members42809
-Node: Bit Fields43745
-Node: Size of Structures45401
-Node: Arrays46447
-Node: Declaring Arrays46912
-Node: Initializing Arrays48089
-Node: Accessing Array Elements50411
-Node: Multidimensional Arrays51275
-Node: Arrays as Strings52189
-Node: Arrays of Unions54761
-Node: Arrays of Structures55720
-Node: Pointers57221
-Node: Declaring Pointers57677
-Node: Initializing Pointers58650
-Node: Pointers to Unions60499
-Node: Pointers to Structures61573
-Node: Incomplete Types62697
-Node: Type Qualifiers63566
-Node: Storage Class Specifiers64545
-Node: Renaming Types67690
-Node: Expressions and Operators67991
-Node: Expressions68677
-Node: Assignment Operators69633
-Node: Incrementing and Decrementing72492
-Node: Arithmetic Operators74189
-Node: Complex Conjugation76972
-Node: Comparison Operators77658
-Node: Logical Operators79566
-Node: Bit Shifting80941
-Node: Bitwise Logical Operators82611
-Node: Pointer Operators84139
-Node: The sizeof Operator85678
-Node: Type Casts87466
-Node: Array Subscripts88856
-Node: Function Calls as Expressions89552
-Node: The Comma Operator89897
-Node: Member Access Expressions91340
-Node: Conditional Expressions92300
-Node: Statements and Declarations in Expressions93833
-Node: Operator Precedence95869
-Node: Order of Evaluation98496
-Node: Side Effects99466
-Node: Sequence Points100487
-Ref: Sequence Points-Footnote-1103225
-Node: Sequence Points Constrain Expressions103331
-Ref: Sequence Points Constrain Expressions-Footnote-1107352
-Node: Sequence Points and Signal Delivery107488
-Node: Statements109144
-Node: Labels109783
-Node: Expression Statements110606
-Node: The if Statement111674
-Node: The switch Statement113594
-Node: The while Statement116582
-Node: The do Statement117381
-Node: The for Statement118161
-Node: Blocks121627
-Node: The Null Statement122937
-Node: The goto Statement123935
-Node: The break Statement125709
-Node: The continue Statement126527
-Node: The return Statement127127
-Node: The typedef Statement128799
-Node: Functions130246
-Node: Function Declarations131160
-Node: Function Definitions132962
-Node: Calling Functions134568
-Node: Function Parameters135433
-Node: Variable Length Parameter Lists138924
-Node: Calling Functions Through Function Pointers141327
-Node: The main Function142199
-Ref: The main Function-Footnote-1144516
-Node: Recursive Functions144680
-Node: Static Functions145521
-Node: Nested Functions146196
-Node: Program Structure and Scope146995
-Node: Program Structure147322
-Node: Scope148807
-Node: A Sample Program149834
-Node: hello.c150690
-Node: system.h157035
-Node: Overflow158658
-Node: Integer Overflow Basics159798
-Node: Signed Overflow Examples161517
-Node: Optimization and Wraparound165010
-Node: Signed Overflow Advice167962
-Node: Signed Integer Division170626
-Node: GNU Free Documentation License171227
-Node: Index196354
+Node: Top517
+Node: Preface951
+Node: Lexical Elements3267
+Node: Identifiers3813
+Node: Keywords4417
+Node: Constants5551
+Node: Integer Constants6055
+Node: Character Constants7843
+Node: Real Number Constants9858
+Node: String Constants11225
+Node: Operators13455
+Node: Separators13818
+Node: White Space14150
+Node: Data Types15638
+Node: Primitive Types15966
+Node: Integer Types16181
+Node: Real Number Types20201
+Node: Complex Number Types22770
+Ref: Complex Number Types-Footnote-123257
+Node: Standard Complex Number Types23349
+Node: GNU Extensions for Complex Number Types24730
+Node: Enumerations26436
+Node: Defining Enumerations27070
+Node: Declaring Enumerations28467
+Node: Unions29960
+Node: Defining Unions30461
+Node: Declaring Union Variables31563
+Node: Declaring Union Variables at Definition32041
+Node: Declaring Union Variables After Definition32765
+Node: Initializing Union Members33480
+Node: Accessing Union Members34689
+Node: Size of Unions35350
+Node: Structures36022
+Node: Defining Structures36416
+Node: Declaring Structure Variables37769
+Node: Declaring Structure Variables at Definition38295
+Node: Declaring Structure Variables After Definition39030
+Node: Initializing Structure Members39758
+Node: Accessing Structure Members42722
+Node: Bit Fields43658
+Node: Size of Structures45314
+Node: Arrays46360
+Node: Declaring Arrays46825
+Node: Initializing Arrays48002
+Node: Accessing Array Elements50324
+Node: Multidimensional Arrays51188
+Node: Arrays as Strings52102
+Node: Arrays of Unions54674
+Node: Arrays of Structures55633
+Node: Pointers57134
+Node: Declaring Pointers57590
+Node: Initializing Pointers58563
+Node: Pointers to Unions60412
+Node: Pointers to Structures61486
+Node: Incomplete Types62610
+Node: Type Qualifiers63479
+Node: Storage Class Specifiers64458
+Node: Renaming Types67603
+Node: Expressions and Operators67904
+Node: Expressions68601
+Node: Assignment Operators70434
+Node: Incrementing and Decrementing75057
+Node: Arithmetic Operators77750
+Node: Complex Conjugation82108
+Node: Comparison Operators83169
+Node: Logical Operators85376
+Node: Bit Shifting86751
+Node: Bitwise Logical Operators88421
+Node: Pointer Operators89949
+Node: The sizeof Operator91488
+Node: Type Casts93276
+Node: Array Subscripts94666
+Node: Function Calls as Expressions95362
+Node: The Comma Operator95707
+Node: Member Access Expressions97150
+Node: Conditional Expressions98110
+Node: Statements and Declarations in Expressions99643
+Node: Operator Precedence101679
+Node: Order of Evaluation104306
+Node: Side Effects105276
+Node: Sequence Points106297
+Ref: Sequence Points-Footnote-1109035
+Node: Sequence Points Constrain Expressions109141
+Ref: Sequence Points Constrain Expressions-Footnote-1113162
+Node: Sequence Points and Signal Delivery113298
+Node: Statements114954
+Node: Labels115593
+Node: Expression Statements116416
+Node: The if Statement117484
+Node: The switch Statement119404
+Node: The while Statement122392
+Node: The do Statement123191
+Node: The for Statement123971
+Node: Blocks127437
+Node: The Null Statement128747
+Node: The goto Statement129745
+Node: The break Statement131519
+Node: The continue Statement132337
+Node: The return Statement132937
+Node: The typedef Statement134609
+Node: Functions136056
+Node: Function Declarations136970
+Node: Function Definitions138772
+Node: Calling Functions140378
+Node: Function Parameters141243
+Node: Variable Length Parameter Lists144734
+Node: Calling Functions Through Function Pointers147137
+Node: The main Function148009
+Ref: The main Function-Footnote-1150326
+Node: Recursive Functions150490
+Node: Static Functions151331
+Node: Nested Functions152006
+Node: Program Structure and Scope152805
+Node: Program Structure153132
+Node: Scope154617
+Node: A Sample Program155644
+Node: hello.c156500
+Node: system.h162845
+Node: Overflow164468
+Node: Integer Overflow Basics165608
+Node: Signed Overflow Examples167327
+Node: Optimization and Wraparound170820
+Node: Signed Overflow Advice173772
+Node: Signed Integer Division176436
+Node: GNU Free Documentation License177037
+Node: Index202164
 
 End Tag Table
 

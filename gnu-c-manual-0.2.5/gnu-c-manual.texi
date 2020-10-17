@@ -1,7 +1,7 @@
 \input texinfo   @c -*-texinfo-*-
 @comment %**start of header
-@setfilename gnu-c-manual.info
-@settitle The GNU C Reference Manual
+@c@setfilename gnu-c-manual.info
+@settitle GNU C Справочное руководство
 @c @smallbook
 @comment %**end of header
 
@@ -16,15 +16,16 @@ A copy of the license is included in the section entitled ``GNU Free
 Documentation License.''
 @end copying
 
-@dircategory Software development
-@direntry
-* C: (gnu-c-manual).            GNU C reference manual.
-@end direntry
+@c@dircategory Software development
+@c@direntry
+@c* C: (gnu-c-manual).            GNU C reference manual.
+@c@end direntry
 
 @titlepage
-@title The GNU C Reference Manual
+@title GNU C Справочное руководство
 @author Trevis Rothwell
 @author James Youngman
+@author Обинякин Алексей (перевод на русский язык)
 
 @page
 @vskip 0pt plus 1filll
@@ -35,9 +36,9 @@ Documentation License.''
 
 @ifnottex
 @node Top
-@top The GNU C Reference Manual
+@top GNU C Справочное руководство
 
-This is the GNU C reference manual.
+Это справочное руководство GNU C.
 @end ifnottex
 
 @menu
