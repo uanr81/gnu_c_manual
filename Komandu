@@ -1,0 +1,7 @@
+Формирование файлов, производиться в командной строке, находясь в директории
+расположения файлов texi из которых формируются руководства
+texi2any --html --no-split gnu-c-manual.texi -o ../rezultat/gnu-c-manual.html
+texi2any --info --no-split gnu-c-manual.texi -o ../rezultat/gnu-c-manual.info
+
+firefox ../rezultat/gnu-c-manual.html
+info ../rezultat/gnu-c-manual.info
