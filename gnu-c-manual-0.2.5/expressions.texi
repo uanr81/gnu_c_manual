@@ -512,118 +512,116 @@ printf ("%d  \n", (x * ~x));
 сравнения, результат всегда равен 1 или 0, то есть является истинной или
 ложью, соответственно.
 
-(In the following code examples, the variables @code{x} and @code{y} stand
-for any two expressions of arithmetic types, or pointers.)
+(В следующих примерах кода, переменные @code{x} and @code{y} содержат любые
+два выражения арифметического типа или указателя.)
 
-The equal-to operator @code{==} tests its two operands for equality.
-The result is 1 if the operands are equal, and 0 if the operands are not equal.
+Оператор равенства @code{==} тестирует свои два операнда на равенство.
+Результат равен 1, если операнды равны, и 0, если операнды не равны.
 
 @example
 @group
 if (x == y)
-  puts ("x is equal to y");
+  puts ("x равен y");
 else
-  puts ("x is not equal to y");
+  puts ("x не равен y");
 @end group
 @end example
 
-The not-equal-to operator @code{!=} tests its two operands for inequality.
-The result is 1 if the operands are not equal, and 0 if the operands
-@emph{are} equal.
+Оператор неравенства @code{!=} тестирует свои два операнда на неравенство.
+Результат равен 1, если операнды не равны, и 0, если операнды @emph{являются}
+равными.
 
 @example
 @group
 if (x != y)
-  puts ("x is not equal to y");
+  puts ("x не равен y");
 else
-  puts ("x is equal to y");
+  puts ("x равен y");
 @end group
 @end example
 
-Comparing floating-point values for exact equality or inequality can
-produce unexpected results.  @ref{Real Number Types} for more
-information.
+Сравнение значений с плавающей точкой для точного равенства или неравенства
+может привести к неожиданным результатам.  @ref{Real Number Types} для
+получения дополнительной информации.
 
-You can compare function pointers for equality or inequality; the
-comparison tests if two function pointers point to the same function
-or not.
+Можно сравнивать указатели на функции для равенства или неравенства;
+сравнение проверяет, указывают ли указатели на одну и ту же функцию или нет.
 
-Beyond equality and inequality, there are operators you can use to test
-if one value is less than, greater than, less-than-or-equal-to, or
-greater-than-or-equal-to another value.  Here are some code samples that
-exemplify usage of these operators:
+Помимо равенства и неравенства, есть операторы, которые можно использовать
+для тестирования того, меньше, больше, меньше или равной, больше или равно
+одно значение другого значения.  Вот некоторые примеры кода, которые
+иллюстрируют использование этих операторов:
 
 @example
 @group
 if (x < y)
-  puts ("x is less than y");
+  puts ("x меньше y");
 @end group
 @end example
 
 @example
 @group
 if (x <= y)
-  puts ("x is less than or equal to y");
+  puts ("x меньше или равно y");
 @end group
 @end example
 
 @example
 @group
 if (x > y)
-  puts ("x is greater than y");
+  puts ("x больше y");
 @end group
 @end example
 
 @example
 @group
 if (x >= y)
-  puts ("x is greater than or equal to y");
+  puts ("x больше или равно y");
 @end group
 @end example
 
 
 @node Logical Operators
-@section Logical Operators
+@section Логические Операторы
 @cindex logical operators
 
-Logical operators test the truth value of a pair of operands.  Any
-nonzero expression is considered true in C, while an expression that
-evaluates to zero is considered false.
+Логические операторы проверяют значение истинности пары операндов.  Любое
+выражение отлично от нуля считается истинным в Си, в то время как выражение,
+значение которого является ноль считается ложным.
 
-The logical conjunction operator @code{&&} tests if two expressions
-are both true.  If the first expression is false, then the second
-expression is not evaluated.
+Логический оператор @code{И} - @code{&&} проверяет, если два выражения
+истинны.  Если первое выражение ложно, то второе выражение не вычисляется.
 
 @example
 @group
 if ((x == 5) && (y == 10))
-  printf ("x is 5 and y is 10");
+  printf ("x равно 5 и y равно 10");
 @end group
 @end example
 
-The logical disjunction operator @code{||} tests if at least one of
-two expressions it true.  If the first expression is true, then the
-second expression is not evaluated.
+Логический оператор @code{или} - @code{||} проверяет, если хотя бы одно из
+двух выражений истинным.  Если первое выражение истинно, то второе выражение
+не вычисляется.
 
 @example
 @group
 if ((x == 5) || (y == 10))
-   printf ("x is 5 or y is 10");
+   printf ("x равно 5 или y равно 10");
 @end group
 @end example
 
-You can prepend a logical expression with a negation operator
-@code{!} to flip the truth value:
+Можете предварять логическое выражение оператором отрицания @code{не} -
+@code{!}, который переворачивает значение истинности:
 
 @example
 @group
 if (!(x == 5))
-  printf ("x is not 5");
+  printf ("x не равно 5");
 @end group
 @end example
 
-Since the second operand in a logical expression pair is not necessarily
-evaluated, you can write code with perhaps unintuitive results:
+Так как второй операнд в паре логического выражения не обязательно
+вычисляется, возможно написать код с неинтуитивными результатами:
 
 @example
 @group
@@ -633,51 +631,51 @@ if (foo && x++)
 @end example
 
 @noindent
-If @code{foo} is ever zero, then not only would @code{bar} not be called,
-but @code{x} would not be incremented.  If you intend to increment @code{x}
-regardless of the value of @code{foo}, you should do so outside of the
-conjunction expression.
+В случае когда оценка @code{foo} не будет равна нулю, то не только произойдёт
+вызов @code{bar}, но и значение @code{x} будет увеличино.  Если требуется
+увеличивать @code{x} независимо от значения @code{foo}, нужно сделать
+приращение за пределами выражения @code{И}.
 
 
 @node Bit Shifting
-@section Bit Shifting
+@section Битовый Сдвиг
 @cindex bit shifting
 @cindex shifting
 
-You use the left-shift operator @code{<<} to shift its first operand's bits
-to the left.  The second operand denotes the number of bit places to shift.
-Bits shifted off the left side of the value are discarded; new bits added
-on the right side will all be 0.
+Использование оператора @code{<<} сдвиг влево, сдвинет биты своего первого
+операнда влево.  Второй операнд обозначает количество битовых мест для
+сдвига.  Биты, сдвинутые на левой стороне значения отбрасываются; новые биты,
+добавленные на правой стороне все будет установлены в 0.
 
 @example
 @group
-x = 47;    /* @r{47 is 00101111 in binary.} */
-x << 1;    /* @r{00101111 << 1 is 01011110.} */
+x = 47;    /* @r{47 это 00101111 в двоичном представлении.} */
+x << 1;    /* @r{00101111 << 1 после сдвига равно 01011110.} */
 @end group
 @end example
 
-Similarly, you use the right-shift operator @code{>>} to shift its
-first operand's bits to the right. Bits shifted off the right side are
-discarded; new bits added on the left side are @emph{usually} 0, but
-if the first operand is a signed negative value, then the added bits will
-be either 0 @emph{or} whatever value was previously in the leftmost bit
-position.
+Точно так же оператор @code{>>} сдвига вправо, сдвинет биты своего первого
+операнда вправо.  Биты смещённые с правой стороны отбрасываются; новые биты,
+добавленные на левой стороне @emph{обычно} устанавливаются в 0, но если
+первый операнд является знаковым отрицательным значением, то добавленные биты
+будут либо 0 @emph{либо} любым другим значением, которое ранее было в
+самой крайней левой позиции бита.
 
 @example
 @group
-x = 47;   /* @r{47 is 00101111 in binary.} */
-x >> 1;   /* @r{00101111 >> 1 is 00010111.} */
+x = 47;   /* @r{47 это 00101111 в двоичном представлении.} */
+x >> 1;   /* @r{00101111 >> 1 после сдвига вправо теперь 00010111.} */
 @end group
 @end example
 
-For both @code{<<} and @code{>>}, if the second operand is greater
-than the bit-width of the first operand, or the second operand is
-negative, the behavior is undefined.
+Для обоих операторов @code{<<} и @code{>>}, если второй операнд больше
+битовой ширины первого операнда или второй операнд является отрицательным,
+поведение операторов не определено.
 
-You can use the shift operators to perform a variety of interesting
-hacks.  For example, given a date with the day of the month numbered
-as @code{d}, the month numbered as @code{m}, and the year @code{y}, you
-can store the entire date in a single number @code{x}:
+Можно использовать операторы сдвига для выполнения множества интересных
+трюков.  Например, для работы с датой - учитывая дату с днём ​​месяца
+пронумерованной в @code{d}, месяца пронцмерованного @code{m}, и года
+пронумерованного @code{y}, можно хранить всю дату в одном числе @code{x}:
 
 @example
 int d = 12;
@@ -687,8 +685,8 @@ int x = (((y << 4) + m) << 5) + d;
 @end example
 
 @noindent
-You can then extract the original day, month, and year out of @code{x}
-using a combination of shift operators and modular division:
+Можно теперь извлечь исходный день, месяц и год из @code{x}, используя
+комбинацию операторов сдвига и модульного деления:
 
 @example
 d = x % 32;
@@ -697,47 +695,53 @@ y = x >> 9;
 @end example
 
 @node Bitwise Logical Operators
-@section Bitwise Logical Operators
+@section Побитовые Логические Операторы
 @cindex bitwise logical operators
 @cindex logical operators, bitwise
 
-C provides operators for performing bitwise conjunction, inclusive disjunction,
-exclusive disjunction, and negation (complement).
+Cи предоставляет операторы для выполнения побитового соединения @code{И},
+@code{ИЛИ}, @code{исключающего ИЛИ} и @code{НЕ} (дополнения).
 
-Biwise conjunction examines each bit in its two operands, and when two
-corresponding bits are both 1, the resulting bit is 1.  All other resulting
-bits are 0.  Here is an example of how this works, using binary numbers:
+Побитовое соединение @code{И} анализирует каждый бит двух операндов, и
+когда два соответствующих бита установлены в 1, результирующий бит
+устанавливается в 1.  Во всех остальных случаях, результирующий бит
+устанавливается в 0.  Ниже приведен пример того, как это работает, используя
+двоичные числа:
 
 @example
 11001001 & 10011011 = 10001001
 @end example
 
-Bitwise inclusive disjunction examines each bit in its two operands,
-and when two corresponding bits are both 0, the resulting bit is 0.  All
-other resulting bits are 1.
+Побитовое соединение @code{ИЛИ} анализирует каждый бит в двух операндах, и
+когда два соответствующих биты установлены в 0, то результирующий бит
+устанавливается в 0.  Во всех остальных случаях, результирующий бит
+устанавливается в 1.
 
 @example
 11001001 | 10011011 = 11011011
 @end example
 
-Bitwise exclusive disjunction examines each bit in its two operands, and when
-two corresponding bits are different, the resulting bit is 1.  All other resulting
-bits are 0.
+Побитовое соединение @code{исключающее ИЛИ} анализирует каждый бит в двух
+операндах, и когда два соответствующих бита отличны по установленному
+значению, то результирующий бит устанавливается в 1.  Во всех остальных
+случаях, результирующий бит устанавливается в 0.
 
 @example
 11001001 ^ 10011011 = 01010010
 @end example
 
-Bitwise negation reverses each bit in its operand:
+Побитовое соединение @code{НЕ} меняет значение каждого бита в операнде на
+противоположное:
 
 @example
 ~11001001 = 00110110
 @end example
 
-In C, you can only use these operators with operands of an integer (or character)
-type, and for maximum portability, you should only use the bitwise negation operator
-with unsigned integer types.  Here are some examples of using these operators in
-C code:
+В Cи, эти операторы можно использовать только с операндами целочисленного
+типа (или символьного), а также для обеспечения максимальной переносимости
+следует использовать только оператор побитового отрицания с беззнаковыми
+целочисленными типами.  Вот некоторые примеры использования этих операторов
+в коде Cи:
 
 @example
 @group
@@ -753,11 +757,11 @@ quux = ~foo;
 @end example
 
 @node Pointer Operators
-@section Pointer Operators
+@section Операторы Указателей
 @cindex pointer operators
 
-You can use the address operator @code{&} to obtain the memory address of
-an object.
+Можно использовать оператор взятия адреса @code{&} для получения адреса
+памяти объекта.
 
 @example
 @group
@@ -766,31 +770,31 @@ int *pointer_to_x = &x;
 @end group
 @end example
 
-It is not necessary to use this operator to obtain the address of
-a function, although you can:
+Не следует использовать этот оператор, чтобы получить адрес функции, хотя
+можно так:
 
 @example
 @group
 extern int foo (void);
-int (*fp1) (void) = foo; /* fp1 points to foo */
-int (*fp2) (void) = &foo; /* fp2 also points to foo */
+int (*fp1) (void) = foo; /* fp1 указатель на foo */
+int (*fp2) (void) = &foo; /* fp2 также указывает на foo */
 @end group
 @end example
 
-Function pointers and data pointers are not compatible, in the sense
-that you cannot expect to store the address of a function into a data
-pointer, and then copy that into a function pointer and call it
-successfully.  It might work on some systems, but it's not a portable
-technique.
+Указатели на функции и указатели на данные не совместимы, в том смысле, что
+не получиться сохранить адрес функции в указателе на данные, а затем
+скопировать этот указатель в указатель на функцию и вызвать потом функцию
+успешно.  Это может работать на некоторых системах, но это непереносимая
+техника.
 
-As a GNU extension to C89, you can also obtain the address of a label
-with the label address operator @code{&&}.  The result is a
-@code{void*} pointer which can be used with @code{goto}.  @xref{The
-goto Statement}.
+В качестве расширения GNU для C89, можно также получить адрес метки используя
+оператор взятия адреса метки @code{&&}.  Результатом будет указатель
+@code{void*}, который может быть использован оператором @code{goto}.
+@xref{The goto Statement}.
 
-Given a memory address stored in a pointer, you can use the indirection
-operator @code{*} to obtain the value stored at the address. (This is called
-@dfn{dereferencing} the pointer.)
+Учитывая адрес памяти, хранящийся в указателе, можно использовать оператор
+косвенного обращения (разыменования) @code{*}, чтобы получить значение,
+хранящееся по адресу.  (Это называется @dfn{разыменованием} указателя.)
 
 @example
 @group
@@ -798,27 +802,27 @@ int x = 5;
 int y;
 int *ptr;
 
-ptr = &x;    /* @r{@code{ptr} now holds the address of @code{x}.} */
+ptr = &x;    /* @r{@code{ptr} теперь хранит адрес @code{x}.} */
 
-y = *ptr;    /* @r{@code{y} gets the value stored at the address}
-                @r{stored in @code{ptr}.} */
+y = *ptr;    /* @r{@code{y} получает значение, хранящееся по адресу}
+                @r{которое сохранено в @code{ptr}.} */
 @end group
 @end example
 
 @noindent
-Avoid using dereferencing pointers that have not been initialized to
-a known memory location.
+Избегайте использование разыменования указателей, которые не были
+инициализированы в известную ячейку памяти.
 
 
 @node The sizeof Operator
-@section The sizeof Operator
+@section Оператор Получения Размера
 @cindex sizeof operator
 
-You can use the @code{sizeof} operator to obtain the size (in bytes)
-of the data type of its operand.  The operand may be an actual type
-specifier (such as @code{int} or @code{float}), as well as any valid
-expression.  When the operand is a type name, it must be enclosed in
-parentheses.  Here are some examples:
+Можно использовать оператор @code{sizeof}, чтобы получить размер (в байтах)
+операнда содержащего тип данных.  Операнд может быть указан с фактическим
+спецификатором типа (например, @code{int} или @code{float}), а также быть
+любым допустимым выражением.  Когда операнд является именем типа, он должен
+быть заключен в скобки.  Вот некоторые примеры:
 
 @example
 @group
@@ -830,17 +834,18 @@ size_t e = sizeof a;
 @end group
 @end example
 
-The result of the @code{sizeof} operator is of a type called @code{size_t},
-which is defined in the header file @code{<stddef.h>}.  @code{size_t} is
-an unsigned integer type, perhaps identical to @code{unsigned int} or
-@code{unsigned long int}; it varies from system to system.
+Результат оператора @code{sizeof} имеет имя типа @code{size_t}, которое
+определено в файле заголовка @code{<stddef.h>}.  @code{size_t} является
+беззнаковым целочисленным типом, может быть идентичен @code{unsigned int} или
+@code{unsigned long int}, что меняется от системы к системе.
 
-The @code{size_t} type is often a convenient type for a loop index,
-since it is guaranteed to be able to hold the number of elements in
-any array; this is not the case with @code{int}, for example.
+@code{size_t} тип часто бывает удобным типом для индексации цикла, так как
+это позволяет иметь возможность удерживать значение количества элементов в
+любом массиве, что не получиться при использовании индексации например с
+типом @code{int}.
 
-The @code{sizeof} operator can be used to automatically compute the
-number of elements in an array:
+Оператор @code{sizeof} может использоваться для автоматического вычисления
+количества элементов в массиве:
 
 @example
 @group
@@ -862,21 +867,21 @@ int main (int argc, char *argv[])
 @end group
 @end example
 
-There are two cases where this technique does not work.  The first is
-where the array element has zero size (GCC supports zero-sized
-structures as a GNU extension).  The second is where the array is in
-fact a function parameter (@pxref{Function Parameters}).
+Есть два случая, когда этот метод не работает.  Во-первых, когда элемент
+массива имеет нулевой размер  (GCC поддерживает структуры нулевого размера
+как расширение GNU).  Во-вторых, если массив фактически является параметром
+функции (@pxref{Function Parameters}).
 
 @node Type Casts
-@section Type Casts
+@section Приведение Типов
 @cindex type casts
 @cindex casts
 
-You can use a type cast to explicitly cause an expression to be of a specified
-data type.  A type cast consists of a type specifier enclosed in parentheses,
-followed by an expression.  To ensure proper casting, you should also enclose
-the expression that follows the type specifier in parentheses.  Here is
-an example:
+Можно использовать приведение типа, чтобы явно указать, что выражение
+относится к определенному типу данных.  Такое приведение состоит из
+спецификатора типа, заключенного в скобках, за которым следует выражение.
+Для обеспечения правильного приведения,  нужно также заключить выражение,
+которое следует за спецификатором типа в скобках. Вот пример:
 
 @example
 @group
@@ -887,14 +892,14 @@ x = (float) (y / z);
 @end group
 @end example
 
-In that example, since @code{y} and @code{z} are both integers, integer
-division is performed, and even though @code{x} is a floating-point
-variable, it receives the value 2.  Explicitly casting the result
-of the division to @code{float} does no good, because the computed
-value of @code{y/z} is already 2.
+В этом примере, поскольку @code{y} и @code{z} оба являются целыми числами,
+выполняется целочисленное деление, @code{x} это переменная с плавающей
+точкой и принимает вычисленное выражение деления - значение 2.  Здесь явное
+приведение результата деления к типу @code{float} не делает ничего хорошего,
+потому что вычисленное значение @code{y/z} уже усечено до 2.
 
-To fix this problem, you need to convert one of the operands to a
-floating-point type before the division takes place:
+Чтобы устранить эту проблему, необходимо преобразовать тип одного из
+операндов опрации деления в тип с плавающей точкой до выполнения деления:
 
 @example
 @group
@@ -905,28 +910,30 @@ x = (y / (float)z);
 @end group
 @end example
 
-@noindent Here, a floating-point value close to 2.333@dots{} is assigned to @code{x}.
+@noindent Здесь, значение с плавающей точкой, близкое к 2.333@dots{},
+присваивается @code{x}.
 
-Type casting only works with scalar types (that is, integer,
-floating-point or pointer types).  Therefore, this is not allowed:
+Приведение типа работает только со скалярными типами (то есть с
+целочисленными типами, типими числа с плавающей точкой и типами указатель).
+Таким образом, это допустимо:
 
 @example
 @group
-struct fooTag @{ /* members ... */ @};
+struct fooTag @{ /* коллекция ... */ @};
 struct fooTag foo;
 unsigned char byteArray[8];
 
-foo = (struct fooType) byteArray; /* @r{Fail!} */
+foo = (struct fooType) byteArray; /* @r{Ошибка!} */
 @end group
 @end example
 
 @node Array Subscripts
-@section Array Subscripts
+@section Индексация Массива
 @cindex array subscripts
 
-You can access array elements by specifying the name of the array, and the
-array subscript (or index, or element number) enclosed in brackets.  Here is
-an example, supposing an integer array called @code{my_array}:
+Можно получить доступ к элементам массива, указав имя массива и индекс
+массива (или индекс или номер элемента), заключенного в квадратные скобки.
+Ниже приведен пример целочисленного массива с именем @code{my_array}:
 
 @example
 @group
@@ -934,17 +941,16 @@ my_array[0] = 5;
 @end group
 @end example
 
-The array subscript expression @code{A[i]} is defined as being
-identical to the expression @code{(*((A)+(i)))}.  This means that many
-uses of an array name are equivalent to a pointer expression.  It also
-means that you cannot subscript an array having the @code{register}
-storage class.
+Выражение индекс массива @code{A[i]} определяется как идентично выражению
+@code{(*((A)+(i)))}.  Это означает, что многие виды использования имени
+массива эквивалентно выражению с указателем.  Это также означает, что нельзя
+индексировать массив, имеющий класс хранения @code{register}.
 
 @node Function Calls as Expressions
-@section Function Calls as Expressions
+@section Вызовы Функций как Выражения
 @cindex function calls, as expressions
 
-A call to any function which returns a value is an expression.
+Вызов любой функции, которая возвращает значение, является выражением.
 
 @example
 @group
@@ -956,26 +962,26 @@ a = 10 + function();
 
 
 @node The Comma Operator
-@section The Comma Operator
+@section Оператор Запятая
 @cindex comma operator
 
-You use the comma operator @code{,} to separate two (ostensibly related) expressions.
-For instance, the first expression might produce a value that is used by the second
-expression:
-@c This works because there is a sequence point after the evaluation
-@c of the left hand side.
+Можно использовать оператор запятая @code{,} для разделения двух (якобы
+связанных) выражений.  Например, первое выражение может задавать значение,
+которое используется вторым выражением:
+@c Это работает, потому что существует точка последовательности после оценки
+@c левой стороны выражения.
 @example
 @group
 x++, y = x * x;
 @end group
 @end example
 
-More commonly, the comma operator is used in @code{for} statements, like
-this:
+Чаще всего, оператор запятая используется в конструкции оператора @code{for},
+как здесь:
 
 @example
 @group
-/* @r{Using the comma operator in a @code{for} statement.} */
+/* @r{Использование оператора запятая в @code{for} конструкции.} */
 
 for (x = 1, y = 10;  x <=10 && y >=1;  x++, y--)
   @{
@@ -985,43 +991,40 @@ for (x = 1, y = 10;  x <=10 && y >=1;  x++, y--)
 @end example
 
 @noindent
-This lets you conveniently set, monitor, and modify multiple control
-expressions for the @code{for} statement.
+Это позволяет удобно устанавливать, контролировать и изменять несколько
+управлящих выражений конструкции @code{for}.
 
-A comma is also used to separate function parameters; however, this
-is @emph{not} the comma operator in action.   In fact, if the comma
-operator is used as we have discussed here in a function call, then
-the compiler will
-interpret that as calling the function with an extra parameter.
+Запятая также используется для разделения параметров функции; Однако, это
+@emph{не} оператор запятая в действии.  В самом деле, если оператор запятой
+использовать как мы уже обсуждали здесь, в вызове функции, то компилятор
+будет интерпретировать это как вызов функции с дополнительным параметром.
 
-If you want to use the comma operator in a function argument, you need
-to put parentheses around it.  That's because commas in a function
-argument list have a different meaning: they separate arguments.
-Thus,
+Если требуется использовать запятую в качестве аргумента функции, нужно
+поставить скобки вокруг неё.  Это потому, что запятая в списке аргументов
+функции имеет другой смысл: она разделяет аргументы.  Таким образом,
 
 @example
 foo (x,  y=47,  x,  z);
 @end example
 
 @noindent
-is interpreted as a function call with four arguments, but
+интерпретируется как вызов функции с четырьмя аргументами, но
 
 @example
 foo (x,  (y=47,  x),  z);
 @end example
 
 @noindent
-is a function call with just three arguments.  (The second argument is
-@code{(y=47, x)}.)
+Это вызов функции с использованием трёх аргументов.  (Второй аргумент
+это - выражение @code{(y=47, x)}.)
 
 @node Member Access Expressions
-@section Member Access Expressions
+@section Доступ к Членам Выражения
 @cindex member access expressions
 
-You can use the member access operator @code{.} to access the members
-of a structure or union variable.  You put the name of the structure
-variable on the left side of the operator, and the name of the
-member on the right side.
+Можно использовать оператор @code{.} для доступа через переменную к элементу
+структуры или объединения.  Имя переменной структуры располагается с левой
+стороны, а и имя члена коллекции с правой стороны оператора.
 
 @example
 @group
@@ -1038,9 +1041,10 @@ first_point.y = 5;
 @end example
 
 @cindex indirect member access operator
-You can also access the members of a structure or union variable via
-a pointer by using the indirect member access operator @code{->}.
-@code{x->y} is equivalent to @code{(*x).y}.
+Также можно получить доступ через переменную к членам структуры или
+объединения с помощью указателя, используя опреатор косвенного доступа к
+члену структуры @code{->}.  Выражение @code{x->y} эквивалентно выражению
+@code{(*x).y}.
 
 @example
 @group
@@ -1062,46 +1066,47 @@ fish_pointer->weight = 9;
 
 
 @node Conditional Expressions
-@section Conditional Expressions
+@section Условные Выражения
 @cindex conditional expressions
 @cindex expressions, conditional
 @cindex ternary operator
 
-You use the conditional operator to cause the entire conditional
-expression to evaluate to either its second or its third operand, based
-on the truth value of its first operand.  Here's an example:
+Можно использовать условный оператор, чтобы выполнить оценку или его второго
+операнда либо третьего, на основании значения истинности первого операнда.
+Вот пример:
 
 @example
 a ? b : c
 @end example
 
-If expression @code{a} is true, then expression @code{b} is evaluated
-and the result is the value of @code{b}.  Otherwise, expression
-@code{c} is evaluated and the result is @code{c}.  
+Если выражение @code{a} истинно, то вычисляется выражение @code{b} и
+результатом всего выражения является оцененное значение выражения @code{b}.
+В противном случае, вычисляется выражение @code{c} и результатом всего
+выражения будет вычисленное значение выражения @code{c}.
 
-Expressions @code{b} and @code{c} must be compatible.   That is, they
-must both be 
+Выражения @code{b} and @code{c} должны быть совместимыми.  То есть, они оба
+должны быть 
 
 @enumerate
-@item arithmetic types
-@item compatible @code{struct} or @code{union} types
-@item pointers to compatible types (one of which might be the NULL pointer)
+@item арифметическими типами
+@item совместимыми структурами @code{struct} или типами @code{union}
+@item указателями на совместимые типы (один из которых может быть указателем NULL)
 @end enumerate 
 
-Alternatively, one operand is a pointer and the other is a
-@code{void*} pointer.
+В качестве альтернативы, один операнд является указателем, а другой является
+указателем @code{void*}.
 
-Here is an example
+Вот пример
 
 @example
 a = (x == 5) ? y : z;
 @end example
 
-Here, if @code{x} equals 5, then @code{a} will receive
-the value of @code{y}.  Otherwise, @code{a} will receive the value of
-@code{z}.  This can be considered a shorthand method for writing a simple
-@code{if}@dots{}@code{else} statement.  The following example will
-accomplish the same task as the previous one:
+Здесь, если @code{x} равен 5, то @code{a} получит значение @code{y}.  В
+противном случае, @code{a} получит значение @code{z}.  Это можно
+рассматривать как метод стенографии для написания простого заявления
+@code{if}@dots{}@code{else}.  Следующий пример выполнения той же задачи, как
+и в предыдущем:
 
 @example
 @group
@@ -1112,28 +1117,28 @@ else
 @end group
 @end example
 
-If the first operand of the conditional operator is true, then the third
-operand is never evaluated.  Similarly, if the first operand is false,
-then the second operand is never evaluated.  The first operand is always
-evaluated.
+Если первый операнд условного оператора является оценивается в истину, то
+третий операнд никогда не оценивается.  Аналогичным образом, если первый
+операнд оценен в ложь, тогда второй операнд никогда не оценивается.  Первый
+операнд всегда оценивается.
 
 
-@c GNU C Extension
+@c GNU C Рачширения
 
 @node Statements and Declarations in Expressions
-@section Statements and Declarations in Expressions
+@section Выражения в Объявлениях
 @cindex statements inside expressions
 @cindex declarations inside expressions
 @cindex expressions containing statements
 @cindex macros, statements in expressions
 
-As a GNU C extension, you can build an expression using compound
-statement enclosed in parentheses.  This allows you to included
-loops, switches, and local variables within an expression.
+В качестве расширения GNU Cи, можо построить выражение с помощью составного
+оператора, заключенного в круглых скобках.  Это позволяет включать в
+выражения циклы, указатели и локальные переменные.
 
-Recall that a compound statement (also known as a block) is a sequence of
-statements surrounded by braces.  In this construct, parentheses go around
-the braces.  Here is an example:
+Напомним, что составной оператор (также известный как блок) представляет
+собой последовательность операторов заключённую в фигурные скобки.  В этой
+конструкции круглые скобки заключают в себя фигурные скобки.  Вот пример:
 
 @example
 @group
@@ -1144,19 +1149,19 @@ the braces.  Here is an example:
 @end group
 @end example
 
-That is a valid (though slightly more complex than necessary) expression
-for the absolute value of @code{function ()}.
+Это является допустимым (хотя и несколько более сложным, чем это необходимо)
+выражением для абсолютного значения функции @code{function ()}.
 
-The last thing in the compound statement should be an expression
-followed by a semicolon; the value of this subexpression serves as the
-value of the entire construct.  (If you use some other kind of statement
-last within the braces, the construct has type @code{void}, and thus
-effectively no value.)
+Последним элементом в составном операторе должно быть выражение, за которым
+следует оператор точки с запятой; значение этого подвыражения служит
+заключительным значением всей конструкции.  (Если используется какой-то
+другой тип в качестве последнего составного оператора в фигурных скобках,
+конструкция возвращает значение типа @code{void}, и, таким образом, не имеет
+возвращаемого значения.)
 
-This feature is especially useful in making macro definitions ``safe'' (so
-that they evaluate each operand exactly once).  For example, the
-``maximum'' function is commonly defined as a macro in standard C as
-follows:
+Эта функция особенно полезна для ``безопасного'' объявления макроса (так
+что каждый операнд был оценен ровно один раз).  Например, функция ``maximum''
+обычно определяется как макрос в стандартном Cи следующим образом:
 
 @example
 #define max(a,b) ((a) > (b) ? (a) : (b))
@@ -1164,137 +1169,135 @@ follows:
 
 @noindent
 @cindex side effects, macro argument
-But this definition computes either @code{a} or @code{b} twice, with bad
-results if the operand has side effects.  In GNU C, if you know the
-type of the operands (here let's assume @code{int}), you can define
-the macro safely as follows:
+Но это определение вычисляет либо @code{a} либо @code{b} дважды, с
+искажёнными зультатами, если вычисление операнда имеет побочные эффекты.  В
+GNU Cи, если известен тип операндов (здесь давайте предположим @code{int}),
+можно определить безопасный макрос следующим образом:
 
 @example
 #define maxint(a,b) \
   (@{int _a = (a), _b = (b); _a > _b ? _a : _b; @})
 @end example
 
-If you don't know the type of the operand, you can still do this, but you
-must use @code{typeof} expressions or type naming.
+Если тип операнда не известен, можно сделать это, использовав @code{typeof}
+для выражения или именованного типа.
 
-@comment Add reference to typeof
+@comment Описание для typeof
 
-Embedded statements are not allowed in constant expressions, such as
-the value of an enumeration constant, the width of a bit field, or
-the initial value of a static variable.
+Встроенный оператор @code{typeof} не допускается  использовать для
+константных выражений, таких как константное значение перечисления, размер
+битового поля или начальное значение статической переменной.
 
 
 @node Operator Precedence
-@section Operator Precedence
+@section Приоритет Операторов
 @cindex operator precedence
 @cindex precedence, operator
 
-When an expression contains multiple operators, such as @code{a + b *
-f()}, the operators are grouped based on rules of @dfn{precedence}.
-For instance, the meaning of that expression is to call the function
-@code{f} with no arguments, multiply the result by @code{b}, then add
-that result to @code{a}.  That's what the C rules of operator
-precedence determine for this expression.
+Если выражение содержит несколько операторов, такое как @code{a + b * f()},
+операторы группируются на основе правил @dfn{приоритета}.  Например, действия
+этого выражения состоит из вызова функции @code{f} без аргументов, умножения
+её результата выполнения на @code{b} и затем добавление к получившемуся
+результату @code{a}.  Вот как правила приоритета операторов Cи, определят
+последовательность оценки этого выражения.
 
-The following is a list of types of expressions, presented in order of
-highest precedence first.  Sometimes two or more operators have equal
-precedence; all those operators are applied from left to right
-unless stated otherwise.
+Ниже приведен список типов выражений, представленных в порядке, начиная с
+наивысшего приоритета.  Иногда два или более оператора имеют одинаковый
+приоритет, тогда все эти операторы выполняются по очереди слева направо, если
+не явно не задано иное.
 
 @enumerate
 
 @item
-Function calls, array subscripting, and membership access operator
-expressions.
+Оператор вызова функции, индексации массива и выражение доступа к члену
+структуры.
 
 @item
-Unary operators, including logical negation, bitwise complement,
-increment, decrement, unary positive, unary negative, indirection
-operator, address operator, type casting, and @code{sizeof}
-expressions.  When several unary operators are consecutive,
-the later ones are nested within the earlier ones: @code{!-x}
-means @code{!(-x)}.
+Унарные операторы, в том числе логическое отрицание, побитовое дополнение,
+инкрементация, декрементация, унарный плюс, унарный минус, оператор
+косвенного обращения, оператор взятия адреса, приведения типов и
+@code{sizeof} выражения.  Когда несколько унарных операторов указаны подряд,
+идущие позже, вычисляются раньше чем идущие впереди них: @code{!-x} означает
+@code{!(-x)}.
 
 @item
 Multiplication, division, and modular division expressions.
 
 @item
-Addition and subtraction expressions.
+Выражения сложения и вычитания.
 
 @item
-Bitwise shifting expressions.
+Выражения поразрядного сдвига.
 
 @item
-Greater-than, less-than, greater-than-or-equal-to, and less-than-or-equal-to@*
-expressions.
+Выражения Большее чем, меньше чем, больше или равно чем, меньше или равно чем@.
 
 @item
-Equal-to and not-equal-to expressions.
+Выражения проверки равенства и неравенства.
 
 @item
-Bitwise AND expressions.
+Побитовые выражения @code{AND (И)}.
 
 @item
-Bitwise exclusive OR expressions.
+Побитовые выражения @code{^ (Исключающее ИЛИ)}.
 
 @item
-Bitwise inclusive OR expressions.
+Побитовые выражения @code{OR (ИЛИ)}.
 
 @item
-Logical AND expressions.
+Логические выражения @code{AND (И)}.
 
 @item
-Logical OR expressions.
+Логические выражения @code{OR (ИЛИ)}.
 
 @item
-Conditional expressions (using @code{?:}).  When used as
-subexpressions, these are evaluated right to left.
+Условные выражения (использование @code{?:}).  При использовании в качестве
+подвыражений, они оцениваются справа налево.
 
 @item
-All assignment expressions, including compound assignment.  When multiple
-assignment statements appear as subexpressions in a single larger expression,
-they are evaluated right to left.
+Все выражения присваивания, в том числе составное присваивание.  Когда
+несколько операторов присваивания появляются как подвыражения в составе
+одного большого выражения, они вычисляются справа налево.
 
 @item
-Comma operator expressions.
+Выражения оператора запятая.
 
 @end enumerate
 
-@c ??? Lots more examples are needed here!
+@c ??? Здесь нужно больше примеров!
 
-@c ??? You need to explain when parentheses are strongly
-@c recommended in order to make the structure clear.
+@c ??? Нужно объяснить, когда круглые скобки настоятельно рекомендуется
+@c для явного определения порядка вычисления.
 
-The above list is somewhat dry and is apparently straightforward, but
-it does hide some pitfalls.  Take this example:
+Приведенный выше перечень несколько суховат и, по-видимому прост и не
+покажет скрытых некоторых подводных камней.  Возьмём такой пример:
 
 @example
 foo = *p++;
 @end example
 
-Here @code{p} is incremented as a side effect of the expression, but
-@code{foo} takes the value of @code{*(p++)} rather than @code{(*p)++},
-since the unary operators bind right to left.   There are other
-examples of potential surprises lurking behind the C precedence
-table.  For this reason if there is the slightest risk of the reader
-misunderstanding the meaning of the program, you should use
-parentheses to make your meaning clear.
+Здесь @code{p} увеличиваются как побочный эффект выражения, но @code{foo}
+принимает значение @code{*(p++)}, а не @code{(*p)++}, так как унарные
+операторы выполняются справа налево.  Есть и другие примеры потенциальных
+сюрпризов, скрывающихся за завесом приоритета вычисления операторов Cи.  По
+этой причине, если есть малейший риск непонимания читателем смысла программы,
+нужно использовать круглые скобки, чтобы ясно задать смысл выражения.
 
 @node Order of Evaluation
-@section Order of Evaluation
+@section Порядок Вычисления
 
-In C you cannot assume that multiple subexpressions are evaluated in
-the order that seems natural.  For instance, consider the expression
-@code{++a * f()}.  Does this increment @code{a} before or after
-calling the function @code{f}?  The compiler could do it in either
-order, so you cannot make assumptions.
+В Cи нельзя предполагать, что несколько подвыражений вычисляются в порядке,
+который кажется естественным.  Например, рассмотрим выражение
+@code{++a * f()}.  Означает ли это приращение @code{a} до или после вызова
+функции @code{f}?  Компилятор может сделать это в любом порядке, так что
+нельзя сделать точное предположение.
 
-This manual explains the semantics of the C language in the abstract.
-However, an actual compiler translates source code into specific
-actions in an actual computer, and may re-order operations for the
-sake of efficiency.  The correspondence between the program you write
-and the things the computer actually does are specified in terms of
-@emph{side effects} and @emph{sequence points}.
+Это руководство объясняет абстрактную семантику языка Cи.  Однако реальный
+компилятор преобразует исходный код в конкретные действия на реальном
+компьютере, и может изменить порядок операций в интересах эффективности.
+Соответствие между написанным текстом программы и тем какие действия на самом
+деле выполнит компьютер определяются в терминах @emph{побочных эффектов} и
+@emph{точек последовательности}.
 
 @menu
 * Side Effects::
@@ -1304,43 +1307,43 @@ and the things the computer actually does are specified in terms of
 @end menu
 
 @node Side Effects
-@subsection Side Effects
+@subsection Побочные Эффекты
 
 @cindex side effect
-A @dfn{side effect} is one of the following:
+К @dfn{побочному эффекту} относится одно из следующих действий:
 @enumerate
-@item accessing a @code{volatile} object
-@item modifying an object
-@item modifying a file
-@item a call to a function which performs any of the above side effects
+@item доступ к объекту @code{volatile}
+@item изменение объекта
+@item изменение файла
+@item вызов функции, выполняющая один из указанных выше побочных эффектов
 @end enumerate
 
-These are essentially the externally-visible effects of running a
-program.   They are called side effects because they are effects of
-expression evalation beyond the expression's actual resulting value.
+По существу, это внешне видимые эффекты запуска программы.  Они называются
+побочными эффектами, потому что они являются следствием @code{оценки}
+выражения за пределами фактического результирующего значения выражения.
 
-The compiler is allowed to perform the operations of your program in
-an order different to the order implied by the source of your program, 
-provided that in the end all the necessary side effects actually take
-place. The compiler is also allowed to entirely omit some operations;
-for example it's allowed to skip evaluating part of an expression if
-it can be certain that the value is not used and evaluating that part
-of the expression won't produce any needed side effects.
+Компилятор может выполнять операции вашей программы в порядке, отличающийся
+от порядка, вытекающего из исходного кода вашей программы, при условии, что
+в конце концов отработают все необходимые побочные эффекты.  Компилятору
+также позволено полностью опустить некоторые операции; например, он может
+пропустить часть оценки выражения, если он уверен, что значение не
+используется, и оценка этой части выражения не будет производить никаких
+необходимых побочных эффектов.
 
 @node Sequence Points
-@subsection Sequence Points
+@subsection Точки Последовательности
 
-Another requirement on the compiler is that side effects should take
-place in the correct order.  In order to provide this without
-over-constraining the compiler, the C89 and C90 standards specify a
-list of sequence points.  A @dfn{sequence point} is one of the
-following:
+Еще одно требование от компилятора является то, что побочные эффекты должны
+проявляться в правильном порядке.  Для того, чтобы обеспечить это без
+чрезмерного ограничения компилятора, стандарты C89 и C90 указывают список
+точек последовательности.  @dfn{Точка последовательности} представляется
+одним из следующих действий:
 
 @cindex sequence point
 @enumerate
-@c authority: C99 standard, annex C
-@item a call to a function (after argument evaluation is complete)
-@item the end of the left-hand operand of the and operator @code{&&}
+@c authority: С99 стандарт, приложение С
+@item вызов функции (после завершения оценки аргумента)
+@item конец левостороннего операнда и оператор @code{&&}
 @item the end of the left-hand operand of the or operator @code{||}
 @item the end of the left-hand operand of the comma operator @code{,}
 @item the end of the first operand of the ternary operator @code{a ? b : c}

@@ -146,23 +146,23 @@ ul.no-bullet {list-style: none}
     <li><a id="toc-Arifmeticheskie-Operatory" href="#Arithmetic-Operators">3.4 Арифметические Операторы</a></li>
     <li><a id="toc-Kompleksnoe-Sopryazhenie" href="#Complex-Conjugation">3.5 Комплексное Сопряжение</a></li>
     <li><a id="toc-Operatory-Sravneniya" href="#Comparison-Operators">3.6 Операторы Сравнения</a></li>
-    <li><a id="toc-Logical-Operators-1" href="#Logical-Operators">3.7 Logical Operators</a></li>
-    <li><a id="toc-Bit-Shifting-1" href="#Bit-Shifting">3.8 Bit Shifting</a></li>
-    <li><a id="toc-Bitwise-Logical-Operators-1" href="#Bitwise-Logical-Operators">3.9 Bitwise Logical Operators</a></li>
-    <li><a id="toc-Pointer-Operators-1" href="#Pointer-Operators">3.10 Pointer Operators</a></li>
-    <li><a id="toc-The-sizeof-Operator-1" href="#The-sizeof-Operator">3.11 The sizeof Operator</a></li>
-    <li><a id="toc-Type-Casts-1" href="#Type-Casts">3.12 Type Casts</a></li>
-    <li><a id="toc-Array-Subscripts-1" href="#Array-Subscripts">3.13 Array Subscripts</a></li>
-    <li><a id="toc-Function-Calls-as-Expressions-1" href="#Function-Calls-as-Expressions">3.14 Function Calls as Expressions</a></li>
-    <li><a id="toc-The-Comma-Operator-1" href="#The-Comma-Operator">3.15 The Comma Operator</a></li>
-    <li><a id="toc-Member-Access-Expressions-1" href="#Member-Access-Expressions">3.16 Member Access Expressions</a></li>
-    <li><a id="toc-Conditional-Expressions-1" href="#Conditional-Expressions">3.17 Conditional Expressions</a></li>
-    <li><a id="toc-Statements-and-Declarations-in-Expressions-1" href="#Statements-and-Declarations-in-Expressions">3.18 Statements and Declarations in Expressions</a></li>
-    <li><a id="toc-Operator-Precedence-1" href="#Operator-Precedence">3.19 Operator Precedence</a></li>
-    <li><a id="toc-Order-of-Evaluation-1" href="#Order-of-Evaluation">3.20 Order of Evaluation</a>
+    <li><a id="toc-Logicheskie-Operatory" href="#Logical-Operators">3.7 Логические Операторы</a></li>
+    <li><a id="toc-Bitovyi-Sdvig" href="#Bit-Shifting">3.8 Битовый Сдвиг</a></li>
+    <li><a id="toc-Pobitovye-Logicheskie-Operatory" href="#Bitwise-Logical-Operators">3.9 Побитовые Логические Операторы</a></li>
+    <li><a id="toc-Operatory-Ukazatelei" href="#Pointer-Operators">3.10 Операторы Указателей</a></li>
+    <li><a id="toc-Operator-Polucheniya-Razmera" href="#The-sizeof-Operator">3.11 Оператор Получения Размера</a></li>
+    <li><a id="toc-Privedenie-Tipov" href="#Type-Casts">3.12 Приведение Типов</a></li>
+    <li><a id="toc-Indeksaciya-Massiva" href="#Array-Subscripts">3.13 Индексация Массива</a></li>
+    <li><a id="toc-Vyzovy-Funkcii-kak-Vyrazheniya" href="#Function-Calls-as-Expressions">3.14 Вызовы Функций как Выражения</a></li>
+    <li><a id="toc-Operator-Zapyataya" href="#The-Comma-Operator">3.15 Оператор Запятая</a></li>
+    <li><a id="toc-Dostup-k-Chlenam-Vyrazheniya" href="#Member-Access-Expressions">3.16 Доступ к Членам Выражения</a></li>
+    <li><a id="toc-Uslovnye-Vyrazheniya" href="#Conditional-Expressions">3.17 Условные Выражения</a></li>
+    <li><a id="toc-Vyrazheniya-v-Obwyavleniyakh" href="#Statements-and-Declarations-in-Expressions">3.18 Выражения в Объявлениях</a></li>
+    <li><a id="toc-Prioritet-Operatorov" href="#Operator-Precedence">3.19 Приоритет Операторов</a></li>
+    <li><a id="toc-Poryadok-Vychisleniya" href="#Order-of-Evaluation">3.20 Порядок Вычисления</a>
     <ul class="no-bullet">
-      <li><a id="toc-Side-Effects-1" href="#Side-Effects">3.20.1 Side Effects</a></li>
-      <li><a id="toc-Sequence-Points-1" href="#Sequence-Points">3.20.2 Sequence Points</a></li>
+      <li><a id="toc-Pobochnye-Effekty" href="#Side-Effects">3.20.1 Побочные Эффекты</a></li>
+      <li><a id="toc-Tochki-Posledovatelxnosti" href="#Sequence-Points">3.20.2 Точки Последовательности</a></li>
       <li><a id="toc-Sequence-Points-Constrain-Expressions-1" href="#Sequence-Points-Constrain-Expressions">3.20.3 Sequence Points Constrain Expressions</a></li>
       <li><a id="toc-Sequence-Points-and-Signal-Delivery-1" href="#Sequence-Points-and-Signal-Delivery">3.20.4 Sequence Points and Signal Delivery</a></li>
     </ul></li>
@@ -3175,61 +3175,60 @@ Next: <a href="#Logical-Operators" accesskey="n" rel="next">Logical Operators</a
 сравнения, результат всегда равен 1 или 0, то есть является истинной или
 ложью, соответственно.
 </p>
-<p>(In the following code examples, the variables <code>x</code> and <code>y</code> stand
-for any two expressions of arithmetic types, or pointers.)
+<p>(В следующих примерах кода, переменные <code>x</code> and <code>y</code> содержат любые
+два выражения арифметического типа или указателя.)
 </p>
-<p>The equal-to operator <code>==</code> tests its two operands for equality.
-The result is 1 if the operands are equal, and 0 if the operands are not equal.
+<p>Оператор равенства <code>==</code> тестирует свои два операнда на равенство.
+Результат равен 1, если операнды равны, и 0, если операнды не равны.
 </p>
 <div class="example">
 <pre class="example">if (x == y)
-  puts (&quot;x is equal to y&quot;);
+  puts (&quot;x равен y&quot;);
 else
-  puts (&quot;x is not equal to y&quot;);
+  puts (&quot;x не равен y&quot;);
 </pre></div>
 
-<p>The not-equal-to operator <code>!=</code> tests its two operands for inequality.
-The result is 1 if the operands are not equal, and 0 if the operands
-<em>are</em> equal.
+<p>Оператор неравенства <code>!=</code> тестирует свои два операнда на неравенство.
+Результат равен 1, если операнды не равны, и 0, если операнды <em>являются</em>
+равными.
 </p>
 <div class="example">
 <pre class="example">if (x != y)
-  puts (&quot;x is not equal to y&quot;);
+  puts (&quot;x не равен y&quot;);
 else
-  puts (&quot;x is equal to y&quot;);
+  puts (&quot;x равен y&quot;);
 </pre></div>
 
-<p>Comparing floating-point values for exact equality or inequality can
-produce unexpected results.  <a href="#Real-Number-Types">Real Number Types</a> for more
-information.
+<p>Сравнение значений с плавающей точкой для точного равенства или неравенства
+может привести к неожиданным результатам.  <a href="#Real-Number-Types">Real Number Types</a> для
+получения дополнительной информации.
 </p>
-<p>You can compare function pointers for equality or inequality; the
-comparison tests if two function pointers point to the same function
-or not.
+<p>Можно сравнивать указатели на функции для равенства или неравенства;
+сравнение проверяет, указывают ли указатели на одну и ту же функцию или нет.
 </p>
-<p>Beyond equality and inequality, there are operators you can use to test
-if one value is less than, greater than, less-than-or-equal-to, or
-greater-than-or-equal-to another value.  Here are some code samples that
-exemplify usage of these operators:
+<p>Помимо равенства и неравенства, есть операторы, которые можно использовать
+для тестирования того, меньше, больше, меньше или равной, больше или равно
+одно значение другого значения.  Вот некоторые примеры кода, которые
+иллюстрируют использование этих операторов:
 </p>
 <div class="example">
 <pre class="example">if (x &lt; y)
-  puts (&quot;x is less than y&quot;);
+  puts (&quot;x меньше y&quot;);
 </pre></div>
 
 <div class="example">
 <pre class="example">if (x &lt;= y)
-  puts (&quot;x is less than or equal to y&quot;);
+  puts (&quot;x меньше или равно y&quot;);
 </pre></div>
 
 <div class="example">
 <pre class="example">if (x &gt; y)
-  puts (&quot;x is greater than y&quot;);
+  puts (&quot;x больше y&quot;);
 </pre></div>
 
 <div class="example">
 <pre class="example">if (x &gt;= y)
-  puts (&quot;x is greater than or equal to y&quot;);
+  puts (&quot;x больше или равно y&quot;);
 </pre></div>
 
 
@@ -3238,51 +3237,50 @@ exemplify usage of these operators:
 <p>
 Next: <a href="#Bit-Shifting" accesskey="n" rel="next">Bit Shifting</a>, Previous: <a href="#Comparison-Operators" accesskey="p" rel="prev">Comparison Operators</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Logical-Operators-1"></span><h3 class="section">3.7 Logical Operators</h3>
+<span id="Logicheskie-Operatory"></span><h3 class="section">3.7 Логические Операторы</h3>
 <span id="index-logical-operators"></span>
 
-<p>Logical operators test the truth value of a pair of operands.  Any
-nonzero expression is considered true in C, while an expression that
-evaluates to zero is considered false.
+<p>Логические операторы проверяют значение истинности пары операндов.  Любое
+выражение отлично от нуля считается истинным в Си, в то время как выражение,
+значение которого является ноль считается ложным.
 </p>
-<p>The logical conjunction operator <code>&amp;&amp;</code> tests if two expressions
-are both true.  If the first expression is false, then the second
-expression is not evaluated.
+<p>Логический оператор <code>И</code> - <code>&amp;&amp;</code> проверяет, если два выражения
+истинны.  Если первое выражение ложно, то второе выражение не вычисляется.
 </p>
 <div class="example">
 <pre class="example">if ((x == 5) &amp;&amp; (y == 10))
-  printf (&quot;x is 5 and y is 10&quot;);
+  printf (&quot;x равно 5 и y равно 10&quot;);
 </pre></div>
 
-<p>The logical disjunction operator <code>||</code> tests if at least one of
-two expressions it true.  If the first expression is true, then the
-second expression is not evaluated.
+<p>Логический оператор <code>или</code> - <code>||</code> проверяет, если хотя бы одно из
+двух выражений истинным.  Если первое выражение истинно, то второе выражение
+не вычисляется.
 </p>
 <div class="example">
 <pre class="example">if ((x == 5) || (y == 10))
-   printf (&quot;x is 5 or y is 10&quot;);
+   printf (&quot;x равно 5 или y равно 10&quot;);
 </pre></div>
 
-<p>You can prepend a logical expression with a negation operator
-<code>!</code> to flip the truth value:
+<p>Можете предварять логическое выражение оператором отрицания <code>не</code> -
+<code>!</code>, который переворачивает значение истинности:
 </p>
 <div class="example">
 <pre class="example">if (!(x == 5))
-  printf (&quot;x is not 5&quot;);
+  printf (&quot;x не равно 5&quot;);
 </pre></div>
 
-<p>Since the second operand in a logical expression pair is not necessarily
-evaluated, you can write code with perhaps unintuitive results:
+<p>Так как второй операнд в паре логического выражения не обязательно
+вычисляется, возможно написать код с неинтуитивными результатами:
 </p>
 <div class="example">
 <pre class="example">if (foo &amp;&amp; x++)
   bar();
 </pre></div>
 
-<p>If <code>foo</code> is ever zero, then not only would <code>bar</code> not be called,
-but <code>x</code> would not be incremented.  If you intend to increment <code>x</code>
-regardless of the value of <code>foo</code>, you should do so outside of the
-conjunction expression.
+<p>В случае когда оценка <code>foo</code> не будет равна нулю, то не только произойдёт
+вызов <code>bar</code>, но и значение <code>x</code> будет увеличино.  Если требуется
+увеличивать <code>x</code> независимо от значения <code>foo</code>, нужно сделать
+приращение за пределами выражения <code>И</code>.
 </p>
 
 <hr>
@@ -3290,40 +3288,40 @@ conjunction expression.
 <p>
 Next: <a href="#Bitwise-Logical-Operators" accesskey="n" rel="next">Bitwise Logical Operators</a>, Previous: <a href="#Logical-Operators" accesskey="p" rel="prev">Logical Operators</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Bit-Shifting-1"></span><h3 class="section">3.8 Bit Shifting</h3>
+<span id="Bitovyi-Sdvig"></span><h3 class="section">3.8 Битовый Сдвиг</h3>
 <span id="index-bit-shifting"></span>
 <span id="index-shifting"></span>
 
-<p>You use the left-shift operator <code>&lt;&lt;</code> to shift its first operand&rsquo;s bits
-to the left.  The second operand denotes the number of bit places to shift.
-Bits shifted off the left side of the value are discarded; new bits added
-on the right side will all be 0.
+<p>Использование оператора <code>&lt;&lt;</code> сдвиг влево, сдвинет биты своего первого
+операнда влево.  Второй операнд обозначает количество битовых мест для
+сдвига.  Биты, сдвинутые на левой стороне значения отбрасываются; новые биты,
+добавленные на правой стороне все будет установлены в 0.
 </p>
 <div class="example">
-<pre class="example">x = 47;    /* <span class="roman">47 is 00101111 in binary.</span> */
-x &lt;&lt; 1;    /* <span class="roman">00101111 &lt;&lt; 1 is 01011110.</span> */
+<pre class="example">x = 47;    /* <span class="roman">47 это 00101111 в двоичном представлении.</span> */
+x &lt;&lt; 1;    /* <span class="roman">00101111 &lt;&lt; 1 после сдвига равно 01011110.</span> */
 </pre></div>
 
-<p>Similarly, you use the right-shift operator <code>&gt;&gt;</code> to shift its
-first operand&rsquo;s bits to the right. Bits shifted off the right side are
-discarded; new bits added on the left side are <em>usually</em> 0, but
-if the first operand is a signed negative value, then the added bits will
-be either 0 <em>or</em> whatever value was previously in the leftmost bit
-position.
+<p>Точно так же оператор <code>&gt;&gt;</code> сдвига вправо, сдвинет биты своего первого
+операнда вправо.  Биты смещённые с правой стороны отбрасываются; новые биты,
+добавленные на левой стороне <em>обычно</em> устанавливаются в 0, но если
+первый операнд является знаковым отрицательным значением, то добавленные биты
+будут либо 0 <em>либо</em> любым другим значением, которое ранее было в
+самой крайней левой позиции бита.
 </p>
 <div class="example">
-<pre class="example">x = 47;   /* <span class="roman">47 is 00101111 in binary.</span> */
-x &gt;&gt; 1;   /* <span class="roman">00101111 &gt;&gt; 1 is 00010111.</span> */
+<pre class="example">x = 47;   /* <span class="roman">47 это 00101111 в двоичном представлении.</span> */
+x &gt;&gt; 1;   /* <span class="roman">00101111 &gt;&gt; 1 после сдвига вправо теперь 00010111.</span> */
 </pre></div>
 
-<p>For both <code>&lt;&lt;</code> and <code>&gt;&gt;</code>, if the second operand is greater
-than the bit-width of the first operand, or the second operand is
-negative, the behavior is undefined.
+<p>Для обоих операторов <code>&lt;&lt;</code> и <code>&gt;&gt;</code>, если второй операнд больше
+битовой ширины первого операнда или второй операнд является отрицательным,
+поведение операторов не определено.
 </p>
-<p>You can use the shift operators to perform a variety of interesting
-hacks.  For example, given a date with the day of the month numbered
-as <code>d</code>, the month numbered as <code>m</code>, and the year <code>y</code>, you
-can store the entire date in a single number <code>x</code>:
+<p>Можно использовать операторы сдвига для выполнения множества интересных
+трюков.  Например, для работы с датой - учитывая дату с днём ​​месяца
+пронумерованной в <code>d</code>, месяца пронцмерованного <code>m</code>, и года
+пронумерованного <code>y</code>, можно хранить всю дату в одном числе <code>x</code>:
 </p>
 <div class="example">
 <pre class="example">int d = 12;
@@ -3332,8 +3330,8 @@ int y = 1983;
 int x = (((y &lt;&lt; 4) + m) &lt;&lt; 5) + d;
 </pre></div>
 
-<p>You can then extract the original day, month, and year out of <code>x</code>
-using a combination of shift operators and modular division:
+<p>Можно теперь извлечь исходный день, месяц и год из <code>x</code>, используя
+комбинацию операторов сдвига и модульного деления:
 </p>
 <div class="example">
 <pre class="example">d = x % 32;
@@ -3346,47 +3344,53 @@ y = x &gt;&gt; 9;
 <p>
 Next: <a href="#Pointer-Operators" accesskey="n" rel="next">Pointer Operators</a>, Previous: <a href="#Bit-Shifting" accesskey="p" rel="prev">Bit Shifting</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Bitwise-Logical-Operators-1"></span><h3 class="section">3.9 Bitwise Logical Operators</h3>
+<span id="Pobitovye-Logicheskie-Operatory"></span><h3 class="section">3.9 Побитовые Логические Операторы</h3>
 <span id="index-bitwise-logical-operators"></span>
 <span id="index-logical-operators_002c-bitwise"></span>
 
-<p>C provides operators for performing bitwise conjunction, inclusive disjunction,
-exclusive disjunction, and negation (complement).
+<p>Cи предоставляет операторы для выполнения побитового соединения <code>И</code>,
+<code>ИЛИ</code>, <code>исключающего ИЛИ</code> и <code>НЕ</code> (дополнения).
 </p>
-<p>Biwise conjunction examines each bit in its two operands, and when two
-corresponding bits are both 1, the resulting bit is 1.  All other resulting
-bits are 0.  Here is an example of how this works, using binary numbers:
+<p>Побитовое соединение <code>И</code> анализирует каждый бит двух операндов, и
+когда два соответствующих бита установлены в 1, результирующий бит
+устанавливается в 1.  Во всех остальных случаях, результирующий бит
+устанавливается в 0.  Ниже приведен пример того, как это работает, используя
+двоичные числа:
 </p>
 <div class="example">
 <pre class="example">11001001 &amp; 10011011 = 10001001
 </pre></div>
 
-<p>Bitwise inclusive disjunction examines each bit in its two operands,
-and when two corresponding bits are both 0, the resulting bit is 0.  All
-other resulting bits are 1.
+<p>Побитовое соединение <code>ИЛИ</code> анализирует каждый бит в двух операндах, и
+когда два соответствующих биты установлены в 0, то результирующий бит
+устанавливается в 0.  Во всех остальных случаях, результирующий бит
+устанавливается в 1.
 </p>
 <div class="example">
 <pre class="example">11001001 | 10011011 = 11011011
 </pre></div>
 
-<p>Bitwise exclusive disjunction examines each bit in its two operands, and when
-two corresponding bits are different, the resulting bit is 1.  All other resulting
-bits are 0.
+<p>Побитовое соединение <code>исключающее ИЛИ</code> анализирует каждый бит в двух
+операндах, и когда два соответствующих бита отличны по установленному
+значению, то результирующий бит устанавливается в 1.  Во всех остальных
+случаях, результирующий бит устанавливается в 0.
 </p>
 <div class="example">
 <pre class="example">11001001 ^ 10011011 = 01010010
 </pre></div>
 
-<p>Bitwise negation reverses each bit in its operand:
+<p>Побитовое соединение <code>НЕ</code> меняет значение каждого бита в операнде на
+противоположное:
 </p>
 <div class="example">
 <pre class="example">~11001001 = 00110110
 </pre></div>
 
-<p>In C, you can only use these operators with operands of an integer (or character)
-type, and for maximum portability, you should only use the bitwise negation operator
-with unsigned integer types.  Here are some examples of using these operators in
-C code:
+<p>В Cи, эти операторы можно использовать только с операндами целочисленного
+типа (или символьного), а также для обеспечения максимальной переносимости
+следует использовать только оператор побитового отрицания с беззнаковыми
+целочисленными типами.  Вот некоторые примеры использования этих операторов
+в коде Cи:
 </p>
 <div class="example">
 <pre class="example">unsigned int foo = 42;
@@ -3404,53 +3408,54 @@ quux = ~foo;
 <p>
 Next: <a href="#The-sizeof-Operator" accesskey="n" rel="next">The sizeof Operator</a>, Previous: <a href="#Bitwise-Logical-Operators" accesskey="p" rel="prev">Bitwise Logical Operators</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Pointer-Operators-1"></span><h3 class="section">3.10 Pointer Operators</h3>
+<span id="Operatory-Ukazatelei"></span><h3 class="section">3.10 Операторы Указателей</h3>
 <span id="index-pointer-operators"></span>
 
-<p>You can use the address operator <code>&amp;</code> to obtain the memory address of
-an object.
+<p>Можно использовать оператор взятия адреса <code>&amp;</code> для получения адреса
+памяти объекта.
 </p>
 <div class="example">
 <pre class="example">int x = 5;
 int *pointer_to_x = &amp;x;
 </pre></div>
 
-<p>It is not necessary to use this operator to obtain the address of
-a function, although you can:
+<p>Не следует использовать этот оператор, чтобы получить адрес функции, хотя
+можно так:
 </p>
 <div class="example">
 <pre class="example">extern int foo (void);
-int (*fp1) (void) = foo; /* fp1 points to foo */
-int (*fp2) (void) = &amp;foo; /* fp2 also points to foo */
+int (*fp1) (void) = foo; /* fp1 указатель на foo */
+int (*fp2) (void) = &amp;foo; /* fp2 также указывает на foo */
 </pre></div>
 
-<p>Function pointers and data pointers are not compatible, in the sense
-that you cannot expect to store the address of a function into a data
-pointer, and then copy that into a function pointer and call it
-successfully.  It might work on some systems, but it&rsquo;s not a portable
-technique.
+<p>Указатели на функции и указатели на данные не совместимы, в том смысле, что
+не получиться сохранить адрес функции в указателе на данные, а затем
+скопировать этот указатель в указатель на функцию и вызвать потом функцию
+успешно.  Это может работать на некоторых системах, но это непереносимая
+техника.
 </p>
-<p>As a GNU extension to C89, you can also obtain the address of a label
-with the label address operator <code>&amp;&amp;</code>.  The result is a
-<code>void*</code> pointer which can be used with <code>goto</code>.  See <a href="#The-goto-Statement">The goto Statement</a>.
+<p>В качестве расширения GNU для C89, можно также получить адрес метки используя
+оператор взятия адреса метки <code>&amp;&amp;</code>.  Результатом будет указатель
+<code>void*</code>, который может быть использован оператором <code>goto</code>.
+See <a href="#The-goto-Statement">The goto Statement</a>.
 </p>
-<p>Given a memory address stored in a pointer, you can use the indirection
-operator <code>*</code> to obtain the value stored at the address. (This is called
-<em>dereferencing</em> the pointer.)
+<p>Учитывая адрес памяти, хранящийся в указателе, можно использовать оператор
+косвенного обращения (разыменования) <code>*</code>, чтобы получить значение,
+хранящееся по адресу.  (Это называется <em>разыменованием</em> указателя.)
 </p>
 <div class="example">
 <pre class="example">int x = 5;
 int y;
 int *ptr;
 
-ptr = &amp;x;    /* <span class="roman"><code>ptr</code> now holds the address of <code>x</code>.</span> */
+ptr = &amp;x;    /* <span class="roman"><code>ptr</code> теперь хранит адрес <code>x</code>.</span> */
 
-y = *ptr;    /* <span class="roman"><code>y</code> gets the value stored at the address</span>
-                <span class="roman">stored in <code>ptr</code>.</span> */
+y = *ptr;    /* <span class="roman"><code>y</code> получает значение, хранящееся по адресу</span>
+                <span class="roman">которое сохранено в <code>ptr</code>.</span> */
 </pre></div>
 
-<p>Avoid using dereferencing pointers that have not been initialized to
-a known memory location.
+<p>Избегайте использование разыменования указателей, которые не были
+инициализированы в известную ячейку памяти.
 </p>
 
 <hr>
@@ -3458,14 +3463,14 @@ a known memory location.
 <p>
 Next: <a href="#Type-Casts" accesskey="n" rel="next">Type Casts</a>, Previous: <a href="#Pointer-Operators" accesskey="p" rel="prev">Pointer Operators</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-sizeof-Operator-1"></span><h3 class="section">3.11 The sizeof Operator</h3>
+<span id="Operator-Polucheniya-Razmera"></span><h3 class="section">3.11 Оператор Получения Размера</h3>
 <span id="index-sizeof-operator"></span>
 
-<p>You can use the <code>sizeof</code> operator to obtain the size (in bytes)
-of the data type of its operand.  The operand may be an actual type
-specifier (such as <code>int</code> or <code>float</code>), as well as any valid
-expression.  When the operand is a type name, it must be enclosed in
-parentheses.  Here are some examples:
+<p>Можно использовать оператор <code>sizeof</code>, чтобы получить размер (в байтах)
+операнда содержащего тип данных.  Операнд может быть указан с фактическим
+спецификатором типа (например, <code>int</code> или <code>float</code>), а также быть
+любым допустимым выражением.  Когда операнд является именем типа, он должен
+быть заключен в скобки.  Вот некоторые примеры:
 </p>
 <div class="example">
 <pre class="example">size_t a = sizeof(int);
@@ -3475,17 +3480,18 @@ size_t d = sizeof(5.143);
 size_t e = sizeof a;
 </pre></div>
 
-<p>The result of the <code>sizeof</code> operator is of a type called <code>size_t</code>,
-which is defined in the header file <code>&lt;stddef.h&gt;</code>.  <code>size_t</code> is
-an unsigned integer type, perhaps identical to <code>unsigned int</code> or
-<code>unsigned long int</code>; it varies from system to system.
+<p>Результат оператора <code>sizeof</code> имеет имя типа <code>size_t</code>, которое
+определено в файле заголовка <code>&lt;stddef.h&gt;</code>.  <code>size_t</code> является
+беззнаковым целочисленным типом, может быть идентичен <code>unsigned int</code> или
+<code>unsigned long int</code>, что меняется от системы к системе.
 </p>
-<p>The <code>size_t</code> type is often a convenient type for a loop index,
-since it is guaranteed to be able to hold the number of elements in
-any array; this is not the case with <code>int</code>, for example.
+<p><code>size_t</code> тип часто бывает удобным типом для индексации цикла, так как
+это позволяет иметь возможность удерживать значение количества элементов в
+любом массиве, что не получиться при использовании индексации например с
+типом <code>int</code>.
 </p>
-<p>The <code>sizeof</code> operator can be used to automatically compute the
-number of elements in an array:
+<p>Оператор <code>sizeof</code> может использоваться для автоматического вычисления
+количества элементов в массиве:
 </p>
 <div class="example">
 <pre class="example">#include &lt;stddef.h&gt;
@@ -3505,25 +3511,25 @@ int main (int argc, char *argv[])
 }
 </pre></div>
 
-<p>There are two cases where this technique does not work.  The first is
-where the array element has zero size (GCC supports zero-sized
-structures as a GNU extension).  The second is where the array is in
-fact a function parameter (see <a href="#Function-Parameters">Function Parameters</a>).
+<p>Есть два случая, когда этот метод не работает.  Во-первых, когда элемент
+массива имеет нулевой размер  (GCC поддерживает структуры нулевого размера
+как расширение GNU).  Во-вторых, если массив фактически является параметром
+функции (see <a href="#Function-Parameters">Function Parameters</a>).
 </p>
 <hr>
 <span id="Type-Casts"></span><div class="header">
 <p>
 Next: <a href="#Array-Subscripts" accesskey="n" rel="next">Array Subscripts</a>, Previous: <a href="#The-sizeof-Operator" accesskey="p" rel="prev">The sizeof Operator</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Type-Casts-1"></span><h3 class="section">3.12 Type Casts</h3>
+<span id="Privedenie-Tipov"></span><h3 class="section">3.12 Приведение Типов</h3>
 <span id="index-type-casts"></span>
 <span id="index-casts"></span>
 
-<p>You can use a type cast to explicitly cause an expression to be of a specified
-data type.  A type cast consists of a type specifier enclosed in parentheses,
-followed by an expression.  To ensure proper casting, you should also enclose
-the expression that follows the type specifier in parentheses.  Here is
-an example:
+<p>Можно использовать приведение типа, чтобы явно указать, что выражение
+относится к определенному типу данных.  Такое приведение состоит из
+спецификатора типа, заключенного в скобках, за которым следует выражение.
+Для обеспечения правильного приведения,  нужно также заключить выражение,
+которое следует за спецификатором типа в скобках. Вот пример:
 </p>
 <div class="example">
 <pre class="example">float x;
@@ -3532,14 +3538,14 @@ int z = 3;
 x = (float) (y / z);
 </pre></div>
 
-<p>In that example, since <code>y</code> and <code>z</code> are both integers, integer
-division is performed, and even though <code>x</code> is a floating-point
-variable, it receives the value 2.  Explicitly casting the result
-of the division to <code>float</code> does no good, because the computed
-value of <code>y/z</code> is already 2.
+<p>В этом примере, поскольку <code>y</code> и <code>z</code> оба являются целыми числами,
+выполняется целочисленное деление, <code>x</code> это переменная с плавающей
+точкой и принимает вычисленное выражение деления - значение 2.  Здесь явное
+приведение результата деления к типу <code>float</code> не делает ничего хорошего,
+потому что вычисленное значение <code>y/z</code> уже усечено до 2.
 </p>
-<p>To fix this problem, you need to convert one of the operands to a
-floating-point type before the division takes place:
+<p>Чтобы устранить эту проблему, необходимо преобразовать тип одного из
+операндов опрации деления в тип с плавающей точкой до выполнения деления:
 </p>
 <div class="example">
 <pre class="example">float x;
@@ -3548,17 +3554,19 @@ int z = 3;
 x = (y / (float)z);
 </pre></div>
 
-<p>Here, a floating-point value close to 2.333&hellip; is assigned to <code>x</code>.
+<p>Здесь, значение с плавающей точкой, близкое к 2.333&hellip;,
+присваивается <code>x</code>.
 </p>
-<p>Type casting only works with scalar types (that is, integer,
-floating-point or pointer types).  Therefore, this is not allowed:
+<p>Приведение типа работает только со скалярными типами (то есть с
+целочисленными типами, типими числа с плавающей точкой и типами указатель).
+Таким образом, это допустимо:
 </p>
 <div class="example">
-<pre class="example">struct fooTag { /* members ... */ };
+<pre class="example">struct fooTag { /* коллекция ... */ };
 struct fooTag foo;
 unsigned char byteArray[8];
 
-foo = (struct fooType) byteArray; /* <span class="roman">Fail!</span> */
+foo = (struct fooType) byteArray; /* <span class="roman">Ошибка!</span> */
 </pre></div>
 
 <hr>
@@ -3566,32 +3574,31 @@ foo = (struct fooType) byteArray; /* <span class="roman">Fail!</span> */
 <p>
 Next: <a href="#Function-Calls-as-Expressions" accesskey="n" rel="next">Function Calls as Expressions</a>, Previous: <a href="#Type-Casts" accesskey="p" rel="prev">Type Casts</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Array-Subscripts-1"></span><h3 class="section">3.13 Array Subscripts</h3>
+<span id="Indeksaciya-Massiva"></span><h3 class="section">3.13 Индексация Массива</h3>
 <span id="index-array-subscripts"></span>
 
-<p>You can access array elements by specifying the name of the array, and the
-array subscript (or index, or element number) enclosed in brackets.  Here is
-an example, supposing an integer array called <code>my_array</code>:
+<p>Можно получить доступ к элементам массива, указав имя массива и индекс
+массива (или индекс или номер элемента), заключенного в квадратные скобки.
+Ниже приведен пример целочисленного массива с именем <code>my_array</code>:
 </p>
 <div class="example">
 <pre class="example">my_array[0] = 5;
 </pre></div>
 
-<p>The array subscript expression <code>A[i]</code> is defined as being
-identical to the expression <code>(*((A)+(i)))</code>.  This means that many
-uses of an array name are equivalent to a pointer expression.  It also
-means that you cannot subscript an array having the <code>register</code>
-storage class.
+<p>Выражение индекс массива <code>A[i]</code> определяется как идентично выражению
+<code>(*((A)+(i)))</code>.  Это означает, что многие виды использования имени
+массива эквивалентно выражению с указателем.  Это также означает, что нельзя
+индексировать массив, имеющий класс хранения <code>register</code>.
 </p>
 <hr>
 <span id="Function-Calls-as-Expressions"></span><div class="header">
 <p>
 Next: <a href="#The-Comma-Operator" accesskey="n" rel="next">The Comma Operator</a>, Previous: <a href="#Array-Subscripts" accesskey="p" rel="prev">Array Subscripts</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Function-Calls-as-Expressions-1"></span><h3 class="section">3.14 Function Calls as Expressions</h3>
+<span id="Vyzovy-Funkcii-kak-Vyrazheniya"></span><h3 class="section">3.14 Вызовы Функций как Выражения</h3>
 <span id="index-function-calls_002c-as-expressions"></span>
 
-<p>A call to any function which returns a value is an expression.
+<p>Вызов любой функции, которая возвращает значение, является выражением.
 </p>
 <div class="example">
 <pre class="example">int function(void);
@@ -3605,21 +3612,21 @@ a = 10 + function();
 <p>
 Next: <a href="#Member-Access-Expressions" accesskey="n" rel="next">Member Access Expressions</a>, Previous: <a href="#Function-Calls-as-Expressions" accesskey="p" rel="prev">Function Calls as Expressions</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-Comma-Operator-1"></span><h3 class="section">3.15 The Comma Operator</h3>
+<span id="Operator-Zapyataya"></span><h3 class="section">3.15 Оператор Запятая</h3>
 <span id="index-comma-operator"></span>
 
-<p>You use the comma operator <code>,</code> to separate two (ostensibly related) expressions.
-For instance, the first expression might produce a value that is used by the second
-expression:
+<p>Можно использовать оператор запятая <code>,</code> для разделения двух (якобы
+связанных) выражений.  Например, первое выражение может задавать значение,
+которое используется вторым выражением:
 </p><div class="example">
 <pre class="example">x++, y = x * x;
 </pre></div>
 
-<p>More commonly, the comma operator is used in <code>for</code> statements, like
-this:
+<p>Чаще всего, оператор запятая используется в конструкции оператора <code>for</code>,
+как здесь:
 </p>
 <div class="example">
-<pre class="example">/* <span class="roman">Using the comma operator in a <code>for</code> statement.</span> */
+<pre class="example">/* <span class="roman">Использование оператора запятая в <code>for</code> конструкции.</span> */
 
 for (x = 1, y = 10;  x &lt;=10 &amp;&amp; y &gt;=1;  x++, y--)
   {
@@ -3627,45 +3634,42 @@ for (x = 1, y = 10;  x &lt;=10 &amp;&amp; y &gt;=1;  x++, y--)
   }
 </pre></div>
 
-<p>This lets you conveniently set, monitor, and modify multiple control
-expressions for the <code>for</code> statement.
+<p>Это позволяет удобно устанавливать, контролировать и изменять несколько
+управлящих выражений конструкции <code>for</code>.
 </p>
-<p>A comma is also used to separate function parameters; however, this
-is <em>not</em> the comma operator in action.   In fact, if the comma
-operator is used as we have discussed here in a function call, then
-the compiler will
-interpret that as calling the function with an extra parameter.
+<p>Запятая также используется для разделения параметров функции; Однако, это
+<em>не</em> оператор запятая в действии.  В самом деле, если оператор запятой
+использовать как мы уже обсуждали здесь, в вызове функции, то компилятор
+будет интерпретировать это как вызов функции с дополнительным параметром.
 </p>
-<p>If you want to use the comma operator in a function argument, you need
-to put parentheses around it.  That&rsquo;s because commas in a function
-argument list have a different meaning: they separate arguments.
-Thus,
+<p>Если требуется использовать запятую в качестве аргумента функции, нужно
+поставить скобки вокруг неё.  Это потому, что запятая в списке аргументов
+функции имеет другой смысл: она разделяет аргументы.  Таким образом,
 </p>
 <div class="example">
 <pre class="example">foo (x,  y=47,  x,  z);
 </pre></div>
 
-<p>is interpreted as a function call with four arguments, but
+<p>интерпретируется как вызов функции с четырьмя аргументами, но
 </p>
 <div class="example">
 <pre class="example">foo (x,  (y=47,  x),  z);
 </pre></div>
 
-<p>is a function call with just three arguments.  (The second argument is
-<code>(y=47, x)</code>.)
+<p>Это вызов функции с использованием трёх аргументов.  (Второй аргумент
+это - выражение <code>(y=47, x)</code>.)
 </p>
 <hr>
 <span id="Member-Access-Expressions"></span><div class="header">
 <p>
 Next: <a href="#Conditional-Expressions" accesskey="n" rel="next">Conditional Expressions</a>, Previous: <a href="#The-Comma-Operator" accesskey="p" rel="prev">The Comma Operator</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Member-Access-Expressions-1"></span><h3 class="section">3.16 Member Access Expressions</h3>
+<span id="Dostup-k-Chlenam-Vyrazheniya"></span><h3 class="section">3.16 Доступ к Членам Выражения</h3>
 <span id="index-member-access-expressions"></span>
 
-<p>You can use the member access operator <code>.</code> to access the members
-of a structure or union variable.  You put the name of the structure
-variable on the left side of the operator, and the name of the
-member on the right side.
+<p>Можно использовать оператор <code>.</code> для доступа через переменную к элементу
+структуры или объединения.  Имя переменной структуры располагается с левой
+стороны, а и имя члена коллекции с правой стороны оператора.
 </p>
 <div class="example">
 <pre class="example">struct point
@@ -3680,9 +3684,10 @@ first_point.y = 5;
 </pre></div>
 
 <span id="index-indirect-member-access-operator"></span>
-<p>You can also access the members of a structure or union variable via
-a pointer by using the indirect member access operator <code>-&gt;</code>.
-<code>x-&gt;y</code> is equivalent to <code>(*x).y</code>.
+<p>Также можно получить доступ через переменную к членам структуры или
+объединения с помощью указателя, используя опреатор косвенного доступа к
+члену структуры <code>-&gt;</code>.  Выражение <code>x-&gt;y</code> эквивалентно выражению
+<code>(*x).y</code>.
 </p>
 <div class="example">
 <pre class="example">struct fish
@@ -3706,46 +3711,47 @@ fish_pointer-&gt;weight = 9;
 <p>
 Next: <a href="#Statements-and-Declarations-in-Expressions" accesskey="n" rel="next">Statements and Declarations in Expressions</a>, Previous: <a href="#Member-Access-Expressions" accesskey="p" rel="prev">Member Access Expressions</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Conditional-Expressions-1"></span><h3 class="section">3.17 Conditional Expressions</h3>
+<span id="Uslovnye-Vyrazheniya"></span><h3 class="section">3.17 Условные Выражения</h3>
 <span id="index-conditional-expressions"></span>
 <span id="index-expressions_002c-conditional"></span>
 <span id="index-ternary-operator"></span>
 
-<p>You use the conditional operator to cause the entire conditional
-expression to evaluate to either its second or its third operand, based
-on the truth value of its first operand.  Here&rsquo;s an example:
+<p>Можно использовать условный оператор, чтобы выполнить оценку или его второго
+операнда либо третьего, на основании значения истинности первого операнда.
+Вот пример:
 </p>
 <div class="example">
 <pre class="example">a ? b : c
 </pre></div>
 
-<p>If expression <code>a</code> is true, then expression <code>b</code> is evaluated
-and the result is the value of <code>b</code>.  Otherwise, expression
-<code>c</code> is evaluated and the result is <code>c</code>.  
+<p>Если выражение <code>a</code> истинно, то вычисляется выражение <code>b</code> и
+результатом всего выражения является оцененное значение выражения <code>b</code>.
+В противном случае, вычисляется выражение <code>c</code> и результатом всего
+выражения будет вычисленное значение выражения <code>c</code>.
 </p>
-<p>Expressions <code>b</code> and <code>c</code> must be compatible.   That is, they
-must both be 
+<p>Выражения <code>b</code> and <code>c</code> должны быть совместимыми.  То есть, они оба
+должны быть 
 </p>
 <ol>
-<li> arithmetic types
-</li><li> compatible <code>struct</code> or <code>union</code> types
-</li><li> pointers to compatible types (one of which might be the NULL pointer)
+<li> арифметическими типами
+</li><li> совместимыми структурами <code>struct</code> или типами <code>union</code>
+</li><li> указателями на совместимые типы (один из которых может быть указателем NULL)
 </li></ol>
 
-<p>Alternatively, one operand is a pointer and the other is a
-<code>void*</code> pointer.
+<p>В качестве альтернативы, один операнд является указателем, а другой является
+указателем <code>void*</code>.
 </p>
-<p>Here is an example
+<p>Вот пример
 </p>
 <div class="example">
 <pre class="example">a = (x == 5) ? y : z;
 </pre></div>
 
-<p>Here, if <code>x</code> equals 5, then <code>a</code> will receive
-the value of <code>y</code>.  Otherwise, <code>a</code> will receive the value of
-<code>z</code>.  This can be considered a shorthand method for writing a simple
-<code>if</code>&hellip;<code>else</code> statement.  The following example will
-accomplish the same task as the previous one:
+<p>Здесь, если <code>x</code> равен 5, то <code>a</code> получит значение <code>y</code>.  В
+противном случае, <code>a</code> получит значение <code>z</code>.  Это можно
+рассматривать как метод стенографии для написания простого заявления
+<code>if</code>&hellip;<code>else</code>.  Следующий пример выполнения той же задачи, как
+и в предыдущем:
 </p>
 <div class="example">
 <pre class="example">if (x == 5)
@@ -3754,10 +3760,10 @@ else
     a = z;
 </pre></div>
 
-<p>If the first operand of the conditional operator is true, then the third
-operand is never evaluated.  Similarly, if the first operand is false,
-then the second operand is never evaluated.  The first operand is always
-evaluated.
+<p>Если первый операнд условного оператора является оценивается в истину, то
+третий операнд никогда не оценивается.  Аналогичным образом, если первый
+операнд оценен в ложь, тогда второй операнд никогда не оценивается.  Первый
+операнд всегда оценивается.
 </p>
 
 
@@ -3766,19 +3772,19 @@ evaluated.
 <p>
 Next: <a href="#Operator-Precedence" accesskey="n" rel="next">Operator Precedence</a>, Previous: <a href="#Conditional-Expressions" accesskey="p" rel="prev">Conditional Expressions</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Statements-and-Declarations-in-Expressions-1"></span><h3 class="section">3.18 Statements and Declarations in Expressions</h3>
+<span id="Vyrazheniya-v-Obwyavleniyakh"></span><h3 class="section">3.18 Выражения в Объявлениях</h3>
 <span id="index-statements-inside-expressions"></span>
 <span id="index-declarations-inside-expressions"></span>
 <span id="index-expressions-containing-statements"></span>
 <span id="index-macros_002c-statements-in-expressions"></span>
 
-<p>As a GNU C extension, you can build an expression using compound
-statement enclosed in parentheses.  This allows you to included
-loops, switches, and local variables within an expression.
+<p>В качестве расширения GNU Cи, можо построить выражение с помощью составного
+оператора, заключенного в круглых скобках.  Это позволяет включать в
+выражения циклы, указатели и локальные переменные.
 </p>
-<p>Recall that a compound statement (also known as a block) is a sequence of
-statements surrounded by braces.  In this construct, parentheses go around
-the braces.  Here is an example:
+<p>Напомним, что составной оператор (также известный как блок) представляет
+собой последовательность операторов заключённую в фигурные скобки.  В этой
+конструкции круглые скобки заключают в себя фигурные скобки.  Вот пример:
 </p>
 <div class="example">
 <pre class="example">({ int y = function (); int z;
@@ -3787,42 +3793,42 @@ the braces.  Here is an example:
    z; })
 </pre></div>
 
-<p>That is a valid (though slightly more complex than necessary) expression
-for the absolute value of <code>function ()</code>.
+<p>Это является допустимым (хотя и несколько более сложным, чем это необходимо)
+выражением для абсолютного значения функции <code>function ()</code>.
 </p>
-<p>The last thing in the compound statement should be an expression
-followed by a semicolon; the value of this subexpression serves as the
-value of the entire construct.  (If you use some other kind of statement
-last within the braces, the construct has type <code>void</code>, and thus
-effectively no value.)
+<p>Последним элементом в составном операторе должно быть выражение, за которым
+следует оператор точки с запятой; значение этого подвыражения служит
+заключительным значением всей конструкции.  (Если используется какой-то
+другой тип в качестве последнего составного оператора в фигурных скобках,
+конструкция возвращает значение типа <code>void</code>, и, таким образом, не имеет
+возвращаемого значения.)
 </p>
-<p>This feature is especially useful in making macro definitions &ldquo;safe&rdquo; (so
-that they evaluate each operand exactly once).  For example, the
-&ldquo;maximum&rdquo; function is commonly defined as a macro in standard C as
-follows:
+<p>Эта функция особенно полезна для &ldquo;безопасного&rdquo; объявления макроса (так
+что каждый операнд был оценен ровно один раз).  Например, функция &ldquo;maximum&rdquo;
+обычно определяется как макрос в стандартном Cи следующим образом:
 </p>
 <div class="example">
 <pre class="example">#define max(a,b) ((a) &gt; (b) ? (a) : (b))
 </pre></div>
 
 <p><span id="index-side-effects_002c-macro-argument"></span>
-But this definition computes either <code>a</code> or <code>b</code> twice, with bad
-results if the operand has side effects.  In GNU C, if you know the
-type of the operands (here let&rsquo;s assume <code>int</code>), you can define
-the macro safely as follows:
+Но это определение вычисляет либо <code>a</code> либо <code>b</code> дважды, с
+искажёнными зультатами, если вычисление операнда имеет побочные эффекты.  В
+GNU Cи, если известен тип операндов (здесь давайте предположим <code>int</code>),
+можно определить безопасный макрос следующим образом:
 </p>
 <div class="example">
 <pre class="example">#define maxint(a,b) \
   ({int _a = (a), _b = (b); _a &gt; _b ? _a : _b; })
 </pre></div>
 
-<p>If you don&rsquo;t know the type of the operand, you can still do this, but you
-must use <code>typeof</code> expressions or type naming.
+<p>Если тип операнда не известен, можно сделать это, использовав <code>typeof</code>
+для выражения или именованного типа.
 </p>
 
-<p>Embedded statements are not allowed in constant expressions, such as
-the value of an enumeration constant, the width of a bit field, or
-the initial value of a static variable.
+<p>Встроенный оператор <code>typeof</code> не допускается  использовать для
+константных выражений, таких как константное значение перечисления, размер
+битового поля или начальное значение статической переменной.
 </p>
 
 <hr>
@@ -3830,101 +3836,99 @@ the initial value of a static variable.
 <p>
 Next: <a href="#Order-of-Evaluation" accesskey="n" rel="next">Order of Evaluation</a>, Previous: <a href="#Statements-and-Declarations-in-Expressions" accesskey="p" rel="prev">Statements and Declarations in Expressions</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Operator-Precedence-1"></span><h3 class="section">3.19 Operator Precedence</h3>
+<span id="Prioritet-Operatorov"></span><h3 class="section">3.19 Приоритет Операторов</h3>
 <span id="index-operator-precedence"></span>
 <span id="index-precedence_002c-operator"></span>
 
-<p>When an expression contains multiple operators, such as <code>a + b *
-f()</code>, the operators are grouped based on rules of <em>precedence</em>.
-For instance, the meaning of that expression is to call the function
-<code>f</code> with no arguments, multiply the result by <code>b</code>, then add
-that result to <code>a</code>.  That&rsquo;s what the C rules of operator
-precedence determine for this expression.
+<p>Если выражение содержит несколько операторов, такое как <code>a + b * f()</code>,
+операторы группируются на основе правил <em>приоритета</em>.  Например, действия
+этого выражения состоит из вызова функции <code>f</code> без аргументов, умножения
+её результата выполнения на <code>b</code> и затем добавление к получившемуся
+результату <code>a</code>.  Вот как правила приоритета операторов Cи, определят
+последовательность оценки этого выражения.
 </p>
-<p>The following is a list of types of expressions, presented in order of
-highest precedence first.  Sometimes two or more operators have equal
-precedence; all those operators are applied from left to right
-unless stated otherwise.
+<p>Ниже приведен список типов выражений, представленных в порядке, начиная с
+наивысшего приоритета.  Иногда два или более оператора имеют одинаковый
+приоритет, тогда все эти операторы выполняются по очереди слева направо, если
+не явно не задано иное.
 </p>
 <ol>
-<li> Function calls, array subscripting, and membership access operator
-expressions.
+<li> Оператор вызова функции, индексации массива и выражение доступа к члену
+структуры.
 
-</li><li> Unary operators, including logical negation, bitwise complement,
-increment, decrement, unary positive, unary negative, indirection
-operator, address operator, type casting, and <code>sizeof</code>
-expressions.  When several unary operators are consecutive,
-the later ones are nested within the earlier ones: <code>!-x</code>
-means <code>!(-x)</code>.
+</li><li> Унарные операторы, в том числе логическое отрицание, побитовое дополнение,
+инкрементация, декрементация, унарный плюс, унарный минус, оператор
+косвенного обращения, оператор взятия адреса, приведения типов и
+<code>sizeof</code> выражения.  Когда несколько унарных операторов указаны подряд,
+идущие позже, вычисляются раньше чем идущие впереди них: <code>!-x</code> означает
+<code>!(-x)</code>.
 
 </li><li> Multiplication, division, and modular division expressions.
 
-</li><li> Addition and subtraction expressions.
+</li><li> Выражения сложения и вычитания.
 
-</li><li> Bitwise shifting expressions.
+</li><li> Выражения поразрядного сдвига.
 
-</li><li> Greater-than, less-than, greater-than-or-equal-to, and less-than-or-equal-to<br>
-expressions.
+</li><li> Выражения Большее чем, меньше чем, больше или равно чем, меньше или равно чем.
 
-</li><li> Equal-to and not-equal-to expressions.
+</li><li> Выражения проверки равенства и неравенства.
 
-</li><li> Bitwise AND expressions.
+</li><li> Побитовые выражения <code>AND (И)</code>.
 
-</li><li> Bitwise exclusive OR expressions.
+</li><li> Побитовые выражения <code>^ (Исключающее ИЛИ)</code>.
 
-</li><li> Bitwise inclusive OR expressions.
+</li><li> Побитовые выражения <code>OR (ИЛИ)</code>.
 
-</li><li> Logical AND expressions.
+</li><li> Логические выражения <code>AND (И)</code>.
 
-</li><li> Logical OR expressions.
+</li><li> Логические выражения <code>OR (ИЛИ)</code>.
 
-</li><li> Conditional expressions (using <code>?:</code>).  When used as
-subexpressions, these are evaluated right to left.
+</li><li> Условные выражения (использование <code>?:</code>).  При использовании в качестве
+подвыражений, они оцениваются справа налево.
 
-</li><li> All assignment expressions, including compound assignment.  When multiple
-assignment statements appear as subexpressions in a single larger expression,
-they are evaluated right to left.
+</li><li> Все выражения присваивания, в том числе составное присваивание.  Когда
+несколько операторов присваивания появляются как подвыражения в составе
+одного большого выражения, они вычисляются справа налево.
 
-</li><li> Comma operator expressions.
+</li><li> Выражения оператора запятая.
 
 </li></ol>
 
 
 
-<p>The above list is somewhat dry and is apparently straightforward, but
-it does hide some pitfalls.  Take this example:
+<p>Приведенный выше перечень несколько суховат и, по-видимому прост и не
+покажет скрытых некоторых подводных камней.  Возьмём такой пример:
 </p>
 <div class="example">
 <pre class="example">foo = *p++;
 </pre></div>
 
-<p>Here <code>p</code> is incremented as a side effect of the expression, but
-<code>foo</code> takes the value of <code>*(p++)</code> rather than <code>(*p)++</code>,
-since the unary operators bind right to left.   There are other
-examples of potential surprises lurking behind the C precedence
-table.  For this reason if there is the slightest risk of the reader
-misunderstanding the meaning of the program, you should use
-parentheses to make your meaning clear.
+<p>Здесь <code>p</code> увеличиваются как побочный эффект выражения, но <code>foo</code>
+принимает значение <code>*(p++)</code>, а не <code>(*p)++</code>, так как унарные
+операторы выполняются справа налево.  Есть и другие примеры потенциальных
+сюрпризов, скрывающихся за завесом приоритета вычисления операторов Cи.  По
+этой причине, если есть малейший риск непонимания читателем смысла программы,
+нужно использовать круглые скобки, чтобы ясно задать смысл выражения.
 </p>
 <hr>
 <span id="Order-of-Evaluation"></span><div class="header">
 <p>
 Previous: <a href="#Operator-Precedence" accesskey="p" rel="prev">Operator Precedence</a>, Up: <a href="#Expressions-and-Operators" accesskey="u" rel="up">Expressions and Operators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Order-of-Evaluation-1"></span><h3 class="section">3.20 Order of Evaluation</h3>
+<span id="Poryadok-Vychisleniya"></span><h3 class="section">3.20 Порядок Вычисления</h3>
 
-<p>In C you cannot assume that multiple subexpressions are evaluated in
-the order that seems natural.  For instance, consider the expression
-<code>++a * f()</code>.  Does this increment <code>a</code> before or after
-calling the function <code>f</code>?  The compiler could do it in either
-order, so you cannot make assumptions.
+<p>В Cи нельзя предполагать, что несколько подвыражений вычисляются в порядке,
+который кажется естественным.  Например, рассмотрим выражение
+<code>++a * f()</code>.  Означает ли это приращение <code>a</code> до или после вызова
+функции <code>f</code>?  Компилятор может сделать это в любом порядке, так что
+нельзя сделать точное предположение.
 </p>
-<p>This manual explains the semantics of the C language in the abstract.
-However, an actual compiler translates source code into specific
-actions in an actual computer, and may re-order operations for the
-sake of efficiency.  The correspondence between the program you write
-and the things the computer actually does are specified in terms of
-<em>side effects</em> and <em>sequence points</em>.
+<p>Это руководство объясняет абстрактную семантику языка Cи.  Однако реальный
+компилятор преобразует исходный код в конкретные действия на реальном
+компьютере, и может изменить порядок операций в интересах эффективности.
+Соответствие между написанным текстом программы и тем какие действия на самом
+деле выполнит компьютер определяются в терминах <em>побочных эффектов</em> и
+<em>точек последовательности</em>.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Side-Effects" accesskey="1">Side Effects</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -3942,46 +3946,46 @@ and the things the computer actually does are specified in terms of
 <p>
 Next: <a href="#Sequence-Points" accesskey="n" rel="next">Sequence Points</a>, Up: <a href="#Order-of-Evaluation" accesskey="u" rel="up">Order of Evaluation</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Side-Effects-1"></span><h4 class="subsection">3.20.1 Side Effects</h4>
+<span id="Pobochnye-Effekty"></span><h4 class="subsection">3.20.1 Побочные Эффекты</h4>
 
 <span id="index-side-effect"></span>
-<p>A <em>side effect</em> is one of the following:
+<p>К <em>побочному эффекту</em> относится одно из следующих действий:
 </p><ol>
-<li> accessing a <code>volatile</code> object
-</li><li> modifying an object
-</li><li> modifying a file
-</li><li> a call to a function which performs any of the above side effects
+<li> доступ к объекту <code>volatile</code>
+</li><li> изменение объекта
+</li><li> изменение файла
+</li><li> вызов функции, выполняющая один из указанных выше побочных эффектов
 </li></ol>
 
-<p>These are essentially the externally-visible effects of running a
-program.   They are called side effects because they are effects of
-expression evalation beyond the expression&rsquo;s actual resulting value.
+<p>По существу, это внешне видимые эффекты запуска программы.  Они называются
+побочными эффектами, потому что они являются следствием <code>оценки</code>
+выражения за пределами фактического результирующего значения выражения.
 </p>
-<p>The compiler is allowed to perform the operations of your program in
-an order different to the order implied by the source of your program, 
-provided that in the end all the necessary side effects actually take
-place. The compiler is also allowed to entirely omit some operations;
-for example it&rsquo;s allowed to skip evaluating part of an expression if
-it can be certain that the value is not used and evaluating that part
-of the expression won&rsquo;t produce any needed side effects.
+<p>Компилятор может выполнять операции вашей программы в порядке, отличающийся
+от порядка, вытекающего из исходного кода вашей программы, при условии, что
+в конце концов отработают все необходимые побочные эффекты.  Компилятору
+также позволено полностью опустить некоторые операции; например, он может
+пропустить часть оценки выражения, если он уверен, что значение не
+используется, и оценка этой части выражения не будет производить никаких
+необходимых побочных эффектов.
 </p>
 <hr>
 <span id="Sequence-Points"></span><div class="header">
 <p>
 Next: <a href="#Sequence-Points-Constrain-Expressions" accesskey="n" rel="next">Sequence Points Constrain Expressions</a>, Previous: <a href="#Side-Effects" accesskey="p" rel="prev">Side Effects</a>, Up: <a href="#Order-of-Evaluation" accesskey="u" rel="up">Order of Evaluation</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Sequence-Points-1"></span><h4 class="subsection">3.20.2 Sequence Points</h4>
+<span id="Tochki-Posledovatelxnosti"></span><h4 class="subsection">3.20.2 Точки Последовательности</h4>
 
-<p>Another requirement on the compiler is that side effects should take
-place in the correct order.  In order to provide this without
-over-constraining the compiler, the C89 and C90 standards specify a
-list of sequence points.  A <em>sequence point</em> is one of the
-following:
+<p>Еще одно требование от компилятора является то, что побочные эффекты должны
+проявляться в правильном порядке.  Для того, чтобы обеспечить это без
+чрезмерного ограничения компилятора, стандарты C89 и C90 указывают список
+точек последовательности.  <em>Точка последовательности</em> представляется
+одним из следующих действий:
 </p>
 <span id="index-sequence-point"></span>
 <ol>
-<li> a call to a function (after argument evaluation is complete)
-</li><li> the end of the left-hand operand of the and operator <code>&amp;&amp;</code>
+<li> вызов функции (после завершения оценки аргумента)
+</li><li> конец левостороннего операнда и оператор <code>&amp;&amp;</code>
 </li><li> the end of the left-hand operand of the or operator <code>||</code>
 </li><li> the end of the left-hand operand of the comma operator <code>,</code>
 </li><li> the end of the first operand of the ternary operator <code>a ? b : c</code>

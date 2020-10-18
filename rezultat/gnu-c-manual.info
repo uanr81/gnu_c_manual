@@ -2299,134 +2299,131 @@ File: gnu-c-manual.info,  Node: Comparison Operators,  Next: Logical Operators, 
 из операторов сравнения, результат всегда равен 1 или 0, то есть
 является истинной или ложью, соответственно.
 
-   (In the following code examples, the variables 'x' and 'y' stand for
-any two expressions of arithmetic types, or pointers.)
+   (В следующих примерах кода, переменные 'x' and 'y' содержат любые два
+выражения арифметического типа или указателя.)
 
-   The equal-to operator '==' tests its two operands for equality.  The
-result is 1 if the operands are equal, and 0 if the operands are not
-equal.
+   Оператор равенства '==' тестирует свои два операнда на равенство.
+Результат равен 1, если операнды равны, и 0, если операнды не равны.
 
      if (x == y)
-       puts ("x is equal to y");
+       puts ("x равен y");
      else
-       puts ("x is not equal to y");
+       puts ("x не равен y");
 
-   The not-equal-to operator '!=' tests its two operands for inequality.
-The result is 1 if the operands are not equal, and 0 if the operands
-_are_ equal.
+   Оператор неравенства '!=' тестирует свои два операнда на неравенство.
+Результат равен 1, если операнды не равны, и 0, если операнды _являются_
+равными.
 
      if (x != y)
-       puts ("x is not equal to y");
+       puts ("x не равен y");
      else
-       puts ("x is equal to y");
+       puts ("x равен y");
 
-   Comparing floating-point values for exact equality or inequality can
-produce unexpected results.  *note Real Number Types:: for more
-information.
+   Сравнение значений с плавающей точкой для точного равенства или
+неравенства может привести к неожиданным результатам.  *note Real Number
+Types:: для получения дополнительной информации.
 
-   You can compare function pointers for equality or inequality; the
-comparison tests if two function pointers point to the same function or
-not.
+   Можно сравнивать указатели на функции для равенства или неравенства;
+сравнение проверяет, указывают ли указатели на одну и ту же функцию или
+нет.
 
-   Beyond equality and inequality, there are operators you can use to
-test if one value is less than, greater than, less-than-or-equal-to, or
-greater-than-or-equal-to another value.  Here are some code samples that
-exemplify usage of these operators:
+   Помимо равенства и неравенства, есть операторы, которые можно
+использовать для тестирования того, меньше, больше, меньше или равной,
+больше или равно одно значение другого значения.  Вот некоторые примеры
+кода, которые иллюстрируют использование этих операторов:
 
      if (x < y)
-       puts ("x is less than y");
+       puts ("x меньше y");
 
      if (x <= y)
-       puts ("x is less than or equal to y");
+       puts ("x меньше или равно y");
 
      if (x > y)
-       puts ("x is greater than y");
+       puts ("x больше y");
 
      if (x >= y)
-       puts ("x is greater than or equal to y");
+       puts ("x больше или равно y");
 
 
 File: gnu-c-manual.info,  Node: Logical Operators,  Next: Bit Shifting,  Prev: Comparison Operators,  Up: Expressions and Operators
 
-3.7 Logical Operators
-=====================
+3.7 Логические Операторы
+========================
 
-Logical operators test the truth value of a pair of operands.  Any
-nonzero expression is considered true in C, while an expression that
-evaluates to zero is considered false.
+Логические операторы проверяют значение истинности пары операндов.
+Любое выражение отлично от нуля считается истинным в Си, в то время как
+выражение, значение которого является ноль считается ложным.
 
-   The logical conjunction operator '&&' tests if two expressions are
-both true.  If the first expression is false, then the second expression
-is not evaluated.
+   Логический оператор 'И' - '&&' проверяет, если два выражения истинны.
+Если первое выражение ложно, то второе выражение не вычисляется.
 
      if ((x == 5) && (y == 10))
-       printf ("x is 5 and y is 10");
+       printf ("x равно 5 и y равно 10");
 
-   The logical disjunction operator '||' tests if at least one of two
-expressions it true.  If the first expression is true, then the second
-expression is not evaluated.
+   Логический оператор 'или' - '||' проверяет, если хотя бы одно из двух
+выражений истинным.  Если первое выражение истинно, то второе выражение
+не вычисляется.
 
      if ((x == 5) || (y == 10))
-        printf ("x is 5 or y is 10");
+        printf ("x равно 5 или y равно 10");
 
-   You can prepend a logical expression with a negation operator '!' to
-flip the truth value:
+   Можете предварять логическое выражение оператором отрицания 'не' -
+'!', который переворачивает значение истинности:
 
      if (!(x == 5))
-       printf ("x is not 5");
+       printf ("x не равно 5");
 
-   Since the second operand in a logical expression pair is not
-necessarily evaluated, you can write code with perhaps unintuitive
-results:
+   Так как второй операнд в паре логического выражения не обязательно
+вычисляется, возможно написать код с неинтуитивными результатами:
 
      if (foo && x++)
        bar();
 
-If 'foo' is ever zero, then not only would 'bar' not be called, but 'x'
-would not be incremented.  If you intend to increment 'x' regardless of
-the value of 'foo', you should do so outside of the conjunction
-expression.
+В случае когда оценка 'foo' не будет равна нулю, то не только произойдёт
+вызов 'bar', но и значение 'x' будет увеличино.  Если требуется
+увеличивать 'x' независимо от значения 'foo', нужно сделать приращение
+за пределами выражения 'И'.
 
 
 File: gnu-c-manual.info,  Node: Bit Shifting,  Next: Bitwise Logical Operators,  Prev: Logical Operators,  Up: Expressions and Operators
 
-3.8 Bit Shifting
-================
+3.8 Битовый Сдвиг
+=================
 
-You use the left-shift operator '<<' to shift its first operand's bits
-to the left.  The second operand denotes the number of bit places to
-shift.  Bits shifted off the left side of the value are discarded; new
-bits added on the right side will all be 0.
+Использование оператора '<<' сдвиг влево, сдвинет биты своего первого
+операнда влево.  Второй операнд обозначает количество битовых мест для
+сдвига.  Биты, сдвинутые на левой стороне значения отбрасываются; новые
+биты, добавленные на правой стороне все будет установлены в 0.
 
-     x = 47;    /* 47 is 00101111 in binary. */
-     x << 1;    /* 00101111 << 1 is 01011110. */
+     x = 47;    /* 47 это 00101111 в двоичном представлении. */
+     x << 1;    /* 00101111 << 1 после сдвига равно 01011110. */
 
-   Similarly, you use the right-shift operator '>>' to shift its first
-operand's bits to the right.  Bits shifted off the right side are
-discarded; new bits added on the left side are _usually_ 0, but if the
-first operand is a signed negative value, then the added bits will be
-either 0 _or_ whatever value was previously in the leftmost bit
-position.
+   Точно так же оператор '>>' сдвига вправо, сдвинет биты своего первого
+операнда вправо.  Биты смещённые с правой стороны отбрасываются; новые
+биты, добавленные на левой стороне _обычно_ устанавливаются в 0, но если
+первый операнд является знаковым отрицательным значением, то добавленные
+биты будут либо 0 _либо_ любым другим значением, которое ранее было в
+самой крайней левой позиции бита.
 
-     x = 47;   /* 47 is 00101111 in binary. */
-     x >> 1;   /* 00101111 >> 1 is 00010111. */
+     x = 47;   /* 47 это 00101111 в двоичном представлении. */
+     x >> 1;   /* 00101111 >> 1 после сдвига вправо теперь 00010111. */
 
-   For both '<<' and '>>', if the second operand is greater than the
-bit-width of the first operand, or the second operand is negative, the
-behavior is undefined.
+   Для обоих операторов '<<' и '>>', если второй операнд больше битовой
+ширины первого операнда или второй операнд является отрицательным,
+поведение операторов не определено.
 
-   You can use the shift operators to perform a variety of interesting
-hacks.  For example, given a date with the day of the month numbered as
-'d', the month numbered as 'm', and the year 'y', you can store the
-entire date in a single number 'x':
+   Можно использовать операторы сдвига для выполнения множества
+интересных трюков.  Например, для работы с датой - учитывая дату с днём
+​​месяца пронумерованной в 'd', месяца пронцмерованного 'm', и года
+пронумерованного 'y', можно хранить всю дату в одном числе 'x':
 
      int d = 12;
      int m = 6;
      int y = 1983;
      int x = (((y << 4) + m) << 5) + d;
 
-You can then extract the original day, month, and year out of 'x' using
-a combination of shift operators and modular division:
+Можно теперь извлечь исходный день, месяц и год из 'x', используя
+комбинацию операторов сдвига и модульного деления:
 
      d = x % 32;
      m = (x >> 5) % 16;
@@ -2435,39 +2432,44 @@ a combination of shift operators and modular division:
 
 File: gnu-c-manual.info,  Node: Bitwise Logical Operators,  Next: Pointer Operators,  Prev: Bit Shifting,  Up: Expressions and Operators
 
-3.9 Bitwise Logical Operators
-=============================
+3.9 Побитовые Логические Операторы
+==================================
 
-C provides operators for performing bitwise conjunction, inclusive
-disjunction, exclusive disjunction, and negation (complement).
+Cи предоставляет операторы для выполнения побитового соединения 'И',
+'ИЛИ', 'исключающего ИЛИ' и 'НЕ' (дополнения).
 
-   Biwise conjunction examines each bit in its two operands, and when
-two corresponding bits are both 1, the resulting bit is 1.  All other
-resulting bits are 0.  Here is an example of how this works, using
-binary numbers:
+   Побитовое соединение 'И' анализирует каждый бит двух операндов, и
+когда два соответствующих бита установлены в 1, результирующий бит
+устанавливается в 1.  Во всех остальных случаях, результирующий бит
+устанавливается в 0.  Ниже приведен пример того, как это работает,
+используя двоичные числа:
 
      11001001 & 10011011 = 10001001
 
-   Bitwise inclusive disjunction examines each bit in its two operands,
-and when two corresponding bits are both 0, the resulting bit is 0.  All
-other resulting bits are 1.
+   Побитовое соединение 'ИЛИ' анализирует каждый бит в двух операндах, и
+когда два соответствующих биты установлены в 0, то результирующий бит
+устанавливается в 0.  Во всех остальных случаях, результирующий бит
+устанавливается в 1.
 
      11001001 | 10011011 = 11011011
 
-   Bitwise exclusive disjunction examines each bit in its two operands,
-and when two corresponding bits are different, the resulting bit is 1.
-All other resulting bits are 0.
+   Побитовое соединение 'исключающее ИЛИ' анализирует каждый бит в двух
+операндах, и когда два соответствующих бита отличны по установленному
+значению, то результирующий бит устанавливается в 1.  Во всех остальных
+случаях, результирующий бит устанавливается в 0.
 
      11001001 ^ 10011011 = 01010010
 
-   Bitwise negation reverses each bit in its operand:
+   Побитовое соединение 'НЕ' меняет значение каждого бита в операнде на
+противоположное:
 
      ~11001001 = 00110110
 
-   In C, you can only use these operators with operands of an integer
-(or character) type, and for maximum portability, you should only use
-the bitwise negation operator with unsigned integer types.  Here are
-some examples of using these operators in C code:
+   В Cи, эти операторы можно использовать только с операндами
+целочисленного типа (или символьного), а также для обеспечения
+максимальной переносимости следует использовать только оператор
+побитового отрицания с беззнаковыми целочисленными типами.  Вот
+некоторые примеры использования этих операторов в коде Cи:
 
      unsigned int foo = 42;
      unsigned int bar = 57;
@@ -2481,59 +2483,61 @@ some examples of using these operators in C code:
 
 File: gnu-c-manual.info,  Node: Pointer Operators,  Next: The sizeof Operator,  Prev: Bitwise Logical Operators,  Up: Expressions and Operators
 
-3.10 Pointer Operators
-======================
+3.10 Операторы Указателей
+=========================
 
-You can use the address operator '&' to obtain the memory address of an
-object.
+Можно использовать оператор взятия адреса '&' для получения адреса
+памяти объекта.
 
      int x = 5;
      int *pointer_to_x = &x;
 
-   It is not necessary to use this operator to obtain the address of a
-function, although you can:
+   Не следует использовать этот оператор, чтобы получить адрес функции,
+хотя можно так:
 
      extern int foo (void);
-     int (*fp1) (void) = foo; /* fp1 points to foo */
-     int (*fp2) (void) = &foo; /* fp2 also points to foo */
+     int (*fp1) (void) = foo; /* fp1 указатель на foo */
+     int (*fp2) (void) = &foo; /* fp2 также указывает на foo */
 
-   Function pointers and data pointers are not compatible, in the sense
-that you cannot expect to store the address of a function into a data
-pointer, and then copy that into a function pointer and call it
-successfully.  It might work on some systems, but it's not a portable
-technique.
+   Указатели на функции и указатели на данные не совместимы, в том
+смысле, что не получиться сохранить адрес функции в указателе на данные,
+а затем скопировать этот указатель в указатель на функцию и вызвать
+потом функцию успешно.  Это может работать на некоторых системах, но это
+непереносимая техника.
 
-   As a GNU extension to C89, you can also obtain the address of a label
-with the label address operator '&&'.  The result is a 'void*' pointer
-which can be used with 'goto'.  *Note The goto Statement::.
+   В качестве расширения GNU для C89, можно также получить адрес метки
+используя оператор взятия адреса метки '&&'.  Результатом будет
+указатель 'void*', который может быть использован оператором 'goto'.
+*Note The goto Statement::.
 
-   Given a memory address stored in a pointer, you can use the
-indirection operator '*' to obtain the value stored at the address.
-(This is called "dereferencing" the pointer.)
+   Учитывая адрес памяти, хранящийся в указателе, можно использовать
+оператор косвенного обращения (разыменования) '*', чтобы получить
+значение, хранящееся по адресу.  (Это называется "разыменованием"
+указателя.)
 
      int x = 5;
      int y;
      int *ptr;
 
-     ptr = &x;    /* 'ptr' now holds the address of 'x'. */
+     ptr = &x;    /* 'ptr' теперь хранит адрес 'x'. */
 
-     y = *ptr;    /* 'y' gets the value stored at the address
-                     stored in 'ptr'. */
+     y = *ptr;    /* 'y' получает значение, хранящееся по адресу
+                     которое сохранено в 'ptr'. */
 
-Avoid using dereferencing pointers that have not been initialized to a
-known memory location.
+Избегайте использование разыменования указателей, которые не были
+инициализированы в известную ячейку памяти.
 
 
 File: gnu-c-manual.info,  Node: The sizeof Operator,  Next: Type Casts,  Prev: Pointer Operators,  Up: Expressions and Operators
 
-3.11 The sizeof Operator
-========================
+3.11 Оператор Получения Размера
+===============================
 
-You can use the 'sizeof' operator to obtain the size (in bytes) of the
-data type of its operand.  The operand may be an actual type specifier
-(such as 'int' or 'float'), as well as any valid expression.  When the
-operand is a type name, it must be enclosed in parentheses.  Here are
-some examples:
+Можно использовать оператор 'sizeof', чтобы получить размер (в байтах)
+операнда содержащего тип данных.  Операнд может быть указан с
+фактическим спецификатором типа (например, 'int' или 'float'), а также
+быть любым допустимым выражением.  Когда операнд является именем типа,
+он должен быть заключен в скобки.  Вот некоторые примеры:
 
      size_t a = sizeof(int);
      size_t b = sizeof(float);
@@ -2541,17 +2545,18 @@ some examples:
      size_t d = sizeof(5.143);
      size_t e = sizeof a;
 
-   The result of the 'sizeof' operator is of a type called 'size_t',
-which is defined in the header file '<stddef.h>'.  'size_t' is an
-unsigned integer type, perhaps identical to 'unsigned int' or 'unsigned
-long int'; it varies from system to system.
+   Результат оператора 'sizeof' имеет имя типа 'size_t', которое
+определено в файле заголовка '<stddef.h>'.  'size_t' является
+беззнаковым целочисленным типом, может быть идентичен 'unsigned int' или
+'unsigned long int', что меняется от системы к системе.
 
-   The 'size_t' type is often a convenient type for a loop index, since
-it is guaranteed to be able to hold the number of elements in any array;
-this is not the case with 'int', for example.
+   'size_t' тип часто бывает удобным типом для индексации цикла, так как
+это позволяет иметь возможность удерживать значение количества элементов
+в любом массиве, что не получиться при использовании индексации например
+с типом 'int'.
 
-   The 'sizeof' operator can be used to automatically compute the number
-of elements in an array:
+   Оператор 'sizeof' может использоваться для автоматического вычисления
+количества элементов в массиве:
 
      #include <stddef.h>
      #include <stdio.h>
@@ -2569,77 +2574,82 @@ of elements in an array:
          return 0;
      }
 
-   There are two cases where this technique does not work.  The first is
-where the array element has zero size (GCC supports zero-sized
-structures as a GNU extension).  The second is where the array is in
-fact a function parameter (*note Function Parameters::).
+   Есть два случая, когда этот метод не работает.  Во-первых, когда
+элемент массива имеет нулевой размер (GCC поддерживает структуры
+нулевого размера как расширение GNU). Во-вторых, если массив фактически
+является параметром функции (*note Function Parameters::).
 
 
 File: gnu-c-manual.info,  Node: Type Casts,  Next: Array Subscripts,  Prev: The sizeof Operator,  Up: Expressions and Operators
 
-3.12 Type Casts
-===============
+3.12 Приведение Типов
+=====================
 
-You can use a type cast to explicitly cause an expression to be of a
-specified data type.  A type cast consists of a type specifier enclosed
-in parentheses, followed by an expression.  To ensure proper casting,
-you should also enclose the expression that follows the type specifier
-in parentheses.  Here is an example:
+Можно использовать приведение типа, чтобы явно указать, что выражение
+относится к определенному типу данных.  Такое приведение состоит из
+спецификатора типа, заключенного в скобках, за которым следует
+выражение.  Для обеспечения правильного приведения, нужно также
+заключить выражение, которое следует за спецификатором типа в скобках.
+Вот пример:
 
      float x;
      int y = 7;
      int z = 3;
      x = (float) (y / z);
 
-   In that example, since 'y' and 'z' are both integers, integer
-division is performed, and even though 'x' is a floating-point variable,
-it receives the value 2.  Explicitly casting the result of the division
-to 'float' does no good, because the computed value of 'y/z' is already
-2.
+   В этом примере, поскольку 'y' и 'z' оба являются целыми числами,
+выполняется целочисленное деление, 'x' это переменная с плавающей точкой
+и принимает вычисленное выражение деления - значение 2.  Здесь явное
+приведение результата деления к типу 'float' не делает ничего хорошего,
+потому что вычисленное значение 'y/z' уже усечено до 2.
 
-   To fix this problem, you need to convert one of the operands to a
-floating-point type before the division takes place:
+   Чтобы устранить эту проблему, необходимо преобразовать тип одного из
+операндов опрации деления в тип с плавающей точкой до выполнения
+деления:
 
      float x;
      int y = 7;
      int z = 3;
      x = (y / (float)z);
 
-Here, a floating-point value close to 2.333... is assigned to 'x'.
+Здесь, значение с плавающей точкой, близкое к 2.333..., присваивается
+'x'.
 
-   Type casting only works with scalar types (that is, integer,
-floating-point or pointer types).  Therefore, this is not allowed:
+   Приведение типа работает только со скалярными типами (то есть с
+целочисленными типами, типими числа с плавающей точкой и типами
+указатель).  Таким образом, это допустимо:
 
-     struct fooTag { /* members ... */ };
+     struct fooTag { /* коллекция ... */ };
      struct fooTag foo;
      unsigned char byteArray[8];
 
-     foo = (struct fooType) byteArray; /* Fail! */
+     foo = (struct fooType) byteArray; /* Ошибка! */
 
 
 File: gnu-c-manual.info,  Node: Array Subscripts,  Next: Function Calls as Expressions,  Prev: Type Casts,  Up: Expressions and Operators
 
-3.13 Array Subscripts
-=====================
+3.13 Индексация Массива
+=======================
 
-You can access array elements by specifying the name of the array, and
-the array subscript (or index, or element number) enclosed in brackets.
-Here is an example, supposing an integer array called 'my_array':
+Можно получить доступ к элементам массива, указав имя массива и индекс
+массива (или индекс или номер элемента), заключенного в квадратные
+скобки.  Ниже приведен пример целочисленного массива с именем
+'my_array':
 
      my_array[0] = 5;
 
-   The array subscript expression 'A[i]' is defined as being identical
-to the expression '(*((A)+(i)))'.  This means that many uses of an array
-name are equivalent to a pointer expression.  It also means that you
-cannot subscript an array having the 'register' storage class.
+   Выражение индекс массива 'A[i]' определяется как идентично выражению
+'(*((A)+(i)))'.  Это означает, что многие виды использования имени
+массива эквивалентно выражению с указателем.  Это также означает, что
+нельзя индексировать массив, имеющий класс хранения 'register'.
 
 
 File: gnu-c-manual.info,  Node: Function Calls as Expressions,  Next: The Comma Operator,  Prev: Array Subscripts,  Up: Expressions and Operators
 
-3.14 Function Calls as Expressions
-==================================
+3.14 Вызовы Функций как Выражения
+=================================
 
-A call to any function which returns a value is an expression.
+Вызов любой функции, которая возвращает значение, является выражением.
 
      int function(void);
      ...
@@ -2648,55 +2658,56 @@ A call to any function which returns a value is an expression.
 
 File: gnu-c-manual.info,  Node: The Comma Operator,  Next: Member Access Expressions,  Prev: Function Calls as Expressions,  Up: Expressions and Operators
 
-3.15 The Comma Operator
-=======================
+3.15 Оператор Запятая
+=====================
 
-You use the comma operator ',' to separate two (ostensibly related)
-expressions.  For instance, the first expression might produce a value
-that is used by the second expression:
+Можно использовать оператор запятая ',' для разделения двух (якобы
+связанных) выражений.  Например, первое выражение может задавать
+значение, которое используется вторым выражением:
      x++, y = x * x;
 
-   More commonly, the comma operator is used in 'for' statements, like
-this:
+   Чаще всего, оператор запятая используется в конструкции оператора
+'for', как здесь:
 
-     /* Using the comma operator in a 'for' statement. */
+     /* Использование оператора запятая в 'for' конструкции. */
 
      for (x = 1, y = 10;  x <=10 && y >=1;  x++, y--)
        {
          ...
        }
 
-This lets you conveniently set, monitor, and modify multiple control
-expressions for the 'for' statement.
+Это позволяет удобно устанавливать, контролировать и изменять несколько
+управлящих выражений конструкции 'for'.
 
-   A comma is also used to separate function parameters; however, this
-is _not_ the comma operator in action.  In fact, if the comma operator
-is used as we have discussed here in a function call, then the compiler
-will interpret that as calling the function with an extra parameter.
+   Запятая также используется для разделения параметров функции; Однако,
+это _не_ оператор запятая в действии.  В самом деле, если оператор
+запятой использовать как мы уже обсуждали здесь, в вызове функции, то
+компилятор будет интерпретировать это как вызов функции с дополнительным
+параметром.
 
-   If you want to use the comma operator in a function argument, you
-need to put parentheses around it.  That's because commas in a function
-argument list have a different meaning: they separate arguments.  Thus,
+   Если требуется использовать запятую в качестве аргумента функции,
+нужно поставить скобки вокруг неё.  Это потому, что запятая в списке
+аргументов функции имеет другой смысл: она разделяет аргументы.  Таким
+образом,
 
      foo (x,  y=47,  x,  z);
 
-is interpreted as a function call with four arguments, but
+интерпретируется как вызов функции с четырьмя аргументами, но
 
      foo (x,  (y=47,  x),  z);
 
-is a function call with just three arguments.  (The second argument is
-'(y=47, x)'.)
+Это вызов функции с использованием трёх аргументов.  (Второй аргумент
+это - выражение '(y=47, x)'.)
 
 
 File: gnu-c-manual.info,  Node: Member Access Expressions,  Next: Conditional Expressions,  Prev: The Comma Operator,  Up: Expressions and Operators
 
-3.16 Member Access Expressions
+3.16 Доступ к Членам Выражения
 ==============================
 
-You can use the member access operator '.' to access the members of a
-structure or union variable.  You put the name of the structure variable
-on the left side of the operator, and the name of the member on the
-right side.
+Можно использовать оператор '.' для доступа через переменную к элементу
+структуры или объединения.  Имя переменной структуры располагается с
+левой стороны, а и имя члена коллекции с правой стороны оператора.
 
      struct point
      {
@@ -2708,9 +2719,9 @@ right side.
      first_point.x = 0;
      first_point.y = 5;
 
-   You can also access the members of a structure or union variable via
-a pointer by using the indirect member access operator '->'.  'x->y' is
-equivalent to '(*x).y'.
+   Также можно получить доступ через переменную к членам структуры или
+объединения с помощью указателя, используя опреатор косвенного доступа к
+члену структуры '->'.  Выражение 'x->y' эквивалентно выражению '(*x).y'.
 
      struct fish
        {
@@ -2729,187 +2740,191 @@ equivalent to '(*x).y'.
 
 File: gnu-c-manual.info,  Node: Conditional Expressions,  Next: Statements and Declarations in Expressions,  Prev: Member Access Expressions,  Up: Expressions and Operators
 
-3.17 Conditional Expressions
-============================
+3.17 Условные Выражения
+=======================
 
-You use the conditional operator to cause the entire conditional
-expression to evaluate to either its second or its third operand, based
-on the truth value of its first operand.  Here's an example:
+Можно использовать условный оператор, чтобы выполнить оценку или его
+второго операнда либо третьего, на основании значения истинности первого
+операнда.  Вот пример:
 
      a ? b : c
 
-   If expression 'a' is true, then expression 'b' is evaluated and the
-result is the value of 'b'.  Otherwise, expression 'c' is evaluated and
-the result is 'c'.
+   Если выражение 'a' истинно, то вычисляется выражение 'b' и
+результатом всего выражения является оцененное значение выражения 'b'.
+В противном случае, вычисляется выражение 'c' и результатом всего
+выражения будет вычисленное значение выражения 'c'.
 
-   Expressions 'b' and 'c' must be compatible.  That is, they must both
-be
+   Выражения 'b' and 'c' должны быть совместимыми.  То есть, они оба
+должны быть
 
-  1. arithmetic types
-  2. compatible 'struct' or 'union' types
-  3. pointers to compatible types (one of which might be the NULL
-     pointer)
+  1. арифметическими типами
+  2. совместимыми структурами 'struct' или типами 'union'
+  3. указателями на совместимые типы (один из которых может быть
+     указателем NULL)
 
-   Alternatively, one operand is a pointer and the other is a 'void*'
-pointer.
+   В качестве альтернативы, один операнд является указателем, а другой
+является указателем 'void*'.
 
-   Here is an example
+   Вот пример
 
      a = (x == 5) ? y : z;
 
-   Here, if 'x' equals 5, then 'a' will receive the value of 'y'.
-Otherwise, 'a' will receive the value of 'z'.  This can be considered a
-shorthand method for writing a simple 'if'...'else' statement.  The
-following example will accomplish the same task as the previous one:
+   Здесь, если 'x' равен 5, то 'a' получит значение 'y'.  В противном
+случае, 'a' получит значение 'z'.  Это можно рассматривать как метод
+стенографии для написания простого заявления 'if'...'else'.  Следующий
+пример выполнения той же задачи, как и в предыдущем:
 
      if (x == 5)
          a = y;
      else
          a = z;
 
-   If the first operand of the conditional operator is true, then the
-third operand is never evaluated.  Similarly, if the first operand is
-false, then the second operand is never evaluated.  The first operand is
-always evaluated.
+   Если первый операнд условного оператора является оценивается в
+истину, то третий операнд никогда не оценивается.  Аналогичным образом,
+если первый операнд оценен в ложь, тогда второй операнд никогда не
+оценивается.  Первый операнд всегда оценивается.
 
 
 File: gnu-c-manual.info,  Node: Statements and Declarations in Expressions,  Next: Operator Precedence,  Prev: Conditional Expressions,  Up: Expressions and Operators
 
-3.18 Statements and Declarations in Expressions
-===============================================
+3.18 Выражения в Объявлениях
+============================
 
-As a GNU C extension, you can build an expression using compound
-statement enclosed in parentheses.  This allows you to included loops,
-switches, and local variables within an expression.
+В качестве расширения GNU Cи, можо построить выражение с помощью
+составного оператора, заключенного в круглых скобках.  Это позволяет
+включать в выражения циклы, указатели и локальные переменные.
 
-   Recall that a compound statement (also known as a block) is a
-sequence of statements surrounded by braces.  In this construct,
-parentheses go around the braces.  Here is an example:
+   Напомним, что составной оператор (также известный как блок)
+представляет собой последовательность операторов заключённую в фигурные
+скобки.  В этой конструкции круглые скобки заключают в себя фигурные
+скобки.  Вот пример:
 
      ({ int y = function (); int z;
          if (y > 0) z = y;
         else z = - y;
         z; })
 
-   That is a valid (though slightly more complex than necessary)
-expression for the absolute value of 'function ()'.
+   Это является допустимым (хотя и несколько более сложным, чем это
+необходимо) выражением для абсолютного значения функции 'function ()'.
 
-   The last thing in the compound statement should be an expression
-followed by a semicolon; the value of this subexpression serves as the
-value of the entire construct.  (If you use some other kind of statement
-last within the braces, the construct has type 'void', and thus
-effectively no value.)
+   Последним элементом в составном операторе должно быть выражение, за
+которым следует оператор точки с запятой; значение этого подвыражения
+служит заключительным значением всей конструкции.  (Если используется
+какой-то другой тип в качестве последнего составного оператора в
+фигурных скобках, конструкция возвращает значение типа 'void', и, таким
+образом, не имеет возвращаемого значения.)
 
-   This feature is especially useful in making macro definitions "safe"
-(so that they evaluate each operand exactly once).  For example, the
-"maximum" function is commonly defined as a macro in standard C as
-follows:
+   Эта функция особенно полезна для "безопасного" объявления макроса
+(так что каждый операнд был оценен ровно один раз).  Например, функция
+"maximum" обычно определяется как макрос в стандартном Cи следующим
+образом:
 
      #define max(a,b) ((a) > (b) ? (a) : (b))
 
-But this definition computes either 'a' or 'b' twice, with bad results
-if the operand has side effects.  In GNU C, if you know the type of the
-operands (here let's assume 'int'), you can define the macro safely as
-follows:
+Но это определение вычисляет либо 'a' либо 'b' дважды, с искажёнными
+зультатами, если вычисление операнда имеет побочные эффекты.  В GNU Cи,
+если известен тип операндов (здесь давайте предположим 'int'), можно
+определить безопасный макрос следующим образом:
 
      #define maxint(a,b) \
        ({int _a = (a), _b = (b); _a > _b ? _a : _b; })
 
-   If you don't know the type of the operand, you can still do this, but
-you must use 'typeof' expressions or type naming.
+   Если тип операнда не известен, можно сделать это, использовав
+'typeof' для выражения или именованного типа.
 
-   Embedded statements are not allowed in constant expressions, such as
-the value of an enumeration constant, the width of a bit field, or the
-initial value of a static variable.
+   Встроенный оператор 'typeof' не допускается использовать для
+константных выражений, таких как константное значение перечисления,
+размер битового поля или начальное значение статической переменной.
 
 
 File: gnu-c-manual.info,  Node: Operator Precedence,  Next: Order of Evaluation,  Prev: Statements and Declarations in Expressions,  Up: Expressions and Operators
 
-3.19 Operator Precedence
-========================
+3.19 Приоритет Операторов
+=========================
 
-When an expression contains multiple operators, such as 'a + b * f()',
-the operators are grouped based on rules of "precedence".  For instance,
-the meaning of that expression is to call the function 'f' with no
-arguments, multiply the result by 'b', then add that result to 'a'.
-That's what the C rules of operator precedence determine for this
-expression.
+Если выражение содержит несколько операторов, такое как 'a + b * f()',
+операторы группируются на основе правил "приоритета".  Например,
+действия этого выражения состоит из вызова функции 'f' без аргументов,
+умножения её результата выполнения на 'b' и затем добавление к
+получившемуся результату 'a'.  Вот как правила приоритета операторов Cи,
+определят последовательность оценки этого выражения.
 
-   The following is a list of types of expressions, presented in order
-of highest precedence first.  Sometimes two or more operators have equal
-precedence; all those operators are applied from left to right unless
-stated otherwise.
+   Ниже приведен список типов выражений, представленных в порядке,
+начиная с наивысшего приоритета.  Иногда два или более оператора имеют
+одинаковый приоритет, тогда все эти операторы выполняются по очереди
+слева направо, если не явно не задано иное.
 
-  1. Function calls, array subscripting, and membership access operator
-     expressions.
+  1. Оператор вызова функции, индексации массива и выражение доступа к
+     члену структуры.
 
-  2. Unary operators, including logical negation, bitwise complement,
-     increment, decrement, unary positive, unary negative, indirection
-     operator, address operator, type casting, and 'sizeof' expressions.
-     When several unary operators are consecutive, the later ones are
-     nested within the earlier ones: '!-x' means '!(-x)'.
+  2. Унарные операторы, в том числе логическое отрицание, побитовое
+     дополнение, инкрементация, декрементация, унарный плюс, унарный
+     минус, оператор косвенного обращения, оператор взятия адреса,
+     приведения типов и 'sizeof' выражения.  Когда несколько унарных
+     операторов указаны подряд, идущие позже, вычисляются раньше чем
+     идущие впереди них: '!-x' означает '!(-x)'.
 
   3. Multiplication, division, and modular division expressions.
 
-  4. Addition and subtraction expressions.
+  4. Выражения сложения и вычитания.
 
-  5. Bitwise shifting expressions.
+  5. Выражения поразрядного сдвига.
 
-  6. Greater-than, less-than, greater-than-or-equal-to, and
-     less-than-or-equal-to
-     expressions.
+  6. Выражения Большее чем, меньше чем, больше или равно чем, меньше или
+     равно чем.
 
-  7. Equal-to and not-equal-to expressions.
+  7. Выражения проверки равенства и неравенства.
 
-  8. Bitwise AND expressions.
+  8. Побитовые выражения 'AND (И)'.
 
-  9. Bitwise exclusive OR expressions.
+  9. Побитовые выражения '^ (Исключающее ИЛИ)'.
 
-  10. Bitwise inclusive OR expressions.
+  10. Побитовые выражения 'OR (ИЛИ)'.
 
-  11. Logical AND expressions.
+  11. Логические выражения 'AND (И)'.
 
-  12. Logical OR expressions.
+  12. Логические выражения 'OR (ИЛИ)'.
 
-  13. Conditional expressions (using '?:').  When used as
-     subexpressions, these are evaluated right to left.
+  13. Условные выражения (использование '?:').  При использовании в
+     качестве подвыражений, они оцениваются справа налево.
 
-  14. All assignment expressions, including compound assignment.  When
-     multiple assignment statements appear as subexpressions in a single
-     larger expression, they are evaluated right to left.
+  14. Все выражения присваивания, в том числе составное присваивание.
+     Когда несколько операторов присваивания появляются как подвыражения
+     в составе одного большого выражения, они вычисляются справа налево.
 
-  15. Comma operator expressions.
+  15. Выражения оператора запятая.
 
-   The above list is somewhat dry and is apparently straightforward, but
-it does hide some pitfalls.  Take this example:
+   Приведенный выше перечень несколько суховат и, по-видимому прост и не
+покажет скрытых некоторых подводных камней.  Возьмём такой пример:
 
      foo = *p++;
 
-   Here 'p' is incremented as a side effect of the expression, but 'foo'
-takes the value of '*(p++)' rather than '(*p)++', since the unary
-operators bind right to left.  There are other examples of potential
-surprises lurking behind the C precedence table.  For this reason if
-there is the slightest risk of the reader misunderstanding the meaning
-of the program, you should use parentheses to make your meaning clear.
+   Здесь 'p' увеличиваются как побочный эффект выражения, но 'foo'
+принимает значение '*(p++)', а не '(*p)++', так как унарные операторы
+выполняются справа налево.  Есть и другие примеры потенциальных
+сюрпризов, скрывающихся за завесом приоритета вычисления операторов Cи.
+По этой причине, если есть малейший риск непонимания читателем смысла
+программы, нужно использовать круглые скобки, чтобы ясно задать смысл
+выражения.
 
 
 File: gnu-c-manual.info,  Node: Order of Evaluation,  Prev: Operator Precedence,  Up: Expressions and Operators
 
-3.20 Order of Evaluation
-========================
+3.20 Порядок Вычисления
+=======================
 
-In C you cannot assume that multiple subexpressions are evaluated in the
-order that seems natural.  For instance, consider the expression '++a *
-f()'.  Does this increment 'a' before or after calling the function 'f'?
-The compiler could do it in either order, so you cannot make
-assumptions.
+В Cи нельзя предполагать, что несколько подвыражений вычисляются в
+порядке, который кажется естественным.  Например, рассмотрим выражение
+'++a * f()'.  Означает ли это приращение 'a' до или после вызова функции
+'f'?  Компилятор может сделать это в любом порядке, так что нельзя
+сделать точное предположение.
 
-   This manual explains the semantics of the C language in the abstract.
-However, an actual compiler translates source code into specific actions
-in an actual computer, and may re-order operations for the sake of
-efficiency.  The correspondence between the program you write and the
-things the computer actually does are specified in terms of _side
-effects_ and _sequence points_.
+   Это руководство объясняет абстрактную семантику языка Cи.  Однако
+реальный компилятор преобразует исходный код в конкретные действия на
+реальном компьютере, и может изменить порядок операций в интересах
+эффективности.  Соответствие между написанным текстом программы и тем
+какие действия на самом деле выполнит компьютер определяются в терминах
+_побочных эффектов_ и _точек последовательности_.
 
 * Menu:
 
@@ -2921,40 +2936,42 @@ effects_ and _sequence points_.
 
 File: gnu-c-manual.info,  Node: Side Effects,  Next: Sequence Points,  Up: Order of Evaluation
 
-3.20.1 Side Effects
--------------------
+3.20.1 Побочные Эффекты
+-----------------------
 
-A "side effect" is one of the following:
-  1. accessing a 'volatile' object
-  2. modifying an object
-  3. modifying a file
-  4. a call to a function which performs any of the above side effects
+К "побочному эффекту" относится одно из следующих действий:
+  1. доступ к объекту 'volatile'
+  2. изменение объекта
+  3. изменение файла
+  4. вызов функции, выполняющая один из указанных выше побочных эффектов
 
-   These are essentially the externally-visible effects of running a
-program.  They are called side effects because they are effects of
-expression evalation beyond the expression's actual resulting value.
+   По существу, это внешне видимые эффекты запуска программы.  Они
+называются побочными эффектами, потому что они являются следствием
+'оценки' выражения за пределами фактического результирующего значения
+выражения.
 
-   The compiler is allowed to perform the operations of your program in
-an order different to the order implied by the source of your program,
-provided that in the end all the necessary side effects actually take
-place.  The compiler is also allowed to entirely omit some operations;
-for example it's allowed to skip evaluating part of an expression if it
-can be certain that the value is not used and evaluating that part of
-the expression won't produce any needed side effects.
+   Компилятор может выполнять операции вашей программы в порядке,
+отличающийся от порядка, вытекающего из исходного кода вашей программы,
+при условии, что в конце концов отработают все необходимые побочные
+эффекты.  Компилятору также позволено полностью опустить некоторые
+операции; например, он может пропустить часть оценки выражения, если он
+уверен, что значение не используется, и оценка этой части выражения не
+будет производить никаких необходимых побочных эффектов.
 
 
 File: gnu-c-manual.info,  Node: Sequence Points,  Next: Sequence Points Constrain Expressions,  Prev: Side Effects,  Up: Order of Evaluation
 
-3.20.2 Sequence Points
-----------------------
+3.20.2 Точки Последовательности
+-------------------------------
 
-Another requirement on the compiler is that side effects should take
-place in the correct order.  In order to provide this without
-over-constraining the compiler, the C89 and C90 standards specify a list
-of sequence points.  A "sequence point" is one of the following:
+Еще одно требование от компилятора является то, что побочные эффекты
+должны проявляться в правильном порядке.  Для того, чтобы обеспечить это
+без чрезмерного ограничения компилятора, стандарты C89 и C90 указывают
+список точек последовательности.  "Точка последовательности"
+представляется одним из следующих действий:
 
-  1. a call to a function (after argument evaluation is complete)
-  2. the end of the left-hand operand of the and operator '&&'
+  1. вызов функции (после завершения оценки аргумента)
+  2. конец левостороннего операнда и оператор '&&'
   3. the end of the left-hand operand of the or operator '||'
   4. the end of the left-hand operand of the comma operator ','
   5. the end of the first operand of the ternary operator 'a ? b : c'
@@ -5625,7 +5642,7 @@ Index
 * increment operator:                    Incrementing and Decrementing.
                                                                (line  6)
 * indirect member access operator:       Member Access Expressions.
-                                                               (line 21)
+                                                               (line 20)
 * initializing arrays:                   Initializing Arrays.  (line  6)
 * initializing pointers:                 Initializing Pointers.
                                                                (line  6)
@@ -5708,12 +5725,12 @@ Index
 * sample program:                        A Sample Program.     (line  6)
 * scope:                                 Scope.                (line  6)
 * separators:                            Separators.           (line  6)
-* sequence point:                        Sequence Points.      (line 11)
+* sequence point:                        Sequence Points.      (line 12)
 * shifting:                              Bit Shifting.         (line  6)
 * short int data type:                   Integer Types.        (line 35)
 * side effect:                           Side Effects.         (line  6)
 * side effects, macro argument:          Statements and Declarations in Expressions.
-                                                               (line 35)
+                                                               (line 37)
 * signed char data type:                 Integer Types.        (line 19)
 * signed integer overflow:               Integer Overflow Basics.
                                                                (line  6)
@@ -5886,67 +5903,67 @@ Node: Incrementing and Decrementing75057
 Node: Arithmetic Operators77750
 Node: Complex Conjugation82108
 Node: Comparison Operators83169
-Node: Logical Operators85376
-Node: Bit Shifting86751
-Node: Bitwise Logical Operators88421
-Node: Pointer Operators89949
-Node: The sizeof Operator91488
-Node: Type Casts93276
-Node: Array Subscripts94666
-Node: Function Calls as Expressions95362
-Node: The Comma Operator95707
-Node: Member Access Expressions97150
-Node: Conditional Expressions98110
-Node: Statements and Declarations in Expressions99643
-Node: Operator Precedence101679
-Node: Order of Evaluation104306
-Node: Side Effects105276
-Node: Sequence Points106297
-Ref: Sequence Points-Footnote-1109035
-Node: Sequence Points Constrain Expressions109141
-Ref: Sequence Points Constrain Expressions-Footnote-1113162
-Node: Sequence Points and Signal Delivery113298
-Node: Statements114954
-Node: Labels115593
-Node: Expression Statements116416
-Node: The if Statement117484
-Node: The switch Statement119404
-Node: The while Statement122392
-Node: The do Statement123191
-Node: The for Statement123971
-Node: Blocks127437
-Node: The Null Statement128747
-Node: The goto Statement129745
-Node: The break Statement131519
-Node: The continue Statement132337
-Node: The return Statement132937
-Node: The typedef Statement134609
-Node: Functions136056
-Node: Function Declarations136970
-Node: Function Definitions138772
-Node: Calling Functions140378
-Node: Function Parameters141243
-Node: Variable Length Parameter Lists144734
-Node: Calling Functions Through Function Pointers147137
-Node: The main Function148009
-Ref: The main Function-Footnote-1150326
-Node: Recursive Functions150490
-Node: Static Functions151331
-Node: Nested Functions152006
-Node: Program Structure and Scope152805
-Node: Program Structure153132
-Node: Scope154617
-Node: A Sample Program155644
-Node: hello.c156500
-Node: system.h162845
-Node: Overflow164468
-Node: Integer Overflow Basics165608
-Node: Signed Overflow Examples167327
-Node: Optimization and Wraparound170820
-Node: Signed Overflow Advice173772
-Node: Signed Integer Division176436
-Node: GNU Free Documentation License177037
-Node: Index202164
+Node: Logical Operators86208
+Node: Bit Shifting88459
+Node: Bitwise Logical Operators91372
+Node: Pointer Operators94296
+Node: The sizeof Operator96858
+Node: Type Casts99626
+Node: Array Subscripts102077
+Node: Function Calls as Expressions103160
+Node: The Comma Operator103596
+Node: Member Access Expressions106004
+Node: Conditional Expressions107357
+Node: Statements and Declarations in Expressions109990
+Node: Operator Precedence113597
+Node: Order of Evaluation118293
+Node: Side Effects119884
+Node: Sequence Points121675
+Ref: Sequence Points-Footnote-1124821
+Node: Sequence Points Constrain Expressions124927
+Ref: Sequence Points Constrain Expressions-Footnote-1128948
+Node: Sequence Points and Signal Delivery129084
+Node: Statements130740
+Node: Labels131379
+Node: Expression Statements132202
+Node: The if Statement133270
+Node: The switch Statement135190
+Node: The while Statement138178
+Node: The do Statement138977
+Node: The for Statement139757
+Node: Blocks143223
+Node: The Null Statement144533
+Node: The goto Statement145531
+Node: The break Statement147305
+Node: The continue Statement148123
+Node: The return Statement148723
+Node: The typedef Statement150395
+Node: Functions151842
+Node: Function Declarations152756
+Node: Function Definitions154558
+Node: Calling Functions156164
+Node: Function Parameters157029
+Node: Variable Length Parameter Lists160520
+Node: Calling Functions Through Function Pointers162923
+Node: The main Function163795
+Ref: The main Function-Footnote-1166112
+Node: Recursive Functions166276
+Node: Static Functions167117
+Node: Nested Functions167792
+Node: Program Structure and Scope168591
+Node: Program Structure168918
+Node: Scope170403
+Node: A Sample Program171430
+Node: hello.c172286
+Node: system.h178631
+Node: Overflow180254
+Node: Integer Overflow Basics181394
+Node: Signed Overflow Examples183113
+Node: Optimization and Wraparound186606
+Node: Signed Overflow Advice189558
+Node: Signed Integer Division192222
+Node: GNU Free Documentation License192823
+Node: Index217950
 
 End Tag Table
 
