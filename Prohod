@@ -1,4 +1,4 @@
-  expressions.texi  514
+  expressions.texi  +
   fdl.texi          + 
   functions.texi
   gnu-c-manual.texi +
@@ -10,4 +10,4 @@
   README
   sample.texi
   statements.texi
-  types.texi
+  types.texi 

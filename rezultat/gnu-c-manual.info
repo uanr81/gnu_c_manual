@@ -87,14 +87,15 @@ Art of Computer Programming'.
 
 File: gnu-c-manual.info,  Node: Lexical Elements,  Next: Data Types,  Prev: Preface,  Up: Top
 
-1 Lexical Elements
-******************
+1 Лексические Элементы
+**********************
 
-This chapter describes the lexical elements that make up C source code
-after preprocessing.  These elements are called "tokens".  There are
-five types of tokens: keywords, identifiers, constants, operators, and
-separators.  White space, sometimes required to separate tokens, is also
-described in this chapter.
+В этой главе описывается лексические элементы, которые составляют
+исходный код Cи после предварительной обработки.  Эти элементы
+называются "токены".  Есть пять типов токенов: ключевые слова,
+идентификаторы, константы, операторы и разделители.  Пропуски, иногда
+требуется, чтобы разделить отдельные лексемы, это всё описано в этой
+главе.
 
 * Menu:
 
@@ -108,42 +109,43 @@ described in this chapter.
 
 File: gnu-c-manual.info,  Node: Identifiers,  Next: Keywords,  Up: Lexical Elements
 
-1.1 Identifiers
-===============
+1.1 Идентификаторы
+==================
 
-Identifiers are sequences of characters used for naming variables,
-functions, new data types, and preprocessor macros.  You can include
-letters, decimal digits, and the underscore character '_' in
-identifiers.
+Идентификаторы представляют собой последовательность символов,
+используются для обозначения переменных, функций, новых типов данных и
+макросов препроцессора.  Можно также включать в идентификаторы буквы,
+десятичные цифры, и символ подчеркивания '_'.
 
-   The first character of an identifier cannot be a digit.
+   Первый символ идентификатора не может быть цифрой.
 
-   Lowercase letters and uppercase letters are distinct, such that 'foo'
-and 'FOO' are two different identifiers.
+   Строчные буквы и прописные буквы различаются, так что 'foo' и 'FOO'
+два разных идентификатора.
 
-   When using GNU extensions, you can also include the dollar sign
-character '$' in identifiers.
+   При использовании расширений GNU, вы можете также включать символ '$'
+(знак доллара) в идентификаторах.
 
 
 File: gnu-c-manual.info,  Node: Keywords,  Next: Constants,  Prev: Identifiers,  Up: Lexical Elements
 
-1.2 Keywords
-============
+1.2 Ключевые Слова
+==================
 
-Keywords are special identifiers reserved for use as part of the
-programming language itself.  You cannot use them for any other purpose.
+Ключевые слова являются специальными идентификаторами зарезервироваными
+для использования в качестве части самого языка программирования.  Вы не
+можете использовать их для любых других целей.
 
-   Here is a list of keywords recognized by ANSI C89:
+   Вот список ключевых слов признан ANSI C89:
 
      auto break case char const continue default do double else enum extern
      float for goto if int long register return short signed sizeof static
      struct switch typedef union unsigned void volatile while
 
-ISO C99 adds the following keywords:
+ISO C99 добавляет следующие ключевые слова:
 
      inline _Bool _Complex _Imaginary
 
-and GNU extensions add these keywords:
+и расширение GNU добавляет эти ключевые слова:
 
      __FUNCTION__ __PRETTY_FUNCTION__ __alignof __alignof__ __asm
      __asm__ __attribute __attribute__ __builtin_offsetof __builtin_va_arg
@@ -152,8 +154,8 @@ and GNU extensions add these keywords:
      __restrict __restrict__ __signed __signed__ __thread __typeof
      __volatile __volatile__
 
-In both ISO C99 and C89 with GNU extensions, the following is also
-recognized as a keyword:
+В обоих ISO C99 и C89 с расширениями GNU, следующее также признаётся в
+качестве ключевого слова:
      restrict
 
 
@@ -162,10 +164,11 @@ File: gnu-c-manual.info,  Node: Constants,  Next: Operators,  Prev: Keywords,  U
 1.3 Constants
 =============
 
-A constant is a literal numeric or character value, such as '5' or
-''m''.  All constants are of a particular data type; you can use type
-casting to explicitly specify the type of a constant, or let the
-compiler use the default type based on the value of the constant.
+Константа является буквальным числовым или символьным значением,
+например, '5' или ''m''.  Все константы относятся к конкретному типу
+данных; Вы можете использовать явное приведение типов для указания типа
+константы или позволить компилятору использовать тип по умолчанию на
+основе значения константы.
 
 * Menu:
 
@@ -177,16 +180,16 @@ compiler use the default type based on the value of the constant.
 
 File: gnu-c-manual.info,  Node: Integer Constants,  Next: Character Constants,  Up: Constants
 
-1.3.1 Integer Constants
------------------------
+1.3.1 Целочисленные Константы
+-----------------------------
 
-An integer constant is a sequence of digits, with an optional prefix to
-denote a number base.
+Целочисленная константа представляет собой последовательность цифр, с
+необязательным префиксом для обозначения системы счисления.
 
-   If the sequence of digits is preceded by '0x' or '0X' (zero x or zero
-X), then the constant is considered to be hexadecimal (base 16).
-Hexadecimal values may use the digits from 0 to 9, as well as the
-letters 'a' to 'f' and 'A' to 'F'.  Here are some examples:
+   Если последовательности цифр предшествует '0x' или '0X' (ноль или
+ноль затем X), то константа считается шестнадцатеричным (основание 16).
+Шестнадцатеричные значения используют цифры от 0 до 9, а также буквы от
+'a' до 'f' и от 'A' до 'F'.  Вот некоторые примеры:
 
      0x2f
      0x88
@@ -194,46 +197,49 @@ letters 'a' to 'f' and 'A' to 'F'.  Here are some examples:
      0xAbCd
      0x1
 
-   If the first digit is 0 (zero), and the next character is not 'x' or
-'X', then the constant is considered to be octal (base 8).  Octal values
-may only use the digits from 0 to 7; 8 and 9 are not allowed.  Here are
-some examples:
+   Если первая цифра 0 (ноль), а следующий символ не является 'x' или
+'X', то константа считается восьмеричной (основание 8).  Восьмеричные
+значения могут использовать только цифры от 0 до 7, 8 и 9 не
+допускаются.  Вот некоторые примеры:
 
      057
      012
      03
      0241
 
-   In all other cases, the sequence of digits is assumed to be decimal
-(base 10).  Decimal values may use the digits from 0 to 9.  Here are
-some examples:
+   Во всех других случаях последовательность цифр считается десятичной
+константой (основание 10).  Десятичные значения могут состоять из цифр
+от 0 до 9.  Ниже приведены некоторые примеры:
 
      459
      23901
      8
      12
 
-   There are various integer data types, for short integers, long
-integers, signed integers, and unsigned integers.  You can force an
-integer constant to be of a long and/or unsigned integer type by
-appending a sequence of one or more letters to the end of the constant:
+   Существуют различные типы целочисленных данных, для коротких целых,
+длинных целых чисел, целых чисел и целых чисел без знака.  Вы можете
+заставить целую константу быть длинным типом и/или целым числом без
+знака, добавив к последовательности одну или несколько букв из
+следующего списка в конце константы:
 
 'u'
 'U'
-     Unsigned integer type.
+     Целочисленный тип без знака.
 
 'l'
 'L'
-     Long integer type.
+     Длинный целочисленный тип.
 
-   For example, '45U' is an 'unsigned int' constant.  You can also
-combine letters: '45UL' is an 'unsigned long int' constant.  (The
-letters may be used in any order.)
+   Например, '45U' является константой с типом значения 'unsigned int
+(беззнаковое целочисленное)'.  Вы также можете комбинировать буквы:
+'45UL' - указывает тип значения константы как 'беззнаковое длинное
+целочисленное'.  (Буквы могут быть использованы в любом порядке.)
 
-   Both ISO C99 and GNU C extensions add the integer types 'long long
-int' and 'unsigned long long int'.  You can use two 'L's to get a 'long
-long int' constant; add a 'U' to that and you have an 'unsigned long
-long int' constant.  For example: '45ULL'.
+   Оба расширения ISO C99 и GNU C добавляют целочисленные типы 'long
+long int' (целочисленное двойной длинны) и 'unsigned long long int'
+(беззнаковое целочисленное двойной длинны).  Вы можете использовать два
+'L's, чтобы получить константу 'long long int'; и добавить 'U' тогда,
+кода константа является 'unsigned long long int'.  Например: '45ULL'.
 
 
 File: gnu-c-manual.info,  Node: Character Constants,  Next: Real Number Constants,  Prev: Integer Constants,  Up: Constants
@@ -241,13 +247,14 @@ File: gnu-c-manual.info,  Node: Character Constants,  Next: Real Number Constant
 1.3.2 Character Constants
 -------------------------
 
-A character constant is usually a single character enclosed within
-single quotation marks, such as ''Q''.  A character constant is of type
-'int' by default.
+Символьная константа характер, как правило, это один символ, заключенный
+в одинарные кавычки, например, ''Q''.  Символьная константа имеет тип
+'int' по умолчанию.
 
-   Some characters, such as the single quotation mark character itself,
-cannot be represented using only one character.  To represent such
-characters, there are several "escape sequences" that you can use:
+   Некоторые символы, такие как одиночная кавычка, не могут быть
+представлены только самим один символом.  Для представления таких
+символов, есть несколько "escape последовательностей", которые вы можете
+использовать:
 
 '\\'
      Backslash character.
@@ -2964,114 +2971,111 @@ File: gnu-c-manual.info,  Node: Sequence Points,  Next: Sequence Points Constrai
 3.20.2 Точки Последовательности
 -------------------------------
 
-Еще одно требование от компилятора является то, что побочные эффекты
+Еще одно требование к компилятору является то, что побочные эффекты
 должны проявляться в правильном порядке.  Для того, чтобы обеспечить это
-без чрезмерного ограничения компилятора, стандарты C89 и C90 указывают
+без чрезмерного ограничения компилятора, стандарты C89 и C90 определяют
 список точек последовательности.  "Точка последовательности"
 представляется одним из следующих действий:
 
-  1. вызов функции (после завершения оценки аргумента)
-  2. конец левостороннего операнда и оператор '&&'
-  3. the end of the left-hand operand of the or operator '||'
-  4. the end of the left-hand operand of the comma operator ','
-  5. the end of the first operand of the ternary operator 'a ? b : c'
-  6. the end of a full declarator (1)
-  7. the end of an initialisation expression
-  8. the end of an expression statement (i.e.  an expression followed by
-     ';')
-  9. the end of the controlling expression of an 'if' or 'switch'
-     statement
-  10. the end of the controlling expression of a 'while' or 'do'
-     statement
-  11. the end of any of the three controlling expressions of a 'for'
-     statement
-  12. the end of the expression in a return statement
-  13. immediately before the return of a library function
-  14. after the actions associated with an item of formatted I/O (as
-     used for example with the 'strftime' or the 'printf' and 'scanf'
-     famlies of functions).
-  15. immediately before and after a call to a comparison function (as
-     called for example by 'qsort')
+  1. после вызова функции (после завершения оценки аргумента)
+  2. после левостороннего операнда оператора 'AND (И)' '&&'
+  3. после левого операнда оператора 'OR (ИЛИ)' '||'
+  4. после левого операнда оператора запятая ','
+  5. после первого операнда тернарного оператора 'a ? b : c'
+  6. после полного объявления (1)
+  7. после выражения инициализации
+  8. после конструкций выражений (т.е.  выражение с последующим ';')
+  9. после объявления управляющих конструкций 'if' или 'switch'
+  10. после объявления управляющего выражения 'while' или 'do'
+  11. после объявления любого из трех управляющих выражений 'for'
+  12. после выражения оператора возврата
+  13. непосредственно перед возвращением библиотечной функции
+  14. после действий, связанных с элементом форматированного I/O (как
+     это используется, например, с 'strftime' или 'printf' и 'scanf'
+     родственных функций).
+  15. непосредственно перед и после вызова функции сравнения (как это
+     происходит, например, при использовании 'qsort')
 
-   At a sequence point, all the side effects of previous expression
-evaluations must be complete, and no side effects of later evaluations
-may have taken place.
+   В точке последовательности, все побочные эффекты оценки предыдущих
+выражений должны быть завершены, и никакие побочных эффектов последующих
+оценок выражений не имеют смысла.
 
-   This may seem a little hard to grasp, but there is another way to
-consider this.  Imagine you wrote a library (some of whose functions are
-external and perhaps others not) and compiled it, allowing someone else
-to call one of your functions from their code.  The definitions above
-ensure that, at the time they call your function, the data they pass in
-has values which are consistent with the behaviour specified by the
-abstract machine, and any data returned by your function has a state
-which is also consistent with the abstract machine.  This includes data
-accessible via pointers (i.e.  not just function parameters and
-identifiers with external linkage).
+   Это может показаться трудным для понимания, но есть и другой способ,
+чтобы рассмотреть это.  Представьте, что вы написали библиотеку
+(некоторые из функции являются внешними и, возможно, другие нет) и
+скомпилировал её, разрешается вызов одной из этих функций из внешнего
+кода.  Определения приведённые выше гарантируют, что в момент вызова
+вашей функции, данные, которые ей перадаются, имеют согласованное
+значение, заданное виртуальной машиной, и любые данные, возвращаемые
+вашей функцией имеют состояние, которое также будет согласовано с
+виртуальной машиной.  Это включает в себя данные, доступные с помощью
+указателей (т.е.  не только параметры функций и идентификаторы с внешним
+связыванием).
 
-   The above is a slight simplification, since compilers exist that
-perform whole-program optimisation at link time.  Importantly however,
-although they might perform optimisations, the visible side effects of
-the program must be the same as if they were produced by the abstract
-machine.
+   Вышесказанное является небольшим упрощением, поскольку существуют
+компиляторы, которые выполняют оптимизацию программы в целом, уже во
+время компоновки.  Важно отметить, однако, хотя они могут выполнять
+оптимизации, видимые побочные эффекты программы должны быть такими же,
+как если бы они были получены с помощью виртуальной машины.
 
    ---------- Footnotes ----------
 
-   (1) a full declarator is a declaration of a function or an object
-which is not part of another object
+   (1) полное объявление - это объявление функции или объекта, который
+не является частью другого объекта
 
 
 File: gnu-c-manual.info,  Node: Sequence Points Constrain Expressions,  Next: Sequence Points and Signal Delivery,  Prev: Sequence Points,  Up: Order of Evaluation
 
-3.20.3 Sequence Points Constrain Expressions
---------------------------------------------
+3.20.3 Ограничение Выражений Точками Последовательности
+-------------------------------------------------------
 
-The code fragment
+Фрагмент кода
      i = i + 1;
-   is quite normal and no doubt occurs in many programs.  However, the
-quite similar code fragment
+   это вполне нормально, и нет сомнений в том, что происходит во многих
+программах.  Тем не менее, вполне аналогичный фрагмент кода
      i = ++i + 1;
-   is a little harder to understand; what is the final value of 'i'?
-The C standards (both C89 and C99) both forbid this construct in
-conforming programs.
+   немного сложнее понять; каково окончательное значение 'i'?  Стандарты
+Cи (как C89 и C99)запрещают эту конструкцию в соответствии программ.
 
-   Between two sequence points,
-  1. an object may have its stored value modified at most once by the
-     evaluation of an expression
-  2. the prior value of the object shall be read only to determine the
-     value to be stored.
+   Между двух точек последовательности,
+  1. объект может иметь свое сохраненное значение модифицированное не
+     более одного раза в ходе оценки выражения
+  2. предварительное значение объекта должно быть только для чтения,
+     чтобы определить значение для сохранения.
 
-   The first of these two conditions forbids expressions like 'foo(x=2,
-++x)'.  The second condition forbids expressions like 'a[i++] = i'.
+   Первый из этих двух условий запрещают выражения типа 'foo(x=2, ++x)'.
+Второе условие запрещает такие выражения, как 'a[i++] = i'.
 
 'int x=0; foo(++x, ++x)'
-     Not allowed in a conforming program; modifies 'x' twice before
-     argument evaluation is complete.
+     Не допускается для соответствия программы, модифицировать 'x'
+     дважды, прежде чем оценка аргумента завершена.
 'int x=0; bar((++x,++x))'
-     Allowed; the function 'bar' takes one argument (the value 2 is
-     passed here), and there is a sequence point at the comma operator.
+     Позволено, функция 'bar' принимает один аргумент (в аргументе
+     передано два значения), и есть точка последовательности - оператор
+     запятая.
 '*p++ || *p++'
-     Allowed; there is a sequence point at '||'.
+     Позволено, существует точка последовательности на '||'.
 'int x = 1, y = x++;'
-     Allowed; there is a sequence point after the full declarator of
-     'x'.
+     Позволено, существует точка последовательности после полного
+     описания 'x'.
 'x=2; x++;'
-     Allowed; there is a sequence point at the end of the first
-     expression statement.
+     Позволено, существует точка последовательности в конце первого
+     оператора выражения.
 'if (x++ > MAX) x = 0;'
-     Allowed; there is a sequence point at the end of the controlling
-     expression of the 'if'(1).
+     Позволено, существует точка последовательности в конце управляющего
+     выражения 'if'(1).
 '(x=y) ? ++x : x--;'
-     Allowed; there is a sequence point before the '?', and only one of
-     the two following expressions is evaluated.
+     Позволено, существует точка последовательности перед '?', и только
+     один из двух следующих выражений оцениваются.
 'int *p=malloc(sizeof(*p)), *q=p; *p=foo(); bar((*p)++,(*q)++);'
-     Not allowed; the object at 'p' is being modified twice before the
-     evaluation of the arguments to 'bar' is complete.  The fact that
-     this is done once via 'p' and once via 'q' is irrelevant, since
-     they both point to the same object.
+     Не допустимо, объект в 'p' модифицируется дважды, прежде чем оценка
+     аргументов 'bar' завершена.  Тот факт, что это делается один раз
+     через 'p' и один раз через 'q' не имеет никакого значения, так как
+     они указывают на один и тот же объект.
 
-   Let's go back to the example we used to introduce the problem of the
-order of evaluation, '++a * f()'.  Suppose the code actually looks like
-this:
+   Вернемся к примеру, мы использовали, чтобы представить проблему
+порядка оценки, '++a * f()'.  Предположим, что код на самом деле
+выглядит следующим образом:
 
      static int a = 1;
 
@@ -3086,71 +3090,73 @@ this:
         return ++a * f();
      }
 
-   Is this code allowed in a standard-conforming program?  Although the
-expression in 'foo' modifies 'a' twice, this is not a problem.  Let's
-look at the two possible cases.
+   Разрешён ли этот код в соответствии стандартам программы?  Хотя
+выражение в 'foo' модифицирует 'a' дважды, это не проблема.  Давайте
+посмотрим на два возможных случаях.
 
-The right operand 'f()' is evaluated first
-     Since 'f' returns a value other than void, it must contain a
-     'return' statement.  Therefore, there is a sequence point at the
-     end of the return expression.  That comes between the modification
-     to 'a' that 'f' makes and the evaluation of the left operand.
-The left operand '++a' is evaluated first
-     First, 'a' is incremented.  Then the arguments to 'f' are evaluated
-     (there are zero of them).  Then there is a sequence point before
-     'f' is actually called.
+Правый операнд 'f()' оценивается первым. Поскольку 'f'
+     возвращает значение, отличное от void (неопределенно), выражение
+     должно содержать 'return' объявление.  Таким образом, существует
+     точка последовательности в конце выражения возврата.  Это
+     происходит между модификацией 'a', при работе 'f' и оценки левого
+     операнда.
+Левый операнд '++a' вычисляется первым. Во-первых, 'a'
+     увеличивается.  Затем вычисляются аргументы 'f' (их нет).  Затем
+     существует точка последовательности перед фактическим вызовом 'f'.
 
-   So, we see that our program is standard-conforming.  Notice that the
-above argument does not actually depend on the details of the body of
-the function 'f'.  It only depends on the function containing something
-ending in a sequence point - in our example this is a return statement,
-but an expression statement or a full declarator would do just as well.
+   Итак, мы видим, что наша программа соответствует стандарту.  Обратите
+внимание, что приведенное выше рассуждение фактически не зависит от
+деталей тела функции 'f'.  Это зависит только от того, что функция
+содержит что-то, что заканчивающееся точкой последовательности - в нашем
+примере это оператор возврата, но оператор выражения или полное описание
+также подойдёт.
 
-   However, the result of executing this code depends on the order of
-evaluation of the operands of '*'.  If the left-hand operand is
-evaluated first, 'foo' returns 6.  Otherwise, it returns 303.  The C
-standard does not specify in which order the operands should be
-evaluated, and also does not require an implementation either to
-document the order or even to stick to one order.  The effect of this
-code is "unspecified", meaning that one of several specific things will
-happen, but the C standards do not say which.
+   Тем не менее, результат выполнения этого кода зависит от порядка
+вычисления операндов '*'.  Если левый операнд вычисляется первым, 'foo'
+возвращает 6.  В противном случае она возвращает 303.  Стандарт Cи не
+определяет, в каком порядке операнды должны быть оценены, а также не
+требует реализации документирования порядка и не требует придерживаться
+такого порядка.  Эффект этого кода "не определённ", а это означает, что
+может произойти одно из нескольких конкретных вещей, но стандарты Cи не
+определяют что именно произойдёт в этом случае.
 
    ---------- Footnotes ----------
 
-   (1) However if for example 'MAX' is 'INT_MAX' and 'x' is of type
-'int', we clearly have a problem with overflow.  *Note Overflow::.
+   (1) Однако, если, например 'MAX' является 'INT_MAX' и 'x' имеет тип
+'int', мы явно имеем проблему с переполнением.  *Note Overflow::.
 
 
 File: gnu-c-manual.info,  Node: Sequence Points and Signal Delivery,  Prev: Sequence Points Constrain Expressions,  Up: Order of Evaluation
 
-3.20.4 Sequence Points and Signal Delivery
-------------------------------------------
+3.20.4 Точки Последовательности и Доставка Сигналов
+---------------------------------------------------
 
-Signals are mainly documented in the GNU C Library manual rather than
-this document, even though the C standards consider the compiler and the
-C library together to be "the implementation".
+Сигналы в основном описаны в руководстве GNU C Library, а не в этом
+документе, несмотря на это, стандарты Cи рассматривают компилятор и
+библиотеку Cи вместе как "реализацию".
 
-   When a signal is received, this will happen between sequence points.
-Side effects on 'volatile' objects prior to the previous sequence point
-will have occurred, but other updates may not have occurred yet.  This
-even applies to straight assignments, such as 'x=0;', because the code
-generated for that statement may require more than one instruction,
-meaning that it can be interrupted part-way through by the delivery of a
-signal.
+   Когда сигнал получен, это будет происходить между точками
+последовательности.  Побочные эффекты на 'volatile' объектов до
+предыдущей точки последовательности будет учтены, но другие обновления,
+возможно, ещё не произошли.  Это относится даже к прямым присвоениям,
+таким как 'x=0;', так как код, сгенерированный для этого заявления может
+потребовать более одной команды, а это означает, что его отработка может
+быть прервана на полпути его выполнения, путем доставки сигнала.
 
-   The C standard is quite restrictive about what data access can occur
-within a signal handler.  They can of course use 'auto' variables, but
-in terms of reading or writing other objects, they must be 'volatile
-sig_atomic_t'.  The 'volatile' type qualifier ensures that access to the
-variable in the other parts of the program doesn't span sequence points
-and the use of the 'sig_atomic_t' type ensures that changes to the
-variable are atomic with respect to signal delivery.
+   Стандарт Си весьма ограничивает с доступом к данным внутри
+обработчика сигнала.  Они могут использовать 'auto' переменные, но с
+точки зрения чтения или записи других объектов, они должны быть
+'volatile sig_atomic_t'.  В 'volatile' типе гарантируется, что доступ к
+переменной в других частях программы не охватывает точки
+последовательности и использование 'sig_atomic_t' типа обеспечивает
+поведение, при котором изменения в переменной являются атомарными
+относительно доставки сигнала.
 
-   The POSIX standard also allows a small number of library functions to
-be called from a signal handler.  These functions are referred to as the
-set of "async-signal-safe" functions.  If your program is intended to
-run on a POSIX system but not on other systems, you can safely call
-these from your signal handler too.
+   Стандарт POSIX также позволяет небольшое количество библиотечных
+функций для вызова из обработчика сигнала.  Эти функции называются
+набором функций "безопасных-фссинхронных-сигналовa".  Если ваша
+программа предназначена для запуска на системе POSIX, но не в других
+системах, вы можете смело вызывать их из обработчика сигнала тоже.
 
 
 File: gnu-c-manual.info,  Node: Statements,  Next: Functions,  Prev: Expressions and Operators,  Up: Top
@@ -5822,7 +5828,7 @@ Index
 * unsigned long long int data type:      Integer Types.        (line 78)
 * unsigned short int data type:          Integer Types.        (line 40)
 * unspecified behaviour:                 Sequence Points Constrain Expressions.
-                                                               (line 87)
+                                                               (line 88)
 * variable length parameter lists:       Variable Length Parameter Lists.
                                                                (line  6)
 * volatile type qualifier:               Type Qualifiers.      (line  6)
@@ -5841,129 +5847,129 @@ Tag Table:
 Node: Top517
 Node: Preface951
 Node: Lexical Elements3267
-Node: Identifiers3813
-Node: Keywords4417
-Node: Constants5551
-Node: Integer Constants6055
-Node: Character Constants7843
-Node: Real Number Constants9858
-Node: String Constants11225
-Node: Operators13455
-Node: Separators13818
-Node: White Space14150
-Node: Data Types15638
-Node: Primitive Types15966
-Node: Integer Types16181
-Node: Real Number Types20201
-Node: Complex Number Types22770
-Ref: Complex Number Types-Footnote-123257
-Node: Standard Complex Number Types23349
-Node: GNU Extensions for Complex Number Types24730
-Node: Enumerations26436
-Node: Defining Enumerations27070
-Node: Declaring Enumerations28467
-Node: Unions29960
-Node: Defining Unions30461
-Node: Declaring Union Variables31563
-Node: Declaring Union Variables at Definition32041
-Node: Declaring Union Variables After Definition32765
-Node: Initializing Union Members33480
-Node: Accessing Union Members34689
-Node: Size of Unions35350
-Node: Structures36022
-Node: Defining Structures36416
-Node: Declaring Structure Variables37769
-Node: Declaring Structure Variables at Definition38295
-Node: Declaring Structure Variables After Definition39030
-Node: Initializing Structure Members39758
-Node: Accessing Structure Members42722
-Node: Bit Fields43658
-Node: Size of Structures45314
-Node: Arrays46360
-Node: Declaring Arrays46825
-Node: Initializing Arrays48002
-Node: Accessing Array Elements50324
-Node: Multidimensional Arrays51188
-Node: Arrays as Strings52102
-Node: Arrays of Unions54674
-Node: Arrays of Structures55633
-Node: Pointers57134
-Node: Declaring Pointers57590
-Node: Initializing Pointers58563
-Node: Pointers to Unions60412
-Node: Pointers to Structures61486
-Node: Incomplete Types62610
-Node: Type Qualifiers63479
-Node: Storage Class Specifiers64458
-Node: Renaming Types67603
-Node: Expressions and Operators67904
-Node: Expressions68601
-Node: Assignment Operators70434
-Node: Incrementing and Decrementing75057
-Node: Arithmetic Operators77750
-Node: Complex Conjugation82108
-Node: Comparison Operators83169
-Node: Logical Operators86208
-Node: Bit Shifting88459
-Node: Bitwise Logical Operators91372
-Node: Pointer Operators94296
-Node: The sizeof Operator96858
-Node: Type Casts99626
-Node: Array Subscripts102077
-Node: Function Calls as Expressions103160
-Node: The Comma Operator103596
-Node: Member Access Expressions106004
-Node: Conditional Expressions107357
-Node: Statements and Declarations in Expressions109990
-Node: Operator Precedence113597
-Node: Order of Evaluation118293
-Node: Side Effects119884
-Node: Sequence Points121675
-Ref: Sequence Points-Footnote-1124821
-Node: Sequence Points Constrain Expressions124927
-Ref: Sequence Points Constrain Expressions-Footnote-1128948
-Node: Sequence Points and Signal Delivery129084
-Node: Statements130740
-Node: Labels131379
-Node: Expression Statements132202
-Node: The if Statement133270
-Node: The switch Statement135190
-Node: The while Statement138178
-Node: The do Statement138977
-Node: The for Statement139757
-Node: Blocks143223
-Node: The Null Statement144533
-Node: The goto Statement145531
-Node: The break Statement147305
-Node: The continue Statement148123
-Node: The return Statement148723
-Node: The typedef Statement150395
-Node: Functions151842
-Node: Function Declarations152756
-Node: Function Definitions154558
-Node: Calling Functions156164
-Node: Function Parameters157029
-Node: Variable Length Parameter Lists160520
-Node: Calling Functions Through Function Pointers162923
-Node: The main Function163795
-Ref: The main Function-Footnote-1166112
-Node: Recursive Functions166276
-Node: Static Functions167117
-Node: Nested Functions167792
-Node: Program Structure and Scope168591
-Node: Program Structure168918
-Node: Scope170403
-Node: A Sample Program171430
-Node: hello.c172286
-Node: system.h178631
-Node: Overflow180254
-Node: Integer Overflow Basics181394
-Node: Signed Overflow Examples183113
-Node: Optimization and Wraparound186606
-Node: Signed Overflow Advice189558
-Node: Signed Integer Division192222
-Node: GNU Free Documentation License192823
-Node: Index217950
+Node: Identifiers4145
+Node: Keywords5201
+Node: Constants6754
+Node: Integer Constants7541
+Node: Character Constants11001
+Node: Real Number Constants13332
+Node: String Constants14699
+Node: Operators16929
+Node: Separators17292
+Node: White Space17624
+Node: Data Types19112
+Node: Primitive Types19440
+Node: Integer Types19655
+Node: Real Number Types23675
+Node: Complex Number Types26244
+Ref: Complex Number Types-Footnote-126731
+Node: Standard Complex Number Types26823
+Node: GNU Extensions for Complex Number Types28204
+Node: Enumerations29910
+Node: Defining Enumerations30544
+Node: Declaring Enumerations31941
+Node: Unions33434
+Node: Defining Unions33935
+Node: Declaring Union Variables35037
+Node: Declaring Union Variables at Definition35515
+Node: Declaring Union Variables After Definition36239
+Node: Initializing Union Members36954
+Node: Accessing Union Members38163
+Node: Size of Unions38824
+Node: Structures39496
+Node: Defining Structures39890
+Node: Declaring Structure Variables41243
+Node: Declaring Structure Variables at Definition41769
+Node: Declaring Structure Variables After Definition42504
+Node: Initializing Structure Members43232
+Node: Accessing Structure Members46196
+Node: Bit Fields47132
+Node: Size of Structures48788
+Node: Arrays49834
+Node: Declaring Arrays50299
+Node: Initializing Arrays51476
+Node: Accessing Array Elements53798
+Node: Multidimensional Arrays54662
+Node: Arrays as Strings55576
+Node: Arrays of Unions58148
+Node: Arrays of Structures59107
+Node: Pointers60608
+Node: Declaring Pointers61064
+Node: Initializing Pointers62037
+Node: Pointers to Unions63886
+Node: Pointers to Structures64960
+Node: Incomplete Types66084
+Node: Type Qualifiers66953
+Node: Storage Class Specifiers67932
+Node: Renaming Types71077
+Node: Expressions and Operators71378
+Node: Expressions72075
+Node: Assignment Operators73908
+Node: Incrementing and Decrementing78531
+Node: Arithmetic Operators81224
+Node: Complex Conjugation85582
+Node: Comparison Operators86643
+Node: Logical Operators89682
+Node: Bit Shifting91933
+Node: Bitwise Logical Operators94846
+Node: Pointer Operators97770
+Node: The sizeof Operator100332
+Node: Type Casts103100
+Node: Array Subscripts105551
+Node: Function Calls as Expressions106634
+Node: The Comma Operator107070
+Node: Member Access Expressions109478
+Node: Conditional Expressions110831
+Node: Statements and Declarations in Expressions113464
+Node: Operator Precedence117071
+Node: Order of Evaluation121767
+Node: Side Effects123358
+Node: Sequence Points125149
+Ref: Sequence Points-Footnote-1129910
+Node: Sequence Points Constrain Expressions130100
+Ref: Sequence Points Constrain Expressions-Footnote-1136944
+Node: Sequence Points and Signal Delivery137150
+Node: Statements140059
+Node: Labels140698
+Node: Expression Statements141521
+Node: The if Statement142589
+Node: The switch Statement144509
+Node: The while Statement147497
+Node: The do Statement148296
+Node: The for Statement149076
+Node: Blocks152542
+Node: The Null Statement153852
+Node: The goto Statement154850
+Node: The break Statement156624
+Node: The continue Statement157442
+Node: The return Statement158042
+Node: The typedef Statement159714
+Node: Functions161161
+Node: Function Declarations162075
+Node: Function Definitions163877
+Node: Calling Functions165483
+Node: Function Parameters166348
+Node: Variable Length Parameter Lists169839
+Node: Calling Functions Through Function Pointers172242
+Node: The main Function173114
+Ref: The main Function-Footnote-1175431
+Node: Recursive Functions175595
+Node: Static Functions176436
+Node: Nested Functions177111
+Node: Program Structure and Scope177910
+Node: Program Structure178237
+Node: Scope179722
+Node: A Sample Program180749
+Node: hello.c181605
+Node: system.h187950
+Node: Overflow189573
+Node: Integer Overflow Basics190713
+Node: Signed Overflow Examples192432
+Node: Optimization and Wraparound195925
+Node: Signed Overflow Advice198877
+Node: Signed Integer Division201541
+Node: GNU Free Documentation License202142
+Node: Index227269
 
 End Tag Table
 

@@ -1333,124 +1333,124 @@ foo = *p++;
 @node Sequence Points
 @subsection Точки Последовательности
 
-Еще одно требование от компилятора является то, что побочные эффекты должны
+Еще одно требование к компилятору является то, что побочные эффекты должны
 проявляться в правильном порядке.  Для того, чтобы обеспечить это без
-чрезмерного ограничения компилятора, стандарты C89 и C90 указывают список
+чрезмерного ограничения компилятора, стандарты C89 и C90 определяют список
 точек последовательности.  @dfn{Точка последовательности} представляется
 одним из следующих действий:
 
 @cindex sequence point
 @enumerate
 @c authority: С99 стандарт, приложение С
-@item вызов функции (после завершения оценки аргумента)
-@item конец левостороннего операнда и оператор @code{&&}
-@item the end of the left-hand operand of the or operator @code{||}
-@item the end of the left-hand operand of the comma operator @code{,}
-@item the end of the first operand of the ternary operator @code{a ? b : c}
-@item the end of a full declarator
-@footnote{a full declarator is a declaration of a function or an object which is not part of another object}
-@item the end of an initialisation expression 
-@item the end of an expression statement (i.e. an expression followed by @code{;})
-@item the end of the controlling expression of an @code{if} or @code{switch} statement
-@item the end of the controlling expression of a @code{while} or @code{do} statement
-@item the end of any of the three controlling expressions of a @code{for} statement
-@item the end of the expression in a return statement
-@item immediately before the return of a library function
-@item after the actions associated with an item of formatted I/O (as
-used for example with the @code{strftime} or the @code{printf} and
-@code{scanf} famlies of functions).
-@item immediately before and after a call to a comparison function (as
-called for example by @code{qsort})
+@item после вызова функции (после завершения оценки аргумента)
+@item после левостороннего операнда оператора @code{AND (И)} @code{&&}
+@item после левого операнда оператора @code{OR (ИЛИ)} @code{||}
+@item после левого операнда оператора запятая @code{,}
+@item после первого операнда тернарного оператора @code{a ? b : c}
+@item после полного объявления
+@footnote{полное объявление - это объявление функции или объекта, который не
+является частью другого объекта}
+@item после выражения инициализации 
+@item после конструкций выражений (т.е. выражение с последующим @code{;})
+@item после объявления управляющих конструкций @code{if} или @code{switch}
+@item после объявления управляющего выражения @code{while} или @code{do}
+@item после объявления любого из трех управляющих выражений @code{for}
+@item после выражения оператора возврата
+@item непосредственно перед возвращением библиотечной функции
+@item после действий, связанных с элементом форматированного I/O (как это
+используется, например, с @code{strftime} или @code{printf} и @code{scanf}
+родственных функций).
+@item непосредственно перед и после вызова функции сравнения (как это
+происходит, например, при использовании @code{qsort})
 @end enumerate
 
 @c authority: C99 standard, section 5.1.2.3
-At a sequence point, all the side effects of previous expression
-evaluations must be complete, and no side effects of later evaluations
-may have taken place.
+В точке последовательности, все побочные эффекты оценки предыдущих выражений
+должны быть завершены, и никакие побочных эффектов последующих оценок
+выражений не имеют смысла.
 
 @c authority: C89 standard, section 5.1.2.3
-@c this description was not included in C99, I assume because of the 
-@c introduction of whole-program optimisation
-This may seem a little hard to grasp, but there is another way to
-consider this.  Imagine you wrote a library (some of whose functions
-are external and perhaps others not) and compiled it, allowing someone
-else to call one of your functions from their code.  The definitions
-above ensure that, at the time they call your function, the data they
-pass in has values which are consistent with the behaviour specified
-by the abstract machine, and any data returned by your function has a
-state which is also consistent with the abstract machine.  This
-includes data accessible via pointers (i.e. not just function
-parameters and identifiers with external linkage).
+@c это описание не было включено в C99, я предполагаю, что из-за внедрение
+@c оптимизации программы в целом
+Это может показаться трудным для понимания, но есть и другой способ, чтобы
+рассмотреть это.  Представьте, что вы написали библиотеку (некоторые из
+функции являются внешними и, возможно, другие нет) и скомпилировал её,
+разрешается вызов одной из этих функций из внешнего кода.  Определения
+приведённые выше гарантируют, что в момент вызова вашей функции, данные,
+которые ей перадаются, имеют согласованное значение, заданное виртуальной
+машиной, и любые данные, возвращаемые вашей функцией имеют состояние, которое
+также будет согласовано с виртуальной машиной.  Это включает в себя данные,
+доступные с помощью указателей (т.е. не только параметры функций и
+идентификаторы с внешним связыванием).
 
-The above is a slight simplification, since compilers exist that
-perform whole-program optimisation at link time.  Importantly however,
-although they might perform optimisations, the visible side effects of
-the program must be the same as if they were produced by the abstract
-machine.
+Вышесказанное является небольшим упрощением, поскольку существуют
+компиляторы, которые выполняют оптимизацию программы в целом, уже во время
+компоновки.  Важно отметить, однако, хотя они могут выполнять оптимизации,
+видимые побочные эффекты программы должны быть такими же, как если бы они
+были получены с помощью виртуальной машины.
 
 @node Sequence Points Constrain Expressions
-@subsection Sequence Points Constrain Expressions
+@subsection Ограничение Выражений Точками Последовательности
 
 @c authority: C89 section 6.3, C99 section 6.5
-The code fragment 
+Фрагмент кода 
 @example
 i = i + 1;
 @end example 
-is quite normal and no doubt occurs in many programs.  However, the
-quite similar code fragment
+это вполне нормально, и нет сомнений в том, что происходит во многих
+программах.  Тем не менее, вполне аналогичный фрагмент кода
 @example
 i = ++i + 1;
 @end example 
-is a little harder to understand; what is the final value of @code{i}?
-The C standards (both C89 and C99) both forbid this construct in 
-conforming programs.  
+немного сложнее понять; каково окончательное значение @code{i}?  Стандарты Cи
+(как C89 и C99)запрещают эту конструкцию в соответствии программ.  
 
-Between two sequence points, 
+Между двух точек последовательности, 
 @enumerate
-@item an object may have its stored value modified at most once by the
-evaluation of an expression
-@item the prior value of the object shall be read only to determine
-the value to be stored.
+@item объект может иметь свое сохраненное значение модифицированное не более
+одного раза в ходе оценки выражения
+@item предварительное значение объекта должно быть только для чтения, чтобы
+определить значение для сохранения.
 @end enumerate
 
-The first of these two conditions forbids expressions like 
-@code{foo(x=2, ++x)}.  The second condition forbids expressions like
-@code{a[i++] = i}.
+Первый из этих двух условий запрещают выражения типа @code{foo(x=2, ++x)}.
+Второе условие запрещает такие выражения, как @code{a[i++] = i}.
 
-@c with an appropriate list of counterexamples such as f(x++, x++).
+@c с соответствии с этим списком примеры, такие как f(x++, x++).
 
 @table @code
 @item int x=0; foo(++x, ++x)
-Not allowed in a conforming program; modifies @code{x} twice before
-argument evaluation is complete. 
+Не допускается для соответствия программы, модифицировать @code{x} дважды,
+прежде чем оценка аргумента завершена.
 @item int x=0; bar((++x,++x))
-Allowed; the function @code{bar} takes one argument (the value 2
-is passed here), and there is a sequence point at the comma operator.
+Позволено, функция @code{bar} принимает один аргумент (в аргументе передано
+два значения), и есть точка последовательности - оператор запятая.
 @item *p++ || *p++
-Allowed; there is a sequence point at @code{||}.
+Позволено, существует точка последовательности на @code{||}.
 @item int x = 1, y = x++;
-Allowed; there is a sequence point after the full declarator of @code{x}.
+Позволено, существует точка последовательности после полного описания
+@code{x}.
 @item x=2; x++;
-Allowed; there is a sequence point at the end of the first expression
-statement.
+Позволено, существует точка последовательности в конце первого оператора
+выражения.
 @item if (x++ > MAX) x = 0;
-Allowed; there is a sequence point at the end of the controlling
-expression of the @code{if}@footnote{However if for example @code{MAX} is
-@code{INT_MAX} and @code{x} is of type @code{int}, we clearly have a
-problem with overflow.  @xref{Overflow}.}.
+Позволено, существует точка последовательности в конце управляющего выражения
+@code{if}@footnote{Однако, если, например @code{MAX} является @code{INT_MAX}
+и @code{x} имеет тип @code{int}, мы явно имеем проблему с переполнением.
+@xref{Overflow}.}.
 @item (x=y) ? ++x : x--;
-Allowed; there is a sequence point before the @code{?}, and only one
-of the two following expressions is evaluated.
+Позволено, существует точка последовательности перед @code{?}, и только один
+из двух следующих выражений оцениваются.
 @item int *p=malloc(sizeof(*p)), *q=p;  *p=foo(); bar((*p)++,(*q)++);
-Not allowed; the object at @code{p} is being modified twice
-before the evaluation of the arguments to @code{bar} is complete.  The
-fact that this is done once via @code{p} and once via @code{q} is
-irrelevant, since they both point to the same object.
+Не допустимо, объект в @code{p} модифицируется дважды, прежде чем оценка
+аргументов @code{bar} завершена.  Тот факт, что это делается один раз через
+@code{p} и один раз через @code{q} не имеет никакого значения, так как они
+указывают на один и тот же объект.
 @end table
 
-Let's go back to the example we used to introduce the problem of the
-order of evaluation, @code{++a * f()}.   Suppose the code actually
-looks like this:
+Вернемся к примеру, мы использовали, чтобы представить проблему порядка
+оценки, @code{++a * f()}.  Предположим, что код на самом деле выглядит
+следующим образом:
 
 @example
 @group
@@ -1469,88 +1469,86 @@ int foo (void)
 @end group
 @end example
 
-Is this code allowed in a standard-conforming program?  Although the
-expression in @code{foo} modifies @code{a} twice, this is not a
-problem.  Let's look at the two possible cases.
+Разрешён ли этот код в соответствии стандартам программы?  Хотя выражение в
+@code{foo} модифицирует @code{a} дважды, это не проблема.  Давайте посмотрим
+на два возможных случаях.
 
 @table @asis
-@item The right operand @code{f()} is evaluated first
-Since @code{f} returns a value other than void, it must contain a
-@code{return} statement.   Therefore, there is a sequence point at the
-end of the return expression.  That comes between the modification to
-@code{a} that @code{f} makes and the evaluation of the left operand.
-@item The left operand @code{++a} is evaluated first
-First, @code{a} is incremented.   Then the arguments to @code{f} are
-evaluated (there are zero of them).  Then there is a sequence point
-before @code{f} is actually called.
+@item Правый операнд @code{f()} оценивается первым.  Поскольку @code{f}
+возвращает значение, отличное от void (неопределенно), выражение должно
+содержать @code{return} объявление.  Таким образом, существует точка
+последовательности в конце выражения возврата.  Это происходит между
+модификацией @code{a}, при работе @code{f} и оценки левого операнда.
+@item Левый операнд @code{++a} вычисляется первым.  Во-первых, @code{a}
+увеличивается.  Затем вычисляются аргументы @code{f} (их нет).  Затем
+существует точка последовательности перед фактическим вызовом @code{f}.
 @end table
 
-@c C99 does not state explicitly that there is a sequence point after
-@c argument evaluation if a function call contains zero arguments.
-So, we see that our program is standard-conforming.  Notice that the
-above argument does not actually depend on the details of the body of
-the function @code{f}.  It only depends on the function containing
-something ending in a sequence point -- in our example this is a
-return statement, but an expression statement or a full declarator
-would do just as well.
+@c C99 не указывает явно, что существует точка последовательности после
+@c оценки аргумента, если вызов функции не содержит аргументов.
+Итак, мы видим, что наша программа соответствует стандарту.  Обратите
+внимание, что приведенное выше рассуждение фактически не зависит от деталей
+тела функции @code{f}.  Это зависит только от того, что функция содержит
+что-то, что заканчивающееся точкой последовательности - в нашем примере это
+оператор возврата, но оператор выражения или полное описание также подойдёт.
 
 @cindex unspecified behaviour
-However, the result of executing this code depends on the order of
-evaluation of the operands of @code{*}.  If the left-hand operand is
-evaluated first, @code{foo} returns 6.  Otherwise, it returns 303.
-The C standard does not specify in which order the operands should be
-evaluated, and also does not require an implementation either to
-document the order or even to stick to one order.  The effect of this
-code is @dfn{unspecified}, meaning that one of several specific
-things will happen, but the C standards do not say which.
+Тем не менее, результат выполнения этого кода зависит от порядка вычисления
+операндов @code{*}.  Если левый операнд вычисляется первым, @code{foo}
+возвращает 6.  В противном случае она возвращает 303.  Стандарт Cи не
+определяет, в каком порядке операнды должны быть оценены, а также не требует
+реализации документирования порядка и не требует придерживаться такого
+порядка.  Эффект этого кода @dfn{не определённ}, а это означает, что может
+произойти одно из нескольких конкретных вещей, но стандарты Cи не
+определяют что именно произойдёт в этом случае.
 
 
 
 @node Sequence Points and Signal Delivery
-@subsection Sequence Points and Signal Delivery
+@subsection Точки Последовательности и Доставка Сигналов
 
-Signals are mainly documented in the GNU C Library manual rather than
-this document, even though the C standards consider the compiler and
-the C library together to be ``the implementation''.
+Сигналы в основном описаны в руководстве GNU C Library, а не в этом
+документе, несмотря на это, стандарты Cи рассматривают компилятор и
+библиотеку Cи  вместе как ``реализацию''.
 
-@c [This scene-setting is probably too long. - jay@gnu.org]
+@c [Эта сцена-установка, вероятно, слишком долго. - jay@gnu.org]
 @c
-@c Your C program can be notified of asynchronous events by the
-@c @dfn{signal} mechanism.  There are a few dozen different possible
-@c signals; these include for example @code{SIGINT}, which tells your
-@c program that the user pressed the keyboard interrupt key, and
-@c @code{SIGFPE} which tells your program that an arithmetic overflow has
-@c occurred.  Signals can be asyncronous, for example @code{SIGINT}
-@c generally arises outside your program, or normally synchronous like
-@c @code{SIGFPE} or @code{SIGABRT} (which indicates your program called
-@c the @code{abort} function, directly or indirectly).  Signals can also
-@c be sent using the @code{kill} and @code{raise} functions.
+@c Ваша программа Cи может быть уведомлена асинхронными событиями по
+@c механизму @dfn{signal}.  Есть несколько десятков различных возможных
+@c сигналов;  К ним относятся, например, @code{SIGINT}, который уведомляет
+@c свою программу о том, что пользователь нажал на клавиатуре клавишу
+@c прерывания и @code{SIGFPE}, который указывает своей программе о том, что
+@c произошло арифметическое переполнение.  Сигналы могут быть асинхронными,
+@c например, @code{SIGINT} обычно возникает за пределами вашей программы, или
+@c обычными синхронными, такими как @code{SIGFPE} или @code{SIGABRT} (вызов
+@c функции @code{abort}, прямо или косвенно).  Сигналы также могут быть
+@c отправлены с помощью функции @code{kill} и @code{raise}.
 @c 
-@c All signals have a default effect, usually to terminate the program.
-@c However, you can set up a @dfn{signal handler} -- a funciton to be
-@c called when a specified signal is delivered.
+@c Все сигналы имеют эффект по умолчанию, как правило, для завершения
+@c программы.  Тем не менее, вы можете настроить @dfn{signal handler} - в
+@c работе функции, когда указанный сигнал подается.
 
 
-When a signal is received, this will happen between sequence points.
-Side effects on @code{volatile} objects prior to the previous sequence
-point will have occurred, but other updates may not have occurred
-yet.  This even applies to straight assignments, such as @code{x=0;},
-because the code generated for that statement may require more than
-one instruction, meaning that it can be interrupted part-way through
-by the delivery of a signal.
+Когда сигнал получен, это будет происходить между точками последовательности.
+Побочные эффекты на @code{volatile} объектов до предыдущей точки
+последовательности будет учтены, но другие обновления, возможно, ещё не
+произошли.  Это относится даже к прямым присвоениям, таким как @code{x=0;},
+так как код, сгенерированный для этого заявления может потребовать более
+одной команды, а это означает, что его отработка может быть прервана на
+полпути его выполнения, путем доставки сигнала.
 
-The C standard is quite restrictive about what data access can occur
-within a signal handler.  They can of course use @code{auto}
-variables, but in terms of reading or writing other objects, they must
-be @code{volatile sig_atomic_t}.  The @code{volatile} type qualifier
-ensures that access to the variable in the other parts of the program
-doesn't span sequence points and the use of the @code{sig_atomic_t}
-type ensures that changes to the variable are atomic with respect to
-signal delivery.
+Стандарт Си весьма ограничивает с доступом к данным внутри обработчика
+сигнала.  Они могут использовать @code{auto} переменные, но с точки зрения
+чтения или записи других объектов, они должны быть
+@code{volatile sig_atomic_t}.  В @code{volatile} типе гарантируется, что
+доступ к переменной в других частях программы не охватывает точки
+последовательности и использование @code{sig_atomic_t} типа обеспечивает
+поведение, при котором изменения в переменной являются атомарными
+относительно доставки сигнала.
 
-The POSIX standard also allows a small number of library functions to
-be called from a signal handler.  These functions are referred to as
-the set of @dfn{async-signal-safe} functions.  If your program is
-intended to run on a POSIX system but not on other systems, you can
-safely call these from your signal handler too.
+Стандарт POSIX также позволяет небольшое количество библиотечных функций для
+вызова из обработчика сигнала.  Эти функции называются набором функций
+@dfn{безопасных-фссинхронных-сигналовa}.  Если ваша программа предназначена
+для запуска на системе POSIX, но не в других системах, вы можете смело
+вызывать их из обработчика сигнала тоже.
 

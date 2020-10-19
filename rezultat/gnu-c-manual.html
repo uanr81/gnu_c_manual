@@ -59,13 +59,13 @@ ul.no-bullet {list-style: none}
   <ul class="no-bullet">
     <li><a id="toc-Credits" href="#Credits">Credits</a></li>
   </ul></li>
-  <li><a id="toc-Lexical-Elements-1" href="#Lexical-Elements">1 Lexical Elements</a>
+  <li><a id="toc-Leksicheskie-Elementy" href="#Lexical-Elements">1 Лексические Элементы</a>
   <ul class="no-bullet">
-    <li><a id="toc-Identifiers-1" href="#Identifiers">1.1 Identifiers</a></li>
-    <li><a id="toc-Keywords-1" href="#Keywords">1.2 Keywords</a></li>
+    <li><a id="toc-Identifikatory" href="#Identifiers">1.1 Идентификаторы</a></li>
+    <li><a id="toc-Kliuchevye-Slova" href="#Keywords">1.2 Ключевые Слова</a></li>
     <li><a id="toc-Constants-1" href="#Constants">1.3 Constants</a>
     <ul class="no-bullet">
-      <li><a id="toc-Integer-Constants-1" href="#Integer-Constants">1.3.1 Integer Constants</a></li>
+      <li><a id="toc-Celochislennye-Konstanty" href="#Integer-Constants">1.3.1 Целочисленные Константы</a></li>
       <li><a id="toc-Character-Constants-1" href="#Character-Constants">1.3.2 Character Constants</a></li>
       <li><a id="toc-Real-Number-Constants-1" href="#Real-Number-Constants">1.3.3 Real Number Constants</a></li>
       <li><a id="toc-String-Constants-1" href="#String-Constants">1.3.4 String Constants</a></li>
@@ -163,8 +163,8 @@ ul.no-bullet {list-style: none}
     <ul class="no-bullet">
       <li><a id="toc-Pobochnye-Effekty" href="#Side-Effects">3.20.1 Побочные Эффекты</a></li>
       <li><a id="toc-Tochki-Posledovatelxnosti" href="#Sequence-Points">3.20.2 Точки Последовательности</a></li>
-      <li><a id="toc-Sequence-Points-Constrain-Expressions-1" href="#Sequence-Points-Constrain-Expressions">3.20.3 Sequence Points Constrain Expressions</a></li>
-      <li><a id="toc-Sequence-Points-and-Signal-Delivery-1" href="#Sequence-Points-and-Signal-Delivery">3.20.4 Sequence Points and Signal Delivery</a></li>
+      <li><a id="toc-Ogranichenie-Vyrazhenii-Tochkami-Posledovatelxnosti" href="#Sequence-Points-Constrain-Expressions">3.20.3 Ограничение Выражений Точками Последовательности</a></li>
+      <li><a id="toc-Tochki-Posledovatelxnosti-i-Dostavka-Signalov" href="#Sequence-Points-and-Signal-Delivery">3.20.4 Точки Последовательности и Доставка Сигналов</a></li>
     </ul></li>
   </ul></li>
   <li><a id="toc-Statements-1" href="#Statements">4 Statements</a>
@@ -317,14 +317,14 @@ of Computer Programming</cite>.
 <p>
 Next: <a href="#Data-Types" accesskey="n" rel="next">Data Types</a>, Previous: <a href="#Preface" accesskey="p" rel="prev">Preface</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Lexical-Elements-1"></span><h2 class="chapter">1 Lexical Elements</h2>
+<span id="Leksicheskie-Elementy"></span><h2 class="chapter">1 Лексические Элементы</h2>
 <span id="index-lexical-elements"></span>
 
-<p>This chapter describes the lexical elements that make up C source code
-after preprocessing.  These elements are called <em>tokens</em>. There are
-five types of tokens:  keywords, identifiers, constants, operators, and
-separators.  White space, sometimes required to separate tokens, is also
-described in this chapter.
+<p>В этой главе описывается лексические элементы, которые составляют исходный
+код Cи после предварительной обработки.  Эти элементы называются
+<em>токены</em>.  Есть пять типов токенов: ключевые слова, идентификаторы,
+константы, операторы и разделители.  Пропуски, иногда требуется, чтобы
+разделить отдельные лексемы, это всё описано в этой главе.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Identifiers" accesskey="1">Identifiers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -347,21 +347,21 @@ described in this chapter.
 <p>
 Next: <a href="#Keywords" accesskey="n" rel="next">Keywords</a>, Up: <a href="#Lexical-Elements" accesskey="u" rel="up">Lexical Elements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Identifiers-1"></span><h3 class="section">1.1 Identifiers</h3>
+<span id="Identifikatory"></span><h3 class="section">1.1 Идентификаторы</h3>
 <span id="index-identifiers"></span>
 
-<p>Identifiers are sequences of characters used for naming variables,
-functions, new data types, and preprocessor macros.  You can include
-letters, decimal digits, and the underscore character &lsquo;<samp>_</samp>&rsquo; in
-identifiers.
+<p>Идентификаторы представляют собой последовательность символов, используются
+для обозначения переменных, функций, новых типов данных и макросов
+препроцессора.  Можно также включать в идентификаторы буквы, десятичные
+цифры, и символ подчеркивания &lsquo;<samp>_</samp>&rsquo;.
 </p>
-<p>The first character of an identifier cannot be a digit.
+<p>Первый символ идентификатора не может быть цифрой.
 </p>
-<p>Lowercase letters and uppercase letters are distinct, such that
-<code>foo</code> and <code>FOO</code> are two different identifiers.
+<p>Строчные буквы и прописные буквы различаются, так что <code>foo</code> и <code>FOO</code>
+два разных идентификатора.
 </p>
-<p>When using GNU extensions, you can also include the dollar sign
-character &lsquo;<samp>$</samp>&rsquo; in identifiers.
+<p>При использовании расширений GNU, вы можете также включать символ &lsquo;<samp>$</samp>&rsquo;
+(знак доллара) в идентификаторах.
 </p>
 
 <hr>
@@ -369,13 +369,14 @@ character &lsquo;<samp>$</samp>&rsquo; in identifiers.
 <p>
 Next: <a href="#Constants" accesskey="n" rel="next">Constants</a>, Previous: <a href="#Identifiers" accesskey="p" rel="prev">Identifiers</a>, Up: <a href="#Lexical-Elements" accesskey="u" rel="up">Lexical Elements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Keywords-1"></span><h3 class="section">1.2 Keywords</h3>
+<span id="Kliuchevye-Slova"></span><h3 class="section">1.2 Ключевые Слова</h3>
 <span id="index-keywords"></span>
 
-<p>Keywords are special identifiers reserved for use as part of the
-programming language itself.  You cannot use them for any other purpose.  
+<p>Ключевые слова являются специальными идентификаторами зарезервироваными для
+использования в качестве части самого языка программирования.  Вы не можете
+использовать их для любых других целей.  
 </p>
-<p>Here is a list of keywords recognized by ANSI C89:
+<p>Вот список ключевых слов признан ANSI C89:
 </p>
 <div class="example">
 <pre class="example">auto break case char const continue default do double else enum extern
@@ -383,13 +384,13 @@ float for goto if int long register return short signed sizeof static
 struct switch typedef union unsigned void volatile while
 </pre></div>
 
-<p>ISO C99 adds the following keywords:
+<p>ISO C99 добавляет следующие ключевые слова:
 </p>
 <div class="example">
 <pre class="example">inline _Bool _Complex _Imaginary
 </pre></div>
 
-<p>and GNU extensions add these keywords:
+<p>и расширение GNU добавляет эти ключевые слова:
 </p>
 <div class="example">
 <pre class="example">__FUNCTION__ __PRETTY_FUNCTION__ __alignof __alignof__ __asm
@@ -400,8 +401,8 @@ __restrict __restrict__ __signed __signed__ __thread __typeof
 __volatile __volatile__ 
 </pre></div>
 
-<p>In both ISO C99 and C89 with GNU extensions, the following is also
-recognized as a keyword:
+<p>В обоих ISO C99 и C89 с расширениями GNU, следующее также признаётся в
+качестве ключевого слова:
 </p><div class="example">
 <pre class="example">restrict
 </pre></div>
@@ -414,10 +415,11 @@ Next: <a href="#Operators" accesskey="n" rel="next">Operators</a>, Previous: <a 
 <span id="Constants-1"></span><h3 class="section">1.3 Constants</h3>
 <span id="index-constants"></span>
 
-<p>A constant is a literal numeric or character value, such as <code>5</code>
-or <code>'m'</code>.  All constants are of a particular data type; you can
-use type casting to explicitly specify the type of a constant, or let
-the compiler use the default type based on the value of the constant.
+<p>Константа является буквальным числовым или символьным значением, например,
+<code>5</code> или <code>'m'</code>.  Все константы относятся к конкретному типу данных;
+Вы можете использовать явное приведение типов для указания типа константы или
+позволить компилятору использовать тип по умолчанию на основе значения
+константы.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Integer-Constants" accesskey="1">Integer Constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -436,16 +438,17 @@ the compiler use the default type based on the value of the constant.
 <p>
 Next: <a href="#Character-Constants" accesskey="n" rel="next">Character Constants</a>, Up: <a href="#Constants" accesskey="u" rel="up">Constants</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Integer-Constants-1"></span><h4 class="subsection">1.3.1 Integer Constants</h4>
+<span id="Celochislennye-Konstanty"></span><h4 class="subsection">1.3.1 Целочисленные Константы</h4>
 <span id="index-integer-constants"></span>
 <span id="index-constants_002c-integer"></span>
 
-<p>An integer constant is a sequence of digits, with an optional prefix to denote a number base.
+<p>Целочисленная константа представляет собой последовательность цифр, с
+необязательным префиксом для обозначения системы счисления.
 </p>
-<p>If the sequence of digits is preceded by <code>0x</code> or <code>0X</code> (zero x or
-zero X), then the constant is considered to be hexadecimal (base 16).  Hexadecimal
-values may use the digits from 0 to 9, as well as the letters <code>a</code> to
-<code>f</code> and <code>A</code> to <code>F</code>. Here are some examples:
+<p>Если последовательности цифр предшествует <code>0x</code> или <code>0X</code> (ноль или
+ноль затем X), то константа считается шестнадцатеричным (основание 16).
+Шестнадцатеричные значения используют цифры от 0 до 9, а также буквы от
+<code>a</code> до <code>f</code> и от <code>A</code> до <code>F</code>.  Вот некоторые примеры:
 </p>
 <div class="example">
 <pre class="example">0x2f
@@ -455,10 +458,10 @@ values may use the digits from 0 to 9, as well as the letters <code>a</code> to
 0x1
 </pre></div>
 
-<p>If the first digit is 0 (zero), and the next character is not &lsquo;<samp>x</samp>&rsquo; or
-&lsquo;<samp>X</samp>&rsquo;, then the constant is considered to be octal (base 8).
-Octal values may only use the digits from 0 to 7; 8 and 9 are not allowed.
-Here are some examples:
+<p>Если первая цифра 0 (ноль), а следующий символ не является &lsquo;<samp>x</samp>&rsquo; или
+&lsquo;<samp>X</samp>&rsquo;, то константа считается восьмеричной (основание 8).  Восьмеричные
+значения могут использовать только цифры от 0 до 7, 8 и 9 не допускаются.
+Вот некоторые примеры:
 </p>
 <div class="example">
 <pre class="example">057
@@ -467,9 +470,9 @@ Here are some examples:
 0241
 </pre></div>
 
-<p>In all other cases, the sequence of digits is assumed to be
-decimal (base 10).  Decimal values may use the digits from
-0 to 9. Here are some examples:
+<p>Во всех других случаях последовательность цифр считается десятичной
+константой (основание 10).  Десятичные значения могут состоять из цифр от 0
+до 9.  Ниже приведены некоторые примеры:
 </p>
 <div class="example">
 <pre class="example">459
@@ -478,31 +481,36 @@ decimal (base 10).  Decimal values may use the digits from
 12
 </pre></div>
 
-<p>There are various integer data types, for short integers, long integers,
-signed integers, and unsigned integers.  You can force an integer constant
-to be of a long and/or unsigned integer type by appending a sequence
-of one or more letters to the end of the constant:
+<p>Существуют различные типы целочисленных данных, для коротких целых, длинных
+целых чисел, целых чисел и целых чисел без знака.  Вы можете заставить целую
+константу быть длинным типом и/или целым числом без знака, добавив к
+последовательности одну или несколько букв из следующего списка в конце
+константы:
 </p><dl compact="compact">
 <dt><code>u</code></dt>
 <dt><code>U</code></dt>
-<dd><p>Unsigned integer type.
+<dd><p>Целочисленный тип без знака.
 </p>
 </dd>
 <dt><code>l</code></dt>
 <dt><code>L</code></dt>
-<dd><p>Long integer type.
+<dd><p>Длинный целочисленный тип.
 </p>
 </dd>
 </dl>
 
-<p>For example, <code>45U</code> is an <code>unsigned int</code> constant.  You can
-also combine letters: <code>45UL</code> is an <code>unsigned long int</code> constant.
-(The letters may be used in any order.) 
+<p>Например, <code>45U</code> является константой с типом значения
+ <code>unsigned int (беззнаковое целочисленное)</code>.  Вы также можете
+ комбинировать буквы: <code>45UL</code> - указывает тип значения константы как
+ <code>беззнаковое длинное целочисленное</code>.  (Буквы могут быть использованы в
+ любом порядке.)
 </p>
-<p>Both ISO C99 and GNU C extensions add the integer types <code>long long int</code>
-and <code>unsigned long long int</code>.  You can use two &lsquo;<samp>L</samp>&rsquo;s to get a
-<code>long long int</code> constant; add a &lsquo;<samp>U</samp>&rsquo; to that and you have an
-<code>unsigned long long int</code> constant.  For example: <code>45ULL</code>.
+<p>Оба расширения ISO C99 и GNU C добавляют целочисленные типы
+<code>long long int</code> (целочисленное двойной длинны) и
+<code>unsigned long long int</code> (беззнаковое целочисленное двойной длинны).
+Вы можете использовать два &lsquo;<samp>L</samp>&rsquo;s, чтобы получить константу
+<code>long long int</code>; и добавить &lsquo;<samp>U</samp>&rsquo; тогда, кода константа является
+<code>unsigned long long int</code>. Например: <code>45ULL</code>.
 </p>
 
 <hr>
@@ -514,13 +522,13 @@ Next: <a href="#Real-Number-Constants" accesskey="n" rel="next">Real Number Cons
 <span id="index-character-constants"></span>
 <span id="index-constants_002c-character"></span>
 
-<p>A character constant is usually a single character enclosed within single
-quotation marks, such as <code>'Q'</code>.  A character constant is of type
-<code>int</code> by default.
+<p>Символьная константа характер, как правило, это один символ, заключенный в
+одинарные кавычки, например, <code>'Q'</code>.  Символьная константа имеет тип
+<code>int</code> по умолчанию.
 </p>
-<p>Some characters, such as the single quotation mark character itself,
-cannot be represented using only one character.  To represent such characters,
-there are several &ldquo;escape sequences&rdquo; that you can use:
+<p>Некоторые символы, такие как одиночная кавычка, не могут быть представлены
+только самим один символом.  Для представления таких символов, есть
+несколько &ldquo;escape последовательностей&rdquo;, которые вы можете использовать:
 </p>
 
 <dl compact="compact">
@@ -3976,127 +3984,126 @@ Next: <a href="#Sequence-Points-Constrain-Expressions" accesskey="n" rel="next">
 </div>
 <span id="Tochki-Posledovatelxnosti"></span><h4 class="subsection">3.20.2 Точки Последовательности</h4>
 
-<p>Еще одно требование от компилятора является то, что побочные эффекты должны
+<p>Еще одно требование к компилятору является то, что побочные эффекты должны
 проявляться в правильном порядке.  Для того, чтобы обеспечить это без
-чрезмерного ограничения компилятора, стандарты C89 и C90 указывают список
+чрезмерного ограничения компилятора, стандарты C89 и C90 определяют список
 точек последовательности.  <em>Точка последовательности</em> представляется
 одним из следующих действий:
 </p>
 <span id="index-sequence-point"></span>
 <ol>
-<li> вызов функции (после завершения оценки аргумента)
-</li><li> конец левостороннего операнда и оператор <code>&amp;&amp;</code>
-</li><li> the end of the left-hand operand of the or operator <code>||</code>
-</li><li> the end of the left-hand operand of the comma operator <code>,</code>
-</li><li> the end of the first operand of the ternary operator <code>a ? b : c</code>
-</li><li> the end of a full declarator
+<li> после вызова функции (после завершения оценки аргумента)
+</li><li> после левостороннего операнда оператора <code>AND (И)</code> <code>&amp;&amp;</code>
+</li><li> после левого операнда оператора <code>OR (ИЛИ)</code> <code>||</code>
+</li><li> после левого операнда оператора запятая <code>,</code>
+</li><li> после первого операнда тернарного оператора <code>a ? b : c</code>
+</li><li> после полного объявления
 <a id="DOCF2" href="#FOOT2"><sup>2</sup></a>
-</li><li> the end of an initialisation expression 
-</li><li> the end of an expression statement (i.e. an expression followed by <code>;</code>)
-</li><li> the end of the controlling expression of an <code>if</code> or <code>switch</code> statement
-</li><li> the end of the controlling expression of a <code>while</code> or <code>do</code> statement
-</li><li> the end of any of the three controlling expressions of a <code>for</code> statement
-</li><li> the end of the expression in a return statement
-</li><li> immediately before the return of a library function
-</li><li> after the actions associated with an item of formatted I/O (as
-used for example with the <code>strftime</code> or the <code>printf</code> and
-<code>scanf</code> famlies of functions).
-</li><li> immediately before and after a call to a comparison function (as
-called for example by <code>qsort</code>)
+</li><li> после выражения инициализации 
+</li><li> после конструкций выражений (т.е. выражение с последующим <code>;</code>)
+</li><li> после объявления управляющих конструкций <code>if</code> или <code>switch</code>
+</li><li> после объявления управляющего выражения <code>while</code> или <code>do</code>
+</li><li> после объявления любого из трех управляющих выражений <code>for</code>
+</li><li> после выражения оператора возврата
+</li><li> непосредственно перед возвращением библиотечной функции
+</li><li> после действий, связанных с элементом форматированного I/O (как это
+используется, например, с <code>strftime</code> или <code>printf</code> и <code>scanf</code>
+родственных функций).
+</li><li> непосредственно перед и после вызова функции сравнения (как это
+происходит, например, при использовании <code>qsort</code>)
 </li></ol>
 
-<p>At a sequence point, all the side effects of previous expression
-evaluations must be complete, and no side effects of later evaluations
-may have taken place.
+<p>В точке последовательности, все побочные эффекты оценки предыдущих выражений
+должны быть завершены, и никакие побочных эффектов последующих оценок
+выражений не имеют смысла.
 </p>
-<p>This may seem a little hard to grasp, but there is another way to
-consider this.  Imagine you wrote a library (some of whose functions
-are external and perhaps others not) and compiled it, allowing someone
-else to call one of your functions from their code.  The definitions
-above ensure that, at the time they call your function, the data they
-pass in has values which are consistent with the behaviour specified
-by the abstract machine, and any data returned by your function has a
-state which is also consistent with the abstract machine.  This
-includes data accessible via pointers (i.e. not just function
-parameters and identifiers with external linkage).
+<p>Это может показаться трудным для понимания, но есть и другой способ, чтобы
+рассмотреть это.  Представьте, что вы написали библиотеку (некоторые из
+функции являются внешними и, возможно, другие нет) и скомпилировал её,
+разрешается вызов одной из этих функций из внешнего кода.  Определения
+приведённые выше гарантируют, что в момент вызова вашей функции, данные,
+которые ей перадаются, имеют согласованное значение, заданное виртуальной
+машиной, и любые данные, возвращаемые вашей функцией имеют состояние, которое
+также будет согласовано с виртуальной машиной.  Это включает в себя данные,
+доступные с помощью указателей (т.е. не только параметры функций и
+идентификаторы с внешним связыванием).
 </p>
-<p>The above is a slight simplification, since compilers exist that
-perform whole-program optimisation at link time.  Importantly however,
-although they might perform optimisations, the visible side effects of
-the program must be the same as if they were produced by the abstract
-machine.
+<p>Вышесказанное является небольшим упрощением, поскольку существуют
+компиляторы, которые выполняют оптимизацию программы в целом, уже во время
+компоновки.  Важно отметить, однако, хотя они могут выполнять оптимизации,
+видимые побочные эффекты программы должны быть такими же, как если бы они
+были получены с помощью виртуальной машины.
 </p>
 <hr>
 <span id="Sequence-Points-Constrain-Expressions"></span><div class="header">
 <p>
 Next: <a href="#Sequence-Points-and-Signal-Delivery" accesskey="n" rel="next">Sequence Points and Signal Delivery</a>, Previous: <a href="#Sequence-Points" accesskey="p" rel="prev">Sequence Points</a>, Up: <a href="#Order-of-Evaluation" accesskey="u" rel="up">Order of Evaluation</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Sequence-Points-Constrain-Expressions-1"></span><h4 class="subsection">3.20.3 Sequence Points Constrain Expressions</h4>
+<span id="Ogranichenie-Vyrazhenii-Tochkami-Posledovatelxnosti"></span><h4 class="subsection">3.20.3 Ограничение Выражений Точками Последовательности</h4>
 
-<p>The code fragment 
+<p>Фрагмент кода 
 </p><div class="example">
 <pre class="example">i = i + 1;
 </pre></div>
-<p>is quite normal and no doubt occurs in many programs.  However, the
-quite similar code fragment
+<p>это вполне нормально, и нет сомнений в том, что происходит во многих
+программах.  Тем не менее, вполне аналогичный фрагмент кода
 </p><div class="example">
 <pre class="example">i = ++i + 1;
 </pre></div>
-<p>is a little harder to understand; what is the final value of <code>i</code>?
-The C standards (both C89 and C99) both forbid this construct in 
-conforming programs.  
+<p>немного сложнее понять; каково окончательное значение <code>i</code>?  Стандарты Cи
+(как C89 и C99)запрещают эту конструкцию в соответствии программ.  
 </p>
-<p>Between two sequence points, 
+<p>Между двух точек последовательности, 
 </p><ol>
-<li> an object may have its stored value modified at most once by the
-evaluation of an expression
-</li><li> the prior value of the object shall be read only to determine
-the value to be stored.
+<li> объект может иметь свое сохраненное значение модифицированное не более
+одного раза в ходе оценки выражения
+</li><li> предварительное значение объекта должно быть только для чтения, чтобы
+определить значение для сохранения.
 </li></ol>
 
-<p>The first of these two conditions forbids expressions like 
-<code>foo(x=2, ++x)</code>.  The second condition forbids expressions like
-<code>a[i++] = i</code>.
+<p>Первый из этих двух условий запрещают выражения типа <code>foo(x=2, ++x)</code>.
+Второе условие запрещает такие выражения, как <code>a[i++] = i</code>.
 </p>
 
 <dl compact="compact">
 <dt><code>int x=0; foo(++x, ++x)</code></dt>
-<dd><p>Not allowed in a conforming program; modifies <code>x</code> twice before
-argument evaluation is complete. 
+<dd><p>Не допускается для соответствия программы, модифицировать <code>x</code> дважды,
+прежде чем оценка аргумента завершена.
 </p></dd>
 <dt><code>int x=0; bar((++x,++x))</code></dt>
-<dd><p>Allowed; the function <code>bar</code> takes one argument (the value 2
-is passed here), and there is a sequence point at the comma operator.
+<dd><p>Позволено, функция <code>bar</code> принимает один аргумент (в аргументе передано
+два значения), и есть точка последовательности - оператор запятая.
 </p></dd>
 <dt><code>*p++ || *p++</code></dt>
-<dd><p>Allowed; there is a sequence point at <code>||</code>.
+<dd><p>Позволено, существует точка последовательности на <code>||</code>.
 </p></dd>
 <dt><code>int x = 1, y = x++;</code></dt>
-<dd><p>Allowed; there is a sequence point after the full declarator of <code>x</code>.
+<dd><p>Позволено, существует точка последовательности после полного описания
+<code>x</code>.
 </p></dd>
 <dt><code>x=2; x++;</code></dt>
-<dd><p>Allowed; there is a sequence point at the end of the first expression
-statement.
+<dd><p>Позволено, существует точка последовательности в конце первого оператора
+выражения.
 </p></dd>
 <dt><code>if (x++ &gt; MAX) x = 0;</code></dt>
-<dd><p>Allowed; there is a sequence point at the end of the controlling
-expression of the <code>if</code><a id="DOCF3" href="#FOOT3"><sup>3</sup></a>.
+<dd><p>Позволено, существует точка последовательности в конце управляющего выражения
+<code>if</code><a id="DOCF3" href="#FOOT3"><sup>3</sup></a>.
 </p></dd>
 <dt><code>(x=y) ? ++x : x--;</code></dt>
-<dd><p>Allowed; there is a sequence point before the <code>?</code>, and only one
-of the two following expressions is evaluated.
+<dd><p>Позволено, существует точка последовательности перед <code>?</code>, и только один
+из двух следующих выражений оцениваются.
 </p></dd>
 <dt><code>int *p=malloc(sizeof(*p)), *q=p;  *p=foo(); bar((*p)++,(*q)++);</code></dt>
-<dd><p>Not allowed; the object at <code>p</code> is being modified twice
-before the evaluation of the arguments to <code>bar</code> is complete.  The
-fact that this is done once via <code>p</code> and once via <code>q</code> is
-irrelevant, since they both point to the same object.
+<dd><p>Не допустимо, объект в <code>p</code> модифицируется дважды, прежде чем оценка
+аргументов <code>bar</code> завершена.  Тот факт, что это делается один раз через
+<code>p</code> и один раз через <code>q</code> не имеет никакого значения, так как они
+указывают на один и тот же объект.
 </p></dd>
 </dl>
 
-<p>Let&rsquo;s go back to the example we used to introduce the problem of the
-order of evaluation, <code>++a * f()</code>.   Suppose the code actually
-looks like this:
+<p>Вернемся к примеру, мы использовали, чтобы представить проблему порядка
+оценки, <code>++a * f()</code>.  Предположим, что код на самом деле выглядит
+следующим образом:
 </p>
 <div class="example">
 <pre class="example">static int a = 1;
@@ -4113,40 +4120,38 @@ int foo (void)
 }
 </pre></div>
 
-<p>Is this code allowed in a standard-conforming program?  Although the
-expression in <code>foo</code> modifies <code>a</code> twice, this is not a
-problem.  Let&rsquo;s look at the two possible cases.
+<p>Разрешён ли этот код в соответствии стандартам программы?  Хотя выражение в
+<code>foo</code> модифицирует <code>a</code> дважды, это не проблема.  Давайте посмотрим
+на два возможных случаях.
 </p>
 <dl compact="compact">
-<dt>The right operand <code>f()</code> is evaluated first</dt>
-<dd><p>Since <code>f</code> returns a value other than void, it must contain a
-<code>return</code> statement.   Therefore, there is a sequence point at the
-end of the return expression.  That comes between the modification to
-<code>a</code> that <code>f</code> makes and the evaluation of the left operand.
+<dt>Правый операнд <code>f()</code> оценивается первым.  Поскольку <code>f</code></dt>
+<dd><p>возвращает значение, отличное от void (неопределенно), выражение должно
+содержать <code>return</code> объявление.  Таким образом, существует точка
+последовательности в конце выражения возврата.  Это происходит между
+модификацией <code>a</code>, при работе <code>f</code> и оценки левого операнда.
 </p></dd>
-<dt>The left operand <code>++a</code> is evaluated first</dt>
-<dd><p>First, <code>a</code> is incremented.   Then the arguments to <code>f</code> are
-evaluated (there are zero of them).  Then there is a sequence point
-before <code>f</code> is actually called.
+<dt>Левый операнд <code>++a</code> вычисляется первым.  Во-первых, <code>a</code></dt>
+<dd><p>увеличивается.  Затем вычисляются аргументы <code>f</code> (их нет).  Затем
+существует точка последовательности перед фактическим вызовом <code>f</code>.
 </p></dd>
 </dl>
 
-<p>So, we see that our program is standard-conforming.  Notice that the
-above argument does not actually depend on the details of the body of
-the function <code>f</code>.  It only depends on the function containing
-something ending in a sequence point &ndash; in our example this is a
-return statement, but an expression statement or a full declarator
-would do just as well.
+<p>Итак, мы видим, что наша программа соответствует стандарту.  Обратите
+внимание, что приведенное выше рассуждение фактически не зависит от деталей
+тела функции <code>f</code>.  Это зависит только от того, что функция содержит
+что-то, что заканчивающееся точкой последовательности - в нашем примере это
+оператор возврата, но оператор выражения или полное описание также подойдёт.
 </p>
 <span id="index-unspecified-behaviour"></span>
-<p>However, the result of executing this code depends on the order of
-evaluation of the operands of <code>*</code>.  If the left-hand operand is
-evaluated first, <code>foo</code> returns 6.  Otherwise, it returns 303.
-The C standard does not specify in which order the operands should be
-evaluated, and also does not require an implementation either to
-document the order or even to stick to one order.  The effect of this
-code is <em>unspecified</em>, meaning that one of several specific
-things will happen, but the C standards do not say which.
+<p>Тем не менее, результат выполнения этого кода зависит от порядка вычисления
+операндов <code>*</code>.  Если левый операнд вычисляется первым, <code>foo</code>
+возвращает 6.  В противном случае она возвращает 303.  Стандарт Cи не
+определяет, в каком порядке операнды должны быть оценены, а также не требует
+реализации документирования порядка и не требует придерживаться такого
+порядка.  Эффект этого кода <em>не определённ</em>, а это означает, что может
+произойти одно из нескольких конкретных вещей, но стандарты Cи не
+определяют что именно произойдёт в этом случае.
 </p>
 
 
@@ -4155,36 +4160,36 @@ things will happen, but the C standards do not say which.
 <p>
 Previous: <a href="#Sequence-Points-Constrain-Expressions" accesskey="p" rel="prev">Sequence Points Constrain Expressions</a>, Up: <a href="#Order-of-Evaluation" accesskey="u" rel="up">Order of Evaluation</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Sequence-Points-and-Signal-Delivery-1"></span><h4 class="subsection">3.20.4 Sequence Points and Signal Delivery</h4>
+<span id="Tochki-Posledovatelxnosti-i-Dostavka-Signalov"></span><h4 class="subsection">3.20.4 Точки Последовательности и Доставка Сигналов</h4>
 
-<p>Signals are mainly documented in the GNU C Library manual rather than
-this document, even though the C standards consider the compiler and
-the C library together to be &ldquo;the implementation&rdquo;.
+<p>Сигналы в основном описаны в руководстве GNU C Library, а не в этом
+документе, несмотря на это, стандарты Cи рассматривают компилятор и
+библиотеку Cи  вместе как &ldquo;реализацию&rdquo;.
 </p>
 
 
-<p>When a signal is received, this will happen between sequence points.
-Side effects on <code>volatile</code> objects prior to the previous sequence
-point will have occurred, but other updates may not have occurred
-yet.  This even applies to straight assignments, such as <code>x=0;</code>,
-because the code generated for that statement may require more than
-one instruction, meaning that it can be interrupted part-way through
-by the delivery of a signal.
+<p>Когда сигнал получен, это будет происходить между точками последовательности.
+Побочные эффекты на <code>volatile</code> объектов до предыдущей точки
+последовательности будет учтены, но другие обновления, возможно, ещё не
+произошли.  Это относится даже к прямым присвоениям, таким как <code>x=0;</code>,
+так как код, сгенерированный для этого заявления может потребовать более
+одной команды, а это означает, что его отработка может быть прервана на
+полпути его выполнения, путем доставки сигнала.
 </p>
-<p>The C standard is quite restrictive about what data access can occur
-within a signal handler.  They can of course use <code>auto</code>
-variables, but in terms of reading or writing other objects, they must
-be <code>volatile sig_atomic_t</code>.  The <code>volatile</code> type qualifier
-ensures that access to the variable in the other parts of the program
-doesn&rsquo;t span sequence points and the use of the <code>sig_atomic_t</code>
-type ensures that changes to the variable are atomic with respect to
-signal delivery.
+<p>Стандарт Си весьма ограничивает с доступом к данным внутри обработчика
+сигнала.  Они могут использовать <code>auto</code> переменные, но с точки зрения
+чтения или записи других объектов, они должны быть
+<code>volatile sig_atomic_t</code>.  В <code>volatile</code> типе гарантируется, что
+доступ к переменной в других частях программы не охватывает точки
+последовательности и использование <code>sig_atomic_t</code> типа обеспечивает
+поведение, при котором изменения в переменной являются атомарными
+относительно доставки сигнала.
 </p>
-<p>The POSIX standard also allows a small number of library functions to
-be called from a signal handler.  These functions are referred to as
-the set of <em>async-signal-safe</em> functions.  If your program is
-intended to run on a POSIX system but not on other systems, you can
-safely call these from your signal handler too.
+<p>Стандарт POSIX также позволяет небольшое количество библиотечных функций для
+вызова из обработчика сигнала.  Эти функции называются набором функций
+<em>безопасных-фссинхронных-сигналовa</em>.  Если ваша программа предназначена
+для запуска на системе POSIX, но не в других системах, вы можете смело
+вызывать их из обработчика сигнала тоже.
 </p>
 
 
@@ -7281,11 +7286,12 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <p>C++ also has complex number support, but it is
 incompatible with the ISO C99 types.</p>
 <h5><a id="FOOT2" href="#DOCF2">(2)</a></h3>
-<p>a full declarator is a declaration of a function or an object which is not part of another object</p>
+<p>полное объявление - это объявление функции или объекта, который не
+является частью другого объекта</p>
 <h5><a id="FOOT3" href="#DOCF3">(3)</a></h3>
-<p>However if for example <code>MAX</code> is
-<code>INT_MAX</code> and <code>x</code> is of type <code>int</code>, we clearly have a
-problem with overflow.  See <a href="#Overflow">Overflow</a>.</p>
+<p>Однако, если, например <code>MAX</code> является <code>INT_MAX</code>
+и <code>x</code> имеет тип <code>int</code>, мы явно имеем проблему с переполнением.
+See <a href="#Overflow">Overflow</a>.</p>
 <h5><a id="FOOT4" href="#DOCF4">(4)</a></h3>
 <p>Rarely, <code>argv[0]</code> can be a
 null pointer (in

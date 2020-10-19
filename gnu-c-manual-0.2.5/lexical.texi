@@ -4,14 +4,14 @@
 @c See the file gnu-c-manual.texi for copying conditions.
 
 @node Lexical Elements
-@chapter Lexical Elements
+@chapter Лексические Элементы
 @cindex lexical elements
 
-This chapter describes the lexical elements that make up C source code
-after preprocessing.  These elements are called @dfn{tokens}. There are
-five types of tokens:  keywords, identifiers, constants, operators, and
-separators.  White space, sometimes required to separate tokens, is also
-described in this chapter.
+В этой главе описывается лексические элементы, которые составляют исходный
+код Cи после предварительной обработки.  Эти элементы называются
+@dfn{токены}.  Есть пять типов токенов: ключевые слова, идентификаторы,
+константы, операторы и разделители.  Пропуски, иногда требуется, чтобы
+разделить отдельные лексемы, это всё описано в этой главе.
 
 @menu
 * Identifiers::
@@ -24,31 +24,32 @@ described in this chapter.
 
 
 @node Identifiers
-@section Identifiers
+@section Идентификаторы
 @cindex identifiers
 
-Identifiers are sequences of characters used for naming variables,
-functions, new data types, and preprocessor macros.  You can include
-letters, decimal digits, and the underscore character @samp{_} in
-identifiers.
+Идентификаторы представляют собой последовательность символов, используются
+для обозначения переменных, функций, новых типов данных и макросов
+препроцессора.  Можно также включать в идентификаторы буквы, десятичные
+цифры, и символ подчеркивания @samp{_}.
 
-The first character of an identifier cannot be a digit.
+Первый символ идентификатора не может быть цифрой.
 
-Lowercase letters and uppercase letters are distinct, such that
-@code{foo} and @code{FOO} are two different identifiers.
+Строчные буквы и прописные буквы различаются, так что @code{foo} и @code{FOO}
+два разных идентификатора.
 
-When using GNU extensions, you can also include the dollar sign
-character @samp{$} in identifiers.
+При использовании расширений GNU, вы можете также включать символ @samp{$}
+(знак доллара) в идентификаторах.
 
 
 @node Keywords
-@section Keywords
+@section Ключевые Слова
 @cindex keywords
 
-Keywords are special identifiers reserved for use as part of the
-programming language itself.  You cannot use them for any other purpose.  
+Ключевые слова являются специальными идентификаторами зарезервироваными для
+использования в качестве части самого языка программирования.  Вы не можете
+использовать их для любых других целей.  
 
-Here is a list of keywords recognized by ANSI C89:
+Вот список ключевых слов признан ANSI C89:
 
 @example
 auto break case char const continue default do double else enum extern
@@ -57,14 +58,14 @@ struct switch typedef union unsigned void volatile while
 @end example
 
 @noindent
-ISO C99 adds the following keywords:
+ISO C99 добавляет следующие ключевые слова:
 
 @example
 inline _Bool _Complex _Imaginary
 @end example
 
 @noindent
-and GNU extensions add these keywords:
+и расширение GNU добавляет эти ключевые слова:
 
 @example
 __FUNCTION__ __PRETTY_FUNCTION__ __alignof __alignof__ __asm
@@ -76,8 +77,8 @@ __volatile __volatile__
 @end example
 
 @noindent
-In both ISO C99 and C89 with GNU extensions, the following is also
-recognized as a keyword:
+В обоих ISO C99 и C89 с расширениями GNU, следующее также признаётся в
+качестве ключевого слова:
 @example
 restrict
 @end example
@@ -86,10 +87,11 @@ restrict
 @section Constants
 @cindex constants
 
-A constant is a literal numeric or character value, such as @code{5}
-or @code{'m'}.  All constants are of a particular data type; you can
-use type casting to explicitly specify the type of a constant, or let
-the compiler use the default type based on the value of the constant.
+Константа является буквальным числовым или символьным значением, например,
+@code{5} или @code{'m'}.  Все константы относятся к конкретному типу данных;
+Вы можете использовать явное приведение типов для указания типа константы или
+позволить компилятору использовать тип по умолчанию на основе значения
+константы.
 
 @menu 
 * Integer Constants::
@@ -100,16 +102,17 @@ the compiler use the default type based on the value of the constant.
 
 
 @node Integer Constants
-@subsection Integer Constants
+@subsection Целочисленные Константы
 @cindex integer constants
 @cindex constants, integer
 
-An integer constant is a sequence of digits, with an optional prefix to denote a number base.
+Целочисленная константа представляет собой последовательность цифр, с
+необязательным префиксом для обозначения системы счисления.
 
-If the sequence of digits is preceded by @code{0x} or @code{0X} (zero x or
-zero X), then the constant is considered to be hexadecimal (base 16).  Hexadecimal
-values may use the digits from 0 to 9, as well as the letters @code{a} to
-@code{f} and @code{A} to @code{F}. Here are some examples:
+Если последовательности цифр предшествует @code{0x} или @code{0X} (ноль или
+ноль затем X), то константа считается шестнадцатеричным (основание 16).
+Шестнадцатеричные значения используют цифры от 0 до 9, а также буквы от
+@code{a} до @code{f} и от @code{A} до @code{F}.  Вот некоторые примеры:
 
 @example
 @group
@@ -121,10 +124,10 @@ values may use the digits from 0 to 9, as well as the letters @code{a} to
 @end group
 @end example
 
-If the first digit is 0 (zero), and the next character is not @samp{x} or
-@samp{X}, then the constant is considered to be octal (base 8).
-Octal values may only use the digits from 0 to 7; 8 and 9 are not allowed.
-Here are some examples:
+Если первая цифра 0 (ноль), а следующий символ не является @samp{x} или
+@samp{X}, то константа считается восьмеричной (основание 8).  Восьмеричные
+значения могут использовать только цифры от 0 до 7, 8 и 9 не допускаются.
+Вот некоторые примеры:
 
 @example
 @group
@@ -135,9 +138,9 @@ Here are some examples:
 @end group
 @end example
 
-In all other cases, the sequence of digits is assumed to be
-decimal (base 10).  Decimal values may use the digits from
-0 to 9. Here are some examples:
+Во всех других случаях последовательность цифр считается десятичной
+константой (основание 10).  Десятичные значения могут состоять из цифр от 0
+до 9.  Ниже приведены некоторые примеры:
 
 @example
 @group
@@ -148,30 +151,35 @@ decimal (base 10).  Decimal values may use the digits from
 @end group
 @end example
 
-There are various integer data types, for short integers, long integers,
-signed integers, and unsigned integers.  You can force an integer constant
-to be of a long and/or unsigned integer type by appending a sequence
-of one or more letters to the end of the constant:
+Существуют различные типы целочисленных данных, для коротких целых, длинных
+целых чисел, целых чисел и целых чисел без знака.  Вы можете заставить целую
+константу быть длинным типом и/или целым числом без знака, добавив к
+последовательности одну или несколько букв из следующего списка в конце
+константы:
 @table @code
 
 @item u
 @itemx U
-Unsigned integer type.
+Целочисленный тип без знака.
 
 @item l
 @itemx L
-Long integer type.
+Длинный целочисленный тип.
 
 @end table
 
-For example, @code{45U} is an @code{unsigned int} constant.  You can
-also combine letters: @code{45UL} is an @code{unsigned long int} constant.
-(The letters may be used in any order.) 
+ Например, @code{45U} является константой с типом значения
+ @code{unsigned int (беззнаковое целочисленное)}.  Вы также можете
+ комбинировать буквы: @code{45UL} - указывает тип значения константы как
+ @code{беззнаковое длинное целочисленное}.  (Буквы могут быть использованы в
+ любом порядке.)
 
-Both ISO C99 and GNU C extensions add the integer types @code{long long int}
-and @code{unsigned long long int}.  You can use two @samp{L}s to get a
-@code{long long int} constant; add a @samp{U} to that and you have an
-@code{unsigned long long int} constant.  For example: @code{45ULL}.
+Оба расширения ISO C99 и GNU C добавляют целочисленные типы
+@code{long long int} (целочисленное двойной длинны) и
+@code{unsigned long long int} (беззнаковое целочисленное двойной длинны).
+Вы можете использовать два @samp{L}s, чтобы получить константу
+@code{long long int}; и добавить @samp{U} тогда, кода константа является
+@code{unsigned long long int}. Например: @code{45ULL}.
 
 
 @node Character Constants
@@ -179,13 +187,13 @@ and @code{unsigned long long int}.  You can use two @samp{L}s to get a
 @cindex character constants
 @cindex constants, character
 
-A character constant is usually a single character enclosed within single
-quotation marks, such as @code{'Q'}.  A character constant is of type
-@code{int} by default.
+Символьная константа характер, как правило, это один символ, заключенный в
+одинарные кавычки, например, @code{'Q'}.  Символьная константа имеет тип
+@code{int} по умолчанию.
 
-Some characters, such as the single quotation mark character itself,
-cannot be represented using only one character.  To represent such characters,
-there are several ``escape sequences'' that you can use:
+Некоторые символы, такие как одиночная кавычка, не могут быть представлены
+только самим один символом.  Для представления таких символов, есть
+несколько ``escape последовательностей'', которые вы можете использовать:
 
 
 @table @code
