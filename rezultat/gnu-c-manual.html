@@ -67,18 +67,18 @@ ul.no-bullet {list-style: none}
     <ul class="no-bullet">
       <li><a id="toc-Celochislennye-Konstanty" href="#Integer-Constants">1.3.1 Целочисленные Константы</a></li>
       <li><a id="toc-Character-Constants-1" href="#Character-Constants">1.3.2 Character Constants</a></li>
-      <li><a id="toc-Real-Number-Constants-1" href="#Real-Number-Constants">1.3.3 Real Number Constants</a></li>
-      <li><a id="toc-String-Constants-1" href="#String-Constants">1.3.4 String Constants</a></li>
+      <li><a id="toc-Konstanty-Veshchestvennykh-Chisel" href="#Real-Number-Constants">1.3.3 Константы Вещественных Чисел</a></li>
+      <li><a id="toc-Strokovye-Konstanty" href="#String-Constants">1.3.4 Строковые Константы</a></li>
     </ul></li>
-    <li><a id="toc-Operators-1" href="#Operators">1.4 Operators</a></li>
-    <li><a id="toc-Separators-1" href="#Separators">1.5 Separators</a></li>
-    <li><a id="toc-White-Space-1" href="#White-Space">1.6 White Space</a></li>
+    <li><a id="toc-Operatory" href="#Operators">1.4 Операторы</a></li>
+    <li><a id="toc-Separatory" href="#Separators">1.5 Сепараторы</a></li>
+    <li><a id="toc-Probely" href="#White-Space">1.6 Пробелы</a></li>
   </ul></li>
-  <li><a id="toc-Data-Types-1" href="#Data-Types">2 Data Types</a>
+  <li><a id="toc-Tipy-Dannykh" href="#Data-Types">2 Типы Данных</a>
   <ul class="no-bullet">
-    <li><a id="toc-Primitive-Data-Types" href="#Primitive-Types">2.1 Primitive Data Types</a>
+    <li><a id="toc-Primitivnye-Tipy-Dannykh" href="#Primitive-Types">2.1 Примитивные Типы Данных</a>
     <ul class="no-bullet">
-      <li><a id="toc-Integer-Types-1" href="#Integer-Types">2.1.1 Integer Types</a></li>
+      <li><a id="toc-Celochislennye-Tipy" href="#Integer-Types">2.1.1 Целочисленные Типы</a></li>
       <li><a id="toc-Real-Number-Types-1" href="#Real-Number-Types">2.1.2 Real Number Types</a></li>
       <li><a id="toc-Complex-Number-Types-1" href="#Complex-Number-Types">2.1.3 Complex Number Types</a>
       <ul class="no-bullet">
@@ -527,88 +527,91 @@ Next: <a href="#Real-Number-Constants" accesskey="n" rel="next">Real Number Cons
 <code>int</code> по умолчанию.
 </p>
 <p>Некоторые символы, такие как одиночная кавычка, не могут быть представлены
-только самим один символом.  Для представления таких символов, есть
+только самим буквальным символом.  Для представления таких символов, есть
 несколько &ldquo;escape последовательностей&rdquo;, которые вы можете использовать:
 </p>
 
 <dl compact="compact">
 <dt><code>\\</code></dt>
-<dd><p>Backslash character.
+<dd><p>Символ обратной косой черты.
 </p>
 </dd>
 <dt><code>\?</code></dt>
-<dd><p>Question mark character.
+<dd><p>Символ вопросительный знак.
 </p>
 </dd>
 <dt><code>\'</code></dt>
-<dd><p>Single quotation mark.
+<dd><p>Символ одинарная кавычка.
 </p>
 </dd>
 <dt><code>\&quot;</code></dt>
-<dd><p>Double quotation mark.
+<dd><p>Символ двойные кавычки.
 </p>
 </dd>
 <dt><code>\a</code></dt>
-<dd><p>Audible alert.
+<dd><p>Звуковое оповещение.
 </p>
 </dd>
 <dt><code>\b</code></dt>
-<dd><p>Backspace character.
+<dd><p>Символ возврата на одну позицию.
 </p>
 </dd>
 <dt><code>\e</code></dt>
-<dd><p>&lt;ESC&gt; character.  (This is a GNU extension.)
+<dd><p>&lt;ESC&gt; символ.  (GNU расширение.)
 </p>
 </dd>
 <dt><code>\f</code></dt>
-<dd><p>Form feed.
+<dd><p>Перевод страницы.
 </p>
 </dd>
 <dt><code>\n</code></dt>
-<dd><p>Newline character.
+<dd><p>Символ новой строки.
 </p>
 </dd>
 <dt><code>\r</code></dt>
-<dd><p>Carriage return.
+<dd><p>Возврат каретки.
 </p>
 </dd>
 <dt><code>\t</code></dt>
-<dd><p>Horizontal tab.
+<dd><p>Горизонтальная табуляция.
 </p>
 </dd>
 <dt><code>\v</code></dt>
-<dd><p>Vertical tab.
+<dd><p>Вертикальная табуляция.
 </p>
 </dd>
 <dt><code>\o, \oo, \ooo</code></dt>
-<dd><p>Octal number.
+<dd><p>Восьмеричное число.
 </p>
 </dd>
 <dt><code>\xh, \xhh, \xhhh, &hellip;</code></dt>
-<dd><p>Hexadecimal number.
+<dd><p>Шестнадцатеричное число.
 </p>
 </dd>
 </dl>
 
-<p>To use any of these escape sequences, enclose the sequence in single
-quotes, and treat it as if it were any other character.  For example,
-the letter m is <code>'m'</code> and the newline character is <code>'\n'</code>.
+<p>Чтобы использовать любую из этих управляющих последовательностей, заключите
+последовательность в одинарные кавычки, и относитесь к этому, как будто это
+обычный другой символ.  Например, буква м является <code>'м'</code> и символ новой
+строки <code>'\n'</code>.
 </p>
-<p>The octal number escape sequence is the backslash character followed by
-one, two, or three octal digits (0 to 7). For example, 101 is the
-octal equivalent of 65, which is the ASCII character <code>'A'</code>. Thus,
-the character constant <code>'\101'</code> is the same as the character
-constant <code>'A'</code>.
+<p>Восьмеричная escape-последовательность - это символ обратной косой черты, за
+которым следует один, два или три восьмеричных цифры (от 0 до 7).  Так,
+например, 101 восьмеричный эквивалент 65, который является ASCII-символом
+<code>'A'</code>.  Таким образом, символьная константа <code>'101'</code> является тем
+же внутренним значением что и символьная константа <code>'A'</code>.
 </p>
-<p>The hexadecimal escape sequence is the backslash character, followed
-by <code>x</code> and an unlimited number of hexadecimal digits (0 to 9, and
-<code>a</code> to <code>f</code> or <code>A</code> to <code>F</code>).
+<p>Шестнадцатеричная escape-последовательность состоит из символа обратной косой
+черты, за которым следует <code>x</code> и неограниченное количество
+шестнадцатеричных цифр (цифры от 0 до 9, и буквы от <code>a</code> до <code>f</code> и
+от <code>A</code> до <code>F</code>).
 </p>
-<p>While the length of possible hexadecimal digit strings is unlimited, the number
-of character constants in any given character set is not.  (The much-used
-extended ASCII character set, for example, has only 256 characters in it.) 
-If you try to use a hexadecimal value that is outside the range of characters,
-you will get a compile-time error.
+<p>В то время как длина строки возможных шестнадцатеричных цифр не ограничена,
+количество символьных констант в любом заданном наборе символов ограничено.
+(Широко используется расширенный набор ASCII символов, он например, имеет
+в составе только 256 символов.)  Если вы пытаетесь использовать
+шестнадцатеричное значение, которое находится вне диапазона символов, вы
+получите ошибку компиляции.
 </p>
 
 <hr>
@@ -616,19 +619,20 @@ you will get a compile-time error.
 <p>
 Next: <a href="#String-Constants" accesskey="n" rel="next">String Constants</a>, Previous: <a href="#Character-Constants" accesskey="p" rel="prev">Character Constants</a>, Up: <a href="#Constants" accesskey="u" rel="up">Constants</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Real-Number-Constants-1"></span><h4 class="subsection">1.3.3 Real Number Constants</h4>
+<span id="Konstanty-Veshchestvennykh-Chisel"></span><h4 class="subsection">1.3.3 Константы Вещественных Чисел</h4>
 <span id="index-floating-point-constants"></span>
 <span id="index-constants_002c-floating-point"></span>
 <span id="index-real-number-constants"></span>
 <span id="index-constants_002c-real-number"></span>
 
-<p>A real number constant is a value that represents a fractional (floating
-point) number.  It consists of a sequence of digits which represents the
-integer (or &ldquo;whole&rdquo;) part of the number, a decimal point, and
-a sequence of digits which represents the fractional part.
+<p>Константа вещественного числа является значением, которое представляет собой
+дробное (с плавающей точкой) число.  Она состоит из последовательности цифр,
+которые представляет собой целое число (или) &ldquo;целую&rdquo; часть числа,
+десятичную точку, и последовательность цифр, которая представляет собой
+дробную часть числа.
 </p>
-<p>Either the integer part or the fractional part may be omitted, but not
-both.  Here are some examples:
+<p>Либо часть числа, целая или дробная часть, может быть опущена, но не обе
+сразу.  Вот несколько примеров:
 </p>
 
 <div class="example">
@@ -645,12 +649,13 @@ d = .7;
 e = 0.7;
 </pre></div>
 
-<p>(In the third assignment statement, the integer constant 4 is automatically
-converted from an integer value to a double value.)
+<p>(В третьем операторе присваивания целая константа 4 автоматически
+преобразуется из целочисленного значения до значения числа с плавающей
+точкой.)
 </p>
-<p>Real number constants can also be followed by <code>e</code> or
-<code>E</code>, and an integer exponent.  The exponent can be either positive
-or negative.
+<p>Константа вещественного числа, также может дополнятся <code>e</code> или <code>E</code>
+целочисленными показателями.  Показатель может быть положительным или
+отрицательным.
 </p>
 
 <div class="example">
@@ -660,11 +665,11 @@ x = 5e2;   /* <span class="roman"><code>x</code> is 5 * 100, or 500.0.</span> */
 y = 5e-2;  /* <span class="roman"><code>y</code> is 5 * (1/100), or 0.05.</span> */
 </pre></div>
 
-<p>You can append a letter to the end of a real number constant
-to cause it to be of a particular type.  If you append the letter
-F (or f) to a real number constant, then its type is <code>float</code>.
-If you append the letter L (or l), then its type is <code>long double</code>.
-If you do not append any letters, then its type is <code>double</code>.
+<p>Вы можете добавить букву в конце константы вещественного числа, чтобы
+определить её тип.  Если добавить букву F (или f) к константе вещественоого
+числа, то её тип будет <code>float</code>.  Если добавить букву L (или l), то её
+тип станет <code>long double</code>.  Если вы не добавляете любые буквы, то её тип
+будет <code>double</code>.
 </p>
 
 <hr>
@@ -672,77 +677,76 @@ If you do not append any letters, then its type is <code>double</code>.
 <p>
 Previous: <a href="#Real-Number-Constants" accesskey="p" rel="prev">Real Number Constants</a>, Up: <a href="#Constants" accesskey="u" rel="up">Constants</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="String-Constants-1"></span><h4 class="subsection">1.3.4 String Constants</h4>
+<span id="Strokovye-Konstanty"></span><h4 class="subsection">1.3.4 Строковые Константы</h4>
 <span id="index-string-constants"></span>
 <span id="index-string-literals"></span>
 
-<p>A string constant is a sequence of zero or more characters, digits,
-and escape sequences enclosed within double quotation marks.  A string
-constant is of type &ldquo;array of characters&rdquo;.  All string constants contain a
-null termination character (<code>\0</code>) as their last character.  Strings
-are stored as arrays of characters, with no inherent size attribute.
-The null termination character lets string-processing functions know
-where the string ends.
+<p>Строковая константа представляет собой последовательность из нуля или более
+символов, цифр и управляющих последовательностей, заключенных в двойные
+кавычки.  Строковая константа имеет тип &ldquo;массив символов&rdquo;.  Все строковые
+константы содержат завершающий нулевой символ (<code>\0</code>) в качестве
+последнего символа.  Строки хранятся в виде массива символов, без
+неотъемлемого атрибута размера.  Завершающий нулевой символ позволяет
+строковым функциям при обработке знать, где строка заканчивается.
 </p>
-<p>Adjacent string constants are concatenated (combined) into
-one string, with the null termination character added to the end of
-the final concatenated string.
+<p>Смежные строковые константы сцепляются (объединяются) в одну строку путём
+добавления нулевого символа завершения к концу завершающей объединение
+строки.
 </p>
-<p>A string cannot contain double quotation marks, as double
-quotation marks are used to enclose the string.  To include
-the double quotation mark character in a string, use the <code>\&quot;</code>
-escape sequence.  You can use any of the escape sequences that can
-be used as character constants in strings.  Here are some example
-of string constants:
+<p>Строка не может содержать двойные кавычки, поскольку строка заключается в
+двойные кавычки.  Чтобы включить символ двойной символ кавычки в строку,
+используйте escape-последовательность <code>\&quot;</code>.  Вы можете использовать
+любую из escape-последовательностей в качестве символьных констант в строках.
+Вот некоторые примеры строковых констант:
 </p>
 <div class="example">
-<pre class="example">/* <span class="roman">This is a single string constant.</span> */
-&quot;tutti frutti ice cream&quot;
+<pre class="example">/* <span class="roman">Это одностроковая константа.</span> */
+&quot;Тутти Фрутти мороженое&quot;
 
-/* <span class="roman">These string constants will be concatenated, same as above.</span> */
-&quot;tutti &quot; &quot;frutti&quot; &quot; ice &quot; &quot;cream&quot;
+/* <span class="roman">Эти строковые константы будут сцеплены, так, как описано выше.</span> */
+&quot;Тутти &quot; &quot;Фрутти&quot; &quot; мороженное &quot;
 
-/* <span class="roman">This one uses two escape sequences.</span> */
-&quot;\&quot;hello, world!\&quot;&quot;
+/* <span class="roman">Здесь используются две escape-последовательности.</span> */
+&quot;\&quot;привет, мир!\&quot;&quot;
 </pre></div>
 
-<p>If a string is too long to fit on one line, you can use a backslash <code>\</code>
-to break it up onto separate lines.
+<p>Если строка слишком длинная, чтобы поместиться на одной строке, вы можете
+использовать обратную косую <code>\</code>, чтобы разбить его на отдельные строки.
 </p>
 <div class="example">
-<pre class="example">&quot;Today's special is a pastrami sandwich on rye bread with \
-a potato knish and a cherry soda.&quot;
+<pre class="example">&quot;Сегодня особый бутерброд на ржаном хлебе \
+с картофельными котлетами и вишневой содой.&quot;
 </pre></div>
 
-<p>Adjacent strings are automatically concatenated, so you can also have string
-constants span multiple lines by writing them as separate, adjacent, strings.
-For example:
+<p>Смежные строки автоматически объединяются, так что вы можете иметь строковые
+константы на нескольких строка, записывая их в виде отдельных, смежных,
+строк. Например:
 </p>
 <div class="example">
-<pre class="example">&quot;Tomorrow's special is a corned beef sandwich on &quot;
-&quot;pumpernickel bread with a kasha knish and seltzer water.&quot;
+<pre class="example">&quot;Специальный завтрак - сендвич с солониной говядины на хлебе &quot;
+&quot;из грубой ржаной муки и манной кашей из сельтерской воды.&quot;
 </pre></div>
 
-<p>is the same as
+<p>тоже самое от записи
 </p>
 <div class="example">
-<pre class="example">&quot;Tomorrow's special is a corned beef sandwich on \
-pumpernickel bread with a kasha knish and seltzer water.&quot;
+<pre class="example">&quot;Специальный завтрак - сендвич с солониной говядины на хлебе \
+из грубой ржаной муки и манной кашей из сельтерской воды.&quot;
 </pre></div>
 
-<p>To insert a newline character into the string, so that when the string
-is printed it will be printed on two different lines, you can use the newline
-escape sequence &lsquo;<samp>\n</samp>&rsquo;.
+<p>Для того, чтобы вставить символ новой строки в строку, так чтобы, когда
+строка печаталась, строка выводилась на двух различных строках, вы можете
+использовать escape-последовательность новой строки &lsquo;<samp>\n</samp>&rsquo;.
 </p>
 <div class="example">
-<pre class="example">printf (&quot;potato\nknish&quot;);
+<pre class="example">printf (&quot;картофельная\nкотлета&quot;);
 </pre></div>
 
 <p>prints
 </p>
 <div class="example">
-<pre class="example">potato
-knish
+<pre class="example">картофельная
+котлета
 </pre></div>
 
 
@@ -752,13 +756,12 @@ knish
 <p>
 Next: <a href="#Separators" accesskey="n" rel="next">Separators</a>, Previous: <a href="#Constants" accesskey="p" rel="prev">Constants</a>, Up: <a href="#Lexical-Elements" accesskey="u" rel="up">Lexical Elements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Operators-1"></span><h3 class="section">1.4 Operators</h3>
+<span id="Operatory"></span><h3 class="section">1.4 Операторы</h3>
 <span id="index-operators-as-lexical-elements"></span>
 
-<p>An operator is a special token that performs an operation, such as
-addition or subtraction, on either one, two, or three operands.
-Full coverage of operators can be found in a later
-chapter.  See <a href="#Expressions-and-Operators">Expressions and Operators</a>.
+<p>Оператор является специальным маркером, который выполняет операцию, например,
+сложения или вычитания, с одним, двумя или тремя операндах.  Описание всех
+операторов можно найти в следующей главе.  See <a href="#Expressions-and-Operators">Expressions and Operators</a>.
 </p>
 
 <hr>
@@ -766,12 +769,12 @@ chapter.  See <a href="#Expressions-and-Operators">Expressions and Operators</a>
 <p>
 Next: <a href="#White-Space" accesskey="n" rel="next">White Space</a>, Previous: <a href="#Operators" accesskey="p" rel="prev">Operators</a>, Up: <a href="#Lexical-Elements" accesskey="u" rel="up">Lexical Elements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Separators-1"></span><h3 class="section">1.5 Separators</h3>
+<span id="Separatory"></span><h3 class="section">1.5 Сепараторы</h3>
 <span id="index-separators"></span>
 
-<p>A separator separates tokens.  White space (see next section) is a
-separator, but it is not a token.  The other separators are all
-single-character tokens themselves:
+<p>Сепаратор отделяет операторы.  Пробел (смотрите следующий раздел) является
+сепаратором, но не для операторов.  Все остальные сепараторы - это
+односимвольные операторы:
 </p>
 <div class="example">
 <pre class="example">( ) [ ] { } ; , . :
@@ -783,15 +786,14 @@ single-character tokens themselves:
 <p>
 Previous: <a href="#Separators" accesskey="p" rel="prev">Separators</a>, Up: <a href="#Lexical-Elements" accesskey="u" rel="up">Lexical Elements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="White-Space-1"></span><h3 class="section">1.6 White Space</h3>
+<span id="Probely"></span><h3 class="section">1.6 Пробелы</h3>
 <span id="index-white-space"></span>
 
-<p>White space is the collective term used for several characters:
-the space character, the tab character, the newline character, the
-vertical tab character, and the form-feed character.
-White space is ignored (outside of string 
-and character constants), and is therefore optional, except when it is
-used to separate tokens.  This means that
+<p>Пробел - это собирательный термин, использующийся для нескольких символов:
+символ пробела, символ табуляции, символ новой строки, вертикальная табуляция
+и символ перевода страницы.  Пробелы игнорируются (вне строковых и символьных
+констант), и, следовательно, по желанию, за исключением случаев, когда они
+используется для разделения операторов. Это значит, что
 </p>
 <div class="example">
 <pre class="example">#include &lt;stdio.h&gt;
@@ -799,7 +801,7 @@ used to separate tokens.  This means that
 int
 main()
 {
-  printf( &quot;hello, world\n&quot; );
+  printf( &quot;привет, мир\n&quot; );
   return 0;
 }
 </pre></div>
@@ -807,19 +809,20 @@ main()
 <p>and
 </p>
 <div class="example">
-<pre class="example">#include &lt;stdio.h&gt; int main(){printf(&quot;hello, world\n&quot;);
+<pre class="example">#include &lt;stdio.h&gt; int main(){printf(&quot;привет, мир\n&quot;);
 return 0;}
 </pre></div>
 
-<p>are functionally the same program.
+<p>функционально одна и та же программа.
 </p>
-<p>Although you must use white space to separate many tokens, no
-white space is required between operators and operands, nor is
-it required between other separators and that which they separate.
+<p>Хотя вы должны использовать символы пробела для разделения нескольких
+операторов, пробелы не требуется между операторами и операндами, ровно так
+не требуется установка пробела между несколькими сепараторами и между тем,
+что они разделяют.
 </p>
 
 <div class="example">
-<pre class="example">/* <span class="roman">All of these are valid.</span> */
+<pre class="example">/* <span class="roman">Все записи являются допустимыми.</span> */
 
 x++;
 x ++ ;
@@ -831,28 +834,28 @@ fraction=numerator / *denominator_ptr;
 fraction = numerator / * denominator_ptr ;
 </pre></div>
 
-<p>Furthermore, wherever one space is allowed, any amount of white space
-is allowed.
+<p>Кроме того, там, где допускается один пробел, допускается также и любое
+количество пробелов.
 </p>
 <div class="example">
-<pre class="example">/* <span class="roman">These two statements are functionally identical.</span> */
+<pre class="example">/* <span class="roman">Эти два утверждения функционально идентичны.</span> */
 x++;
 
 x
        ++       ;
 </pre></div>
 
-<p>In string constants, spaces and tabs are not ignored; rather, they are
-part of the string.  Therefore,
+<p>В строковых константах, пробелы и табуляции не игнорируются; скорее, они
+являются частью строки. Следовательно,
 </p>
 <div class="example">
-<pre class="example">&quot;potato knish&quot;
+<pre class="example">&quot;картофельная котлета&quot;
 </pre></div>
 
-<p>is not the same as
+<p> это не то же самое
 </p>
 <div class="example">
-<pre class="example">&quot;potato                        knish&quot;
+<pre class="example">&quot;картофельная                         котлета&quot;
 </pre></div>
 
 
@@ -861,7 +864,7 @@ part of the string.  Therefore,
 <p>
 Next: <a href="#Expressions-and-Operators" accesskey="n" rel="next">Expressions and Operators</a>, Previous: <a href="#Lexical-Elements" accesskey="p" rel="prev">Lexical Elements</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Data-Types-1"></span><h2 class="chapter">2 Data Types</h2>
+<span id="Tipy-Dannykh"></span><h2 class="chapter">2 Типы Данных</h2>
 <span id="index-data-types"></span>
 <span id="index-types"></span>
 
@@ -893,7 +896,7 @@ Next: <a href="#Expressions-and-Operators" accesskey="n" rel="next">Expressions 
 <p>
 Next: <a href="#Enumerations" accesskey="n" rel="next">Enumerations</a>, Up: <a href="#Data-Types" accesskey="u" rel="up">Data Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Primitive-Data-Types"></span><h3 class="section">2.1 Primitive Data Types</h3>
+<span id="Primitivnye-Tipy-Dannykh"></span><h3 class="section">2.1 Примитивные Типы Данных</h3>
 <span id="index-primitive-data-types"></span>
 <span id="index-data-types_002c-primitive"></span>
 <span id="index-types_002c-primitive"></span>
@@ -912,17 +915,18 @@ Next: <a href="#Enumerations" accesskey="n" rel="next">Enumerations</a>, Up: <a 
 <p>
 Next: <a href="#Real-Number-Types" accesskey="n" rel="next">Real Number Types</a>, Up: <a href="#Primitive-Types" accesskey="u" rel="up">Primitive Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Integer-Types-1"></span><h4 class="subsection">2.1.1 Integer Types</h4>
+<span id="Celochislennye-Tipy"></span><h4 class="subsection">2.1.1 Целочисленные Типы</h4>
 <span id="index-integer-types"></span>
 <span id="index-data-types_002c-integer"></span>
 <span id="index-types_002c-integer"></span>
 
-<p>The integer data types range in size from at least 8 bits to at least 32 bits.
-The C99 standard extends this range to include integer sizes of at least 64 bits.
-You should use integer types for storing whole number values (and the <code>char</code>
-data type for storing characters).  The sizes and ranges listed for these types
-are minimums; depending on your computer platform, these sizes and ranges may be
-larger.
+<p>Целочисленный тип данных имеет размер в диапазоне от, по меньшей мере, 8
+битов, до по меньшей мере, 32 битов.  Стандарт C99 расширяет этот диапазон,
+чтобы включать в себя целые числа, размеры которых, по меньшей мере, 64 бита.
+Вы должны использовать целые типы для хранения значений целых чисел (и типа
+данных <code>char</code> для хранения символов).  Минимальные размеры и диапазоны,
+приведенны для этих типов; в зависимости от вашей компьютерной платформы, эти
+размеры и диапазоны могут быть больше но никак не меньше.
 </p>
 <p>While these ranges provide a natural ordering, the standard does
 not require that any two types have a different range.  For example,

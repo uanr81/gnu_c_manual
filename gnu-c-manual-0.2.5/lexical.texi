@@ -192,91 +192,95 @@ restrict
 @code{int} по умолчанию.
 
 Некоторые символы, такие как одиночная кавычка, не могут быть представлены
-только самим один символом.  Для представления таких символов, есть
+только самим буквальным символом.  Для представления таких символов, есть
 несколько ``escape последовательностей'', которые вы можете использовать:
 
 
 @table @code
 
 @item \\
-Backslash character.
+Символ обратной косой черты.
 
 @item \?
-Question mark character.
+Символ вопросительный знак.
 
 @item \'
-Single quotation mark.
+Символ одинарная кавычка.
 
 @item \"
-Double quotation mark.
+Символ двойные кавычки.
 
 @item \a
-Audible alert.
+Звуковое оповещение.
 
 @item \b
-Backspace character.
+Символ возврата на одну позицию.
 
 @item \e
-<ESC> character.  (This is a GNU extension.)
+<ESC> символ.  (GNU расширение.)
 
 @item \f
-Form feed.
+Перевод страницы.
 
 @item \n
-Newline character.
+Символ новой строки.
 
 @item \r
-Carriage return.
+Возврат каретки.
 
 @item \t
-Horizontal tab.
+Горизонтальная табуляция.
 
 @item \v
-Vertical tab.
+Вертикальная табуляция.
 
 @item \o, \oo, \ooo
-Octal number.
+Восьмеричное число.
 
 @item \xh, \xhh, \xhhh, @dots{}
-Hexadecimal number.
+Шестнадцатеричное число.
 
 @end table
 
-To use any of these escape sequences, enclose the sequence in single
-quotes, and treat it as if it were any other character.  For example,
-the letter m is @code{'m'} and the newline character is @code{'\n'}.
+Чтобы использовать любую из этих управляющих последовательностей, заключите
+последовательность в одинарные кавычки, и относитесь к этому, как будто это
+обычный другой символ.  Например, буква м является @code{'м'} и символ новой
+строки @code{'\n'}.
 
-The octal number escape sequence is the backslash character followed by
-one, two, or three octal digits (0 to 7). For example, 101 is the
-octal equivalent of 65, which is the ASCII character @code{'A'}. Thus,
-the character constant @code{'\101'} is the same as the character
-constant @code{'A'}.
+Восьмеричная escape-последовательность - это символ обратной косой черты, за
+которым следует один, два или три восьмеричных цифры (от 0 до 7).  Так,
+например, 101 восьмеричный эквивалент 65, который является ASCII-символом
+@code{'A'}.  Таким образом, символьная константа @code{'101'} является тем
+же внутренним значением что и символьная константа @code{'A'}.
 
-The hexadecimal escape sequence is the backslash character, followed
-by @code{x} and an unlimited number of hexadecimal digits (0 to 9, and
-@code{a} to @code{f} or @code{A} to @code{F}).
+Шестнадцатеричная escape-последовательность состоит из символа обратной косой
+черты, за которым следует @code{x} и неограниченное количество
+шестнадцатеричных цифр (цифры от 0 до 9, и буквы от @code{a} до @code{f} и
+от @code{A} до @code{F}).
 
-While the length of possible hexadecimal digit strings is unlimited, the number
-of character constants in any given character set is not.  (The much-used
-extended ASCII character set, for example, has only 256 characters in it.) 
-If you try to use a hexadecimal value that is outside the range of characters,
-you will get a compile-time error.
+В то время как длина строки возможных шестнадцатеричных цифр не ограничена,
+количество символьных констант в любом заданном наборе символов ограничено.
+(Широко используется расширенный набор ASCII символов, он например, имеет
+в составе только 256 символов.)  Если вы пытаетесь использовать
+шестнадцатеричное значение, которое находится вне диапазона символов, вы
+получите ошибку компиляции.
 
 
 @node Real Number Constants
-@subsection Real Number Constants
+@subsection Константы Вещественных Чисел
 @cindex floating point constants
 @cindex constants, floating point
 @cindex real number constants
 @cindex constants, real number
 
-A real number constant is a value that represents a fractional (floating
-point) number.  It consists of a sequence of digits which represents the
-integer (or ``whole'') part of the number, a decimal point, and
-a sequence of digits which represents the fractional part.
+Константа вещественного числа является значением, которое представляет собой
+дробное (с плавающей точкой) число.  Она состоит из последовательности цифр,
+которые представляет собой целое число (или) ``целую'' часть числа,
+десятичную точку, и последовательность цифр, которая представляет собой
+дробную часть числа.
 
-Either the integer part or the fractional part may be omitted, but not
-both.  Here are some examples:
+Либо часть числа, целая или дробная часть, может быть опущена, но не обе
+сразу.  Вот несколько примеров:
 
 
 @example
@@ -296,12 +300,13 @@ e = 0.7;
 @end example
 
 @noindent
-(In the third assignment statement, the integer constant 4 is automatically
-converted from an integer value to a double value.)
+(В третьем операторе присваивания целая константа 4 автоматически
+преобразуется из целочисленного значения до значения числа с плавающей
+точкой.)
 
-Real number constants can also be followed by @code{e} or
-@code{E}, and an integer exponent.  The exponent can be either positive
-or negative.
+Константа вещественного числа, также может дополнятся @code{e} или @code{E}
+целочисленными показателями.  Показатель может быть положительным или
+отрицательным.
 
 
 @example
@@ -313,89 +318,88 @@ y = 5e-2;  /* @r{@code{y} is 5 * (1/100), or 0.05.} */
 @end group
 @end example
 
-You can append a letter to the end of a real number constant
-to cause it to be of a particular type.  If you append the letter
-F (or f) to a real number constant, then its type is @code{float}.
-If you append the letter L (or l), then its type is @code{long double}.
-If you do not append any letters, then its type is @code{double}.
+Вы можете добавить букву в конце константы вещественного числа, чтобы
+определить её тип.  Если добавить букву F (или f) к константе вещественоого
+числа, то её тип будет @code{float}.  Если добавить букву L (или l), то её
+тип станет @code{long double}.  Если вы не добавляете любые буквы, то её тип
+будет @code{double}.
 
 
 @node String Constants
-@subsection String Constants
+@subsection Строковые Константы
 @cindex string constants
 @cindex string literals
 
-A string constant is a sequence of zero or more characters, digits,
-and escape sequences enclosed within double quotation marks.  A string
-constant is of type ``array of characters''.  All string constants contain a
-null termination character (@code{\0}) as their last character.  Strings
-are stored as arrays of characters, with no inherent size attribute.
-The null termination character lets string-processing functions know
-where the string ends.
+Строковая константа представляет собой последовательность из нуля или более
+символов, цифр и управляющих последовательностей, заключенных в двойные
+кавычки.  Строковая константа имеет тип ``массив символов''.  Все строковые
+константы содержат завершающий нулевой символ (@code{\0}) в качестве
+последнего символа.  Строки хранятся в виде массива символов, без
+неотъемлемого атрибута размера.  Завершающий нулевой символ позволяет
+строковым функциям при обработке знать, где строка заканчивается.
 
-Adjacent string constants are concatenated (combined) into
-one string, with the null termination character added to the end of
-the final concatenated string.
+Смежные строковые константы сцепляются (объединяются) в одну строку путём
+добавления нулевого символа завершения к концу завершающей объединение
+строки.
 
-A string cannot contain double quotation marks, as double
-quotation marks are used to enclose the string.  To include
-the double quotation mark character in a string, use the @code{\"}
-escape sequence.  You can use any of the escape sequences that can
-be used as character constants in strings.  Here are some example
-of string constants:
+Строка не может содержать двойные кавычки, поскольку строка заключается в
+двойные кавычки.  Чтобы включить символ двойной символ кавычки в строку,
+используйте escape-последовательность @code{\"}.  Вы можете использовать
+любую из escape-последовательностей в качестве символьных констант в строках.
+Вот некоторые примеры строковых констант:
 
 @example
 @group
-/* @r{This is a single string constant.} */
-"tutti frutti ice cream"
+/* @r{Это одностроковая константа.} */
+"Тутти Фрутти мороженое"
 
-/* @r{These string constants will be concatenated, same as above.} */
-"tutti " "frutti" " ice " "cream"
+/* @r{Эти строковые константы будут сцеплены, так, как описано выше.} */
+"Тутти " "Фрутти" " мороженное "
 
-/* @r{This one uses two escape sequences.} */
-"\"hello, world!\""
+/* @r{Здесь используются две escape-последовательности.} */
+"\"привет, мир!\""
 @end group
 @end example
 
 @noindent
-If a string is too long to fit on one line, you can use a backslash @code{\}
-to break it up onto separate lines.
+Если строка слишком длинная, чтобы поместиться на одной строке, вы можете
+использовать обратную косую @code{\}, чтобы разбить его на отдельные строки.
 
 @example
 @group
-"Today's special is a pastrami sandwich on rye bread with \
-a potato knish and a cherry soda."
+"Сегодня особый бутерброд на ржаном хлебе \
+с картофельными котлетами и вишневой содой."
 @end group
 @end example
 
 @noindent
-Adjacent strings are automatically concatenated, so you can also have string
-constants span multiple lines by writing them as separate, adjacent, strings.
-For example:
+Смежные строки автоматически объединяются, так что вы можете иметь строковые
+константы на нескольких строка, записывая их в виде отдельных, смежных,
+строк. Например:
 
 @example
 @group
-"Tomorrow's special is a corned beef sandwich on "
-"pumpernickel bread with a kasha knish and seltzer water."
+"Специальный завтрак - сендвич с солониной говядины на хлебе "
+"из грубой ржаной муки и манной кашей из сельтерской воды."
 @end group
 @end example
 
 @noindent
-is the same as
+тоже самое от записи
 
 @example
 @group
-"Tomorrow's special is a corned beef sandwich on \
-pumpernickel bread with a kasha knish and seltzer water."
+"Специальный завтрак - сендвич с солониной говядины на хлебе \
+из грубой ржаной муки и манной кашей из сельтерской воды."
 @end group
 @end example
 
-To insert a newline character into the string, so that when the string
-is printed it will be printed on two different lines, you can use the newline
-escape sequence @samp{\n}.
+Для того, чтобы вставить символ новой строки в строку, так чтобы, когда
+строка печаталась, строка выводилась на двух различных строках, вы можете
+использовать escape-последовательность новой строки @samp{\n}.
 
 @example
-printf ("potato\nknish");
+printf ("картофельная\nкотлета");
 @end example
 
 @noindent
@@ -403,38 +407,38 @@ prints
 
 @example
 @group
-potato
-knish
+картофельная
+котлета
 @end group
 @end example
 
-@c TJR: Removing this paragraph until we can determine for sure what
-@c limit (including ``no limit'') GCC imposes on string constant length.
+@c TJR: Удаление этого пункта, пока мы не можем определить наверняка,
+@c что GCC ограничивает предел (в том числе ``no limit'') длины строковым
+@c константам.
 @c
-@c All ANSI C89 systems must support string constants of at least 509
-@c characters after concatenation of adjacent literals.   GCC appears not
-@c to have a fixed limit (string constants of hundreds of Megabytes will
-@c work).
+@c Все системы ANSI C89 должны поддерживать строковые константы, по крайней
+@c мере 509 символов после конкатенации смежных символов.  GCC, кажется, не
+@c имеет фиксированного предела (строковые константы в сотню мегабайтов,
+@c будут работать).
 
 @c ANSI C89, sec 5.2.4.1, ``Translation Limits''.
 
 @node Operators
-@section Operators
+@section Операторы
 @cindex operators as lexical elements
 
-An operator is a special token that performs an operation, such as
-addition or subtraction, on either one, two, or three operands.
-Full coverage of operators can be found in a later
-chapter.  @xref{Expressions and Operators}.
+Оператор является специальным маркером, который выполняет операцию, например,
+сложения или вычитания, с одним, двумя или тремя операндах.  Описание всех
+операторов можно найти в следующей главе.  @xref{Expressions and Operators}.
 
 
 @node Separators
-@section Separators
+@section Сепараторы
 @cindex separators
 
-A separator separates tokens.  White space (see next section) is a
-separator, but it is not a token.  The other separators are all
-single-character tokens themselves:
+Сепаратор отделяет операторы.  Пробел (смотрите следующий раздел) является
+сепаратором, но не для операторов.  Все остальные сепараторы - это
+односимвольные операторы:
 
 @example
 ( ) [ ] @{ @} ; , . :
@@ -442,15 +446,14 @@ single-character tokens themselves:
 
 
 @node White Space
-@section White Space
+@section Пробелы
 @cindex white space
 
-White space is the collective term used for several characters:
-the space character, the tab character, the newline character, the
-vertical tab character, and the form-feed character.
-White space is ignored (outside of string 
-and character constants), and is therefore optional, except when it is
-used to separate tokens.  This means that
+Пробел - это собирательный термин, использующийся для нескольких символов:
+символ пробела, символ табуляции, символ новой строки, вертикальная табуляция
+и символ перевода страницы.  Пробелы игнорируются (вне строковых и символьных
+констант), и, следовательно, по желанию, за исключением случаев, когда они
+используется для разделения операторов. Это значит, что
 
 @example
 @group
@@ -459,7 +462,7 @@ used to separate tokens.  This means that
 int
 main()
 @{
-  printf( "hello, world\n" );
+  printf( "привет, мир\n" );
   return 0;
 @}
 @end group
@@ -470,22 +473,23 @@ and
 
 @example
 @group
-#include <stdio.h> int main()@{printf("hello, world\n");
+#include <stdio.h> int main()@{printf("привет, мир\n");
 return 0;@}
 @end group
 @end example
 
 @noindent
-are functionally the same program.
+функционально одна и та же программа.
 
-Although you must use white space to separate many tokens, no
-white space is required between operators and operands, nor is
-it required between other separators and that which they separate.
+Хотя вы должны использовать символы пробела для разделения нескольких
+операторов, пробелы не требуется между операторами и операндами, ровно так
+не требуется установка пробела между несколькими сепараторами и между тем,
+что они разделяют.
 
 
 @example
 @group
-/* @r{All of these are valid.} */
+/* @r{Все записи являются допустимыми.} */
 
 x++;
 x ++ ;
@@ -499,12 +503,12 @@ fraction = numerator / * denominator_ptr ;
 @end example
 
 @noindent
-Furthermore, wherever one space is allowed, any amount of white space
-is allowed.
+Кроме того, там, где допускается один пробел, допускается также и любое
+количество пробелов.
 
 @example
 @group
-/* @r{These two statements are functionally identical.} */
+/* @r{Эти два утверждения функционально идентичны.} */
 x++;
 
 x
@@ -512,16 +516,16 @@ x
 @end group
 @end example
 
-In string constants, spaces and tabs are not ignored; rather, they are
-part of the string.  Therefore,
+В строковых константах, пробелы и табуляции не игнорируются; скорее, они
+являются частью строки. Следовательно,
 
 @example
-"potato knish"
+"картофельная котлета"
 @end example
 
 @noindent
-is not the same as
+ это не то же самое
 
 @example
-"potato                        knish"
+"картофельная                         котлета"
 @end example

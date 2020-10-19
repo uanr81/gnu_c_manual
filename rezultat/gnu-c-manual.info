@@ -252,84 +252,89 @@ File: gnu-c-manual.info,  Node: Character Constants,  Next: Real Number Constant
 'int' по умолчанию.
 
    Некоторые символы, такие как одиночная кавычка, не могут быть
-представлены только самим один символом.  Для представления таких
+представлены только самим буквальным символом.  Для представления таких
 символов, есть несколько "escape последовательностей", которые вы можете
 использовать:
 
 '\\'
-     Backslash character.
+     Символ обратной косой черты.
 
 '\?'
-     Question mark character.
+     Символ вопросительный знак.
 
 '\''
-     Single quotation mark.
+     Символ одинарная кавычка.
 
 '\"'
-     Double quotation mark.
+     Символ двойные кавычки.
 
 '\a'
-     Audible alert.
+     Звуковое оповещение.
 
 '\b'
-     Backspace character.
+     Символ возврата на одну позицию.
 
 '\e'
-     <ESC> character.  (This is a GNU extension.)
+     <ESC> символ.  (GNU расширение.)
 
 '\f'
-     Form feed.
+     Перевод страницы.
 
 '\n'
-     Newline character.
+     Символ новой строки.
 
 '\r'
-     Carriage return.
+     Возврат каретки.
 
 '\t'
-     Horizontal tab.
+     Горизонтальная табуляция.
 
 '\v'
-     Vertical tab.
+     Вертикальная табуляция.
 
 '\o, \oo, \ooo'
-     Octal number.
+     Восьмеричное число.
 
 '\xh, \xhh, \xhhh, ...'
-     Hexadecimal number.
+     Шестнадцатеричное число.
 
-   To use any of these escape sequences, enclose the sequence in single
-quotes, and treat it as if it were any other character.  For example,
-the letter m is ''m'' and the newline character is ''\n''.
+   Чтобы использовать любую из этих управляющих последовательностей,
+заключите последовательность в одинарные кавычки, и относитесь к этому,
+как будто это обычный другой символ.  Например, буква м является ''м'' и
+символ новой строки ''\n''.
 
-   The octal number escape sequence is the backslash character followed
-by one, two, or three octal digits (0 to 7).  For example, 101 is the
-octal equivalent of 65, which is the ASCII character ''A''.  Thus, the
-character constant ''\101'' is the same as the character constant ''A''.
+   Восьмеричная escape-последовательность - это символ обратной косой
+черты, за которым следует один, два или три восьмеричных цифры (от 0 до
+7).  Так, например, 101 восьмеричный эквивалент 65, который является
+ASCII-символом ''A''.  Таким образом, символьная константа ''101''
+является тем же внутренним значением что и символьная константа ''A''.
 
-   The hexadecimal escape sequence is the backslash character, followed
-by 'x' and an unlimited number of hexadecimal digits (0 to 9, and 'a' to
-'f' or 'A' to 'F').
+   Шестнадцатеричная escape-последовательность состоит из символа
+обратной косой черты, за которым следует 'x' и неограниченное количество
+шестнадцатеричных цифр (цифры от 0 до 9, и буквы от 'a' до 'f' и от 'A'
+до 'F').
 
-   While the length of possible hexadecimal digit strings is unlimited,
-the number of character constants in any given character set is not.
-(The much-used extended ASCII character set, for example, has only 256
-characters in it.)  If you try to use a hexadecimal value that is
-outside the range of characters, you will get a compile-time error.
+   В то время как длина строки возможных шестнадцатеричных цифр не
+ограничена, количество символьных констант в любом заданном наборе
+символов ограничено.  (Широко используется расширенный набор ASCII
+символов, он например, имеет в составе только 256 символов.)  Если вы
+пытаетесь использовать шестнадцатеричное значение, которое находится вне
+диапазона символов, вы получите ошибку компиляции.
 
 
 File: gnu-c-manual.info,  Node: Real Number Constants,  Next: String Constants,  Prev: Character Constants,  Up: Constants
 
-1.3.3 Real Number Constants
----------------------------
+1.3.3 Константы Вещественных Чисел
+----------------------------------
 
-A real number constant is a value that represents a fractional (floating
-point) number.  It consists of a sequence of digits which represents the
-integer (or "whole") part of the number, a decimal point, and a sequence
-of digits which represents the fractional part.
+Константа вещественного числа является значением, которое представляет
+собой дробное (с плавающей точкой) число.  Она состоит из
+последовательности цифр, которые представляет собой целое число (или)
+"целую" часть числа, десятичную точку, и последовательность цифр,
+которая представляет собой дробную часть числа.
 
-   Either the integer part or the fractional part may be omitted, but
-not both.  Here are some examples:
+   Либо часть числа, целая или дробная часть, может быть опущена, но не
+обе сразу.  Вот несколько примеров:
 
      double a, b, c, d, e, f;
 
@@ -343,141 +348,147 @@ not both.  Here are some examples:
 
      e = 0.7;
 
-(In the third assignment statement, the integer constant 4 is
-automatically converted from an integer value to a double value.)
+(В третьем операторе присваивания целая константа 4 автоматически
+преобразуется из целочисленного значения до значения числа с плавающей
+точкой.)
 
-   Real number constants can also be followed by 'e' or 'E', and an
-integer exponent.  The exponent can be either positive or negative.
+   Константа вещественного числа, также может дополнятся 'e' или 'E'
+целочисленными показателями.  Показатель может быть положительным или
+отрицательным.
 
      double x, y;
 
      x = 5e2;   /* 'x' is 5 * 100, or 500.0. */
      y = 5e-2;  /* 'y' is 5 * (1/100), or 0.05. */
 
-   You can append a letter to the end of a real number constant to cause
-it to be of a particular type.  If you append the letter F (or f) to a
-real number constant, then its type is 'float'.  If you append the
-letter L (or l), then its type is 'long double'.  If you do not append
-any letters, then its type is 'double'.
+   Вы можете добавить букву в конце константы вещественного числа, чтобы
+определить её тип.  Если добавить букву F (или f) к константе
+вещественоого числа, то её тип будет 'float'.  Если добавить букву L
+(или l), то её тип станет 'long double'.  Если вы не добавляете любые
+буквы, то её тип будет 'double'.
 
 
 File: gnu-c-manual.info,  Node: String Constants,  Prev: Real Number Constants,  Up: Constants
 
-1.3.4 String Constants
-----------------------
+1.3.4 Строковые Константы
+-------------------------
 
-A string constant is a sequence of zero or more characters, digits, and
-escape sequences enclosed within double quotation marks.  A string
-constant is of type "array of characters".  All string constants contain
-a null termination character ('\0') as their last character.  Strings
-are stored as arrays of characters, with no inherent size attribute.
-The null termination character lets string-processing functions know
-where the string ends.
+Строковая константа представляет собой последовательность из нуля или
+более символов, цифр и управляющих последовательностей, заключенных в
+двойные кавычки.  Строковая константа имеет тип "массив символов".  Все
+строковые константы содержат завершающий нулевой символ ('\0') в
+качестве последнего символа.  Строки хранятся в виде массива символов,
+без неотъемлемого атрибута размера.  Завершающий нулевой символ
+позволяет строковым функциям при обработке знать, где строка
+заканчивается.
 
-   Adjacent string constants are concatenated (combined) into one
-string, with the null termination character added to the end of the
-final concatenated string.
+   Смежные строковые константы сцепляются (объединяются) в одну строку
+путём добавления нулевого символа завершения к концу завершающей
+объединение строки.
 
-   A string cannot contain double quotation marks, as double quotation
-marks are used to enclose the string.  To include the double quotation
-mark character in a string, use the '\"' escape sequence.  You can use
-any of the escape sequences that can be used as character constants in
-strings.  Here are some example of string constants:
+   Строка не может содержать двойные кавычки, поскольку строка
+заключается в двойные кавычки.  Чтобы включить символ двойной символ
+кавычки в строку, используйте escape-последовательность '\"'.  Вы можете
+использовать любую из escape-последовательностей в качестве символьных
+констант в строках.  Вот некоторые примеры строковых констант:
 
-     /* This is a single string constant. */
-     "tutti frutti ice cream"
+     /* Это одностроковая константа. */
+     "Тутти Фрутти мороженое"
 
-     /* These string constants will be concatenated, same as above. */
-     "tutti " "frutti" " ice " "cream"
+     /* Эти строковые константы будут сцеплены, так, как описано выше. */
+     "Тутти " "Фрутти" " мороженное "
 
-     /* This one uses two escape sequences. */
-     "\"hello, world!\""
+     /* Здесь используются две escape-последовательности. */
+     "\"привет, мир!\""
 
-If a string is too long to fit on one line, you can use a backslash '\'
-to break it up onto separate lines.
+Если строка слишком длинная, чтобы поместиться на одной строке, вы
+можете использовать обратную косую '\', чтобы разбить его на отдельные
+строки.
 
-     "Today's special is a pastrami sandwich on rye bread with \
-     a potato knish and a cherry soda."
+     "Сегодня особый бутерброд на ржаном хлебе \
+     с картофельными котлетами и вишневой содой."
 
-Adjacent strings are automatically concatenated, so you can also have
-string constants span multiple lines by writing them as separate,
-adjacent, strings.  For example:
+Смежные строки автоматически объединяются, так что вы можете иметь
+строковые константы на нескольких строка, записывая их в виде отдельных,
+смежных, строк.  Например:
 
-     "Tomorrow's special is a corned beef sandwich on "
-     "pumpernickel bread with a kasha knish and seltzer water."
+     "Специальный завтрак - сендвич с солониной говядины на хлебе "
+     "из грубой ржаной муки и манной кашей из сельтерской воды."
 
-is the same as
+тоже самое от записи
 
-     "Tomorrow's special is a corned beef sandwich on \
-     pumpernickel bread with a kasha knish and seltzer water."
+     "Специальный завтрак - сендвич с солониной говядины на хлебе \
+     из грубой ржаной муки и манной кашей из сельтерской воды."
 
-   To insert a newline character into the string, so that when the
-string is printed it will be printed on two different lines, you can use
-the newline escape sequence '\n'.
+   Для того, чтобы вставить символ новой строки в строку, так чтобы,
+когда строка печаталась, строка выводилась на двух различных строках, вы
+можете использовать escape-последовательность новой строки '\n'.
 
-     printf ("potato\nknish");
+     printf ("картофельная\nкотлета");
 
 prints
 
-     potato
-     knish
+     картофельная
+     котлета
 
 
 File: gnu-c-manual.info,  Node: Operators,  Next: Separators,  Prev: Constants,  Up: Lexical Elements
 
-1.4 Operators
+1.4 Операторы
 =============
 
-An operator is a special token that performs an operation, such as
-addition or subtraction, on either one, two, or three operands.  Full
-coverage of operators can be found in a later chapter.  *Note
+Оператор является специальным маркером, который выполняет операцию,
+например, сложения или вычитания, с одним, двумя или тремя операндах.
+Описание всех операторов можно найти в следующей главе.  *Note
 Expressions and Operators::.
 
 
 File: gnu-c-manual.info,  Node: Separators,  Next: White Space,  Prev: Operators,  Up: Lexical Elements
 
-1.5 Separators
+1.5 Сепараторы
 ==============
 
-A separator separates tokens.  White space (see next section) is a
-separator, but it is not a token.  The other separators are all
-single-character tokens themselves:
+Сепаратор отделяет операторы.  Пробел (смотрите следующий раздел)
+является сепаратором, но не для операторов.  Все остальные сепараторы -
+это односимвольные операторы:
 
      ( ) [ ] { } ; , . :
 
 
 File: gnu-c-manual.info,  Node: White Space,  Prev: Separators,  Up: Lexical Elements
 
-1.6 White Space
-===============
+1.6 Пробелы
+===========
 
-White space is the collective term used for several characters: the
-space character, the tab character, the newline character, the vertical
-tab character, and the form-feed character.  White space is ignored
-(outside of string and character constants), and is therefore optional,
-except when it is used to separate tokens.  This means that
+Пробел - это собирательный термин, использующийся для нескольких
+символов: символ пробела, символ табуляции, символ новой строки,
+вертикальная табуляция и символ перевода страницы.  Пробелы игнорируются
+(вне строковых и символьных констант), и, следовательно, по желанию, за
+исключением случаев, когда они используется для разделения операторов.
+Это значит, что
 
      #include <stdio.h>
 
      int
      main()
      {
-       printf( "hello, world\n" );
+       printf( "привет, мир\n" );
        return 0;
      }
 
 and
 
-     #include <stdio.h> int main(){printf("hello, world\n");
+     #include <stdio.h> int main(){printf("привет, мир\n");
      return 0;}
 
-are functionally the same program.
+функционально одна и та же программа.
 
-   Although you must use white space to separate many tokens, no white
-space is required between operators and operands, nor is it required
-between other separators and that which they separate.
+   Хотя вы должны использовать символы пробела для разделения нескольких
+операторов, пробелы не требуется между операторами и операндами, ровно
+так не требуется установка пробела между несколькими сепараторами и
+между тем, что они разделяют.
 
-     /* All of these are valid. */
+     /* Все записи являются допустимыми. */
 
      x++;
      x ++ ;
@@ -488,29 +499,29 @@ between other separators and that which they separate.
      fraction=numerator / *denominator_ptr;
      fraction = numerator / * denominator_ptr ;
 
-Furthermore, wherever one space is allowed, any amount of white space is
-allowed.
+Кроме того, там, где допускается один пробел, допускается также и любое
+количество пробелов.
 
-     /* These two statements are functionally identical. */
+     /* Эти два утверждения функционально идентичны. */
      x++;
 
      x
             ++       ;
 
-   In string constants, spaces and tabs are not ignored; rather, they
-are part of the string.  Therefore,
+   В строковых константах, пробелы и табуляции не игнорируются; скорее,
+они являются частью строки.  Следовательно,
 
-     "potato knish"
+     "картофельная котлета"
 
-is not the same as
+это не то же самое
 
-     "potato                        knish"
+     "картофельная                         котлета"
 
 
 File: gnu-c-manual.info,  Node: Data Types,  Next: Expressions and Operators,  Prev: Lexical Elements,  Up: Top
 
-2 Data Types
-************
+2 Типы Данных
+*************
 
 * Menu:
 
@@ -528,8 +539,8 @@ File: gnu-c-manual.info,  Node: Data Types,  Next: Expressions and Operators,  P
 
 File: gnu-c-manual.info,  Node: Primitive Types,  Next: Enumerations,  Up: Data Types
 
-2.1 Primitive Data Types
-========================
+2.1 Примитивные Типы Данных
+===========================
 
 * Menu:
 
@@ -540,15 +551,17 @@ File: gnu-c-manual.info,  Node: Primitive Types,  Next: Enumerations,  Up: Data 
 
 File: gnu-c-manual.info,  Node: Integer Types,  Next: Real Number Types,  Up: Primitive Types
 
-2.1.1 Integer Types
--------------------
+2.1.1 Целочисленные Типы
+------------------------
 
-The integer data types range in size from at least 8 bits to at least 32
-bits.  The C99 standard extends this range to include integer sizes of
-at least 64 bits.  You should use integer types for storing whole number
-values (and the 'char' data type for storing characters).  The sizes and
-ranges listed for these types are minimums; depending on your computer
-platform, these sizes and ranges may be larger.
+Целочисленный тип данных имеет размер в диапазоне от, по меньшей мере, 8
+битов, до по меньшей мере, 32 битов.  Стандарт C99 расширяет этот
+диапазон, чтобы включать в себя целые числа, размеры которых, по меньшей
+мере, 64 бита.  Вы должны использовать целые типы для хранения значений
+целых чисел (и типа данных 'char' для хранения символов).  Минимальные
+размеры и диапазоны, приведенны для этих типов; в зависимости от вашей
+компьютерной платформы, эти размеры и диапазоны могут быть больше но
+никак не меньше.
 
    While these ranges provide a natural ordering, the standard does not
 require that any two types have a different range.  For example, it is
@@ -5535,7 +5548,7 @@ Index
 * break statement:                       The break Statement.  (line  6)
 * calling functions:                     Calling Functions.    (line  6)
 * casts:                                 Type Casts.           (line  6)
-* char data type:                        Integer Types.        (line 27)
+* char data type:                        Integer Types.        (line 29)
 * character constants:                   Character Constants.  (line  6)
 * comma operator:                        The Comma Operator.   (line  6)
 * comparison operators:                  Comparison Operators. (line  6)
@@ -5657,7 +5670,7 @@ Index
                                                                (line  6)
 * initializing union members:            Initializing Union Members.
                                                                (line  6)
-* int data type:                         Integer Types.        (line 45)
+* int data type:                         Integer Types.        (line 47)
 * integer constants:                     Integer Constants.    (line  6)
 * integer overflow:                      Integer Overflow Basics.
                                                                (line  6)
@@ -5674,8 +5687,8 @@ Index
 * logical operators, bitwise:            Bitwise Logical Operators.
                                                                (line  6)
 * long double data type:                 Real Number Types.    (line 26)
-* long int data type:                    Integer Types.        (line 55)
-* long long int data type:               Integer Types.        (line 70)
+* long int data type:                    Integer Types.        (line 57)
+* long long int data type:               Integer Types.        (line 72)
 * loop induction:                        Optimization and Wraparound.
                                                                (line  6)
 * macros, statements in expressions:     Statements and Declarations in Expressions.
@@ -5733,11 +5746,11 @@ Index
 * separators:                            Separators.           (line  6)
 * sequence point:                        Sequence Points.      (line 12)
 * shifting:                              Bit Shifting.         (line  6)
-* short int data type:                   Integer Types.        (line 35)
+* short int data type:                   Integer Types.        (line 37)
 * side effect:                           Side Effects.         (line  6)
 * side effects, macro argument:          Statements and Declarations in Expressions.
                                                                (line 37)
-* signed char data type:                 Integer Types.        (line 19)
+* signed char data type:                 Integer Types.        (line 21)
 * signed integer overflow:               Integer Overflow Basics.
                                                                (line  6)
 * signed integer overflow <1>:           Signed Overflow Examples.
@@ -5822,11 +5835,11 @@ Index
 * unions, incomplete:                    Incomplete Types.     (line  6)
 * unions, pointers to:                   Pointers to Unions.   (line  6)
 * unions, size of:                       Size of Unions.       (line  6)
-* unsigned char data type:               Integer Types.        (line 23)
-* unsigned int data type:                Integer Types.        (line 50)
-* unsigned long int data type:           Integer Types.        (line 63)
-* unsigned long long int data type:      Integer Types.        (line 78)
-* unsigned short int data type:          Integer Types.        (line 40)
+* unsigned char data type:               Integer Types.        (line 25)
+* unsigned int data type:                Integer Types.        (line 52)
+* unsigned long int data type:           Integer Types.        (line 65)
+* unsigned long long int data type:      Integer Types.        (line 80)
+* unsigned short int data type:          Integer Types.        (line 42)
 * unspecified behaviour:                 Sequence Points Constrain Expressions.
                                                                (line 88)
 * variable length parameter lists:       Variable Length Parameter Lists.
@@ -5852,124 +5865,124 @@ Node: Keywords5201
 Node: Constants6754
 Node: Integer Constants7541
 Node: Character Constants11001
-Node: Real Number Constants13332
-Node: String Constants14699
-Node: Operators16929
-Node: Separators17292
-Node: White Space17624
-Node: Data Types19112
-Node: Primitive Types19440
-Node: Integer Types19655
-Node: Real Number Types23675
-Node: Complex Number Types26244
-Ref: Complex Number Types-Footnote-126731
-Node: Standard Complex Number Types26823
-Node: GNU Extensions for Complex Number Types28204
-Node: Enumerations29910
-Node: Defining Enumerations30544
-Node: Declaring Enumerations31941
-Node: Unions33434
-Node: Defining Unions33935
-Node: Declaring Union Variables35037
-Node: Declaring Union Variables at Definition35515
-Node: Declaring Union Variables After Definition36239
-Node: Initializing Union Members36954
-Node: Accessing Union Members38163
-Node: Size of Unions38824
-Node: Structures39496
-Node: Defining Structures39890
-Node: Declaring Structure Variables41243
-Node: Declaring Structure Variables at Definition41769
-Node: Declaring Structure Variables After Definition42504
-Node: Initializing Structure Members43232
-Node: Accessing Structure Members46196
-Node: Bit Fields47132
-Node: Size of Structures48788
-Node: Arrays49834
-Node: Declaring Arrays50299
-Node: Initializing Arrays51476
-Node: Accessing Array Elements53798
-Node: Multidimensional Arrays54662
-Node: Arrays as Strings55576
-Node: Arrays of Unions58148
-Node: Arrays of Structures59107
-Node: Pointers60608
-Node: Declaring Pointers61064
-Node: Initializing Pointers62037
-Node: Pointers to Unions63886
-Node: Pointers to Structures64960
-Node: Incomplete Types66084
-Node: Type Qualifiers66953
-Node: Storage Class Specifiers67932
-Node: Renaming Types71077
-Node: Expressions and Operators71378
-Node: Expressions72075
-Node: Assignment Operators73908
-Node: Incrementing and Decrementing78531
-Node: Arithmetic Operators81224
-Node: Complex Conjugation85582
-Node: Comparison Operators86643
-Node: Logical Operators89682
-Node: Bit Shifting91933
-Node: Bitwise Logical Operators94846
-Node: Pointer Operators97770
-Node: The sizeof Operator100332
-Node: Type Casts103100
-Node: Array Subscripts105551
-Node: Function Calls as Expressions106634
-Node: The Comma Operator107070
-Node: Member Access Expressions109478
-Node: Conditional Expressions110831
-Node: Statements and Declarations in Expressions113464
-Node: Operator Precedence117071
-Node: Order of Evaluation121767
-Node: Side Effects123358
-Node: Sequence Points125149
-Ref: Sequence Points-Footnote-1129910
-Node: Sequence Points Constrain Expressions130100
-Ref: Sequence Points Constrain Expressions-Footnote-1136944
-Node: Sequence Points and Signal Delivery137150
-Node: Statements140059
-Node: Labels140698
-Node: Expression Statements141521
-Node: The if Statement142589
-Node: The switch Statement144509
-Node: The while Statement147497
-Node: The do Statement148296
-Node: The for Statement149076
-Node: Blocks152542
-Node: The Null Statement153852
-Node: The goto Statement154850
-Node: The break Statement156624
-Node: The continue Statement157442
-Node: The return Statement158042
-Node: The typedef Statement159714
-Node: Functions161161
-Node: Function Declarations162075
-Node: Function Definitions163877
-Node: Calling Functions165483
-Node: Function Parameters166348
-Node: Variable Length Parameter Lists169839
-Node: Calling Functions Through Function Pointers172242
-Node: The main Function173114
-Ref: The main Function-Footnote-1175431
-Node: Recursive Functions175595
-Node: Static Functions176436
-Node: Nested Functions177111
-Node: Program Structure and Scope177910
-Node: Program Structure178237
-Node: Scope179722
-Node: A Sample Program180749
-Node: hello.c181605
-Node: system.h187950
-Node: Overflow189573
-Node: Integer Overflow Basics190713
-Node: Signed Overflow Examples192432
-Node: Optimization and Wraparound195925
-Node: Signed Overflow Advice198877
-Node: Signed Integer Division201541
-Node: GNU Free Documentation License202142
-Node: Index227269
+Node: Real Number Constants14810
+Node: String Constants17085
+Node: Operators21213
+Node: Separators21749
+Node: White Space22231
+Node: Data Types24671
+Node: Primitive Types25011
+Node: Integer Types25253
+Node: Real Number Types29802
+Node: Complex Number Types32371
+Ref: Complex Number Types-Footnote-132858
+Node: Standard Complex Number Types32950
+Node: GNU Extensions for Complex Number Types34331
+Node: Enumerations36037
+Node: Defining Enumerations36671
+Node: Declaring Enumerations38068
+Node: Unions39561
+Node: Defining Unions40062
+Node: Declaring Union Variables41164
+Node: Declaring Union Variables at Definition41642
+Node: Declaring Union Variables After Definition42366
+Node: Initializing Union Members43081
+Node: Accessing Union Members44290
+Node: Size of Unions44951
+Node: Structures45623
+Node: Defining Structures46017
+Node: Declaring Structure Variables47370
+Node: Declaring Structure Variables at Definition47896
+Node: Declaring Structure Variables After Definition48631
+Node: Initializing Structure Members49359
+Node: Accessing Structure Members52323
+Node: Bit Fields53259
+Node: Size of Structures54915
+Node: Arrays55961
+Node: Declaring Arrays56426
+Node: Initializing Arrays57603
+Node: Accessing Array Elements59925
+Node: Multidimensional Arrays60789
+Node: Arrays as Strings61703
+Node: Arrays of Unions64275
+Node: Arrays of Structures65234
+Node: Pointers66735
+Node: Declaring Pointers67191
+Node: Initializing Pointers68164
+Node: Pointers to Unions70013
+Node: Pointers to Structures71087
+Node: Incomplete Types72211
+Node: Type Qualifiers73080
+Node: Storage Class Specifiers74059
+Node: Renaming Types77204
+Node: Expressions and Operators77505
+Node: Expressions78202
+Node: Assignment Operators80035
+Node: Incrementing and Decrementing84658
+Node: Arithmetic Operators87351
+Node: Complex Conjugation91709
+Node: Comparison Operators92770
+Node: Logical Operators95809
+Node: Bit Shifting98060
+Node: Bitwise Logical Operators100973
+Node: Pointer Operators103897
+Node: The sizeof Operator106459
+Node: Type Casts109227
+Node: Array Subscripts111678
+Node: Function Calls as Expressions112761
+Node: The Comma Operator113197
+Node: Member Access Expressions115605
+Node: Conditional Expressions116958
+Node: Statements and Declarations in Expressions119591
+Node: Operator Precedence123198
+Node: Order of Evaluation127894
+Node: Side Effects129485
+Node: Sequence Points131276
+Ref: Sequence Points-Footnote-1136037
+Node: Sequence Points Constrain Expressions136227
+Ref: Sequence Points Constrain Expressions-Footnote-1143071
+Node: Sequence Points and Signal Delivery143277
+Node: Statements146186
+Node: Labels146825
+Node: Expression Statements147648
+Node: The if Statement148716
+Node: The switch Statement150636
+Node: The while Statement153624
+Node: The do Statement154423
+Node: The for Statement155203
+Node: Blocks158669
+Node: The Null Statement159979
+Node: The goto Statement160977
+Node: The break Statement162751
+Node: The continue Statement163569
+Node: The return Statement164169
+Node: The typedef Statement165841
+Node: Functions167288
+Node: Function Declarations168202
+Node: Function Definitions170004
+Node: Calling Functions171610
+Node: Function Parameters172475
+Node: Variable Length Parameter Lists175966
+Node: Calling Functions Through Function Pointers178369
+Node: The main Function179241
+Ref: The main Function-Footnote-1181558
+Node: Recursive Functions181722
+Node: Static Functions182563
+Node: Nested Functions183238
+Node: Program Structure and Scope184037
+Node: Program Structure184364
+Node: Scope185849
+Node: A Sample Program186876
+Node: hello.c187732
+Node: system.h194077
+Node: Overflow195700
+Node: Integer Overflow Basics196840
+Node: Signed Overflow Examples198559
+Node: Optimization and Wraparound202052
+Node: Signed Overflow Advice205004
+Node: Signed Integer Division207668
+Node: GNU Free Documentation License208269
+Node: Index233396
 
 End Tag Table
 

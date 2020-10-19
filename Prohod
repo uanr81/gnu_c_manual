@@ -2,7 +2,7 @@
   fdl.texi          + 
   functions.texi
   gnu-c-manual.texi +
-  lexical.texi
+  lexical.texi      +
   Makefile
   overflow.texi
   preface.texi
