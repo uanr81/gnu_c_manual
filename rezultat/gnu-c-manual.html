@@ -79,29 +79,29 @@ ul.no-bullet {list-style: none}
     <li><a id="toc-Primitivnye-Tipy-Dannykh" href="#Primitive-Types">2.1 Примитивные Типы Данных</a>
     <ul class="no-bullet">
       <li><a id="toc-Celochislennye-Tipy" href="#Integer-Types">2.1.1 Целочисленные Типы</a></li>
-      <li><a id="toc-Real-Number-Types-1" href="#Real-Number-Types">2.1.2 Real Number Types</a></li>
-      <li><a id="toc-Complex-Number-Types-1" href="#Complex-Number-Types">2.1.3 Complex Number Types</a>
+      <li><a id="toc-Tipy-Deistvitelxnykh-Chisel" href="#Real-Number-Types">2.1.2 Типы Действительных Чисел</a></li>
+      <li><a id="toc-Tipy-Kompleksnye-Chisla" href="#Complex-Number-Types">2.1.3 Типы Комплексные Числа</a>
       <ul class="no-bullet">
-        <li><a id="toc-Standard-Complex-Number-Types-1" href="#Standard-Complex-Number-Types">2.1.3.1 Standard Complex Number Types</a></li>
-        <li><a id="toc-GNU-Extensions-for-Complex-Number-Types-1" href="#GNU-Extensions-for-Complex-Number-Types">2.1.3.2 GNU Extensions for Complex Number Types</a></li>
+        <li><a id="toc-Standartnye-tipy-Kompleksnykh-Chisel" href="#Standard-Complex-Number-Types">2.1.3.1 Стандартные типы Комплексных Чисел</a></li>
+        <li><a id="toc-GNU-Rasshirenie-dlya-Tipov-Kompleksnykh-Tipov" href="#GNU-Extensions-for-Complex-Number-Types">2.1.3.2 GNU Расширение для Типов Комплексных Типов</a></li>
       </ul></li>
     </ul></li>
-    <li><a id="toc-Enumerations-1" href="#Enumerations">2.2 Enumerations</a>
+    <li><a id="toc-Perechisleniya" href="#Enumerations">2.2 Перечисления</a>
     <ul class="no-bullet">
-      <li><a id="toc-Defining-Enumerations-1" href="#Defining-Enumerations">2.2.1 Defining Enumerations</a></li>
-      <li><a id="toc-Declaring-Enumerations-1" href="#Declaring-Enumerations">2.2.2 Declaring Enumerations</a></li>
+      <li><a id="toc-Opredelenie-Perechisleniya" href="#Defining-Enumerations">2.2.1 Определение Перечисления</a></li>
+      <li><a id="toc-Obwyavlenie-Perechisleniya" href="#Declaring-Enumerations">2.2.2 Объявление Перечисления</a></li>
     </ul></li>
     <li><a id="toc-Unions-1" href="#Unions">2.3 Unions</a>
     <ul class="no-bullet">
-      <li><a id="toc-Defining-Unions-1" href="#Defining-Unions">2.3.1 Defining Unions</a></li>
-      <li><a id="toc-Declaring-Union-Variables-1" href="#Declaring-Union-Variables">2.3.2 Declaring Union Variables</a>
+      <li><a id="toc-Opredelenie-Obwedineniya" href="#Defining-Unions">2.3.1 Определение Объединения</a></li>
+      <li><a id="toc-Obwyavlenie-Peremennykh-Obwedineniya" href="#Declaring-Union-Variables">2.3.2 Объявление Переменных Объединения</a>
       <ul class="no-bullet">
-        <li><a id="toc-Declaring-Union-Variables-at-Definition-1" href="#Declaring-Union-Variables-at-Definition">2.3.2.1 Declaring Union Variables at Definition</a></li>
-        <li><a id="toc-Declaring-Union-Variables-After-Definition-1" href="#Declaring-Union-Variables-After-Definition">2.3.2.2 Declaring Union Variables After Definition</a></li>
-        <li><a id="toc-Initializing-Union-Members-1" href="#Initializing-Union-Members">2.3.2.3 Initializing Union Members</a></li>
+        <li><a id="toc-Obwyavlenie-Peremennykh-Obwedineniya-pri-Opredelenii" href="#Declaring-Union-Variables-at-Definition">2.3.2.1 Объявление Переменных Объединения при Определении</a></li>
+        <li><a id="toc-Obwyavlenie-Peremennykh-Obwedineniya-Posle-ego-Opredeleniya" href="#Declaring-Union-Variables-After-Definition">2.3.2.2 Объявление Переменных Объединения После его Определения</a></li>
+        <li><a id="toc-Inicializaciya-Chlenov-Obwedineniya" href="#Initializing-Union-Members">2.3.2.3 Инициализация Членов Объединения</a></li>
       </ul></li>
-      <li><a id="toc-Accessing-Union-Members-1" href="#Accessing-Union-Members">2.3.3 Accessing Union Members</a></li>
-      <li><a id="toc-Size-of-Unions-1" href="#Size-of-Unions">2.3.4 Size of Unions</a></li>
+      <li><a id="toc-Dostup-k-Elementam-Obwedineniya" href="#Accessing-Union-Members">2.3.3 Доступ к Элементам Объединения</a></li>
+      <li><a id="toc-Razmer-Obwedinenii" href="#Size-of-Unions">2.3.4 Размер Объединений</a></li>
     </ul></li>
     <li><a id="toc-Structures-1" href="#Structures">2.4 Structures</a>
     <ul class="no-bullet">
@@ -773,7 +773,7 @@ Next: <a href="#White-Space" accesskey="n" rel="next">White Space</a>, Previous:
 <span id="index-separators"></span>
 
 <p>Сепаратор отделяет операторы.  Пробел (смотрите следующий раздел) является
-сепаратором, но не для операторов.  Все остальные сепараторы - это
+сепаратором для операторов.  Все остальные сепараторы - это
 односимвольные операторы:
 </p>
 <div class="example">
@@ -928,111 +928,114 @@ Next: <a href="#Real-Number-Types" accesskey="n" rel="next">Real Number Types</a
 приведенны для этих типов; в зависимости от вашей компьютерной платформы, эти
 размеры и диапазоны могут быть больше но никак не меньше.
 </p>
-<p>While these ranges provide a natural ordering, the standard does
-not require that any two types have a different range.  For example,
-it is common for <code>int</code> and <code>long</code> to have the same range.
-The standard even allows <code>signed char</code> and <code>long</code> to have
-the same range, though such platforms are very unusual.
+<p>В то время как эти диапазоны обеспечивают естественный порядок, стандарт не
+требует, чтобы любые два типа имели различный диапазон.  Например, <code>int</code>
+и <code>long</code> могут иметь один и тот же диапазон.  Стандарт позволяет даже
+<code>signed char</code> и <code>long</code> иметь тот же диапазон, хотя такие платформы
+очень необычны.
 </p>
 <ul>
 <li> <code>signed char</code>
 <span id="index-signed-char-data-type"></span>
 <br>
-The 8-bit <code>signed char</code> data type can hold integer values in
-the range of -128 to 127.
+8-битный <code>signed char</code> тип данных может содержать целые значения в
+диапазоне от -128 до 127.
 
 
 </li><li> <code>unsigned char</code>
 <span id="index-unsigned-char-data-type"></span>
 <br>
-The 8-bit <code>unsigned char</code> data type can hold integer values in
-the range of 0 to 255.
+8-битный <code>unsigned char</code> тип данных может содержать целые значения в
+диапазоне от 0 до 255.
 
 
 </li><li> <code>char</code>
 <span id="index-char-data-type"></span>
 <br>
-Depending on your system, the <code>char</code> data type is defined as
-having the same range as either the <code>signed char</code> or the <code>unsigned char</code>
-data type (they are three distinct types, however).  By convention,
-you should use the <code>char</code> data type 
-specifically for storing ASCII characters (such as <code>`m'</code>), including escape
-sequences (such as <code>`\n'</code>).
+В зависимости от системы, тип данных <code>char</code> определяются как имеющий
+один и тот же диапазон, либо <code>signed char</code>, либо <code>unsigned char</code>
+типа данных (хотя это три различных типа, однако).  По соглашению, вы должны
+использовать тип данных <code>char</code> специально для хранения ASCII символов
+(например, <code>`m'</code>), в том числе управляющих последовательностей (таких
+как <code>`\n'</code>).
 
 
 </li><li> <code>short int</code>
 <span id="index-short-int-data-type"></span>
 <br>
-The 16-bit <code>short int</code> data type can hold integer values in the
-range of -32,768 to 32,767.  You may also refer to this data type as
-<code>short</code>, <code>signed short int</code>, or <code>signed short</code>.
+16-битный <code>short int</code> тип данных может содержать целые значения в
+диапазоне от -32,768 до 32,767.  Вы можете также обратиться к этому
+типу данных, как <code>short</code>, <code>signed short int</code>, или
+<code>signed short</code>.
 
 </li><li> <code>unsigned short int</code>
 <span id="index-unsigned-short-int-data-type"></span>
 <br>
-The 16-bit <code>unsigned short int</code> data type can hold integer values
-in the range of 0 to 65,535.  You may also refer to this data type
-as <code>unsigned short</code>.
+16-битный <code>unsigned short int</code> тип данных может содержать целые значения
+в диапазоне от 0 до 65,535.  Вы можете также обратиться к этому типу данных,
+как к <code>unsigned short</code>.
 
 
 </li><li> <code>int</code>
 <span id="index-int-data-type"></span>
 <br>
-The 32-bit <code>int</code> data type can hold integer values in the range
-of -2,147,483,648 to 2,147,483,647.  You may also refer to this data type
-as <code>signed int</code> or <code>signed</code>.
+32-битный <code>int</code> тип данных может содержать целые значения в диапазоне от
+-2,147,483,648 до 2,147,483,647.  Вы можете также обратиться к этому
+типу данных, как к <code>signed int</code> или <code>signed</code>.
 
 </li><li> <code>unsigned int</code>
 <span id="index-unsigned-int-data-type"></span>
 <br>
-The 32-bit <code>unsigned int</code> data type can hold integer values in
-the range of 0 to 4,294,967,295.  You may also refer to this data type
-simply as <code>unsigned</code>.
+32-битный <code>unsigned int</code> тип данных может содержать целые значения в
+диапазоне от 0 до 4,294,967,295.  Вы можете также обратиться к этому типу
+данных просто как к <code>unsigned</code>.
 
 
 </li><li> <code>long int</code>
 <span id="index-long-int-data-type"></span>
 <br>
-The 32-bit <code>long int</code> data type can hold integer values in
-the range of at least -2,147,483,648 to 2,147,483,647.  (Depending on
-your system, this data type might be 64-bit, in which case its range is
-identical to that of the <code>long long int</code> data type.)  You may also
-refer to this data type as <code>long</code>, <code>signed long int</code>,
-or <code>signed long</code>.
+32-битный <code>long int</code> тип данных может содержать целые значения в
+диапазоне, по меньшей мере,  от -2,147,483,648 до 2,147,483,647.  (В
+зависимости от вашей системы, этот тип данных может быть 64-бит, в этом
+случае его диапазон идентичен типу <code>long long int</code> данных.).  Вы можете
+также обратиться к этому типу данных, как к <code>long</code>,
+<code>signed long int</code>, или  к <code>signed long</code>.
 
 
 </li><li> <code>unsigned long int</code>
 <span id="index-unsigned-long-int-data-type"></span>
 <br>
-The 32-bit <code>unsigned long int</code> data type can hold integer values
-in the range of at least 0 to 4,294,967,295.  (Depending on your
-system, this data type might be 64-bit, in which case its range is
-identical to that of the <code>unsigned long long int</code> data type.)  You may
-also refer to this data type as <code>unsigned long</code>.
+32-битный <code>unsigned long int</code> тип данных может содержать целые значения
+в диапазоне, по меньшей мере, от 0 до 4,294,967,295.  (В зависимости от вашей
+системы, этот тип данных может быть 64-бит, в этом случае его диапазон
+идентичен типу <code>unsigned long long int</code> данных.).  Вы можете также
+обратиться к этому типу данных, как к <code>unsigned long</code>.
 
 
 </li><li> <code>long long int</code>
 <span id="index-long-long-int-data-type"></span>
 <br>
-The 64-bit <code>long long int</code> data type can hold integer values in
-the range of -9,223,372,036,854,775,808<!-- /@w --> to 9,223,372,036,854,775,807<!-- /@w -->. You
-may also refer to this data type as <code>long long</code>,
-<code>signed long long int</code> or <code>signed long long</code>. This type is
-not part of C89, but is both part of C99 and a GNU C extension.
+64-битный <code>long long int</code> тип данных может содержать целые значения в
+диапазоне  от -9,223,372,036,854,775,808<!-- /@w --> до
+9,223,372,036,854,775,807<!-- /@w -->.  Вы можете также обратиться к этому типу
+данных, как к <code>long long</code>, <code>signed long long int</code> или
+<code>signed long long</code>.  Этот тип не является частью C89, идёт как часть C99
+и расширение GNU Cи.
 
 
 
 </li><li> <code>unsigned long long int</code>
 <span id="index-unsigned-long-long-int-data-type"></span>
 <br>
-The 64-bit <code>unsigned long long int</code> data type can hold integer
-values in the range of at least 0 to 18,446,744,073,709,551,615<!-- /@w -->.  You may
-also refer to this data type as <code>unsigned long long</code>.  This type is
-not part of C89, but is both part of C99 and a GNU C extension.
+64-битный <code>unsigned long long int</code> тип данных может содержать целые
+значения в диапазоне, по меньшей мере, от 0 до
+18,446,744,073,709,551,615<!-- /@w -->.  Вы можете также обратиться к этому типу
+данных, как к <code>unsigned long long</code>.  Этот тип не является частью C89,
+идёт как часть C99 и расширение GNU Cи.
 
 </li></ul>
 
-<p>Here are some examples of declaring and defining integer variables:
+<p>Вот некоторые примеры объявления и определения целочисленных переменных:
 </p>
 <div class="example">
 <pre class="example">int foo;
@@ -1040,16 +1043,16 @@ unsigned int bar = 42;
 char quux = 'a';
 </pre></div>
 
-<p>The first line declares an integer named <code>foo</code> but does not define
-its value; it is left uninitialized, and its value should not be assumed
-to be anything in particular.
+<p>Первая строка объявляет целое с именем <code>foo</code>, но не определяет его
+значение; оно остается не инициализированым, и его значение не следует
+считать, как нечто конкретное.
 </p>
 <hr>
 <span id="Real-Number-Types"></span><div class="header">
 <p>
 Next: <a href="#Complex-Number-Types" accesskey="n" rel="next">Complex Number Types</a>, Previous: <a href="#Integer-Types" accesskey="p" rel="prev">Integer Types</a>, Up: <a href="#Primitive-Types" accesskey="u" rel="up">Primitive Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Real-Number-Types-1"></span><h4 class="subsection">2.1.2 Real Number Types</h4>
+<span id="Tipy-Deistvitelxnykh-Chisel"></span><h4 class="subsection">2.1.2 Типы Действительных Чисел</h4>
 <span id="index-real-number-types"></span>
 <span id="index-floating-point-types"></span>
 <span id="index-data-types_002c-real-number"></span>
@@ -1057,69 +1060,71 @@ Next: <a href="#Complex-Number-Types" accesskey="n" rel="next">Complex Number Ty
 <span id="index-types_002c-real-number"></span>
 <span id="index-types_002c-floating-point"></span>
 
-<p>There are three data types that represent fractional numbers.  While the
-sizes and ranges of these types are consistent across most computer systems
-in use today, historically the sizes of these types varied from system to
-system.  As such, the minimum and maximum values are stored in macro definitions
-in the library header file <code>float.h</code>.  In this section, we include the
-names of the macro definitions in place of their possible values; check your
-system&rsquo;s <code>float.h</code> for specific numbers.
+<p>Есть три типа данных, которые представляют дробные числа.  Хотя размеры и
+диапазоны этих типов соответствуют в большинстве компьютерных систем,
+используемых сегодня, исторически размеры этих типов варьируется от системы к
+системе.  Таким образом, минимальные и максимальные значения сохраняются в
+макроопределениях в библиотеке заголовочного файл <code>float.h</code>.  В этом
+разделе, мы включаем имена макроопределений в месте их возможными значениями;
+проверте <code>float.h</code> вашей системы для определенных чисел.
 </p>
 <ul>
 <li> <code>float</code>
 <span id="index-float-data-type"></span>
 <br>
-The <code>float</code> data type is the smallest of the three floating point
-types, if they differ in size at all.  Its minimum value is stored in
-the <code>FLT_MIN</code>, and should be no greater than <code>1e-37</code>.  Its maximum
-value is stored in <code>FLT_MAX</code>, and should be no less than <code>1e37</code>.
+<code>float</code> тип данных является самым маленьким из трех типов с плавающей
+точкой, если они различаются по размеру вообще.  Его минимальное значение
+хранится в <code>FLT_MIN</code>, и не должно быть больше, чем <code>1e-37</code>.  Его
+максимальное значение сохраняется в <code>FLT_MAX</code>, и должно быть не
+менее <code>1e37</code>.
 
 
 </li><li> <code>double</code>
 <span id="index-double-data-type"></span>
 <br>
-The <code>double</code> data type is at least as large as the <code>float</code>
-type, and it may be larger.  Its minimum value is stored in
-<code>DBL_MIN</code>, and its maximum value is stored in <code>DBL_MAX</code>.
+<code>double</code> тип данных, по меньшей мере, столь же большой как и тип
+<code>float</code>, но может быть большим.  Его минимальное значение хранится в
+<code>DBL_MIN</code>, а его максимальное значение хранится в <code>DBL_MAX</code>.
 
 
 </li><li> <code>long double</code>
 <span id="index-long-double-data-type"></span>
 <br>
-The <code>long double</code> data type is at least as large as the
-<code>float</code> type, and it may be larger.  Its minimum value is stored in
-<code>LDBL_MIN</code>, and its maximum value is stored in <code>LDBL_MAX</code>.
+<code>long double</code> тип данных, по меньшей мере, столь же большой как и тип
+<code>float</code>, и может быть большим.  Его минимальное значение хранится в
+<code>LDBL_MIN</code>, а его максимальное значение хранится в <code>LDBL_MAX</code>.
 
 </li></ul>
 
-<p>All floating point data types are signed; trying to use <code>unsigned float</code>,
-for example, will cause a compile-time error.
+<p>Все типы данных с плавающей запятой подписаны; пытаясь использовать
+<code>unsigned float</code>, например, вызовет ошибку компиляции.
 </p>
-<p>Here are some examples of declaring and defining real number variables:
+<p>Вот некоторые примеры объявления и определения в переменных действительных
+чисел:
 </p>
 <div class="example">
 <pre class="example">float foo;
 double bar = 114.3943;
 </pre></div>
 
-<p>The first line declares a float named <code>foo</code> but does not define
-its value; it is left uninitialized, and its value should not be assumed
-to be anything in particular.
+<p>Первая строка объявляет переменную с типом чило с плавающей точкой и именем
+<code>foo</code>, но не определяет её значение; она остается не инициализированой,
+и её значение не следует учитывать как нечто конкретное.
 </p>
-<p>The real number types provided in C are of finite precision, and
-accordingly, not all real numbers can be represented exactly.
-Most computer systems that GCC compiles for use a binary
-representation for real numbers, which is unable to precisely
-represent numbers such as, for example, 4.2.  For this reason, we
-recommend that you consider not comparing real numbers for exact
-equality with the <code>==</code> operator, but rather check that real
-numbers are within an acceptable tolerance.
+<p>Типы вещественного числа, представленные в Cи, являются числами с конечной
+точностью, и, соответственно, не все действительные числа могут быть
+представлены точно.  Большинство компьютерных систем, которые GCC
+компилирует используют бинарное представление для действительных чисел,
+которое не в состоянии точно представлять числа, такие, как, например, 4,2.
+По этой причине, мы рекомендуем вам не сравнивать действительные числа для
+точного равенства использовать оператор <code>==</code>, а проверить, что
+действительные числа находятся в пределах допустимого отклонения.
 </p>
-<p>There are other more subtle implications of these imprecise
-representations; for more details, see David Goldberg&rsquo;s paper
-<cite>What Every Computer Scientist Should Know About Floating-Point
-Arithmetic</cite> and section 4.2.2 of Donald Knuth&rsquo;s <cite>The Art of
-Computer Programming</cite>.
+<p>Есть другие, более тонкие последствия этих неточных представлений; для
+получения более подробной информации смотреть очерки бумаг Дэвида Голдберга
+<cite>Что каждый компьютерный ученый должен знать о арифменике с плавающей
+точкой</cite> в секции 4.2.2 Дональда Кнута <cite>Искусство Компьютерного
+Программирования</cite>.
 </p>
 
 <hr>
@@ -1127,15 +1132,14 @@ Computer Programming</cite>.
 <p>
 Previous: <a href="#Real-Number-Types" accesskey="p" rel="prev">Real Number Types</a>, Up: <a href="#Primitive-Types" accesskey="u" rel="up">Primitive Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Complex-Number-Types-1"></span><h4 class="subsection">2.1.3 Complex Number Types</h4>
+<span id="Tipy-Kompleksnye-Chisla"></span><h4 class="subsection">2.1.3 Типы Комплексные Числа</h4>
 <span id="index-complex-number-types"></span>
 <span id="index-data-types_002c-complex-number"></span>
 <span id="index-types_002c-complex-number"></span>
 
-<p>GCC introduced some complex number types as an
-extension to C89.  Similar features were introduced in
-C99<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>, but there were a number of
-differences.  We describe the standard complex number types first.
+<p>GCC ввел некоторые типы комплексных чисел как расширение C89.  Аналогичные
+функции были введены в C99<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>, но существует ряд отличий.
+Сначала мы опишем стандартные типы комплексных чисел.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Standard-Complex-Number-Types" accesskey="1">Standard Complex Number Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -1149,9 +1153,8 @@ differences.  We describe the standard complex number types first.
 <p>
 Next: <a href="#GNU-Extensions-for-Complex-Number-Types" accesskey="n" rel="next">GNU Extensions for Complex Number Types</a>, Up: <a href="#Complex-Number-Types" accesskey="u" rel="up">Complex Number Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Standard-Complex-Number-Types-1"></span><h4 class="subsubsection">2.1.3.1 Standard Complex Number Types</h4>
-<p>Complex types were introduced in C99.   There are three complex
-types:
+<span id="Standartnye-tipy-Kompleksnykh-Chisel"></span><h4 class="subsubsection">2.1.3.1 Стандартные типы Комплексных Чисел</h4>
+<p>Комплексные типы были введены в C99.  Есть три комплексных типа:
 </p>
 <ul class="no-bullet">
 <li><!-- /@w --> <code>float _Complex</code>
@@ -1159,28 +1162,28 @@ types:
 </li><li><!-- /@w --> <code>long double _Complex</code>
 </li></ul>
 
-<p>The names here begin with an underscore and an uppercase letter in
-order to avoid conflicts with existing programs&rsquo; identifiers.
-However, the C99 standard header file <code>&lt;complex.h&gt;</code> introduces
-some macros which make using complex types easier.
+<p>Имена здесь начинаются с символом подчеркивания и заглавной буквой, чтобы
+избежать конфликтов с идентификаторами уже существующих программ.
+Стандартный файл заголовка <code>&lt;complex.h&gt;</code> C99 вводит некоторые
+макросы, которые делают использование сложных типов проще.
 </p>
 <ul class="no-bullet">
 <li><!-- /@w --> <code>complex</code>
 <br>
-Expands to <code>_Complex</code>.  This allows a variable to be declared as
-<code>double complex</code> which seems more natural.
+Расширяется до <code>_Complex</code>.  Это позволяет переменной быть объявленой
+​​как <code>double complex</code>, что кажется более естественным.
 
 </li><li><!-- /@w --> <code>I</code>
 <br>
-A constant of type <code>const float _Complex</code> having the value of the
-imaginary unit normally referred to as <em>i</em>.
+Константа типа <code>const float _Complex</code>, имеющая значение мнимой единицы
+<em>i</em>.
 </li></ul>
 
-<p>The <code>&lt;complex.h&gt;</code> header file also declares a number of functions
-for performing computations on complex numbers, for example the
-<code>creal</code> and <code>cimag</code> functions which respectively return 
-the real and imaginary parts of a <code>double complex</code> number.  Other
-functions are also provided, as shown in this example:
+<p><code>&lt;complex.h&gt;</code> заголовочный файл также объявляет ряд функций для
+выполнения вычислений с комплексными числами, например, функциями
+<code>creal</code> и <code>cimag</code> которые, соответственно, возвращают
+действительные и мнимые части числа <code>double complex</code>.  Также
+предусмотрены и другие функции, как показано в следующем примере:
 </p>
 <div class="example">
 <pre class="example">#include &lt;complex.h&gt;    
@@ -1198,10 +1201,10 @@ void example (void)
 <p>
 Previous: <a href="#Standard-Complex-Number-Types" accesskey="p" rel="prev">Standard Complex Number Types</a>, Up: <a href="#Complex-Number-Types" accesskey="u" rel="up">Complex Number Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="GNU-Extensions-for-Complex-Number-Types-1"></span><h4 class="subsubsection">2.1.3.2 GNU Extensions for Complex Number Types</h4>
-<p>GCC also introduced complex types as a GNU extension to C89, but the
-spelling is different.   The floating-point complex types in GCC&rsquo;s C89
-extension are:
+<span id="GNU-Rasshirenie-dlya-Tipov-Kompleksnykh-Tipov"></span><h4 class="subsubsection">2.1.3.2 GNU Расширение для Типов Комплексных Типов</h4>
+<p>GCC также введены комплексные типы, как расширение GNU для C89, но написание
+отличается.  Комплексные типы с плавающей точкой в ​​расширении C89 GCC
+являются:
 </p>
 <ul class="no-bullet">
 <li><!-- /@w --> <code>__complex__ float</code>
@@ -1209,42 +1212,43 @@ extension are:
 </li><li><!-- /@w --> <code>__complex__ long double</code>
 </li></ul>
 
-<p>GCC&rsquo;s extension allow for complex types other than floating-point, 
-so that you can declare complex character types and complex integer
-types; in fact <code>__complex__</code> can be used with any of the
-primitive data types.  We won&rsquo;t give you a complete list of all
-possibilities, but here are some examples:
+<p>Расширение GCC&rsquo; позволяет использовать комплексные типы, в отличии от типов
+с плавающей точкой, для объявления целочисленных комплексных типов, так что
+вы можете объявить комплексные символьные и комплексные целочисленные типы;
+на самом деле <code>__complex__</code> может быть использован с любым из
+примитивных типов данных.  Мы не дадим вам полный список всех возможностей,
+но вот некоторые примеры:
 </p>
 <ul>
 <li> <code>__complex__ float</code>
 <br>
-The <code>__complex__ float</code> data type has two components: a real
-part and an imaginary part, both of which are of the <code>float</code> data type.
+<code>__complex__ float</code> тип данных имеет два компонента: реальную часть и
+мнимую часть, обе из которых относятся к типу данных <code>float</code>.
 
 
 </li><li> <code>__complex__ int</code>
 <br>
-The <code>__complex__ int</code> data type also has two components: a
-real part and an imaginary part, both of which are of the <code>int</code> data
-type.
+Тип данных <code>__complex__ int</code> также имеет два компонента: реальную часть
+и мнимую часть, обе из которых относятся к типу данных <code>int</code>.
 
 </li></ul>
 
-<p>To extract the real part of a complex-valued expression, use the keyword
-<code>__real__</code>, followed by the expression.  Likewise, use <code>__imag__</code>
-to extract the imaginary part.
+<p>Для того, чтобы извлечь действительную часть комплексного числа, используйте
+ключевое слово <code>__real__</code>, затем выражение.  Кроме того, используйте
+<code>__imag__</code> чтобы извлечь мнимую часть.
 </p> 
 <div class="example">
 <pre class="example">__complex__ float a = 4 + 3i;
 
-float b = __real__ a;          /* <span class="roman"><code>b</code> is now 4.</span> */
-float c = __imag__ a;          /* <span class="roman"><code>c</code> is now 3.</span> */
+float b = __real__ a;          /* <span class="roman"><code>b</code> это 4.</span> */
+float c = __imag__ a;          /* <span class="roman"><code>c</code> это 3.</span> */
 </pre></div>
  
-<p>This example creates a complex floating point variable <code>a</code>,
-and defines its real part as 4 and its imaginary part as 3.  Then, the
-real part is assigned to the floating point variable <code>b</code>, and the
-imaginary part is assigned to the floating point variable <code>c</code>.
+<p>Этот пример создает переменную <code>a</code> типа комплексное число с плавающей
+точкой , и определяет её реальную часть, как 4 и мнимую часть, как 3.  Далее
+действительная часть значения переменной присваивается переменной типа число
+с плавающей точкой <code>b</code>, а мнимая часть этого значения, присваивается
+переменной <code>c</code> типа числа с плавающей точкой.
 </p>
 
 <hr>
@@ -1252,18 +1256,19 @@ imaginary part is assigned to the floating point variable <code>c</code>.
 <p>
 Next: <a href="#Unions" accesskey="n" rel="next">Unions</a>, Previous: <a href="#Primitive-Types" accesskey="p" rel="prev">Primitive Types</a>, Up: <a href="#Data-Types" accesskey="u" rel="up">Data Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Enumerations-1"></span><h3 class="section">2.2 Enumerations</h3>
+<span id="Perechisleniya"></span><h3 class="section">2.2 Перечисления</h3>
 <span id="index-enumerations"></span>
 <span id="index-types_002c-enumeration"></span>
 <span id="index-data-types_002c-enumeration"></span>
 
-<p>An enumeration is a custom data type used for storing constant integer
-values and referring to them by names.  By default, these values are
-of type <code>signed int</code>; however, you can use the <code>-fshort-enums</code>
-GCC compiler option to cause the smallest possible integer type to be
-used instead.  Both of these behaviors conform to the C89 standard,
-but mixing the use of these options within the same program can
-produce incompatibilities.
+<p>Перечисление представляет собой тип пользовательских данных, используемый для
+хранения постоянных целочисленных значений, и обращения к ним по именам.  По
+умолчанию эти значения имеют тип <code>signed int</code>.  Однако, вы можете
+использовать опцию компилятора GCC <code>-fshort-enums</code> для использования
+типа наименьшего возможного числа, который будет использоваться вместо этого.
+Оба эти поведения соответствуют стандарту C89, но смешанное использование
+этих вариантов в рамках одной и той же программы может привести к
+несовместимости.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Defining-Enumerations" accesskey="1">Defining Enumerations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -1277,95 +1282,95 @@ produce incompatibilities.
 <p>
 Next: <a href="#Declaring-Enumerations" accesskey="n" rel="next">Declaring Enumerations</a>, Up: <a href="#Enumerations" accesskey="u" rel="up">Enumerations</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Defining-Enumerations-1"></span><h4 class="subsection">2.2.1 Defining Enumerations</h4>
+<span id="Opredelenie-Perechisleniya"></span><h4 class="subsection">2.2.1 Определение Перечисления</h4>
 <span id="index-defining-enumerations"></span>
 <span id="index-enumerations_002c-defining"></span>
 
-<p>You define an enumeration using the <code>enum</code> keyword, followed by
-the name of the enumeration (this is optional), followed by a list of
-constant names (separated by commas and enclosed in braces), and ending
-with a semicolon.
+<p>Определяется перечисление с помощью <code>enum</code> ключевого слова, за которым
+следует имя перечисления (это необязательно), за которым следует список имен
+констант (разделенных запятыми и заключены в фигурные скобки), и
+заканчивается точкой с запятой.
 </p>
 <div class="example">
-<pre class="example">enum fruit {grape, cherry, lemon, kiwi};
+<pre class="example">enum фрукты {виноград, вишня, лимон, киви};
 </pre></div>
 
-<p>That example defines an enumeration, <code>fruit</code>, which contains four
-constant integer values, <code>grape</code>, <code>cherry</code>, <code>lemon</code>, and
-<code>kiwi</code>, whose values are, by default, 0, 1, 2, and 3, respectively.
-You can also specify one or more of the values explicitly:
+<p>Этот пример определяет перечисление, <code>фрукты</code>, которое содержит четыре
+постоянных целых значения, <code>виноград</code>, <code>вишня</code>, <code>лимон</code> и
+<code>киви</code>, чьи значения по умолчанию, 0, 1, 2 и 3, соответственно.  Вы
+также можете указать один или несколько значений в явном виде:
 </p>
 <div class="example">
-<pre class="example">enum more_fruit {banana = -17, apple, blueberry, mango};
+<pre class="example">enum ешё_фрукты {банан = -17, яблоко, черника, манго};
 </pre></div>
 
-<p>That example defines <code>banana</code> to be -17, and the remaining
-values are incremented by 1: <code>apple</code> is -16,
-<code>blueberry</code> is -15, and <code>mango</code> is -14.  Unless
-specified otherwise, an enumeration value is equal to one more than
-the previous value (and the first value defaults to 0).
+<p>Этот пример определяет <code>банан</code> как -17, а остальные значения
+увеличиваются на 1: <code>яблоко</code> является -16, <code>черника</code>
+является -15 и <code>манго</code> является -14.  Если не указано
+иное, значение перечисления равно на один больше, чем предыдущее значение (и
+первое значение по умолчанию равно 0).
 </p>
-<p>You can also refer to an enumeration value defined earlier in the same
-enumeration:
+<p>Вы также можете обратиться к значению перечисления, определенное ранее в том
+же перечислении:
 </p>
 <div class="example">
-<pre class="example">enum yet_more_fruit {kumquat, raspberry, peach,
-                     plum = peach + 2};
+<pre class="example">enum вот_ещё_фрукты {кумкват, малина, персик,
+                     слива = персик + 2};
 </pre></div>
 
-<p>In that example, <code>kumquat</code> is 0, <code>raspberry</code> is 1,
-<code>peach</code> is 2, and <code>plum</code> is 4.
+<p>В этом примере, <code>кумкват</code> устанавливается в 0, <code>малина</code> в 1,
+<code>персик</code> в 2, и <code>слива</code> в 4.
 </p>
-<p>You can&rsquo;t use the same name for an <code>enum</code> as a <code>struct</code> or
-<code>union</code> in the same scope.
+<p>Вы не можете использовать одно и тоже имя для перечисления <code>enum</code> как
+<code>struct</code> или <code>union</code> в той же области.  (ВопросTypes439)
 </p>
 <hr>
 <span id="Declaring-Enumerations"></span><div class="header">
 <p>
 Previous: <a href="#Defining-Enumerations" accesskey="p" rel="prev">Defining Enumerations</a>, Up: <a href="#Enumerations" accesskey="u" rel="up">Enumerations</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Declaring-Enumerations-1"></span><h4 class="subsection">2.2.2 Declaring Enumerations</h4>
+<span id="Obwyavlenie-Perechisleniya"></span><h4 class="subsection">2.2.2 Объявление Перечисления</h4>
 <span id="index-declaring-enumerations"></span>
 <span id="index-enumerations_002c-declaring"></span>
 
-<p>You can declare variables of an enumeration type both when the
-enumeration is defined and afterward.  This example declares one
-variable, named <code>my_fruit</code> of type <code>enum fruit</code>, all in
-a single statement:
+<p>Вы можете объявлять переменные типа перечисления как при определении
+перечисления так и позже.  Этот пример объявляет одну переменную с именем
+<code>мои_фрукты</code> типа <code>enum фрукты</code>, все в одном заявлении:
 </p>
 <div class="example">
-<pre class="example">enum fruit {banana, apple, blueberry, mango} my_fruit;
+<pre class="example">enum фрукты {банан, яблоко, черника, манго} мои_фрукты;
 </pre></div>
 
-<p>while this example declares the type and variable separately:
+<p>в то время как в этом примере объявляется тип и переменная отдельно:
 </p>
 <div class="example">
-<pre class="example">enum fruit {banana, apple, blueberry, mango};
-enum fruit my_fruit;
+<pre class="example">enum фрукты {банан, яблоко, черника, манго};
+enum фрукты мои_фрукты;
 </pre></div>
 
-<p>(Of course, you couldn&rsquo;t declare it that way if you hadn&rsquo;t named the
-enumeration.)
+<p>(Конечно, вы не смогли бы объявить так, не объявив вначале перечисление
+<code>фрукты</code>.)
 </p>
-<p>Although such variables are considered to be of an enumeration type, you
-can assign them any value that you could assign to an <code>int</code> variable,
-including values from other enumerations.  Furthermore, any variable that
-can be assigned an <code>int</code> value can be assigned a value from an
-enumeration.
+<p>Хотя такие переменные относятся к типу перечисления, вы можете присвоить им
+любое значение, которое вы могли бы присвоить переменной типа  <code>int</code>,
+включая значение других перечислений.  Кроме того, любой переменной, которая
+может быть назначено значение типа <code>int</code> может быть присвоено значение
+из перечисления.
 </p>
-<p>However, you cannot change the values in an enumeration once it has been
-defined; they are constant values.  For example, this won&rsquo;t work:
+<p>Тем не менее, вы не можете изменить значение в перечислении, как только оно
+был определено; они являются константыми значениями.  Например, это не будет
+работать:
 </p>
 <div class="example">
-<pre class="example">enum fruit {banana, apple, blueberry, mango};
-banana = 15;  /* <span class="roman">You can&rsquo;t do this!</span> */
+<pre class="example">enum фрукты {банан, яблоко, черника, манго};
+банан = 15;  /* <span class="roman">Вы не можете сделать это!</span> */
 </pre></div>
 
-<p>Enumerations are useful in conjunction with the <code>switch</code>
-statement, because the compiler can warn you if you have failed to
-handle one of the enumeration values.  Using the example above, if
-your code handles <code>banana</code>, <code>apple</code> and <code>mango</code> only
-but not <code>blueberry</code>, GCC can generate a warning.
+<p>Перечисления могут быть использованы в сочетании с оператором <code>switch</code>,
+потому что компилятор может предупредить вас, если вы не смогли обработать
+одно из значений перечисления.  Используя пример выше, если ваш код
+обрабатывает только <code>банан</code>, <code>яблоко</code> и <code>манго</code>, без
+<code>черника</code>, GCC может генерировать предупреждение.
 </p>
 <hr>
 <span id="Unions"></span><div class="header">
@@ -1377,10 +1382,11 @@ Next: <a href="#Structures" accesskey="n" rel="next">Structures</a>, Previous: <
 <span id="index-types_002c-union"></span>
 <span id="index-data-types_002c-union"></span>
 
-<p>A union is a custom data type used for storing several variables in the
-same memory space.  Although you can access any of those variables at any
-time, you should only read from one of them at a time&mdash;assigning a value to
-one of them overwrites the values in the others.
+<p>Объединение представляет собой тип пользовательских данных, используемый для
+хранения нескольких переменных в одном и том же пространстве памяти.  Хотя вы
+можете получить доступ к любой из этих переменных в любое время, вы должны
+читать только по одной из них в одно и то же время &mdash; присвоения одного
+значения перезаписывает значения другой.  (ВопросTypes503)
 </p>
 
 <table class="menu" border="0" cellspacing="0">
@@ -1399,37 +1405,37 @@ one of them overwrites the values in the others.
 <p>
 Next: <a href="#Declaring-Union-Variables" accesskey="n" rel="next">Declaring Union Variables</a>, Up: <a href="#Unions" accesskey="u" rel="up">Unions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Defining-Unions-1"></span><h4 class="subsection">2.3.1 Defining Unions</h4>
+<span id="Opredelenie-Obwedineniya"></span><h4 class="subsection">2.3.1 Определение Объединения</h4>
 <span id="index-defining-unions"></span>
 <span id="index-unions_002c-defining"></span>
 
-<p>You define a union using the <code>union</code> keyword followed by
-the declarations of the union&rsquo;s members, enclosed in
-braces.  You declare each member of a union just as you would
-normally declare a variable&mdash;using the data type followed by one
-or more variable names separated by commas, and ending with a
-semicolon.  Then end the union definition with a semicolon after
-the closing brace.
+<p>Вы определяете объединение, используя ключевое слово <code>union</code> с
+последующим объявлением элементов объединения, заключенные в фигурные скобки.
+Вы объявляете каждый элемент объединения так же, как вы обычно объявляете
+переменную &mdash; используя тип, данных за которым следует одно или несколько
+имён переменных, разделенных запятыми, и заканчиваете точкой с запятой.
+Затем заканчиваете определение объединения точкой с запятой после закрывающей
+скобки.
 </p>
-<p>You should also include a name for the union between the <code>union</code>
-keyword and the opening brace.  This is syntactically optional, but if
-you leave it out, you can&rsquo;t refer to that union data type later on
-(without a <code>typedef</code>, see <a href="#The-typedef-Statement">The typedef Statement</a>).
+<p>Вы должны также включить имя для объединения между <code>union</code> ключевым
+словом и открывающей скобкой.  Это синтаксически не обязательно, но если вы
+не укажите имя, вы не можете обратиться к этому типу данных объединения в
+дальнейшем в программе (без <code>typedef</code>, see <a href="#The-typedef-Statement">The typedef Statement</a>).
 </p>
-<p>Here is an example of defining a simple union for holding an integer
-value and a floating point value:
+<p>Ниже приведен пример определения простого объединения для сохранения целого
+числа и числа с плавающей точкой:
 </p>
 <div class="example">
-<pre class="example">union numbers
+<pre class="example">union числа
   {
     int i;
     float f;
   };
 </pre></div>
 
-<p>That defines a union named <code>numbers</code>, which contains two
-members, <code>i</code> and <code>f</code>, which are of type <code>int</code> and
-<code>float</code>, respectively.
+<p>Это определяет объединение с именем <code>числа</code>, которое содержит два
+элементачлена, <code>i</code> и <code>f</code>, которые имеют тип <code>int</code> и
+<code>float</code> соответственно.
 </p>
 
 <hr>
@@ -1437,15 +1443,14 @@ members, <code>i</code> and <code>f</code>, which are of type <code>int</code> a
 <p>
 Next: <a href="#Accessing-Union-Members" accesskey="n" rel="next">Accessing Union Members</a>, Previous: <a href="#Defining-Unions" accesskey="p" rel="prev">Defining Unions</a>, Up: <a href="#Unions" accesskey="u" rel="up">Unions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Declaring-Union-Variables-1"></span><h4 class="subsection">2.3.2 Declaring Union Variables</h4>
+<span id="Obwyavlenie-Peremennykh-Obwedineniya"></span><h4 class="subsection">2.3.2 Объявление Переменных Объединения</h4>
 <span id="index-declaring-union-variables"></span>
 <span id="index-union-variables_002c-declaring"></span>
 
-<p>You can declare variables of a union type when both you initially
-define the union and after the definition, provided you gave the
-union type a name.
+<p>Вы можете объявлять переменные типа объединения, как при первоначальном
+определении объединения, так и после его определения, если вы дали
+объединению имя.
 </p>
-
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Declaring-Union-Variables-at-Definition" accesskey="1">Declaring Union Variables at Definition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -1460,26 +1465,25 @@ union type a name.
 <p>
 Next: <a href="#Declaring-Union-Variables-After-Definition" accesskey="n" rel="next">Declaring Union Variables After Definition</a>, Up: <a href="#Declaring-Union-Variables" accesskey="u" rel="up">Declaring Union Variables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Declaring-Union-Variables-at-Definition-1"></span><h4 class="subsubsection">2.3.2.1 Declaring Union Variables at Definition</h4>
+<span id="Obwyavlenie-Peremennykh-Obwedineniya-pri-Opredelenii"></span><h4 class="subsubsection">2.3.2.1 Объявление Переменных Объединения при Определении</h4>
 <span id="index-declaring-union-variables-at-definition"></span>
 <span id="index-union-variables_002c-declaring-at-definition"></span>
 
-<p>You can declare variables of a union type when you define the
-union type by putting the variable names after the closing
-brace of the union definition, but before the final semicolon.
-You can declare more than one such variable by separating the names
-with commas.
+<p>Вы можете объявлять переменные типа объединения, когда вы определяете тип
+объединения, помещая имена переменных после закрывающей скобки определения
+объединения, но до завершающей точки с запятой.  Вы можете объявить более чем
+одну такую ​​переменную, разделяя их запятыми.
 </p>
 <div class="example">
-<pre class="example">union numbers
+<pre class="example">union числа
   {
     int i;
     float f;
-  } first_number, second_number;
+  } первое_число, второе_число;
 </pre></div>
 
-<p>That example declares two variables of type <code>union numbers</code>,
-<code>first_number</code> and <code>second_number</code>.
+<p>Этот пример объявляет две переменные типа <code>union числа</code>,
+<code>первое_число</code> и <code>второе_число</code>.
 </p>
 
 
@@ -1488,27 +1492,27 @@ with commas.
 <p>
 Next: <a href="#Initializing-Union-Members" accesskey="n" rel="next">Initializing Union Members</a>, Previous: <a href="#Declaring-Union-Variables-at-Definition" accesskey="p" rel="prev">Declaring Union Variables at Definition</a>, Up: <a href="#Declaring-Union-Variables" accesskey="u" rel="up">Declaring Union Variables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Declaring-Union-Variables-After-Definition-1"></span><h4 class="subsubsection">2.3.2.2 Declaring Union Variables After Definition</h4>
+<span id="Obwyavlenie-Peremennykh-Obwedineniya-Posle-ego-Opredeleniya"></span><h4 class="subsubsection">2.3.2.2 Объявление Переменных Объединения После его Определения</h4>
 <span id="index-declaring-union-variables-after-definition"></span>
 <span id="index-union-variables_002c-declaring-after-definition"></span>
 
-<p>You can declare variables of a union type after you define the
-union by using the <code>union</code> keyword and the name you
-gave the union type, followed by one or more variable names
-separated by commas.
+<p>Вы можете объявлять переменные типа объединение после того, как вы
+определили объединение, используя <code>union</code> ключевое слово и имя, которое
+вы задали типу объединения, за которым следует одно или несколько имен
+переменных, разделенных запятыми.
 </p>
 
 <div class="example">
-<pre class="example">union numbers
+<pre class="example">union числа
   {
     int i;
     float f;
   };
-union numbers first_number, second_number;
+union числа первое_число, второе_число;
 </pre></div>
 
-<p>That example declares two variables of type <code>union numbers</code>,
-<code>first_number</code> and <code>second_number</code>.
+<p>Этот пример объявляет две переменные типа <code>union числа</code>,
+<code>первое_число</code> и <code>второе_число</code>.
 </p>
 
 <hr>
@@ -1516,51 +1520,51 @@ union numbers first_number, second_number;
 <p>
 Previous: <a href="#Declaring-Union-Variables-After-Definition" accesskey="p" rel="prev">Declaring Union Variables After Definition</a>, Up: <a href="#Declaring-Union-Variables" accesskey="u" rel="up">Declaring Union Variables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Initializing-Union-Members-1"></span><h4 class="subsubsection">2.3.2.3 Initializing Union Members</h4>
+<span id="Inicializaciya-Chlenov-Obwedineniya"></span><h4 class="subsubsection">2.3.2.3 Инициализация Членов Объединения</h4>
 <span id="index-initializing-union-members"></span>
 <span id="index-union-members_002c-initializing"></span>
 
-<p>You can initialize the first member of a union variable when you
-declare it:
+<p>Вы можете инициализировать первый элемент переменной объявления при его
+объявлении:
 </p>
 <div class="example">
-<pre class="example">union numbers
+<pre class="example">union числа
   {
     int i;
     float f;
   };
-union numbers first_number = { 5 };
+union числа первое_число = { 5 };
 </pre></div>
 
-<p>In that example, the <code>i</code> member of <code>first_number</code> gets the
-value 5.  The <code>f</code> member is left alone.
+<p>В этом примере элемент <code>i</code> в переменной <code>первое_число</code> получает
+значение 5, а элемент <code>f</code> остаётся с недействительным значением.
 </p>
-<p>Another way to initialize a union member is to specify the name of the
-member to initialize.  This way, you can initialize whichever member
-you want to, not just the first one.  There are two methods that you can
-use&mdash;either follow the member name with a colon, and then its value,
-like this:
+<p>Другой способ инициализации элемента объединения - это явно указать имя
+нужного элемента для инициализации.  Таким образом, вы можете
+инициализировать тот элемент который хотите, а не только первый.  Есть два
+способа, которые можно использовать &mdash; либо имя элемента с двоеточием, а
+затем его значение, например:
 </p>
 <div class="example">
-<pre class="example">union numbers first_number = { f: 3.14159 };
+<pre class="example">union числа первое_число = { f: 3.14159 };
 </pre></div>
 
-<p>or precede the member name with a period and assign a value
-with the assignment operator, like this:
+<p>или предварить имя элемента объединения точкой и присвоить ему значение с
+помощью оператора присваивания, как здесь:
 </p>
 <div class="example">
-<pre class="example">union numbers first_number = { .f = 3.14159 };
+<pre class="example">union числа первое_число = { .f = 3.14159 };
 </pre></div>
 
-<p>You can also initialize a union member when you declare the union
-variable during the definition:
+<p>Вы также можете инициализировать элемент объединения при объявлении
+переменной объединения во время её определения:
 </p>
 <div class="example">
-<pre class="example">union numbers
+<pre class="example">union числа
   {
     int i;
     float f;
-  } first_number = { 5 };
+  } первое_число = { 5 };
 </pre></div>
 
 
@@ -1570,28 +1574,27 @@ variable during the definition:
 <p>
 Next: <a href="#Size-of-Unions" accesskey="n" rel="next">Size of Unions</a>, Previous: <a href="#Declaring-Union-Variables" accesskey="p" rel="prev">Declaring Union Variables</a>, Up: <a href="#Unions" accesskey="u" rel="up">Unions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Accessing-Union-Members-1"></span><h4 class="subsection">2.3.3 Accessing Union Members</h4>
+<span id="Dostup-k-Elementam-Obwedineniya"></span><h4 class="subsection">2.3.3 Доступ к Элементам Объединения</h4>
 <span id="index-accessing-union-members"></span>
 <span id="index-union-members_002c-accessing"></span>
 
-<p>You can access the members of a union variable using the member
-access operator.  You put the name of the union
-variable on the left side of the operator, and the name of the
-member on the right side.
+<p>Вы можете получить доступ к элементам переменной объединения с помощью
+оператора доступа к элементу.  Вы помещаете имя переменной объединения на
+левой стороне оператора, а имя элемента объединения с правой стороны.
 </p>
 <div class="example">
-<pre class="example">union numbers
+<pre class="example">union числа
   {
     int i;
     float f;
   };
-union numbers first_number;
-first_number.i = 5;
-first_number.f = 3.9;
+union числа первое_число;
+первое_число.i = 5;
+первое_число.f = 3.9;
 </pre></div>
 
-<p>Notice in that example that giving a value to the <code>f</code> member overrides
-the value stored in the <code>i</code> member.
+<p>Обратите внимание, в этом примере, что переопределяются значения как элемента
+<code>f</code> так и хранящееся в элементе <code>i</code>.  (ВопросTypes697)
 </p>
 
 <hr>
@@ -1599,26 +1602,28 @@ the value stored in the <code>i</code> member.
 <p>
 Previous: <a href="#Accessing-Union-Members" accesskey="p" rel="prev">Accessing Union Members</a>, Up: <a href="#Unions" accesskey="u" rel="up">Unions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Size-of-Unions-1"></span><h4 class="subsection">2.3.4 Size of Unions</h4>
+<span id="Razmer-Obwedinenii"></span><h4 class="subsection">2.3.4 Размер Объединений</h4>
 <span id="index-size-of-unions"></span>
 <span id="index-unions_002c-size-of"></span>
 
-<p>This size of a union is equal to the size of its largest member.  Consider
-the first union example from this section:
+<p>Размер объединения равен размеру его наибольшего элемента.  Рассмотрим первый
+пример объединения из этого раздела:
 </p>
 <div class="example">
-<pre class="example">union numbers
+<pre class="example">union числа
   {
     int i;
     float f;
   };
 </pre></div>
 
-<p>The size of the union data type is the same as <code>sizeof (float)</code>,
-because the <code>float</code> type is larger than the <code>int</code> type.  Since all
-of the members of a union occupy the same memory space, the union data type
-size doesn&rsquo;t need to be large enough to hold the sum of all their sizes; it
-just needs to be large enough to hold the largest member.
+<p>Размер типа данных этого объединения такой же, как при определении
+<code>sizeof (float)</code>, так самый большой тип у элементов этого объединения
+это <code>float</code>.  Поскольку все элементы объединения расположены в одном
+и том же пространстве памяти, размер типа данных объединения, не должен
+расчитываться на возможность помещения суммы сразу всех типов элементов, а
+должен быть достаточно большим, чтобы вместить самый большой из типов
+содержащихся элементов. (ВопросTypes729)
 </p>
 
 <hr>
@@ -7287,8 +7292,7 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <h4 class="footnotes-heading">Footnotes</h4>
 
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h3>
-<p>C++ also has complex number support, but it is
-incompatible with the ISO C99 types.</p>
+<p>C++ также имеет поддержку комплексных чисел, но она не совместима с типами ISO C99.</p>
 <h5><a id="FOOT2" href="#DOCF2">(2)</a></h3>
 <p>полное объявление - это объявление функции или объекта, который не
 является частью другого объекта</p>

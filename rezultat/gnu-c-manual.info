@@ -449,8 +449,8 @@ File: gnu-c-manual.info,  Node: Separators,  Next: White Space,  Prev: Operators
 ==============
 
 Сепаратор отделяет операторы.  Пробел (смотрите следующий раздел)
-является сепаратором, но не для операторов.  Все остальные сепараторы -
-это односимвольные операторы:
+является сепаратором для операторов.  Все остальные сепараторы - это
+односимвольные операторы:
 
      ( ) [ ] { } ; , . :
 
@@ -563,153 +563,161 @@ File: gnu-c-manual.info,  Node: Integer Types,  Next: Real Number Types,  Up: Pr
 компьютерной платформы, эти размеры и диапазоны могут быть больше но
 никак не меньше.
 
-   While these ranges provide a natural ordering, the standard does not
-require that any two types have a different range.  For example, it is
-common for 'int' and 'long' to have the same range.  The standard even
-allows 'signed char' and 'long' to have the same range, though such
-platforms are very unusual.
+   В то время как эти диапазоны обеспечивают естественный порядок,
+стандарт не требует, чтобы любые два типа имели различный диапазон.
+Например, 'int' и 'long' могут иметь один и тот же диапазон.  Стандарт
+позволяет даже 'signed char' и 'long' иметь тот же диапазон, хотя такие
+платформы очень необычны.
 
    * 'signed char'
-     The 8-bit 'signed char' data type can hold integer values in the
-     range of -128 to 127.
+     8-битный 'signed char' тип данных может содержать целые значения в
+     диапазоне от -128 до 127.
 
    * 'unsigned char'
-     The 8-bit 'unsigned char' data type can hold integer values in the
-     range of 0 to 255.
+     8-битный 'unsigned char' тип данных может содержать целые значения
+     в диапазоне от 0 до 255.
 
    * 'char'
-     Depending on your system, the 'char' data type is defined as having
-     the same range as either the 'signed char' or the 'unsigned char'
-     data type (they are three distinct types, however).  By convention,
-     you should use the 'char' data type specifically for storing ASCII
-     characters (such as '`m''), including escape sequences (such as
-     '`\n'').
+     В зависимости от системы, тип данных 'char' определяются как
+     имеющий один и тот же диапазон, либо 'signed char', либо 'unsigned
+     char' типа данных (хотя это три различных типа, однако).  По
+     соглашению, вы должны использовать тип данных 'char' специально для
+     хранения ASCII символов (например, '`m''), в том числе управляющих
+     последовательностей (таких как '`\n'').
 
    * 'short int'
-     The 16-bit 'short int' data type can hold integer values in the
-     range of -32,768 to 32,767.  You may also refer to this data type
-     as 'short', 'signed short int', or 'signed short'.
+     16-битный 'short int' тип данных может содержать целые значения в
+     диапазоне от -32,768 до 32,767.  Вы можете также обратиться к этому
+     типу данных, как 'short', 'signed short int', или 'signed short'.
 
    * 'unsigned short int'
-     The 16-bit 'unsigned short int' data type can hold integer values
-     in the range of 0 to 65,535.  You may also refer to this data type
-     as 'unsigned short'.
+     16-битный 'unsigned short int' тип данных может содержать целые
+     значения в диапазоне от 0 до 65,535.  Вы можете также обратиться к
+     этому типу данных, как к 'unsigned short'.
 
    * 'int'
-     The 32-bit 'int' data type can hold integer values in the range of
-     -2,147,483,648 to 2,147,483,647.  You may also refer to this data
-     type as 'signed int' or 'signed'.
+     32-битный 'int' тип данных может содержать целые значения в
+     диапазоне от -2,147,483,648 до 2,147,483,647.  Вы можете также
+     обратиться к этому типу данных, как к 'signed int' или 'signed'.
 
    * 'unsigned int'
-     The 32-bit 'unsigned int' data type can hold integer values in the
-     range of 0 to 4,294,967,295.  You may also refer to this data type
-     simply as 'unsigned'.
+     32-битный 'unsigned int' тип данных может содержать целые значения
+     в диапазоне от 0 до 4,294,967,295.  Вы можете также обратиться к
+     этому типу данных просто как к 'unsigned'.
 
    * 'long int'
-     The 32-bit 'long int' data type can hold integer values in the
-     range of at least -2,147,483,648 to 2,147,483,647.  (Depending on
-     your system, this data type might be 64-bit, in which case its
-     range is identical to that of the 'long long int' data type.)  You
-     may also refer to this data type as 'long', 'signed long int', or
-     'signed long'.
+     32-битный 'long int' тип данных может содержать целые значения в
+     диапазоне, по меньшей мере, от -2,147,483,648 до 2,147,483,647.  (В
+     зависимости от вашей системы, этот тип данных может быть 64-бит, в
+     этом случае его диапазон идентичен типу 'long long int' данных.).
+     Вы можете также обратиться к этому типу данных, как к 'long',
+     'signed long int', или к 'signed long'.
 
    * 'unsigned long int'
-     The 32-bit 'unsigned long int' data type can hold integer values in
-     the range of at least 0 to 4,294,967,295.  (Depending on your
-     system, this data type might be 64-bit, in which case its range is
-     identical to that of the 'unsigned long long int' data type.)  You
-     may also refer to this data type as 'unsigned long'.
+     32-битный 'unsigned long int' тип данных может содержать целые
+     значения в диапазоне, по меньшей мере, от 0 до 4,294,967,295.  (В
+     зависимости от вашей системы, этот тип данных может быть 64-бит, в
+     этом случае его диапазон идентичен типу 'unsigned long long int'
+     данных.).  Вы можете также обратиться к этому типу данных, как к
+     'unsigned long'.
 
    * 'long long int'
-     The 64-bit 'long long int' data type can hold integer values in the
-     range of -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
-     You may also refer to this data type as 'long long', 'signed long
-     long int' or 'signed long long'.  This type is not part of C89, but
-     is both part of C99 and a GNU C extension.
+     64-битный 'long long int' тип данных может содержать целые значения
+     в диапазоне от -9,223,372,036,854,775,808 до
+     9,223,372,036,854,775,807.  Вы можете также обратиться к этому типу
+     данных, как к 'long long', 'signed long long int' или 'signed long
+     long'.  Этот тип не является частью C89, идёт как часть C99 и
+     расширение GNU Cи.
 
    * 'unsigned long long int'
-     The 64-bit 'unsigned long long int' data type can hold integer
-     values in the range of at least 0 to 18,446,744,073,709,551,615.
-     You may also refer to this data type as 'unsigned long long'.  This
-     type is not part of C89, but is both part of C99 and a GNU C
-     extension.
+     64-битный 'unsigned long long int' тип данных может содержать целые
+     значения в диапазоне, по меньшей мере, от 0 до
+     18,446,744,073,709,551,615.  Вы можете также обратиться к этому
+     типу данных, как к 'unsigned long long'.  Этот тип не является
+     частью C89, идёт как часть C99 и расширение GNU Cи.
 
-   Here are some examples of declaring and defining integer variables:
+   Вот некоторые примеры объявления и определения целочисленных
+переменных:
 
      int foo;
      unsigned int bar = 42;
      char quux = 'a';
 
-The first line declares an integer named 'foo' but does not define its
-value; it is left uninitialized, and its value should not be assumed to
-be anything in particular.
+Первая строка объявляет целое с именем 'foo', но не определяет его
+значение; оно остается не инициализированым, и его значение не следует
+считать, как нечто конкретное.
 
 
 File: gnu-c-manual.info,  Node: Real Number Types,  Next: Complex Number Types,  Prev: Integer Types,  Up: Primitive Types
 
-2.1.2 Real Number Types
------------------------
+2.1.2 Типы Действительных Чисел
+-------------------------------
 
-There are three data types that represent fractional numbers.  While the
-sizes and ranges of these types are consistent across most computer
-systems in use today, historically the sizes of these types varied from
-system to system.  As such, the minimum and maximum values are stored in
-macro definitions in the library header file 'float.h'.  In this
-section, we include the names of the macro definitions in place of their
-possible values; check your system's 'float.h' for specific numbers.
+Есть три типа данных, которые представляют дробные числа.  Хотя размеры
+и диапазоны этих типов соответствуют в большинстве компьютерных систем,
+используемых сегодня, исторически размеры этих типов варьируется от
+системы к системе.  Таким образом, минимальные и максимальные значения
+сохраняются в макроопределениях в библиотеке заголовочного файл
+'float.h'.  В этом разделе, мы включаем имена макроопределений в месте
+их возможными значениями; проверте 'float.h' вашей системы для
+определенных чисел.
 
    * 'float'
-     The 'float' data type is the smallest of the three floating point
-     types, if they differ in size at all.  Its minimum value is stored
-     in the 'FLT_MIN', and should be no greater than '1e-37'.  Its
-     maximum value is stored in 'FLT_MAX', and should be no less than
-     '1e37'.
+     'float' тип данных является самым маленьким из трех типов с
+     плавающей точкой, если они различаются по размеру вообще.  Его
+     минимальное значение хранится в 'FLT_MIN', и не должно быть больше,
+     чем '1e-37'.  Его максимальное значение сохраняется в 'FLT_MAX', и
+     должно быть не менее '1e37'.
 
    * 'double'
-     The 'double' data type is at least as large as the 'float' type,
-     and it may be larger.  Its minimum value is stored in 'DBL_MIN',
-     and its maximum value is stored in 'DBL_MAX'.
+     'double' тип данных, по меньшей мере, столь же большой как и тип
+     'float', но может быть большим.  Его минимальное значение хранится
+     в 'DBL_MIN', а его максимальное значение хранится в 'DBL_MAX'.
 
    * 'long double'
-     The 'long double' data type is at least as large as the 'float'
-     type, and it may be larger.  Its minimum value is stored in
-     'LDBL_MIN', and its maximum value is stored in 'LDBL_MAX'.
+     'long double' тип данных, по меньшей мере, столь же большой как и
+     тип 'float', и может быть большим.  Его минимальное значение
+     хранится в 'LDBL_MIN', а его максимальное значение хранится в
+     'LDBL_MAX'.
 
-All floating point data types are signed; trying to use 'unsigned
-float', for example, will cause a compile-time error.
+Все типы данных с плавающей запятой подписаны; пытаясь использовать
+'unsigned float', например, вызовет ошибку компиляции.
 
-   Here are some examples of declaring and defining real number
-variables:
+   Вот некоторые примеры объявления и определения в переменных
+действительных чисел:
 
      float foo;
      double bar = 114.3943;
 
-The first line declares a float named 'foo' but does not define its
-value; it is left uninitialized, and its value should not be assumed to
-be anything in particular.
+Первая строка объявляет переменную с типом чило с плавающей точкой и
+именем 'foo', но не определяет её значение; она остается не
+инициализированой, и её значение не следует учитывать как нечто
+конкретное.
 
-   The real number types provided in C are of finite precision, and
-accordingly, not all real numbers can be represented exactly.  Most
-computer systems that GCC compiles for use a binary representation for
-real numbers, which is unable to precisely represent numbers such as,
-for example, 4.2.  For this reason, we recommend that you consider not
-comparing real numbers for exact equality with the '==' operator, but
-rather check that real numbers are within an acceptable tolerance.
+   Типы вещественного числа, представленные в Cи, являются числами с
+конечной точностью, и, соответственно, не все действительные числа могут
+быть представлены точно.  Большинство компьютерных систем, которые GCC
+компилирует используют бинарное представление для действительных чисел,
+которое не в состоянии точно представлять числа, такие, как, например,
+4,2.  По этой причине, мы рекомендуем вам не сравнивать действительные
+числа для точного равенства использовать оператор '==', а проверить, что
+действительные числа находятся в пределах допустимого отклонения.
 
-   There are other more subtle implications of these imprecise
-representations; for more details, see David Goldberg's paper 'What
-Every Computer Scientist Should Know About Floating-Point Arithmetic'
-and section 4.2.2 of Donald Knuth's 'The Art of Computer Programming'.
+   Есть другие, более тонкие последствия этих неточных представлений;
+для получения более подробной информации смотреть очерки бумаг Дэвида
+Голдберга 'Что каждый компьютерный ученый должен знать о арифменике с
+плавающей точкой' в секции 4.2.2 Дональда Кнута 'Искусство Компьютерного
+Программирования'.
 
 
 File: gnu-c-manual.info,  Node: Complex Number Types,  Prev: Real Number Types,  Up: Primitive Types
 
-2.1.3 Complex Number Types
---------------------------
+2.1.3 Типы Комплексные Числа
+----------------------------
 
-GCC introduced some complex number types as an extension to C89.
-Similar features were introduced in C99(1), but there were a number of
-differences.  We describe the standard complex number types first.
+GCC ввел некоторые типы комплексных чисел как расширение C89.
+Аналогичные функции были введены в C99(1), но существует ряд отличий.
+Сначала мы опишем стандартные типы комплексных чисел.
 
 * Menu:
 
@@ -718,39 +726,39 @@ differences.  We describe the standard complex number types first.
 
    ---------- Footnotes ----------
 
-   (1) C++ also has complex number support, but it is incompatible with
-the ISO C99 types.
+   (1) C++ также имеет поддержку комплексных чисел, но она не совместима
+с типами ISO C99.
 
 
 File: gnu-c-manual.info,  Node: Standard Complex Number Types,  Next: GNU Extensions for Complex Number Types,  Up: Complex Number Types
 
-2.1.3.1 Standard Complex Number Types
-.....................................
+2.1.3.1 Стандартные типы Комплексных Чисел
+..........................................
 
-Complex types were introduced in C99.  There are three complex types:
+Комплексные типы были введены в C99.  Есть три комплексных типа:
 
      'float _Complex'
      'double _Complex'
      'long double _Complex'
 
-   The names here begin with an underscore and an uppercase letter in
-order to avoid conflicts with existing programs' identifiers.  However,
-the C99 standard header file '<complex.h>' introduces some macros which
-make using complex types easier.
+   Имена здесь начинаются с символом подчеркивания и заглавной буквой,
+чтобы избежать конфликтов с идентификаторами уже существующих программ.
+Стандартный файл заголовка '<complex.h>' C99 вводит некоторые макросы,
+которые делают использование сложных типов проще.
 
      'complex'
-     Expands to '_Complex'.  This allows a variable to be declared as
-     'double complex' which seems more natural.
+     Расширяется до '_Complex'.  Это позволяет переменной быть
+     объявленой ​​как 'double complex', что кажется более естественным.
 
      'I'
-     A constant of type 'const float _Complex' having the value of the
-     imaginary unit normally referred to as i.
+     Константа типа 'const float _Complex', имеющая значение мнимой
+     единицы i.
 
-   The '<complex.h>' header file also declares a number of functions for
-performing computations on complex numbers, for example the 'creal' and
-'cimag' functions which respectively return the real and imaginary parts
-of a 'double complex' number.  Other functions are also provided, as
-shown in this example:
+   '<complex.h>' заголовочный файл также объявляет ряд функций для
+выполнения вычислений с комплексными числами, например, функциями
+'creal' и 'cimag' которые, соответственно, возвращают действительные и
+мнимые части числа 'double complex'.  Также предусмотрены и другие
+функции, как показано в следующем примере:
 
      #include <complex.h>
      #include <stdio.h>
@@ -764,58 +772,61 @@ shown in this example:
 
 File: gnu-c-manual.info,  Node: GNU Extensions for Complex Number Types,  Prev: Standard Complex Number Types,  Up: Complex Number Types
 
-2.1.3.2 GNU Extensions for Complex Number Types
-...............................................
+2.1.3.2 GNU Расширение для Типов Комплексных Типов
+..................................................
 
-GCC also introduced complex types as a GNU extension to C89, but the
-spelling is different.  The floating-point complex types in GCC's C89
-extension are:
+GCC также введены комплексные типы, как расширение GNU для C89, но
+написание отличается.  Комплексные типы с плавающей точкой в
+​​расширении C89 GCC являются:
 
      '__complex__ float'
      '__complex__ double'
      '__complex__ long double'
 
-   GCC's extension allow for complex types other than floating-point, so
-that you can declare complex character types and complex integer types;
-in fact '__complex__' can be used with any of the primitive data types.
-We won't give you a complete list of all possibilities, but here are
-some examples:
+   Расширение GCC' позволяет использовать комплексные типы, в отличии от
+типов с плавающей точкой, для объявления целочисленных комплексных
+типов, так что вы можете объявить комплексные символьные и комплексные
+целочисленные типы; на самом деле '__complex__' может быть использован с
+любым из примитивных типов данных.  Мы не дадим вам полный список всех
+возможностей, но вот некоторые примеры:
 
    * '__complex__ float'
-     The '__complex__ float' data type has two components: a real part
-     and an imaginary part, both of which are of the 'float' data type.
+     '__complex__ float' тип данных имеет два компонента: реальную часть
+     и мнимую часть, обе из которых относятся к типу данных 'float'.
 
    * '__complex__ int'
-     The '__complex__ int' data type also has two components: a real
-     part and an imaginary part, both of which are of the 'int' data
-     type.
+     Тип данных '__complex__ int' также имеет два компонента: реальную
+     часть и мнимую часть, обе из которых относятся к типу данных 'int'.
 
-   To extract the real part of a complex-valued expression, use the
-keyword '__real__', followed by the expression.  Likewise, use
-'__imag__' to extract the imaginary part.
+   Для того, чтобы извлечь действительную часть комплексного числа,
+используйте ключевое слово '__real__', затем выражение.  Кроме того,
+используйте '__imag__' чтобы извлечь мнимую часть.
 
      __complex__ float a = 4 + 3i;
 
-     float b = __real__ a;          /* 'b' is now 4. */
-     float c = __imag__ a;          /* 'c' is now 3. */
+     float b = __real__ a;          /* 'b' это 4. */
+     float c = __imag__ a;          /* 'c' это 3. */
 
-   This example creates a complex floating point variable 'a', and
-defines its real part as 4 and its imaginary part as 3.  Then, the real
-part is assigned to the floating point variable 'b', and the imaginary
-part is assigned to the floating point variable 'c'.
+   Этот пример создает переменную 'a' типа комплексное число с плавающей
+точкой , и определяет её реальную часть, как 4 и мнимую часть, как 3.
+Далее действительная часть значения переменной присваивается переменной
+типа число с плавающей точкой 'b', а мнимая часть этого значения,
+присваивается переменной 'c' типа числа с плавающей точкой.
 
 
 File: gnu-c-manual.info,  Node: Enumerations,  Next: Unions,  Prev: Primitive Types,  Up: Data Types
 
-2.2 Enumerations
+2.2 Перечисления
 ================
 
-An enumeration is a custom data type used for storing constant integer
-values and referring to them by names.  By default, these values are of
-type 'signed int'; however, you can use the '-fshort-enums' GCC compiler
-option to cause the smallest possible integer type to be used instead.
-Both of these behaviors conform to the C89 standard, but mixing the use
-of these options within the same program can produce incompatibilities.
+Перечисление представляет собой тип пользовательских данных,
+используемый для хранения постоянных целочисленных значений, и обращения
+к ним по именам.  По умолчанию эти значения имеют тип 'signed int'.
+Однако, вы можете использовать опцию компилятора GCC '-fshort-enums' для
+использования типа наименьшего возможного числа, который будет
+использоваться вместо этого.  Оба эти поведения соответствуют стандарту
+C89, но смешанное использование этих вариантов в рамках одной и той же
+программы может привести к несовместимости.
 
 * Menu:
 
@@ -825,78 +836,79 @@ of these options within the same program can produce incompatibilities.
 
 File: gnu-c-manual.info,  Node: Defining Enumerations,  Next: Declaring Enumerations,  Up: Enumerations
 
-2.2.1 Defining Enumerations
----------------------------
+2.2.1 Определение Перечисления
+------------------------------
 
-You define an enumeration using the 'enum' keyword, followed by the name
-of the enumeration (this is optional), followed by a list of constant
-names (separated by commas and enclosed in braces), and ending with a
-semicolon.
+Определяется перечисление с помощью 'enum' ключевого слова, за которым
+следует имя перечисления (это необязательно), за которым следует список
+имен констант (разделенных запятыми и заключены в фигурные скобки), и
+заканчивается точкой с запятой.
 
-     enum fruit {grape, cherry, lemon, kiwi};
+     enum фрукты {виноград, вишня, лимон, киви};
 
-   That example defines an enumeration, 'fruit', which contains four
-constant integer values, 'grape', 'cherry', 'lemon', and 'kiwi', whose
-values are, by default, 0, 1, 2, and 3, respectively.  You can also
-specify one or more of the values explicitly:
+   Этот пример определяет перечисление, 'фрукты', которое содержит
+четыре постоянных целых значения, 'виноград', 'вишня', 'лимон' и 'киви',
+чьи значения по умолчанию, 0, 1, 2 и 3, соответственно.  Вы также можете
+указать один или несколько значений в явном виде:
 
-     enum more_fruit {banana = -17, apple, blueberry, mango};
+     enum ешё_фрукты {банан = -17, яблоко, черника, манго};
 
-   That example defines 'banana' to be -17, and the remaining values are
-incremented by 1: 'apple' is -16, 'blueberry' is -15, and 'mango' is
--14.  Unless specified otherwise, an enumeration value is equal to one
-more than the previous value (and the first value defaults to 0).
+   Этот пример определяет 'банан' как -17, а остальные значения
+увеличиваются на 1: 'яблоко' является -16, 'черника' является -15 и
+'манго' является -14.  Если не указано иное, значение перечисления равно
+на один больше, чем предыдущее значение (и первое значение по умолчанию
+равно 0).
 
-   You can also refer to an enumeration value defined earlier in the
-same enumeration:
+   Вы также можете обратиться к значению перечисления, определенное
+ранее в том же перечислении:
 
-     enum yet_more_fruit {kumquat, raspberry, peach,
-                          plum = peach + 2};
+     enum вот_ещё_фрукты {кумкват, малина, персик,
+                          слива = персик + 2};
 
-   In that example, 'kumquat' is 0, 'raspberry' is 1, 'peach' is 2, and
-'plum' is 4.
+   В этом примере, 'кумкват' устанавливается в 0, 'малина' в 1, 'персик'
+в 2, и 'слива' в 4.
 
-   You can't use the same name for an 'enum' as a 'struct' or 'union' in
-the same scope.
+   Вы не можете использовать одно и тоже имя для перечисления 'enum' как
+'struct' или 'union' в той же области.  (ВопросTypes439)
 
 
 File: gnu-c-manual.info,  Node: Declaring Enumerations,  Prev: Defining Enumerations,  Up: Enumerations
 
-2.2.2 Declaring Enumerations
-----------------------------
+2.2.2 Объявление Перечисления
+-----------------------------
 
-You can declare variables of an enumeration type both when the
-enumeration is defined and afterward.  This example declares one
-variable, named 'my_fruit' of type 'enum fruit', all in a single
-statement:
+Вы можете объявлять переменные типа перечисления как при определении
+перечисления так и позже.  Этот пример объявляет одну переменную с
+именем 'мои_фрукты' типа 'enum фрукты', все в одном заявлении:
 
-     enum fruit {banana, apple, blueberry, mango} my_fruit;
+     enum фрукты {банан, яблоко, черника, манго} мои_фрукты;
 
-while this example declares the type and variable separately:
+в то время как в этом примере объявляется тип и переменная отдельно:
 
-     enum fruit {banana, apple, blueberry, mango};
-     enum fruit my_fruit;
+     enum фрукты {банан, яблоко, черника, манго};
+     enum фрукты мои_фрукты;
 
-   (Of course, you couldn't declare it that way if you hadn't named the
-enumeration.)
+   (Конечно, вы не смогли бы объявить так, не объявив вначале
+перечисление 'фрукты'.)
 
-   Although such variables are considered to be of an enumeration type,
-you can assign them any value that you could assign to an 'int'
-variable, including values from other enumerations.  Furthermore, any
-variable that can be assigned an 'int' value can be assigned a value
-from an enumeration.
+   Хотя такие переменные относятся к типу перечисления, вы можете
+присвоить им любое значение, которое вы могли бы присвоить переменной
+типа 'int', включая значение других перечислений.  Кроме того, любой
+переменной, которая может быть назначено значение типа 'int' может быть
+присвоено значение из перечисления.
 
-   However, you cannot change the values in an enumeration once it has
-been defined; they are constant values.  For example, this won't work:
+   Тем не менее, вы не можете изменить значение в перечислении, как
+только оно был определено; они являются константыми значениями.
+Например, это не будет работать:
 
-     enum fruit {banana, apple, blueberry, mango};
-     banana = 15;  /* You can't do this! */
+     enum фрукты {банан, яблоко, черника, манго};
+     банан = 15;  /* Вы не можете сделать это! */
 
-   Enumerations are useful in conjunction with the 'switch' statement,
-because the compiler can warn you if you have failed to handle one of
-the enumeration values.  Using the example above, if your code handles
-'banana', 'apple' and 'mango' only but not 'blueberry', GCC can generate
-a warning.
+   Перечисления могут быть использованы в сочетании с оператором
+'switch', потому что компилятор может предупредить вас, если вы не
+смогли обработать одно из значений перечисления.  Используя пример выше,
+если ваш код обрабатывает только 'банан', 'яблоко' и 'манго', без
+'черника', GCC может генерировать предупреждение.
 
 
 File: gnu-c-manual.info,  Node: Unions,  Next: Structures,  Prev: Enumerations,  Up: Data Types
@@ -904,10 +916,12 @@ File: gnu-c-manual.info,  Node: Unions,  Next: Structures,  Prev: Enumerations, 
 2.3 Unions
 ==========
 
-A union is a custom data type used for storing several variables in the
-same memory space.  Although you can access any of those variables at
-any time, you should only read from one of them at a time--assigning a
-value to one of them overwrites the values in the others.
+Объединение представляет собой тип пользовательских данных, используемый
+для хранения нескольких переменных в одном и том же пространстве памяти.
+Хотя вы можете получить доступ к любой из этих переменных в любое время,
+вы должны читать только по одной из них в одно и то же время --
+присвоения одного значения перезаписывает значения другой.
+(ВопросTypes503)
 
 * Menu:
 
@@ -919,42 +933,45 @@ value to one of them overwrites the values in the others.
 
 File: gnu-c-manual.info,  Node: Defining Unions,  Next: Declaring Union Variables,  Up: Unions
 
-2.3.1 Defining Unions
----------------------
+2.3.1 Определение Объединения
+-----------------------------
 
-You define a union using the 'union' keyword followed by the
-declarations of the union's members, enclosed in braces.  You declare
-each member of a union just as you would normally declare a
-variable--using the data type followed by one or more variable names
-separated by commas, and ending with a semicolon.  Then end the union
-definition with a semicolon after the closing brace.
+Вы определяете объединение, используя ключевое слово 'union' с
+последующим объявлением элементов объединения, заключенные в фигурные
+скобки.  Вы объявляете каждый элемент объединения так же, как вы обычно
+объявляете переменную -- используя тип, данных за которым следует одно
+или несколько имён переменных, разделенных запятыми, и заканчиваете
+точкой с запятой.  Затем заканчиваете определение объединения точкой с
+запятой после закрывающей скобки.
 
-   You should also include a name for the union between the 'union'
-keyword and the opening brace.  This is syntactically optional, but if
-you leave it out, you can't refer to that union data type later on
-(without a 'typedef', *note The typedef Statement::).
+   Вы должны также включить имя для объединения между 'union' ключевым
+словом и открывающей скобкой.  Это синтаксически не обязательно, но если
+вы не укажите имя, вы не можете обратиться к этому типу данных
+объединения в дальнейшем в программе (без 'typedef', *note The typedef
+Statement::).
 
-   Here is an example of defining a simple union for holding an integer
-value and a floating point value:
+   Ниже приведен пример определения простого объединения для сохранения
+целого числа и числа с плавающей точкой:
 
-     union numbers
+     union числа
        {
          int i;
          float f;
        };
 
-   That defines a union named 'numbers', which contains two members, 'i'
-and 'f', which are of type 'int' and 'float', respectively.
+   Это определяет объединение с именем 'числа', которое содержит два
+элементачлена, 'i' и 'f', которые имеют тип 'int' и 'float'
+соответственно.
 
 
 File: gnu-c-manual.info,  Node: Declaring Union Variables,  Next: Accessing Union Members,  Prev: Defining Unions,  Up: Unions
 
-2.3.2 Declaring Union Variables
--------------------------------
+2.3.2 Объявление Переменных Объединения
+---------------------------------------
 
-You can declare variables of a union type when both you initially define
-the union and after the definition, provided you gave the union type a
-name.
+Вы можете объявлять переменные типа объединения, как при первоначальном
+определении объединения, так и после его определения, если вы дали
+объединению имя.
 
 * Menu:
 
@@ -965,126 +982,129 @@ name.
 
 File: gnu-c-manual.info,  Node: Declaring Union Variables at Definition,  Next: Declaring Union Variables After Definition,  Up: Declaring Union Variables
 
-2.3.2.1 Declaring Union Variables at Definition
-...............................................
+2.3.2.1 Объявление Переменных Объединения при Определении
+.........................................................
 
-You can declare variables of a union type when you define the union type
-by putting the variable names after the closing brace of the union
-definition, but before the final semicolon.  You can declare more than
-one such variable by separating the names with commas.
+Вы можете объявлять переменные типа объединения, когда вы определяете
+тип объединения, помещая имена переменных после закрывающей скобки
+определения объединения, но до завершающей точки с запятой.  Вы можете
+объявить более чем одну такую ​​переменную, разделяя их запятыми.
 
-     union numbers
+     union числа
        {
          int i;
          float f;
-       } first_number, second_number;
+       } первое_число, второе_число;
 
-   That example declares two variables of type 'union numbers',
-'first_number' and 'second_number'.
+   Этот пример объявляет две переменные типа 'union числа',
+'первое_число' и 'второе_число'.
 
 
 File: gnu-c-manual.info,  Node: Declaring Union Variables After Definition,  Next: Initializing Union Members,  Prev: Declaring Union Variables at Definition,  Up: Declaring Union Variables
 
-2.3.2.2 Declaring Union Variables After Definition
-..................................................
+2.3.2.2 Объявление Переменных Объединения После его Определения
+...............................................................
 
-You can declare variables of a union type after you define the union by
-using the 'union' keyword and the name you gave the union type, followed
-by one or more variable names separated by commas.
+Вы можете объявлять переменные типа объединение после того, как вы
+определили объединение, используя 'union' ключевое слово и имя, которое
+вы задали типу объединения, за которым следует одно или несколько имен
+переменных, разделенных запятыми.
 
-     union numbers
+     union числа
        {
          int i;
          float f;
        };
-     union numbers first_number, second_number;
+     union числа первое_число, второе_число;
 
-   That example declares two variables of type 'union numbers',
-'first_number' and 'second_number'.
+   Этот пример объявляет две переменные типа 'union числа',
+'первое_число' и 'второе_число'.
 
 
 File: gnu-c-manual.info,  Node: Initializing Union Members,  Prev: Declaring Union Variables After Definition,  Up: Declaring Union Variables
 
-2.3.2.3 Initializing Union Members
-..................................
+2.3.2.3 Инициализация Членов Объединения
+........................................
 
-You can initialize the first member of a union variable when you declare
-it:
+Вы можете инициализировать первый элемент переменной объявления при его
+объявлении:
 
-     union numbers
+     union числа
        {
          int i;
          float f;
        };
-     union numbers first_number = { 5 };
+     union числа первое_число = { 5 };
 
-   In that example, the 'i' member of 'first_number' gets the value 5.
-The 'f' member is left alone.
+   В этом примере элемент 'i' в переменной 'первое_число' получает
+значение 5, а элемент 'f' остаётся с недействительным значением.
 
-   Another way to initialize a union member is to specify the name of
-the member to initialize.  This way, you can initialize whichever member
-you want to, not just the first one.  There are two methods that you can
-use--either follow the member name with a colon, and then its value,
-like this:
+   Другой способ инициализации элемента объединения - это явно указать
+имя нужного элемента для инициализации.  Таким образом, вы можете
+инициализировать тот элемент который хотите, а не только первый.  Есть
+два способа, которые можно использовать -- либо имя элемента с
+двоеточием, а затем его значение, например:
 
-     union numbers first_number = { f: 3.14159 };
+     union числа первое_число = { f: 3.14159 };
 
-or precede the member name with a period and assign a value with the
-assignment operator, like this:
+или предварить имя элемента объединения точкой и присвоить ему значение
+с помощью оператора присваивания, как здесь:
 
-     union numbers first_number = { .f = 3.14159 };
+     union числа первое_число = { .f = 3.14159 };
 
-   You can also initialize a union member when you declare the union
-variable during the definition:
+   Вы также можете инициализировать элемент объединения при объявлении
+переменной объединения во время её определения:
 
-     union numbers
+     union числа
        {
          int i;
          float f;
-       } first_number = { 5 };
+       } первое_число = { 5 };
 
 
 File: gnu-c-manual.info,  Node: Accessing Union Members,  Next: Size of Unions,  Prev: Declaring Union Variables,  Up: Unions
 
-2.3.3 Accessing Union Members
------------------------------
+2.3.3 Доступ к Элементам Объединения
+------------------------------------
 
-You can access the members of a union variable using the member access
-operator.  You put the name of the union variable on the left side of
-the operator, and the name of the member on the right side.
+Вы можете получить доступ к элементам переменной объединения с помощью
+оператора доступа к элементу.  Вы помещаете имя переменной объединения
+на левой стороне оператора, а имя элемента объединения с правой стороны.
 
-     union numbers
+     union числа
        {
          int i;
          float f;
        };
-     union numbers first_number;
-     first_number.i = 5;
-     first_number.f = 3.9;
+     union числа первое_число;
+     первое_число.i = 5;
+     первое_число.f = 3.9;
 
-   Notice in that example that giving a value to the 'f' member
-overrides the value stored in the 'i' member.
+   Обратите внимание, в этом примере, что переопределяются значения как
+элемента 'f' так и хранящееся в элементе 'i'.  (ВопросTypes697)
 
 
 File: gnu-c-manual.info,  Node: Size of Unions,  Prev: Accessing Union Members,  Up: Unions
 
-2.3.4 Size of Unions
---------------------
+2.3.4 Размер Объединений
+------------------------
 
-This size of a union is equal to the size of its largest member.
-Consider the first union example from this section:
+Размер объединения равен размеру его наибольшего элемента.  Рассмотрим
+первый пример объединения из этого раздела:
 
-     union numbers
+     union числа
        {
          int i;
          float f;
        };
 
-The size of the union data type is the same as 'sizeof (float)', because
-the 'float' type is larger than the 'int' type.  Since all of the
-members of a union occupy the same memory space, the union data type
-size doesn't need to be large enough to hold the sum of all their sizes;
-it just needs to be large enough to hold the largest member.
+Размер типа данных этого объединения такой же, как при определении
+'sizeof (float)', так самый большой тип у элементов этого объединения
+это 'float'.  Поскольку все элементы объединения расположены в одном и
+том же пространстве памяти, размер типа данных объединения, не должен
+расчитываться на возможность помещения суммы сразу всех типов элементов,
+а должен быть достаточно большим, чтобы вместить самый большой из типов
+содержащихся элементов.  (ВопросTypes729)
 
 
 File: gnu-c-manual.info,  Node: Structures,  Next: Arrays,  Prev: Unions,  Up: Data Types
@@ -5610,7 +5630,7 @@ Index
 * division, integer:                     Signed Integer Division.
                                                                (line  6)
 * do statement:                          The do Statement.     (line  6)
-* double data type:                      Real Number Types.    (line 21)
+* double data type:                      Real Number Types.    (line 22)
 * else statements:                       The if Statement.     (line  6)
 * enumerations:                          Enumerations.         (line  6)
 * enumerations, declaring:               Declaring Enumerations.
@@ -5631,7 +5651,7 @@ Index
 * extern storage class specifier:        Storage Class Specifiers.
                                                                (line  6)
 * fields, bit:                           Bit Fields.           (line  6)
-* float data type:                       Real Number Types.    (line 14)
+* float data type:                       Real Number Types.    (line 15)
 * floating point constants:              Real Number Constants.
                                                                (line  6)
 * floating point types:                  Real Number Types.    (line  6)
@@ -5686,9 +5706,9 @@ Index
 * logical operators:                     Logical Operators.    (line  6)
 * logical operators, bitwise:            Bitwise Logical Operators.
                                                                (line  6)
-* long double data type:                 Real Number Types.    (line 26)
+* long double data type:                 Real Number Types.    (line 27)
 * long int data type:                    Integer Types.        (line 57)
-* long long int data type:               Integer Types.        (line 72)
+* long long int data type:               Integer Types.        (line 73)
 * loop induction:                        Optimization and Wraparound.
                                                                (line  6)
 * macros, statements in expressions:     Statements and Declarations in Expressions.
@@ -5838,7 +5858,7 @@ Index
 * unsigned char data type:               Integer Types.        (line 25)
 * unsigned int data type:                Integer Types.        (line 52)
 * unsigned long int data type:           Integer Types.        (line 65)
-* unsigned long long int data type:      Integer Types.        (line 80)
+* unsigned long long int data type:      Integer Types.        (line 82)
 * unsigned short int data type:          Integer Types.        (line 42)
 * unspecified behaviour:                 Sequence Points Constrain Expressions.
                                                                (line 88)
@@ -5869,120 +5889,120 @@ Node: Real Number Constants14810
 Node: String Constants17085
 Node: Operators21213
 Node: Separators21749
-Node: White Space22231
-Node: Data Types24671
-Node: Primitive Types25011
-Node: Integer Types25253
-Node: Real Number Types29802
-Node: Complex Number Types32371
-Ref: Complex Number Types-Footnote-132858
-Node: Standard Complex Number Types32950
-Node: GNU Extensions for Complex Number Types34331
-Node: Enumerations36037
-Node: Defining Enumerations36671
-Node: Declaring Enumerations38068
-Node: Unions39561
-Node: Defining Unions40062
-Node: Declaring Union Variables41164
-Node: Declaring Union Variables at Definition41642
-Node: Declaring Union Variables After Definition42366
-Node: Initializing Union Members43081
-Node: Accessing Union Members44290
-Node: Size of Unions44951
-Node: Structures45623
-Node: Defining Structures46017
-Node: Declaring Structure Variables47370
-Node: Declaring Structure Variables at Definition47896
-Node: Declaring Structure Variables After Definition48631
-Node: Initializing Structure Members49359
-Node: Accessing Structure Members52323
-Node: Bit Fields53259
-Node: Size of Structures54915
-Node: Arrays55961
-Node: Declaring Arrays56426
-Node: Initializing Arrays57603
-Node: Accessing Array Elements59925
-Node: Multidimensional Arrays60789
-Node: Arrays as Strings61703
-Node: Arrays of Unions64275
-Node: Arrays of Structures65234
-Node: Pointers66735
-Node: Declaring Pointers67191
-Node: Initializing Pointers68164
-Node: Pointers to Unions70013
-Node: Pointers to Structures71087
-Node: Incomplete Types72211
-Node: Type Qualifiers73080
-Node: Storage Class Specifiers74059
-Node: Renaming Types77204
-Node: Expressions and Operators77505
-Node: Expressions78202
-Node: Assignment Operators80035
-Node: Incrementing and Decrementing84658
-Node: Arithmetic Operators87351
-Node: Complex Conjugation91709
-Node: Comparison Operators92770
-Node: Logical Operators95809
-Node: Bit Shifting98060
-Node: Bitwise Logical Operators100973
-Node: Pointer Operators103897
-Node: The sizeof Operator106459
-Node: Type Casts109227
-Node: Array Subscripts111678
-Node: Function Calls as Expressions112761
-Node: The Comma Operator113197
-Node: Member Access Expressions115605
-Node: Conditional Expressions116958
-Node: Statements and Declarations in Expressions119591
-Node: Operator Precedence123198
-Node: Order of Evaluation127894
-Node: Side Effects129485
-Node: Sequence Points131276
-Ref: Sequence Points-Footnote-1136037
-Node: Sequence Points Constrain Expressions136227
-Ref: Sequence Points Constrain Expressions-Footnote-1143071
-Node: Sequence Points and Signal Delivery143277
-Node: Statements146186
-Node: Labels146825
-Node: Expression Statements147648
-Node: The if Statement148716
-Node: The switch Statement150636
-Node: The while Statement153624
-Node: The do Statement154423
-Node: The for Statement155203
-Node: Blocks158669
-Node: The Null Statement159979
-Node: The goto Statement160977
-Node: The break Statement162751
-Node: The continue Statement163569
-Node: The return Statement164169
-Node: The typedef Statement165841
-Node: Functions167288
-Node: Function Declarations168202
-Node: Function Definitions170004
-Node: Calling Functions171610
-Node: Function Parameters172475
-Node: Variable Length Parameter Lists175966
-Node: Calling Functions Through Function Pointers178369
-Node: The main Function179241
-Ref: The main Function-Footnote-1181558
-Node: Recursive Functions181722
-Node: Static Functions182563
-Node: Nested Functions183238
-Node: Program Structure and Scope184037
-Node: Program Structure184364
-Node: Scope185849
-Node: A Sample Program186876
-Node: hello.c187732
-Node: system.h194077
-Node: Overflow195700
-Node: Integer Overflow Basics196840
-Node: Signed Overflow Examples198559
-Node: Optimization and Wraparound202052
-Node: Signed Overflow Advice205004
-Node: Signed Integer Division207668
-Node: GNU Free Documentation License208269
-Node: Index233396
+Node: White Space22220
+Node: Data Types24660
+Node: Primitive Types25000
+Node: Integer Types25242
+Node: Real Number Types31907
+Node: Complex Number Types36637
+Ref: Complex Number Types-Footnote-137275
+Node: Standard Complex Number Types37426
+Node: GNU Extensions for Complex Number Types39453
+Node: Enumerations42395
+Node: Defining Enumerations43550
+Node: Declaring Enumerations45990
+Node: Unions48626
+Node: Defining Unions49505
+Node: Declaring Union Variables51525
+Node: Declaring Union Variables at Definition52187
+Node: Declaring Union Variables After Definition53298
+Node: Initializing Union Members54419
+Node: Accessing Union Members56447
+Node: Size of Unions57504
+Node: Structures58783
+Node: Defining Structures59177
+Node: Declaring Structure Variables60530
+Node: Declaring Structure Variables at Definition61056
+Node: Declaring Structure Variables After Definition61791
+Node: Initializing Structure Members62519
+Node: Accessing Structure Members65483
+Node: Bit Fields66419
+Node: Size of Structures68075
+Node: Arrays69121
+Node: Declaring Arrays69586
+Node: Initializing Arrays70763
+Node: Accessing Array Elements73085
+Node: Multidimensional Arrays73949
+Node: Arrays as Strings74863
+Node: Arrays of Unions77435
+Node: Arrays of Structures78394
+Node: Pointers79895
+Node: Declaring Pointers80351
+Node: Initializing Pointers81324
+Node: Pointers to Unions83173
+Node: Pointers to Structures84247
+Node: Incomplete Types85371
+Node: Type Qualifiers86240
+Node: Storage Class Specifiers87219
+Node: Renaming Types90364
+Node: Expressions and Operators90665
+Node: Expressions91362
+Node: Assignment Operators93195
+Node: Incrementing and Decrementing97818
+Node: Arithmetic Operators100511
+Node: Complex Conjugation104869
+Node: Comparison Operators105930
+Node: Logical Operators108969
+Node: Bit Shifting111220
+Node: Bitwise Logical Operators114133
+Node: Pointer Operators117057
+Node: The sizeof Operator119619
+Node: Type Casts122387
+Node: Array Subscripts124838
+Node: Function Calls as Expressions125921
+Node: The Comma Operator126357
+Node: Member Access Expressions128765
+Node: Conditional Expressions130118
+Node: Statements and Declarations in Expressions132751
+Node: Operator Precedence136358
+Node: Order of Evaluation141054
+Node: Side Effects142645
+Node: Sequence Points144436
+Ref: Sequence Points-Footnote-1149197
+Node: Sequence Points Constrain Expressions149387
+Ref: Sequence Points Constrain Expressions-Footnote-1156231
+Node: Sequence Points and Signal Delivery156437
+Node: Statements159346
+Node: Labels159985
+Node: Expression Statements160808
+Node: The if Statement161876
+Node: The switch Statement163796
+Node: The while Statement166784
+Node: The do Statement167583
+Node: The for Statement168363
+Node: Blocks171829
+Node: The Null Statement173139
+Node: The goto Statement174137
+Node: The break Statement175911
+Node: The continue Statement176729
+Node: The return Statement177329
+Node: The typedef Statement179001
+Node: Functions180448
+Node: Function Declarations181362
+Node: Function Definitions183164
+Node: Calling Functions184770
+Node: Function Parameters185635
+Node: Variable Length Parameter Lists189126
+Node: Calling Functions Through Function Pointers191529
+Node: The main Function192401
+Ref: The main Function-Footnote-1194718
+Node: Recursive Functions194882
+Node: Static Functions195723
+Node: Nested Functions196398
+Node: Program Structure and Scope197197
+Node: Program Structure197524
+Node: Scope199009
+Node: A Sample Program200036
+Node: hello.c200892
+Node: system.h207237
+Node: Overflow208860
+Node: Integer Overflow Basics210000
+Node: Signed Overflow Examples211719
+Node: Optimization and Wraparound215212
+Node: Signed Overflow Advice218164
+Node: Signed Integer Division220828
+Node: GNU Free Documentation License221429
+Node: Index246556
 
 End Tag Table
 

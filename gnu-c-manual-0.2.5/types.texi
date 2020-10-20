@@ -49,112 +49,115 @@
 приведенны для этих типов; в зависимости от вашей компьютерной платформы, эти
 размеры и диапазоны могут быть больше но никак не меньше.
 
-While these ranges provide a natural ordering, the standard does
-not require that any two types have a different range.  For example,
-it is common for @code{int} and @code{long} to have the same range.
-The standard even allows @code{signed char} and @code{long} to have
-the same range, though such platforms are very unusual.
+В то время как эти диапазоны обеспечивают естественный порядок, стандарт не
+требует, чтобы любые два типа имели различный диапазон.  Например, @code{int}
+и @code{long} могут иметь один и тот же диапазон.  Стандарт позволяет даже
+@code{signed char} и @code{long} иметь тот же диапазон, хотя такие платформы
+очень необычны.
 
 @itemize @bullet
 
 @item @code{signed char}
 @cindex @code{signed char} data type
 @*
-The 8-bit @code{signed char} data type can hold integer values in
-the range of @minus{}128 to 127.
+8-битный @code{signed char} тип данных может содержать целые значения в
+диапазоне от @minus{}128 до 127.
 
 
 @item @code{unsigned char}
 @cindex @code{unsigned char} data type
 @*
-The 8-bit @code{unsigned char} data type can hold integer values in
-the range of 0 to 255.
+8-битный @code{unsigned char} тип данных может содержать целые значения в
+диапазоне от 0 до 255.
 
 
 @item @code{char}
 @cindex @code{char} data type
 @*
-Depending on your system, the @code{char} data type is defined as
-having the same range as either the @code{signed char} or the @code{unsigned char}
-data type (they are three distinct types, however).  By convention,
-you should use the @code{char} data type 
-specifically for storing ASCII characters (such as @code{`m'}), including escape
-sequences (such as @code{`\n'}).
+В зависимости от системы, тип данных @code{char} определяются как имеющий
+один и тот же диапазон, либо @code{signed char}, либо @code{unsigned char}
+типа данных (хотя это три различных типа, однако).  По соглашению, вы должны
+использовать тип данных @code{char} специально для хранения ASCII символов
+(например, @code{`m'}), в том числе управляющих последовательностей (таких
+как @code{`\n'}).
 
 
 @item @code{short int}
 @cindex @code{short int} data type
 @*
-The 16-bit @code{short int} data type can hold integer values in the
-range of @minus{}32,768 to 32,767.  You may also refer to this data type as
-@code{short}, @code{signed short int}, or @code{signed short}.
+16-битный @code{short int} тип данных может содержать целые значения в
+диапазоне от @minus{}32,768 до 32,767.  Вы можете также обратиться к этому
+типу данных, как @code{short}, @code{signed short int}, или
+@code{signed short}.
 
 @item @code{unsigned short int}
 @cindex @code{unsigned short int} data type
 @*
-The 16-bit @code{unsigned short int} data type can hold integer values
-in the range of 0 to 65,535.  You may also refer to this data type
-as @code{unsigned short}.
+16-битный @code{unsigned short int} тип данных может содержать целые значения
+в диапазоне от 0 до 65,535.  Вы можете также обратиться к этому типу данных,
+как к @code{unsigned short}.
 
 
 @item @code{int}
 @cindex @code{int} data type
 @*
-The 32-bit @code{int} data type can hold integer values in the range
-of @minus{}2,147,483,648 to 2,147,483,647.  You may also refer to this data type
-as @code{signed int} or @code{signed}.
+32-битный @code{int} тип данных может содержать целые значения в диапазоне от
+@minus{}2,147,483,648 до 2,147,483,647.  Вы можете также обратиться к этому
+типу данных, как к @code{signed int} или @code{signed}.
 
 @item @code{unsigned int}
 @cindex @code{unsigned int} data type
 @*
-The 32-bit @code{unsigned int} data type can hold integer values in
-the range of 0 to 4,294,967,295.  You may also refer to this data type
-simply as @code{unsigned}.
+32-битный @code{unsigned int} тип данных может содержать целые значения в
+диапазоне от 0 до 4,294,967,295.  Вы можете также обратиться к этому типу
+данных просто как к @code{unsigned}.
 
 
 @item @code{long int}
 @cindex @code{long int} data type
 @*
-The 32-bit @code{long int} data type can hold integer values in
-the range of at least @minus{}2,147,483,648 to 2,147,483,647.  (Depending on
-your system, this data type might be 64-bit, in which case its range is
-identical to that of the @code{long long int} data type.)  You may also
-refer to this data type as @code{long}, @code{signed long int},
-or @code{signed long}.
+32-битный @code{long int} тип данных может содержать целые значения в
+диапазоне, по меньшей мере,  от @minus{}2,147,483,648 до 2,147,483,647.  (В
+зависимости от вашей системы, этот тип данных может быть 64-бит, в этом
+случае его диапазон идентичен типу @code{long long int} данных.).  Вы можете
+также обратиться к этому типу данных, как к @code{long},
+@code{signed long int}, или  к @code{signed long}.
 
 
 @item @code{unsigned long int}
 @cindex @code{unsigned long int} data type
 @*
-The 32-bit @code{unsigned long int} data type can hold integer values
-in the range of at least 0 to 4,294,967,295.  (Depending on your
-system, this data type might be 64-bit, in which case its range is
-identical to that of the @code{unsigned long long int} data type.)  You may
-also refer to this data type as @code{unsigned long}.
+32-битный @code{unsigned long int} тип данных может содержать целые значения
+в диапазоне, по меньшей мере, от 0 до 4,294,967,295.  (В зависимости от вашей
+системы, этот тип данных может быть 64-бит, в этом случае его диапазон
+идентичен типу @code{unsigned long long int} данных.).  Вы можете также
+обратиться к этому типу данных, как к @code{unsigned long}.
 
 
 @item @code{long long int}
 @cindex @code{long long int} data type
 @*
-The 64-bit @code{long long int} data type can hold integer values in
-the range of @w{@minus{}9,223,372,036,854,775,808} to @w{9,223,372,036,854,775,807}. You
-may also refer to this data type as @code{long long},
-@code{signed long long int} or @code{signed long long}. This type is
-not part of C89, but is both part of C99 and a GNU C extension.
+64-битный @code{long long int} тип данных может содержать целые значения в
+диапазоне  от @w{@minus{}9,223,372,036,854,775,808} до
+@w{9,223,372,036,854,775,807}.  Вы можете также обратиться к этому типу
+данных, как к @code{long long}, @code{signed long long int} или
+@code{signed long long}.  Этот тип не является частью C89, идёт как часть C99
+и расширение GNU Cи.
 
 
 
 @item @code{unsigned long long int}
 @cindex @code{unsigned long long int} data type
 @*
-The 64-bit @code{unsigned long long int} data type can hold integer
-values in the range of at least 0 to @w{18,446,744,073,709,551,615}.  You may
-also refer to this data type as @code{unsigned long long}.  This type is
-not part of C89, but is both part of C99 and a GNU C extension.
+64-битный @code{unsigned long long int} тип данных может содержать целые
+значения в диапазоне, по меньшей мере, от 0 до
+@w{18,446,744,073,709,551,615}.  Вы можете также обратиться к этому типу
+данных, как к @code{unsigned long long}.  Этот тип не является частью C89,
+идёт как часть C99 и расширение GNU Cи.
 
 @end itemize
 
-Here are some examples of declaring and defining integer variables:
+Вот некоторые примеры объявления и определения целочисленных переменных:
 
 @example
 @group
@@ -165,12 +168,12 @@ char quux = 'a';
 @end example
 
 @noindent
-The first line declares an integer named @code{foo} but does not define
-its value; it is left uninitialized, and its value should not be assumed
-to be anything in particular.
+Первая строка объявляет целое с именем @code{foo}, но не определяет его
+значение; оно остается не инициализированым, и его значение не следует
+считать, как нечто конкретное.
 
 @node Real Number Types
-@subsection Real Number Types
+@subsection Типы Действительных Чисел
 @cindex real number types
 @cindex floating point types
 @cindex data types, real number
@@ -178,48 +181,50 @@ to be anything in particular.
 @cindex types, real number
 @cindex types, floating point
 
-There are three data types that represent fractional numbers.  While the
-sizes and ranges of these types are consistent across most computer systems
-in use today, historically the sizes of these types varied from system to
-system.  As such, the minimum and maximum values are stored in macro definitions
-in the library header file @code{float.h}.  In this section, we include the
-names of the macro definitions in place of their possible values; check your
-system's @code{float.h} for specific numbers.
+Есть три типа данных, которые представляют дробные числа.  Хотя размеры и
+диапазоны этих типов соответствуют в большинстве компьютерных систем,
+используемых сегодня, исторически размеры этих типов варьируется от системы к
+системе.  Таким образом, минимальные и максимальные значения сохраняются в
+макроопределениях в библиотеке заголовочного файл @code{float.h}.  В этом
+разделе, мы включаем имена макроопределений в месте их возможными значениями;
+проверте @code{float.h} вашей системы для определенных чисел.
 
 @itemize @bullet
 
 @item @code{float}
 @cindex @code{float} data type
 @*
-The @code{float} data type is the smallest of the three floating point
-types, if they differ in size at all.  Its minimum value is stored in
-the @code{FLT_MIN}, and should be no greater than @code{1e-37}.  Its maximum
-value is stored in @code{FLT_MAX}, and should be no less than @code{1e37}.
+@code{float} тип данных является самым маленьким из трех типов с плавающей
+точкой, если они различаются по размеру вообще.  Его минимальное значение
+хранится в @code{FLT_MIN}, и не должно быть больше, чем @code{1e-37}.  Его
+максимальное значение сохраняется в @code{FLT_MAX}, и должно быть не
+менее @code{1e37}.
 
 
 @item @code{double}
 @cindex @code{double} data type
 @*
-The @code{double} data type is at least as large as the @code{float}
-type, and it may be larger.  Its minimum value is stored in
-@code{DBL_MIN}, and its maximum value is stored in @code{DBL_MAX}.
+@code{double} тип данных, по меньшей мере, столь же большой как и тип
+@code{float}, но может быть большим.  Его минимальное значение хранится в
+@code{DBL_MIN}, а его максимальное значение хранится в @code{DBL_MAX}.
 
 
 @item @code{long double}
 @cindex @code{long double} data type
 @*
-The @code{long double} data type is at least as large as the
-@code{float} type, and it may be larger.  Its minimum value is stored in
-@code{LDBL_MIN}, and its maximum value is stored in @code{LDBL_MAX}.
+@code{long double} тип данных, по меньшей мере, столь же большой как и тип
+@code{float}, и может быть большим.  Его минимальное значение хранится в
+@code{LDBL_MIN}, а его максимальное значение хранится в @code{LDBL_MAX}.
 
 @end itemize
-@comment --End of the floating point types
+@comment --Конец типов с плавающей точкой
 
 @noindent
-All floating point data types are signed; trying to use @code{unsigned float},
-for example, will cause a compile-time error.
+Все типы данных с плавающей запятой подписаны; пытаясь использовать
+@code{unsigned float}, например, вызовет ошибку компиляции.
 
-Here are some examples of declaring and defining real number variables:
+Вот некоторые примеры объявления и определения в переменных действительных
+чисел:
 
 @example
 @group
@@ -229,37 +234,35 @@ double bar = 114.3943;
 @end example
 
 @noindent
-The first line declares a float named @code{foo} but does not define
-its value; it is left uninitialized, and its value should not be assumed
-to be anything in particular.
+Первая строка объявляет переменную с типом чило с плавающей точкой и именем
+@code{foo}, но не определяет её значение; она остается не инициализированой,
+и её значение не следует учитывать как нечто конкретное.
 
-The real number types provided in C are of finite precision, and
-accordingly, not all real numbers can be represented exactly.
-Most computer systems that GCC compiles for use a binary
-representation for real numbers, which is unable to precisely
-represent numbers such as, for example, 4.2.  For this reason, we
-recommend that you consider not comparing real numbers for exact
-equality with the @code{==} operator, but rather check that real
-numbers are within an acceptable tolerance.
+Типы вещественного числа, представленные в Cи, являются числами с конечной
+точностью, и, соответственно, не все действительные числа могут быть
+представлены точно.  Большинство компьютерных систем, которые GCC
+компилирует используют бинарное представление для действительных чисел,
+которое не в состоянии точно представлять числа, такие, как, например, 4,2.
+По этой причине, мы рекомендуем вам не сравнивать действительные числа для
+точного равенства использовать оператор @code{==}, а проверить, что
+действительные числа находятся в пределах допустимого отклонения.
 
-There are other more subtle implications of these imprecise
-representations; for more details, see David Goldberg's paper
-@cite{What Every Computer Scientist Should Know About Floating-Point
-Arithmetic} and section 4.2.2 of Donald Knuth's @cite{The Art of
-Computer Programming}.
+Есть другие, более тонкие последствия этих неточных представлений; для
+получения более подробной информации смотреть очерки бумаг Дэвида Голдберга
+@cite{Что каждый компьютерный ученый должен знать о арифменике с плавающей
+точкой} в секции 4.2.2 Дональда Кнута @cite{Искусство Компьютерного
+Программирования}.
 
 
 @node Complex Number Types
-@subsection Complex Number Types
+@subsection Типы Комплексные Числа
 @cindex complex number types
 @cindex data types, complex number
 @cindex types, complex number
 
-GCC introduced some complex number types as an
-extension to C89.  Similar features were introduced in
-C99@footnote{C++ also has complex number support, but it is
-incompatible with the ISO C99 types.}, but there were a number of
-differences.  We describe the standard complex number types first.
+GCC ввел некоторые типы комплексных чисел как расширение C89.  Аналогичные
+функции были введены в C99@footnote{C++ также имеет поддержку комплексных чисел, но она не совместима с типами ISO C99.}, но существует ряд отличий.
+Сначала мы опишем стандартные типы комплексных чисел.
 
 @menu
 * Standard Complex Number Types::
@@ -267,9 +270,8 @@ differences.  We describe the standard complex number types first.
 @end menu
 
 @node Standard Complex Number Types
-@subsubsection Standard Complex Number Types
-Complex types were introduced in C99.   There are three complex
-types:
+@subsubsection Стандартные типы Комплексных Чисел
+Комплексные типы были введены в C99.  Есть три комплексных типа:
 
 @itemize @w{}
 @item @code{float _Complex}
@@ -277,28 +279,28 @@ types:
 @item @code{long double _Complex}
 @end itemize
 
-The names here begin with an underscore and an uppercase letter in
-order to avoid conflicts with existing programs' identifiers.
-However, the C99 standard header file @code{<complex.h>} introduces
-some macros which make using complex types easier.
+Имена здесь начинаются с символом подчеркивания и заглавной буквой, чтобы
+избежать конфликтов с идентификаторами уже существующих программ.
+Стандартный файл заголовка @code{<complex.h>} C99 вводит некоторые
+макросы, которые делают использование сложных типов проще.
 
 @itemize @w{}
 @item @code{complex}
 @*
-Expands to @code{_Complex}.  This allows a variable to be declared as
-@code{double complex} which seems more natural.
+Расширяется до @code{_Complex}.  Это позволяет переменной быть объявленой
+​​как @code{double complex}, что кажется более естественным.
 
 @item @code{I}
 @*
-A constant of type @code{const float _Complex} having the value of the
-imaginary unit normally referred to as @math{i}.
+Константа типа @code{const float _Complex}, имеющая значение мнимой единицы
+@math{i}.
 @end itemize
 
-The @code{<complex.h>} header file also declares a number of functions
-for performing computations on complex numbers, for example the
-@code{creal} and @code{cimag} functions which respectively return 
-the real and imaginary parts of a @code{double complex} number.  Other
-functions are also provided, as shown in this example:
+@code{<complex.h>} заголовочный файл также объявляет ряд функций для
+выполнения вычислений с комплексными числами, например, функциями
+@code{creal} и @code{cimag} которые, соответственно, возвращают
+действительные и мнимые части числа @code{double complex}.  Также
+предусмотрены и другие функции, как показано в следующем примере:
 
 @example
 #include <complex.h>    
@@ -312,10 +314,10 @@ void example (void)
 @end example
 
 @node GNU Extensions for Complex Number Types
-@subsubsection GNU Extensions for Complex Number Types
-GCC also introduced complex types as a GNU extension to C89, but the
-spelling is different.   The floating-point complex types in GCC's C89
-extension are:
+@subsubsection GNU Расширение для Типов Комплексных Типов
+GCC также введены комплексные типы, как расширение GNU для C89, но написание
+отличается.  Комплексные типы с плавающей точкой в ​​расширении C89 GCC
+являются:
 
 @itemize @w{}
 @item @code{__complex__ float}
@@ -323,62 +325,64 @@ extension are:
 @item @code{__complex__ long double}
 @end itemize
 
-GCC's extension allow for complex types other than floating-point, 
-so that you can declare complex character types and complex integer
-types; in fact @code{__complex__} can be used with any of the
-primitive data types.  We won't give you a complete list of all
-possibilities, but here are some examples:
+Расширение GCC' позволяет использовать комплексные типы, в отличии от типов
+с плавающей точкой, для объявления целочисленных комплексных типов, так что
+вы можете объявить комплексные символьные и комплексные целочисленные типы;
+на самом деле @code{__complex__} может быть использован с любым из
+примитивных типов данных.  Мы не дадим вам полный список всех возможностей,
+но вот некоторые примеры:
 
 @itemize @bullet
 
 @item @code{__complex__ float}
 @*
-The @code{__complex__ float} data type has two components: a real
-part and an imaginary part, both of which are of the @code{float} data type.
+@code{__complex__ float} тип данных имеет два компонента: реальную часть и
+мнимую часть, обе из которых относятся к типу данных @code{float}.
 
 
 @item @code{__complex__ int}
 @*
-The @code{__complex__ int} data type also has two components: a
-real part and an imaginary part, both of which are of the @code{int} data
-type.
+Тип данных @code{__complex__ int} также имеет два компонента: реальную часть
+и мнимую часть, обе из которых относятся к типу данных @code{int}.
 
 @end itemize
-@comment --End list of __complex__ types
+@comment --Конец списка типов __complex__
 
-To extract the real part of a complex-valued expression, use the keyword
-@code{__real__}, followed by the expression.  Likewise, use @code{__imag__}
-to extract the imaginary part.
+Для того, чтобы извлечь действительную часть комплексного числа, используйте
+ключевое слово @code{__real__}, затем выражение.  Кроме того, используйте
+@code{__imag__} чтобы извлечь мнимую часть.
  
 @example
 @group
 __complex__ float a = 4 + 3i;
 
-float b = __real__ a;          /* @r{@code{b} is now 4.} */
-float c = __imag__ a;          /* @r{@code{c} is now 3.} */
+float b = __real__ a;          /* @r{@code{b} это 4.} */
+float c = __imag__ a;          /* @r{@code{c} это 3.} */
 @end group
 @end example
  
-This example creates a complex floating point variable @code{a},
-and defines its real part as 4 and its imaginary part as 3.  Then, the
-real part is assigned to the floating point variable @code{b}, and the
-imaginary part is assigned to the floating point variable @code{c}.
+Этот пример создает переменную @code{a} типа комплексное число с плавающей
+точкой , и определяет её реальную часть, как 4 и мнимую часть, как 3.  Далее
+действительная часть значения переменной присваивается переменной типа число
+с плавающей точкой @code{b}, а мнимая часть этого значения, присваивается
+переменной @code{c} типа числа с плавающей точкой.
 
 
-@c ----------------------------------------------------------------------------
+@c --------------------------------------------------------------------------
 @node Enumerations
-@section Enumerations
+@section Перечисления
 @cindex enumerations
 @cindex types, enumeration
 @cindex data types, enumeration
 
-An enumeration is a custom data type used for storing constant integer
-values and referring to them by names.  By default, these values are
-of type @code{signed int}; however, you can use the @code{-fshort-enums}
-GCC compiler option to cause the smallest possible integer type to be
-used instead.  Both of these behaviors conform to the C89 standard,
-but mixing the use of these options within the same program can
-produce incompatibilities.
+Перечисление представляет собой тип пользовательских данных, используемый для
+хранения постоянных целочисленных значений, и обращения к ним по именам.  По
+умолчанию эти значения имеют тип @code{signed int}.  Однако, вы можете
+использовать опцию компилятора GCC @code{-fshort-enums} для использования
+типа наименьшего возможного числа, который будет использоваться вместо этого.
+Оба эти поведения соответствуют стандарту C89, но смешанное использование
+этих вариантов в рамках одной и той же программы может привести к
+несовместимости.
 
 @menu
 * Defining Enumerations::       
@@ -386,104 +390,104 @@ produce incompatibilities.
 @end menu
 
 @node Defining Enumerations
-@subsection Defining Enumerations
+@subsection Определение Перечисления
 @cindex defining enumerations
 @cindex enumerations, defining
 
-You define an enumeration using the @code{enum} keyword, followed by
-the name of the enumeration (this is optional), followed by a list of
-constant names (separated by commas and enclosed in braces), and ending
-with a semicolon.
+Определяется перечисление с помощью @code{enum} ключевого слова, за которым
+следует имя перечисления (это необязательно), за которым следует список имен
+констант (разделенных запятыми и заключены в фигурные скобки), и
+заканчивается точкой с запятой.
 
 @example
 @group
-enum fruit @{grape, cherry, lemon, kiwi@};
+enum фрукты @{виноград, вишня, лимон, киви@};
 @end group
 @end example
 
-That example defines an enumeration, @code{fruit}, which contains four
-constant integer values, @code{grape}, @code{cherry}, @code{lemon}, and
-@code{kiwi}, whose values are, by default, 0, 1, 2, and 3, respectively.
-You can also specify one or more of the values explicitly:
+Этот пример определяет перечисление, @code{фрукты}, которое содержит четыре
+постоянных целых значения, @code{виноград}, @code{вишня}, @code{лимон} и
+@code{киви}, чьи значения по умолчанию, 0, 1, 2 и 3, соответственно.  Вы
+также можете указать один или несколько значений в явном виде:
 
 @example
 @group
-enum more_fruit @{banana = -17, apple, blueberry, mango@};
+enum ешё_фрукты @{банан = -17, яблоко, черника, манго@};
 @end group
 @end example
 
-That example defines @code{banana} to be @minus{}17, and the remaining
-values are incremented by 1: @code{apple} is @minus{}16,
-@code{blueberry} is @minus{}15, and @code{mango} is -14.  Unless
-specified otherwise, an enumeration value is equal to one more than
-the previous value (and the first value defaults to 0).
+Этот пример определяет @code{банан} как @minus{}17, а остальные значения
+увеличиваются на 1: @code{яблоко} является @minus{}16, @code{черника}
+является @minus{}15 и @code{манго} является @minus{}14.  Если не указано
+иное, значение перечисления равно на один больше, чем предыдущее значение (и
+первое значение по умолчанию равно 0).
 
-You can also refer to an enumeration value defined earlier in the same
-enumeration:
+Вы также можете обратиться к значению перечисления, определенное ранее в том
+же перечислении:
 
 @example
 @group
-enum yet_more_fruit @{kumquat, raspberry, peach,
-                     plum = peach + 2@};
+enum вот_ещё_фрукты @{кумкват, малина, персик,
+                     слива = персик + 2@};
 @end group
 @end example
 
-In that example, @code{kumquat} is 0, @code{raspberry} is 1,
-@code{peach} is 2, and @code{plum} is 4.
+В этом примере, @code{кумкват} устанавливается в 0, @code{малина} в 1,
+@code{персик} в 2, и @code{слива} в 4.
 
-You can't use the same name for an @code{enum} as a @code{struct} or
-@code{union} in the same scope.
+Вы не можете использовать одно и тоже имя для перечисления @code{enum} как
+@code{struct} или @code{union} в той же области.  (ВопросTypes439)
 
 @node Declaring Enumerations
-@subsection Declaring Enumerations
+@subsection Объявление Перечисления
 @cindex declaring enumerations
 @cindex enumerations, declaring
 
-You can declare variables of an enumeration type both when the
-enumeration is defined and afterward.  This example declares one
-variable, named @code{my_fruit} of type @code{enum fruit}, all in
-a single statement:
+Вы можете объявлять переменные типа перечисления как при определении
+перечисления так и позже.  Этот пример объявляет одну переменную с именем
+@code{мои_фрукты} типа @code{enum фрукты}, все в одном заявлении:
 
 @example
 @group
-enum fruit @{banana, apple, blueberry, mango@} my_fruit;
+enum фрукты @{банан, яблоко, черника, манго@} мои_фрукты;
 @end group
 @end example
 
 @noindent
-while this example declares the type and variable separately:
+в то время как в этом примере объявляется тип и переменная отдельно:
 
 @example
 @group
-enum fruit @{banana, apple, blueberry, mango@};
-enum fruit my_fruit;
+enum фрукты @{банан, яблоко, черника, манго@};
+enum фрукты мои_фрукты;
 @end group
 @end example
 
-(Of course, you couldn't declare it that way if you hadn't named the
-enumeration.)
+(Конечно, вы не смогли бы объявить так, не объявив вначале перечисление
+@code{фрукты}.)
 
-Although such variables are considered to be of an enumeration type, you
-can assign them any value that you could assign to an @code{int} variable,
-including values from other enumerations.  Furthermore, any variable that
-can be assigned an @code{int} value can be assigned a value from an
-enumeration.
+Хотя такие переменные относятся к типу перечисления, вы можете присвоить им
+любое значение, которое вы могли бы присвоить переменной типа  @code{int},
+включая значение других перечислений.  Кроме того, любой переменной, которая
+может быть назначено значение типа @code{int} может быть присвоено значение
+из перечисления.
 
-However, you cannot change the values in an enumeration once it has been
-defined; they are constant values.  For example, this won't work:
+Тем не менее, вы не можете изменить значение в перечислении, как только оно
+был определено; они являются константыми значениями.  Например, это не будет
+работать:
 
 @example
 @group
-enum fruit @{banana, apple, blueberry, mango@};
-banana = 15;  /* @r{You can't do this!} */
+enum фрукты @{банан, яблоко, черника, манго@};
+банан = 15;  /* @r{Вы не можете сделать это!} */
 @end group
 @end example
 
-Enumerations are useful in conjunction with the @code{switch}
-statement, because the compiler can warn you if you have failed to
-handle one of the enumeration values.  Using the example above, if
-your code handles @code{banana}, @code{apple} and @code{mango} only
-but not @code{blueberry}, GCC can generate a warning.
+Перечисления могут быть использованы в сочетании с оператором @code{switch},
+потому что компилятор может предупредить вас, если вы не смогли обработать
+одно из значений перечисления.  Используя пример выше, если ваш код
+обрабатывает только @code{банан}, @code{яблоко} и @code{манго}, без
+@code{черника}, GCC может генерировать предупреждение.
 
 @c ----------------------------------------------------------------------------
 @node Unions
@@ -492,10 +496,11 @@ but not @code{blueberry}, GCC can generate a warning.
 @cindex types, union
 @cindex data types, union
 
-A union is a custom data type used for storing several variables in the
-same memory space.  Although you can access any of those variables at any
-time, you should only read from one of them at a time---assigning a value to
-one of them overwrites the values in the others.
+Объединение представляет собой тип пользовательских данных, используемый для
+хранения нескольких переменных в одном и том же пространстве памяти.  Хотя вы
+можете получить доступ к любой из этих переменных в любое время, вы должны
+читать только по одной из них в одно и то же время --- присвоения одного
+значения перезаписывает значения другой.  (ВопросTypes503)
 
 
 @menu
@@ -506,29 +511,29 @@ one of them overwrites the values in the others.
 @end menu
 
 @node Defining Unions
-@subsection Defining Unions
+@subsection Определение Объединения
 @cindex defining unions
 @cindex unions, defining
 
-You define a union using the @code{union} keyword followed by
-the declarations of the union's members, enclosed in
-braces.  You declare each member of a union just as you would
-normally declare a variable---using the data type followed by one
-or more variable names separated by commas, and ending with a
-semicolon.  Then end the union definition with a semicolon after
-the closing brace.
+Вы определяете объединение, используя ключевое слово @code{union} с
+последующим объявлением элементов объединения, заключенные в фигурные скобки.
+Вы объявляете каждый элемент объединения так же, как вы обычно объявляете
+переменную --- используя тип, данных за которым следует одно или несколько
+имён переменных, разделенных запятыми, и заканчиваете точкой с запятой.
+Затем заканчиваете определение объединения точкой с запятой после закрывающей
+скобки.
 
-You should also include a name for the union between the @code{union}
-keyword and the opening brace.  This is syntactically optional, but if
-you leave it out, you can't refer to that union data type later on
-(without a @code{typedef}, @pxref{The typedef Statement}).
+Вы должны также включить имя для объединения между @code{union} ключевым
+словом и открывающей скобкой.  Это синтаксически не обязательно, но если вы
+не укажите имя, вы не можете обратиться к этому типу данных объединения в
+дальнейшем в программе (без @code{typedef}, @pxref{The typedef Statement}).
 
-Here is an example of defining a simple union for holding an integer
-value and a floating point value:
+Ниже приведен пример определения простого объединения для сохранения целого
+числа и числа с плавающей точкой:
 
 @example
 @group
-union numbers
+union числа
   @{
     int i;
     float f;
@@ -536,20 +541,19 @@ union numbers
 @end group
 @end example
 
-That defines a union named @code{numbers}, which contains two
-members, @code{i} and @code{f}, which are of type @code{int} and
-@code{float}, respectively.
+Это определяет объединение с именем @code{числа}, которое содержит два
+элементачлена, @code{i} и @code{f}, которые имеют тип @code{int} и
+@code{float} соответственно.
 
 
 @node Declaring Union Variables
-@subsection Declaring Union Variables
+@subsection Объявление Переменных Объединения
 @cindex declaring union variables
 @cindex union variables, declaring
 
-You can declare variables of a union type when both you initially
-define the union and after the definition, provided you gave the
-union type a name.
-
+Вы можете объявлять переменные типа объединения, как при первоначальном
+определении объединения, так и после его определения, если вы дали
+объединению имя.
 
 @menu
 * Declaring Union Variables at Definition::  
@@ -558,159 +562,157 @@ union type a name.
 @end menu
 
 @node Declaring Union Variables at Definition
-@subsubsection Declaring Union Variables at Definition
+@subsubsection Объявление Переменных Объединения при Определении
 @cindex declaring union variables at definition
 @cindex union variables, declaring at definition
 
-You can declare variables of a union type when you define the
-union type by putting the variable names after the closing
-brace of the union definition, but before the final semicolon.
-You can declare more than one such variable by separating the names
-with commas.
+Вы можете объявлять переменные типа объединения, когда вы определяете тип
+объединения, помещая имена переменных после закрывающей скобки определения
+объединения, но до завершающей точки с запятой.  Вы можете объявить более чем
+одну такую ​​переменную, разделяя их запятыми.
 
 @example
 @group
-union numbers
+union числа
   @{
     int i;
     float f;
-  @} first_number, second_number;
+  @} первое_число, второе_число;
 @end group
 @end example
 
-That example declares two variables of type @code{union numbers},
-@code{first_number} and @code{second_number}.
+Этот пример объявляет две переменные типа @code{union числа},
+@code{первое_число} и @code{второе_число}.
 
 
 
 @node Declaring Union Variables After Definition
-@subsubsection Declaring Union Variables After Definition
+@subsubsection Объявление Переменных Объединения После его Определения
 @cindex declaring union variables after definition
 @cindex union variables, declaring after definition
 
-You can declare variables of a union type after you define the
-union by using the @code{union} keyword and the name you
-gave the union type, followed by one or more variable names
-separated by commas.
+Вы можете объявлять переменные типа объединение после того, как вы
+определили объединение, используя @code{union} ключевое слово и имя, которое
+вы задали типу объединения, за которым следует одно или несколько имен
+переменных, разделенных запятыми.
 
 
 @example
 @group
-union numbers
+union числа
   @{
     int i;
     float f;
   @};
-union numbers first_number, second_number;
+union числа первое_число, второе_число;
 @end group
 @end example
 
-That example declares two variables of type @code{union numbers},
-@code{first_number} and @code{second_number}.
+Этот пример объявляет две переменные типа @code{union числа},
+@code{первое_число} и @code{второе_число}.
 
 
 @node Initializing Union Members
-@subsubsection Initializing Union Members
+@subsubsection Инициализация Членов Объединения
 @cindex initializing union members
 @cindex union members, initializing
 
-You can initialize the first member of a union variable when you
-declare it:
+Вы можете инициализировать первый элемент переменной объявления при его
+объявлении:
 
 @example
 @group
-union numbers
+union числа
   @{
     int i;
     float f;
   @};
-union numbers first_number = @{ 5 @};
+union числа первое_число = @{ 5 @};
 @end group
 @end example
 
-In that example, the @code{i} member of @code{first_number} gets the
-value 5.  The @code{f} member is left alone.
+В этом примере элемент @code{i} в переменной @code{первое_число} получает
+значение 5, а элемент @code{f} остаётся с недействительным значением.
 
-Another way to initialize a union member is to specify the name of the
-member to initialize.  This way, you can initialize whichever member
-you want to, not just the first one.  There are two methods that you can
-use---either follow the member name with a colon, and then its value,
-like this:
+Другой способ инициализации элемента объединения - это явно указать имя
+нужного элемента для инициализации.  Таким образом, вы можете
+инициализировать тот элемент который хотите, а не только первый.  Есть два
+способа, которые можно использовать --- либо имя элемента с двоеточием, а
+затем его значение, например:
 
 @example
 @group
-union numbers first_number = @{ f: 3.14159 @};
+union числа первое_число = @{ f: 3.14159 @};
 @end group
 @end example
 
 @noindent
-or precede the member name with a period and assign a value
-with the assignment operator, like this:
+или предварить имя элемента объединения точкой и присвоить ему значение с
+помощью оператора присваивания, как здесь:
 
 @example
 @group
-union numbers first_number = @{ .f = 3.14159 @};
+union числа первое_число = @{ .f = 3.14159 @};
 @end group
 @end example
 
-You can also initialize a union member when you declare the union
-variable during the definition:
+Вы также можете инициализировать элемент объединения при объявлении
+переменной объединения во время её определения:
 
 @example
 @group
-union numbers
+union числа
   @{
     int i;
     float f;
-  @} first_number = @{ 5 @};
+  @} первое_число = @{ 5 @};
 @end group
 @end example
 
 
 
 @node Accessing Union Members
-@subsection Accessing Union Members
+@subsection Доступ к Элементам Объединения
 @cindex accessing union members
 @cindex union members, accessing
 
-You can access the members of a union variable using the member
-access operator.  You put the name of the union
-variable on the left side of the operator, and the name of the
-member on the right side.
+Вы можете получить доступ к элементам переменной объединения с помощью
+оператора доступа к элементу.  Вы помещаете имя переменной объединения на
+левой стороне оператора, а имя элемента объединения с правой стороны.
 
 @example
 @group
-union numbers
+union числа
   @{
     int i;
     float f;
   @};
-union numbers first_number;
-first_number.i = 5;
-first_number.f = 3.9;
+union числа первое_число;
+первое_число.i = 5;
+первое_число.f = 3.9;
 @end group
 @end example
 
-Notice in that example that giving a value to the @code{f} member overrides
-the value stored in the @code{i} member.
+Обратите внимание, в этом примере, что переопределяются значения как элемента
+@code{f} так и хранящееся в элементе @code{i}.  (ВопросTypes697)
 
-@c If a union member is accessed after a value has been stored in a
-@c different member, the behavior is implementation-defined, but this
-@c document doesn't specify the behavior.  There is an exception
-@c though: if the two members are structs and they have a common
-@c initial sequence.
+@c Если элемент объединения доступен после того, как значение было сохранено
+@c в другом элементе, поведение определяется реализацией, но этот документ не
+@c определяет поведение. Существует исключение
+@c хотя: если два члена являются структурами, и они имеют общую исходную
+@c последовательность.
 
 @node Size of Unions
-@subsection Size of Unions
+@subsection Размер Объединений
 @cindex size of unions
 @cindex unions, size of
 
-This size of a union is equal to the size of its largest member.  Consider
-the first union example from this section:
+Размер объединения равен размеру его наибольшего элемента.  Рассмотрим первый
+пример объединения из этого раздела:
 
 @example
 @group
-union numbers
+union числа
   @{
     int i;
     float f;
@@ -718,11 +720,13 @@ union numbers
 @end group
 @end example
 
-@noindent The size of the union data type is the same as @code{sizeof (float)},
-because the @code{float} type is larger than the @code{int} type.  Since all
-of the members of a union occupy the same memory space, the union data type
-size doesn't need to be large enough to hold the sum of all their sizes; it
-just needs to be large enough to hold the largest member.
+@noindent Размер типа данных этого объединения такой же, как при определении
+@code{sizeof (float)}, так самый большой тип у элементов этого объединения
+это @code{float}.  Поскольку все элементы объединения расположены в одном
+и том же пространстве памяти, размер типа данных объединения, не должен
+расчитываться на возможность помещения суммы сразу всех типов элементов, а
+должен быть достаточно большим, чтобы вместить самый большой из типов
+содержащихся элементов. (ВопросTypes729)
 
 
 @c ----------------------------------------------------------------------------
