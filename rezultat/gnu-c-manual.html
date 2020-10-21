@@ -103,23 +103,23 @@ ul.no-bullet {list-style: none}
       <li><a id="toc-Dostup-k-Elementam-Obwedineniya" href="#Accessing-Union-Members">2.3.3 Доступ к Элементам Объединения</a></li>
       <li><a id="toc-Razmer-Obwedinenii" href="#Size-of-Unions">2.3.4 Размер Объединений</a></li>
     </ul></li>
-    <li><a id="toc-Structures-1" href="#Structures">2.4 Structures</a>
+    <li><a id="toc-Struktury" href="#Structures">2.4 Структуры</a>
     <ul class="no-bullet">
-      <li><a id="toc-Defining-Structures-1" href="#Defining-Structures">2.4.1 Defining Structures</a></li>
-      <li><a id="toc-Declaring-Structure-Variables-1" href="#Declaring-Structure-Variables">2.4.2 Declaring Structure Variables</a>
+      <li><a id="toc-Opredelenie-Struktur" href="#Defining-Structures">2.4.1 Определение Структур</a></li>
+      <li><a id="toc-Obwyavlenie-Peremennykh-Struktury" href="#Declaring-Structure-Variables">2.4.2 Объявление Переменных Структуры</a>
       <ul class="no-bullet">
-        <li><a id="toc-Declaring-Structure-Variables-at-Definition-1" href="#Declaring-Structure-Variables-at-Definition">2.4.2.1 Declaring Structure Variables at Definition</a></li>
-        <li><a id="toc-Declaring-Structure-Variables-After-Definition-1" href="#Declaring-Structure-Variables-After-Definition">2.4.2.2 Declaring Structure Variables After Definition</a></li>
-        <li><a id="toc-Initializing-Structure-Members-1" href="#Initializing-Structure-Members">2.4.2.3 Initializing Structure Members</a></li>
+        <li><a id="toc-Obwyavlenie-Peremennoi-Struktury-v-Opredelenii" href="#Declaring-Structure-Variables-at-Definition">2.4.2.1 Объявление Переменной Структуры в Определении</a></li>
+        <li><a id="toc-Obwyavlenie-Peremennykh-Struktur-Posle-Opredeleniya" href="#Declaring-Structure-Variables-After-Definition">2.4.2.2 Объявление Переменных Структур После Определения</a></li>
+        <li><a id="toc-Inicializaciya-Elementov-Struktury" href="#Initializing-Structure-Members">2.4.2.3 Инициализация Элементов Структуры</a></li>
       </ul></li>
-      <li><a id="toc-Accessing-Structure-Members-1" href="#Accessing-Structure-Members">2.4.3 Accessing Structure Members</a></li>
-      <li><a id="toc-Bit-Fields-1" href="#Bit-Fields">2.4.4 Bit Fields</a></li>
-      <li><a id="toc-Size-of-Structures-1" href="#Size-of-Structures">2.4.5 Size of Structures</a></li>
+      <li><a id="toc-Dostup-k-Elementam-Struktury" href="#Accessing-Structure-Members">2.4.3 Доступ к Элементам Структуры</a></li>
+      <li><a id="toc-Bitovy-Polya" href="#Bit-Fields">2.4.4 Битовы Поля</a></li>
+      <li><a id="toc-Razmer-Ctruktur" href="#Size-of-Structures">2.4.5 Размер Cтруктур</a></li>
     </ul></li>
-    <li><a id="toc-Arrays-1" href="#Arrays">2.5 Arrays</a>
+    <li><a id="toc-Massivy" href="#Arrays">2.5 Массивы</a>
     <ul class="no-bullet">
-      <li><a id="toc-Declaring-Arrays-1" href="#Declaring-Arrays">2.5.1 Declaring Arrays</a></li>
-      <li><a id="toc-Initializing-Arrays-1" href="#Initializing-Arrays">2.5.2 Initializing Arrays</a></li>
+      <li><a id="toc-Obwyavlenie-Massivov" href="#Declaring-Arrays">2.5.1 Объявление Массивов</a></li>
+      <li><a id="toc-Inicializaciya-Massivov" href="#Initializing-Arrays">2.5.2 Инициализация Массивов</a></li>
       <li><a id="toc-Accessing-Array-Elements-1" href="#Accessing-Array-Elements">2.5.3 Accessing Array Elements</a></li>
       <li><a id="toc-Multidimensional-Arrays-1" href="#Multidimensional-Arrays">2.5.4 Multidimensional Arrays</a></li>
       <li><a id="toc-Arrays-as-Strings-1" href="#Arrays-as-Strings">2.5.5 Arrays as Strings</a></li>
@@ -1631,13 +1631,13 @@ Previous: <a href="#Accessing-Union-Members" accesskey="p" rel="prev">Accessing 
 <p>
 Next: <a href="#Arrays" accesskey="n" rel="next">Arrays</a>, Previous: <a href="#Unions" accesskey="p" rel="prev">Unions</a>, Up: <a href="#Data-Types" accesskey="u" rel="up">Data Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Structures-1"></span><h3 class="section">2.4 Structures</h3>
+<span id="Struktury"></span><h3 class="section">2.4 Структуры</h3>
 <span id="index-structures"></span>
 <span id="index-types_002c-structure"></span>
 <span id="index-data-types_002c-structure"></span>
 
-<p>A structure is a programmer-defined data type made up of
-variables of other data types (possibly including other structure types).
+<p>Структура - это определяемый программистом тип данных, состоящий из
+переменных других типов данных (в том числе, возможно, другие типы структур).
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Defining-Structures" accesskey="1">Defining Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -1657,53 +1657,52 @@ variables of other data types (possibly including other structure types).
 <p>
 Next: <a href="#Declaring-Structure-Variables" accesskey="n" rel="next">Declaring Structure Variables</a>, Up: <a href="#Structures" accesskey="u" rel="up">Structures</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Defining-Structures-1"></span><h4 class="subsection">2.4.1 Defining Structures</h4>
+<span id="Opredelenie-Struktur"></span><h4 class="subsection">2.4.1 Определение Структур</h4>
 <span id="index-defining-structures"></span>
 <span id="index-structures_002c-defining"></span>
 
-<p>You define a structure using the <code>struct</code> keyword followed by
-the declarations of the structure&rsquo;s members, enclosed in
-braces.  You declare each member of a structure just as you would
-normally declare a variable&mdash;using the data type followed by one
-or more variable names separated by commas, and ending with a
-semicolon.  Then end the structure definition with a semicolon after
-the closing brace.
+<p>Вы определяете структуру, используя ключевое слово <code>struct</code> с
+последующим объявлением элементов структуры, заключенных в скобки.  Вы
+объявляете каждый элемент структуры так же, как вы обычно объявляете
+переменную &mdash; используя тип данных за которым следует одно или несколько
+имён переменных, разделенных запятыми, и заканчиваете точкой с запятой.
+Затем завершение определения структуры с точкой с запятой после закрывающей
+скобки.
 </p>
-<p>You should also include a name for the structure in between the
-<code>struct</code> keyword and the opening brace.  This is optional, but if
-you leave it out, you can&rsquo;t refer to that structure data type later
-on (without a <code>typedef</code>, see <a href="#The-typedef-Statement">The typedef Statement</a>).
+<p>Вы должны также включать включить имя структуры между <code>struct</code> ключевым
+словом и открывающей скобкой.  Это необязательно, но если вы опустите имя, не
+сможетемпотом обратиться к этому типу структуры данных (без <code>typedef</code>,
+see <a href="#The-typedef-Statement">The typedef Statement</a>).
 </p>
-<p>Here is an example of defining a simple structure for holding the
-X and Y coordinates of a point:
+<p>Ниже приведен пример определения простой структуры для хранения координат х и
+у точки:
 </p>
 <div class="example">
-<pre class="example">struct point
+<pre class="example">struct точка
   {
     int x, y;
   };
 </pre></div>
 
-<p>That defines a structure type named <code>struct point</code>, which contains two
-members, <code>x</code> and <code>y</code>, both of which are of type <code>int</code>.
+<p>Это определяет тип структуры с именем <code>struct точка</code>, которая содержит
+два элемента <code>x</code> и <code>y</code>, оба из которых имеют тип <code>int</code>.
 </p>
-<p>Structures (and unions) may contain instances of other structures and
-unions, but of course not themselves.  It is possible for a structure
-or union type to contain a field which is a pointer to the same type
-(see <a href="#Incomplete-Types">Incomplete Types</a>).
+<p>Структуры (и объединения) могут содержать экземпляры других структур и
+объединений, но, конечно, не самих себя.  Вполне возможно, для типов
+структуры или объединения, содержать поле, которое является указателем на
+тот же тип стркутуры (see <a href="#Incomplete-Types">Incomplete Types</a>).
 </p>
 <hr>
 <span id="Declaring-Structure-Variables"></span><div class="header">
 <p>
 Next: <a href="#Accessing-Structure-Members" accesskey="n" rel="next">Accessing Structure Members</a>, Previous: <a href="#Defining-Structures" accesskey="p" rel="prev">Defining Structures</a>, Up: <a href="#Structures" accesskey="u" rel="up">Structures</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Declaring-Structure-Variables-1"></span><h4 class="subsection">2.4.2 Declaring Structure Variables</h4>
+<span id="Obwyavlenie-Peremennykh-Struktury"></span><h4 class="subsection">2.4.2 Объявление Переменных Структуры</h4>
 <span id="index-declaring-structure-variables"></span>
 <span id="index-structure-variables_002c-declaring"></span>
 
-<p>You can declare variables of a structure type when both you initially
-define the structure and after the definition, provided you gave the
-structure type a name.
+<p>Можно объявлять переменные типа структуры, когда определяется тип структуры и
+после её определения, если задано имя структуре.
 </p>
 
 <table class="menu" border="0" cellspacing="0">
@@ -1720,25 +1719,24 @@ structure type a name.
 <p>
 Next: <a href="#Declaring-Structure-Variables-After-Definition" accesskey="n" rel="next">Declaring Structure Variables After Definition</a>, Up: <a href="#Declaring-Structure-Variables" accesskey="u" rel="up">Declaring Structure Variables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Declaring-Structure-Variables-at-Definition-1"></span><h4 class="subsubsection">2.4.2.1 Declaring Structure Variables at Definition</h4>
+<span id="Obwyavlenie-Peremennoi-Struktury-v-Opredelenii"></span><h4 class="subsubsection">2.4.2.1 Объявление Переменной Структуры в Определении</h4>
 <span id="index-declaring-structure-variables-at-definition"></span>
 <span id="index-structure-variables_002c-declaring-at-definition"></span>
 
-<p>You can declare variables of a structure type when you define the
-structure type by putting the variable names after the closing
-brace of the structure definition, but before the final semicolon.
-You can declare more than one such variable by separating the names
-with commas.
+<p>Можно объявлять переменные типа структуры, когда определяется тип структуры,
+поместив имена переменных после закрывающей скобки определения структуры, но
+до заключительной точки с запятой объявления.  можете объявить более чем одну
+такую ​​переменную, разделив их запятыми.
 </p>
 <div class="example">
-<pre class="example">struct point
+<pre class="example">struct точка
   {
     int x, y;
-  } first_point, second_point;
+  } первая_точка, вторая_точка;
 </pre></div>
 
-<p>That example declares two variables of type <code>struct point</code>,
-<code>first_point</code> and <code>second_point</code>.
+<p>Этот пример объявляет две переменные типа <code>struct точка</code>,
+<code>первая_точка</code> и <code>вторая_точка</code>.
 </p>
 
 
@@ -1747,26 +1745,25 @@ with commas.
 <p>
 Next: <a href="#Initializing-Structure-Members" accesskey="n" rel="next">Initializing Structure Members</a>, Previous: <a href="#Declaring-Structure-Variables-at-Definition" accesskey="p" rel="prev">Declaring Structure Variables at Definition</a>, Up: <a href="#Declaring-Structure-Variables" accesskey="u" rel="up">Declaring Structure Variables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Declaring-Structure-Variables-After-Definition-1"></span><h4 class="subsubsection">2.4.2.2 Declaring Structure Variables After Definition</h4>
+<span id="Obwyavlenie-Peremennykh-Struktur-Posle-Opredeleniya"></span><h4 class="subsubsection">2.4.2.2 Объявление Переменных Структур После Определения</h4>
 <span id="index-declaring-structure-variables-after-definition"></span>
 <span id="index-structure-variables_002c-declaring-after-definition"></span>
 
-<p>You can declare variables of a structure type after defining the
-structure by using the <code>struct</code> keyword and the name you
-gave the structure type, followed by one or more variable names
-separated by commas.
+<p>Можно объявлять переменные типа структуры после определения структуры,
+используя ключевое слово <code>struct</code> и имя типа структуры, за которым
+следует одно или несколько имен переменных, разделенных запятыми.
 </p>
 
 <div class="example">
-<pre class="example">struct point
+<pre class="example">struct точка
   {
     int x, y;
   };
-struct point first_point, second_point;
+struct point первая_точка, вторая_точка;
 </pre></div>
 
-<p>That example declares two variables of type <code>struct point</code>,
-<code>first_point</code> and <code>second_point</code>.
+<p>Этот пример объявляет две переменные типа <code>struct точка</code>,
+<code>первая_точка</code> и <code>втора_точка</code>.
 </p>
 
 <hr>
@@ -1774,104 +1771,106 @@ struct point first_point, second_point;
 <p>
 Previous: <a href="#Declaring-Structure-Variables-After-Definition" accesskey="p" rel="prev">Declaring Structure Variables After Definition</a>, Up: <a href="#Declaring-Structure-Variables" accesskey="u" rel="up">Declaring Structure Variables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Initializing-Structure-Members-1"></span><h4 class="subsubsection">2.4.2.3 Initializing Structure Members</h4>
+<span id="Inicializaciya-Elementov-Struktury"></span><h4 class="subsubsection">2.4.2.3 Инициализация Элементов Структуры</h4>
 <span id="index-initializing-structure-members"></span>
 <span id="index-structure-members_002c-initializing"></span>
 
-<p>You can initialize the members of a structure type to have certain
-values when you declare structure variables.  
+<p>Можно инициализировать элемент типа структуры при определеннии переменной
+структуры, нужным значением.  
 </p>
-<p>If you do not initialize a structure variable, the effect depends on
-whether it has static storage (see <a href="#Storage-Class-Specifiers">Storage Class Specifiers</a>) or
-not.  If it is, members with integral types are initialized with 0 and
-pointer members are initialized to NULL; otherwise, the value of the
-structure&rsquo;s members is indeterminate.
+<p>Если не инициализировать переменную структуры, эффект зависит от того, имеет
+ли она статическое хранение (see <a href="#Storage-Class-Specifiers">Storage Class Specifiers</a>) или нет.  Если
+да, то элементы с целочисленными типами инициализируются значением 0 а
+элементы с типом указатель инициализируются значением NULL; в противном
+случае, значение элементов структуры является неопределенным.
 </p>
-<p>One way to initialize a structure is to specify the values in a set of
-braces and separated by commas.  Those values are assigned to the
-structure members in the same order that the members are declared in
-the structure in definition.
+<p>Один из способов, чтобы инициализировать структуру - это указать значения
+разделённые запятыми внутри фигурных скобок.  Эти значения присваиваются
+элементам структуры в том же порядке, в котором они объявлены в объявлении
+структуры.
 </p>
 
 <div class="example">
-<pre class="example">struct point
+<pre class="example">struct точка
   {
     int x, y;
   };
-struct point first_point = { 5, 10 };
+struct точка первая_точка = { 5, 10 };
 </pre></div>
 
-<p>In that example, the <code>x</code> member of <code>first_point</code> gets the
-value 5, and the <code>y</code> member gets the value 10.
+<p>В этом примере элемент <code>x</code> структуры <code>первая_точка</code> получает
+значение 5, а элемент структуры <code>y</code> получает значение 10.
 </p>
-<p>Another way to initialize the members is to specify the name of the
-member to initialize.  This way, you can initialize the members in
-any order you like, and even leave some of them uninitialized.  There
-are two methods that you can use.  The first method is available in
-C99 and as a C89 extension in GCC:
+<p>Другой способ инициализации элементов - это указать имя элемента для
+инициализации.  Таким образом, можно инициализировать элементы в любом
+порядке, и даже оставить некоторые из них не инициализироваными.  Есть два
+метода, которые можно использовать.  Первый метод доступен в C99 и как
+расширение C89 в GCC:
 </p>
 <div class="example">
-<pre class="example">struct point first_point = { .y = 10, .x = 5 };
+<pre class="example">struct точка первая_точка = { .y = 10, .x = 5 };
 </pre></div>
 
-<p>You can also omit the period and use a colon instead of &lsquo;<samp>=</samp>&rsquo;,
-though this is a GNU C extension:
+<p>Кроме того, можно опустить точку и использовать вместо этого двоеточие вместо
+символа &lsquo;<samp>=</samp>&rsquo;, хотя это расширение GNU C:
 </p>
 <div class="example">
-<pre class="example">struct point first_point = { y: 10, x: 5 };
+<pre class="example">struct точка первая_точка = { y: 10, x: 5 };
 </pre></div>
 
-<p>You can also initialize the structure variable&rsquo;s members when you declare
-the variable during the structure definition:
+<p>Можно инициализировать элементы переменной типа структура, при объявлении
+переменной в процессе определения структуры:
 </p>
 <div class="example">
-<pre class="example">struct point
+<pre class="example">struct точка
   {
     int x, y;
-  } first_point = { 5, 10 };
+  } первая_точка = { 5, 10 };
 </pre></div>
 
-<p>You can also initialize fewer than all of a structure variable&rsquo;s members:
+<p>Кроме того, можно также опустить инициализацию некоторых элементов переменной
+структуры:
 </p>
 <div class="example">
-<pre class="example">struct pointy
+<pre class="example">struct точка
   {
     int x, y;
     char *p;
   };
-struct pointy first_pointy = { 5 };
+struct pointy первая_точка = { 5 };
 </pre></div>
 
-<p>Here, <code>x</code> is initialized with 5, <code>y</code> is initialized with 0,
-and <code>p</code> is initialized with NULL.  The rule here is that <code>y</code>
-and <code>p</code> are initialized just as they would be if they were static
-variables.
+<p>Здесь <code>x</code> устанавливается в 5, <code>y</code> устанавливается в 0, и <code>p</code>
+инициализируется NULL.  Здесь правило предписывает то, что <code>y</code> и
+<code>p</code> инициализируются так же, как если бы они были статическими
+переменными.
 </p>
 
-<p>Here is another example that initializes a structure&rsquo;s members which
-are structure variables themselves:
+<p>Вот еще один пример, который инициализирует элемент структуры, который
+является сам переменной структуры:
 </p>
 <div class="example">
-<pre class="example">struct point
+<pre class="example">struct точка
   {
     int x, y;
   };
 
-struct rectangle
+struct прямоугольник
   {
-    struct point top_left, bottom_right;
+    struct точка верхняя_левая, правая_нижняя;
   };
 
-struct rectangle my_rectangle = { {0, 5}, {10, 0} };
+struct прямоугольник мой_прямоугольник = { {0, 5}, {10, 0} };
 </pre></div>
 
-<p>That example defines the <code>rectangle</code> structure to consist of
-two <code>point</code> structure variables.  Then it declares one variable
-of type <code>struct rectangle</code> and initializes its members.  Since
-its members are structure variables, we used an extra set of braces
-surrounding the members that belong to the <code>point</code> structure
-variables.  However, those extra braces are not necessary; they just
-make the code easier to read.
+<p>Этот пример определяет структуру <code>прямоугольник</code> состоящую из двух
+элементов переменных структуры <code>точка</code>.  Затем объявляется одна
+переменная типа <code>struct прямоугольник</code> и инициализируются её элементы.
+Поскольку ее элементы являются переменными с типом структура, используется
+дополнительный набор скобок, окружающих элементы, которые принадлежат к
+переменным структура <code>точка</code>.  Тем не менее, эти дополнительные скобки
+не требуются обязательно; они используются чтобы человеку легче было читать
+код.
 </p>
 
 
@@ -1880,43 +1879,42 @@ make the code easier to read.
 <p>
 Next: <a href="#Bit-Fields" accesskey="n" rel="next">Bit Fields</a>, Previous: <a href="#Declaring-Structure-Variables" accesskey="p" rel="prev">Declaring Structure Variables</a>, Up: <a href="#Structures" accesskey="u" rel="up">Structures</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Accessing-Structure-Members-1"></span><h4 class="subsection">2.4.3 Accessing Structure Members</h4>
+<span id="Dostup-k-Elementam-Struktury"></span><h4 class="subsection">2.4.3 Доступ к Элементам Структуры</h4>
 <span id="index-accessing-structure-members"></span>
 <span id="index-structure-members_002c-accessing"></span>
 
-<p>You can access the members of a structure variable using the member
-access operator.  You put the name of the structure
-variable on the left side of the operator, and the name of the
-member on the right side.
+<p>Можно получить доступ к членам переменной структуры с помощью оператора
+доступа к элементу <code>ТОЧКА</code>.  Вы помещаете имя переменной структуры на
+левой стороне оператора <code>ТОЧКА</code>, а имя элемента с правой стороны.
 </p>
 <div class="example">
-<pre class="example">struct point
+<pre class="example">struct точка
   {
     int x, y;
   };
 
-struct point first_point;
+struct точка первая_точка;
 
-first_point.x = 0;
-first_point.y = 5;
+первая_точка.x = 0;
+первая_точка.y = 5;
 </pre></div>
 
-<p>You can also access the members of a structure variable which is itself a
-member of a structure variable.
+<p>Также можно получить доступ к элементу переменной структуры, которая сама
+является элементом переменной структуры.
 </p>
 <div class="example">
-<pre class="example">struct rectangle
+<pre class="example">struct прямоугольник
   {
-    struct point top_left, bottom_right;
+    struct точка верхняя_левая, нижняя_правая;
   };
 
-struct rectangle my_rectangle;
+struct прямоугольник мой_прямоугольник;
 
-my_rectangle.top_left.x = 0;
-my_rectangle.top_left.y = 5;
+мой_прямоугольник.верхняя_левая.x = 0;
+мой_прямоугольник.верхняя_левая.y = 5;
 
-my_rectangle.bottom_right.x = 10;
-my_rectangle.bottom_right.y = 0;
+мой_прямоугольник.нижняя_правая.x = 10;
+мой_прямоугольник.нижняя_правая.y = 0;
 </pre></div>
 
 
@@ -1926,88 +1924,87 @@ my_rectangle.bottom_right.y = 0;
 <p>
 Next: <a href="#Size-of-Structures" accesskey="n" rel="next">Size of Structures</a>, Previous: <a href="#Accessing-Structure-Members" accesskey="p" rel="prev">Accessing Structure Members</a>, Up: <a href="#Structures" accesskey="u" rel="up">Structures</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Bit-Fields-1"></span><h4 class="subsection">2.4.4 Bit Fields</h4>
+<span id="Bitovy-Polya"></span><h4 class="subsection">2.4.4 Битовы Поля</h4>
 <span id="index-bit-fields"></span>
 <span id="index-fields_002c-bit"></span>
 
-<p>You can create structures with integer members of nonstandard sizes, called
-<em>bit fields</em>.  You do this by specifying an integer (<code>int</code>,
-<code>char</code>, <code>long int</code>, etc.) member as usual, and inserting a colon
-and the number of bits that the member should occupy in between the
-member&rsquo;s name and the semicolon.
+<p>Можно создавать структуры с целочисленными элементами нестандартных размеров,
+называемые <em>битовыми полями</em>.  Можно сделать это, указав целочисленный
+элемент (<code>int</code>, <code>char</code>, <code>long int</code>), как обычно, и вставив
+далее двоеточие, а затем число бит, которое элемент должен занимать и затем
+завершающую точку с запятой.
 </p>
 <div class="example">
-<pre class="example">struct card
+<pre class="example">struct карта
   {
-    unsigned int suit : 2;
-    unsigned int face_value : 4;
+    unsigned int масть : 2;
+    unsigned int старшенство : 4;
   };
 </pre></div>
 
-<p>That example defines a structure type with two bit fields, <code>suit</code> and
-<code>face_value</code>, which take up 2 bits and 4 bits, respectively.  <code>suit</code>
-can hold values from 0 to 3, and <code>face_value</code> can hold values from 0 to
-15.  Notice that these bit fields were declared as <code>unsigned int</code>; had
-they been signed integers, then their ranges would have been from
--2 to 1, and from -8 to 7, respectively.
+<p>Этот пример определяет тип структуры с двумя битовыми полями, <code>масть</code> и
+<code>старшенство</code>, которые занимают 2 и 4 бита соответственно. <code>suit</code> может содержать значение от 0 до 3, и <code>старшинство</code> может содержать
+значение от 0 до 15.  Обратите внимание, что эти битовые поля были объявлены
+как тип <code>unsigned int</code>; если бы они были определенены обычно как
+целочисленные, то их диапазон был бы от -2 до 1 и от -8 до 7,
+соответственно.
 </p>
-<p>More generally, the range of an unsigned bit field of <em>N</em> bits is from
-0 to <em>2^N - 1</em>, and the range of a signed bit field of <em>N</em>
-bits is from <em>-(2^N) / 2</em> to <em>((2^N) / 2) - 1</em>.
+<p>В более общем смысле, диапазон беззнакового битового поля из <em>N</em> бит
+составляет от 0 до <em>2^N - 1</em>, а диапазон знакового битового поля
+составляет <em>N</em> бит от <em>-(2^N) / 2</em> до <em>((2^N) / 2) - 1</em>.
 </p>
 
 
 
-<p>Bit fields can be specified without a name in order to control which
-actual bits within the containing unit are used.  However,
-the effect of this is not very portable and it is rarely useful.
-You can also specify a bit field of size 0, which indicates that
-subsequent bit fields not further bit fields should be packed into the
-unit containing the previous bit field.  This is likewise not
-generally useful.
+<p>Битовые поля могут быть указаны без имени, в целях контроля, какие биты
+используются фактически внутри содержащего блока.  Однако, эффект от этого
+не очень переносим, и это редко бывает полезным.  Можно установить битовое
+поле размером в 0, что указывает, что последующие битовые поля - это не
+дополнительные битовые поля и должны быть упакованы в блок, содержащий
+предыдущее битовое поле.  Это также как правило, не полезно.
 </p>
-<p>You may not take the address of a bit field with the address
-operator <code>&amp;</code> (see <a href="#Pointer-Operators">Pointer Operators</a>).
+<p>Нет возможности взять адрес битового поля сиспользованием оператора взятия
+адреса <code>&amp;</code> (see <a href="#Pointer-Operators">Pointer Operators</a>).  (ВопросTypes1062)
 </p>
 <hr>
 <span id="Size-of-Structures"></span><div class="header">
 <p>
 Previous: <a href="#Bit-Fields" accesskey="p" rel="prev">Bit Fields</a>, Up: <a href="#Structures" accesskey="u" rel="up">Structures</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Size-of-Structures-1"></span><h4 class="subsection">2.4.5 Size of Structures</h4>
+<span id="Razmer-Ctruktur"></span><h4 class="subsection">2.4.5 Размер Cтруктур</h4>
 <span id="index-size-of-structures"></span>
 <span id="index-structures_002c-size-of"></span>
 
-<p>The size of a structure type is equal to the sum of the size of all of its
-members, possibly including padding to cause the structure type to align to
-a particular byte boundary.  The details vary depending on your computer
-platform, but it would not be atypical to see structures padded to align
-on four- or eight-byte boundaries.  This is done in order to speed up
-memory accesses of instances of the structure type.
+<p>Размер типа структуры равен сумме размеров всех её членов, и возможно,
+включая дополненин, чтобы обеспечить типу структуры выравнивание до
+определенной границы байта.  Детали различаются в зависимости от компьютерной
+платформы, но будет нетипичным, увидеть структуры дополненные до выравнивания
+на четырёх- или восемь байтовых границах.  Это делается для того, чтобы
+ускорить доступ в памяти к экземплярам типа структуры. (ВопросTypes1074)
 </p>
-<p>As a GNU extension, GCC allows structures with no members.  Such structures
-have zero size.
+<p>В качестве расширения GNU, GCC позволяет создавать структуры без каких-либо
+элементов.  Такие структуры имеют нулевой размер.
 </p>
-<p>If you wish to explicitly omit padding from your structure types (which may,
-in turn, decrease the speed of structure memory accesses), then GCC provides
-multiple methods of turning packing off.  The quick and easy method is to
-use the <code>-fpack-struct</code> compiler option.  For more details on omitting
-packing, please see the GCC manual which corresponds to your version of the
-compiler.
+<p>Если требуется явно опустить заполнение для типов структур (что, в свою
+очередь, уменьшает скорость доступа к структурам в памяти), то GCC
+обеспечивает несколько способов отключения упаковки.  Быстрый и простой
+способ заключается в использовании опции <code>-fpack-struct</code> компилятора.
+Для получения более подробной информации об отключенмм упаковку, пожалуйста,
+обратитесь к руководству GCC, которое соответствует вашей версии компилятора.
 </p>
 <hr>
 <span id="Arrays"></span><div class="header">
 <p>
 Next: <a href="#Pointers" accesskey="n" rel="next">Pointers</a>, Previous: <a href="#Structures" accesskey="p" rel="prev">Structures</a>, Up: <a href="#Data-Types" accesskey="u" rel="up">Data Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Arrays-1"></span><h3 class="section">2.5 Arrays</h3>
+<span id="Massivy"></span><h3 class="section">2.5 Массивы</h3>
 <span id="index-arrays"></span>
 <span id="index-types_002c-array"></span>
 <span id="index-data-types_002c-array"></span>
 
-<p>An array is a data structure that lets you store one or more elements
-consecutively in memory.  In C, array elements are indexed beginning at
-position zero, not one.
+<p>Массив представляет собой структуру данных, которая позволяет хранить один
+или несколько элементов в памяти последовательно.  В Cи, элементы массива
+индексируются с нулевого значения индекса, а не с единицы.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Declaring-Arrays" accesskey="1">Declaring Arrays</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -2032,24 +2029,25 @@ position zero, not one.
 <p>
 Next: <a href="#Initializing-Arrays" accesskey="n" rel="next">Initializing Arrays</a>, Up: <a href="#Arrays" accesskey="u" rel="up">Arrays</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Declaring-Arrays-1"></span><h4 class="subsection">2.5.1 Declaring Arrays</h4>
+<span id="Obwyavlenie-Massivov"></span><h4 class="subsection">2.5.1 Объявление Массивов</h4>
 <span id="index-declaring-arrays"></span>
 <span id="index-arrays_002c-declaring"></span>
 
-<p>You declare an array by specifying the data type for its elements, its name,
-and the number of elements it can store.  Here is an example that declares
-an array that can store ten integers:
+<p>Объявляется массив, указанием типа данных для его элементов, его имени и
+количества элементов которые он может хранить.  Вот пример, который
+объявляет массив, который может хранить десять целых чисел:
 </p>
 <div class="example">
-<pre class="example">int my_array[10];
+<pre class="example">int мой_массив[10];
 </pre></div>
 
 
-<p>For standard C code, the number of elements in an array must be positive.
+<p>Для стандартного кода Cи, количество элементов в массиве, должно быть
+указано положительным значением.
 </p>
-<p>As a GNU extension, the number of elements can be as small as zero.
-Zero-length arrays are useful as the last element of a structure which is
-really a header for a variable-length object:
+<p>В качестве расширения GNU, число элементов может быть нулевым.  Нулевая длина
+массивы являются полезна в качестве последнего элемента структуры, который
+на самом деле является заголовком для объекта переменной длинны:
 </p>
 <div class="example">
 <pre class="example">struct line
@@ -2065,9 +2063,10 @@ really a header for a variable-length object:
 }
 </pre></div>
 
-<p>Another GNU extension allows you to declare an array size using
-variables, rather than only constants.  For example, here is a function definition
-that declares an array using its parameter as the number of elements:
+<p>Другое расширение GNU позволяет объявить размер массива с помощью переменных,
+а не только с помощью констант.  Например, вот определение функции, которое
+объявляет массив, используя свой параметр, как значение количества элементов
+массива:
 </p>
 <div class="example">
 <pre class="example">int
@@ -2084,82 +2083,80 @@ my_function (int number)
 <p>
 Next: <a href="#Accessing-Array-Elements" accesskey="n" rel="next">Accessing Array Elements</a>, Previous: <a href="#Declaring-Arrays" accesskey="p" rel="prev">Declaring Arrays</a>, Up: <a href="#Arrays" accesskey="u" rel="up">Arrays</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Initializing-Arrays-1"></span><h4 class="subsection">2.5.2 Initializing Arrays</h4>
+<span id="Inicializaciya-Massivov"></span><h4 class="subsection">2.5.2 Инициализация Массивов</h4>
 <span id="index-initializing-arrays"></span>
 <span id="index-arrays_002c-initializing"></span>
 
-<p>You can initialize the elements in an array when you declare it by listing
-the initializing values, separated by commas, in a set of braces.  Here
-is an example:
+<p>Можно инициализировать элементы массива при его объявлении, перечисляя
+значения инициализации, разделенных запятыми, в фигурных скобок.  Вот пример:
 </p>
 <div class="example">
 <pre class="example">int my_array[5] = { 0, 1, 2, 3, 4 };
 </pre></div>
 
-<p>You don&rsquo;t have to explicitly initialize all of the array elements.  For example, this code
-initializes the first three elements as specified, and then initializes the last two
-elements to a default value of zero:
+<p>Не нужно явно инициализировать все элементы массива.  Например, этот код
+инициализирует первые три элемента массива, как указано, а все остальные
+инициализирует значением по умолчанию, в этом случае равного нулю:
 </p>
 <div class="example">
 <pre class="example">int my_array[5] = { 0, 1, 2 };
 </pre></div>
 
-<p>When using either ISO C99, or C89 with GNU extensions, you can initialize array
-elements out of order, by specifying which array indices to initialize.  To do
-this, include the array index in brackets, and optionally the assignment operator,
-before the value.  Here is an example:
+<p>При использовании стандарта ISO C99 или C89 с расширениями GNU, можно
+инициализировать элементы массива не по порядку, указывая индекс массива для
+инициализации.  Чтобы достич этого, дополнительно включаетя индекс массива в
+скобках, и, возможно, оператор присваивания, перед значением. Вот пример:
 </p>
 <div class="example">
-<pre class="example">int my_array[5] = { [2] 5, [4] 9 };
+<pre class="example">int мой_массив[5] = { [2] 5, [4] 9 };
 </pre></div>
-<p>Or, using the assignment operator:
+<p>Или, используя оператор присваивания:
 </p>
 <div class="example">
-<pre class="example">int my_array[5] = { [2] = 5, [4] = 9 };
+<pre class="example">int мой_массив[5] = { [2] = 5, [4] = 9 };
 </pre></div>
 
-<p>Both of those examples are equivalent to:
+<p>Оба этих примера эквивалентны:
 </p>
 <div class="example">
-<pre class="example">int my_array[5] = { 0, 0, 5, 0, 9 };
+<pre class="example">int мой_массив[5] = { 0, 0, 5, 0, 9 };
 </pre></div>
 
 
-<p>When using GNU extensions, you can initialize a range of elements to
-the same value, by specifying the first and last indices, in the form
-<code> [<var>first</var>] ... [<var>last</var>] </code>.  Here is an example:
+<p>При использовании расширений GNU, можно инициализировать диапазон элементов
+значением, указав первые и последние индексы, в виде
+<code> [<var>first</var>] ... [<var>last</var>] </code>.  Вот пример:
 </p>
 <div class="example">
-<pre class="example">int new_array[100] = { [0 ... 9] = 1, [10 ... 98] = 2, 3 };
+<pre class="example">int новый_массив[100] = { [0 ... 9] = 1, [10 ... 98] = 2, 3 };
 </pre></div>
 
-<p>That initializes elements 0 through 9 to 1, elements 10 through 98
-to 2, and element 99 to 3.  (You also could explicitly write
-<code>[99] = 3</code>.)  Also, notice that you <em>must</em> have spaces on both
-sides of the &lsquo;<samp>...</samp>&rsquo;.
+<p>Это инициализирует элементы с индексами от 0 до 9 в значение 1, элементы
+с индексом от 10 до 98 в значение 2, а элемент 99 в значение 3.  (Также можноявно написать <code>[99] = 3</code>).  Кроме того, обратите внимание, что
+<em>должны быть</em> пробелы с обеих сторон выражения &lsquo;<samp>...</samp>&rsquo;.
 </p>
-<p>If you initialize every element of an array, then you do not have to
-specify its size; its size is determined by the number of elements you
-initialize.  Here is an example:
+<p>Если инициализировать каждый элемент массива, то не нужно указывать размер
+массива; его размер определяется числом элементов инициализации.  Вот пример:
 </p>
 <div class="example">
-<pre class="example">int my_array[] = { 0, 1, 2, 3, 4 };
+<pre class="example">int мой_массив[] = { 0, 1, 2, 3, 4 };
 </pre></div>
 
-<p>Although this does not explicitly state that the array has five elements
-using <code>my_array[5]</code>, it initializes five elements, so that is how many
-it has.
+<p>Хотя здесь явно не указывается, что массив состоит из пяти элементов,
+используется <code>мой_массив[5]</code> инициализируя пять элементов, основываясь
+на фактическое колличество.
 </p>
-<p>Alternately, if you specify which elements to initialize, then the size of
-the array is equal to the highest element number initialized, plus one.
-For example:
+<p>С другой стороны, если указать, какие элементы инициализируются, то размер
+массива равен наибольшему значению индекса инициализированного элемента плюс
+один.  Например:
 </p>
 <div class="example">
-<pre class="example">int my_array[] = { 0, 1, 2, [99] = 99 };
+<pre class="example">int мой_массив[] = { 0, 1, 2, [99] = 99 };
 </pre></div>
 
-<p>In that example, only four elements are initialized, but the last one
-initialized is element number 99, so there are 100 elements.
+<p>В этом примере, только четыре элемента инициализации, но последний 
+инициализированный элемент массива имеет индекс 99, таким образом, массив
+состоит из 100 элементов.
 </p>
 
 <hr>

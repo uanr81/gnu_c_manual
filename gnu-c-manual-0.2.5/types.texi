@@ -729,15 +729,15 @@ union числа
 содержащихся элементов. (ВопросTypes729)
 
 
-@c ----------------------------------------------------------------------------
+@c --------------------------------------------------------------------------
 @node Structures
-@section Structures
+@section Структуры
 @cindex structures
 @cindex types, structure
 @cindex data types, structure
 
-A structure is a programmer-defined data type made up of
-variables of other data types (possibly including other structure types).
+Структура - это определяемый программистом тип данных, состоящий из
+переменных других типов данных (в том числе, возможно, другие типы структур).
 
 @menu
 * Defining Structures::         
@@ -748,51 +748,50 @@ variables of other data types (possibly including other structure types).
 @end menu
 
 @node Defining Structures
-@subsection Defining Structures
+@subsection Определение Структур
 @cindex defining structures
 @cindex structures, defining
 
-You define a structure using the @code{struct} keyword followed by
-the declarations of the structure's members, enclosed in
-braces.  You declare each member of a structure just as you would
-normally declare a variable---using the data type followed by one
-or more variable names separated by commas, and ending with a
-semicolon.  Then end the structure definition with a semicolon after
-the closing brace.
+Вы определяете структуру, используя ключевое слово @code{struct} с
+последующим объявлением элементов структуры, заключенных в скобки.  Вы
+объявляете каждый элемент структуры так же, как вы обычно объявляете
+переменную --- используя тип данных за которым следует одно или несколько
+имён переменных, разделенных запятыми, и заканчиваете точкой с запятой.
+Затем завершение определения структуры с точкой с запятой после закрывающей
+скобки.
 
-You should also include a name for the structure in between the
-@code{struct} keyword and the opening brace.  This is optional, but if
-you leave it out, you can't refer to that structure data type later
-on (without a @code{typedef}, @pxref{The typedef Statement}).
+Вы должны также включать включить имя структуры между @code{struct} ключевым
+словом и открывающей скобкой.  Это необязательно, но если вы опустите имя, не
+сможетемпотом обратиться к этому типу структуры данных (без @code{typedef},
+@pxref{The typedef Statement}).
 
-Here is an example of defining a simple structure for holding the
-X and Y coordinates of a point:
+Ниже приведен пример определения простой структуры для хранения координат х и
+у точки:
 
 @example
 @group
-struct point
+struct точка
   @{
     int x, y;
   @};
 @end group
 @end example
 
-That defines a structure type named @code{struct point}, which contains two
-members, @code{x} and @code{y}, both of which are of type @code{int}.
+Это определяет тип структуры с именем @code{struct точка}, которая содержит
+два элемента @code{x} и @code{y}, оба из которых имеют тип @code{int}.
 
-Structures (and unions) may contain instances of other structures and
-unions, but of course not themselves.  It is possible for a structure
-or union type to contain a field which is a pointer to the same type
-(@pxref{Incomplete Types}).
+Структуры (и объединения) могут содержать экземпляры других структур и
+объединений, но, конечно, не самих себя.  Вполне возможно, для типов
+структуры или объединения, содержать поле, которое является указателем на
+тот же тип стркутуры (@pxref{Incomplete Types}).
 
 @node Declaring Structure Variables
-@subsection Declaring Structure Variables
+@subsection Объявление Переменных Структуры
 @cindex declaring structure variables
 @cindex structure variables, declaring
 
-You can declare variables of a structure type when both you initially
-define the structure and after the definition, provided you gave the
-structure type a name.
+Можно объявлять переменные типа структуры, когда определяется тип структуры и
+после её определения, если задано имя структуре.
 
 
 @menu
@@ -802,299 +801,298 @@ structure type a name.
 @end menu
 
 @node Declaring Structure Variables at Definition
-@subsubsection Declaring Structure Variables at Definition
+@subsubsection Объявление Переменной Структуры в Определении
 @cindex declaring structure variables at definition
 @cindex structure variables, declaring at definition
 
-You can declare variables of a structure type when you define the
-structure type by putting the variable names after the closing
-brace of the structure definition, but before the final semicolon.
-You can declare more than one such variable by separating the names
-with commas.
+Можно объявлять переменные типа структуры, когда определяется тип структуры,
+поместив имена переменных после закрывающей скобки определения структуры, но
+до заключительной точки с запятой объявления.  можете объявить более чем одну
+такую ​​переменную, разделив их запятыми.
 
 @example
 @group
-struct point
+struct точка
   @{
     int x, y;
-  @} first_point, second_point;
+  @} первая_точка, вторая_точка;
 @end group
 @end example
 
-That example declares two variables of type @code{struct point},
-@code{first_point} and @code{second_point}.
+Этот пример объявляет две переменные типа @code{struct точка},
+@code{первая_точка} и @code{вторая_точка}.
 
 
 
 @node Declaring Structure Variables After Definition
-@subsubsection Declaring Structure Variables After Definition
+@subsubsection Объявление Переменных Структур После Определения
 @cindex declaring structure variables after definition
 @cindex structure variables, declaring after definition
 
-You can declare variables of a structure type after defining the
-structure by using the @code{struct} keyword and the name you
-gave the structure type, followed by one or more variable names
-separated by commas.
+Можно объявлять переменные типа структуры после определения структуры,
+используя ключевое слово @code{struct} и имя типа структуры, за которым
+следует одно или несколько имен переменных, разделенных запятыми.
 
 
 @example
 @group
-struct point
+struct точка
   @{
     int x, y;
   @};
-struct point first_point, second_point;
+struct point первая_точка, вторая_точка;
 @end group
 @end example
 
-That example declares two variables of type @code{struct point},
-@code{first_point} and @code{second_point}.
+Этот пример объявляет две переменные типа @code{struct точка},
+@code{первая_точка} и @code{втора_точка}.
 
 
 @node Initializing Structure Members
-@subsubsection Initializing Structure Members
+@subsubsection Инициализация Элементов Структуры
 @cindex initializing structure members
 @cindex structure members, initializing
 
-You can initialize the members of a structure type to have certain
-values when you declare structure variables.  
+Можно инициализировать элемент типа структуры при определеннии переменной
+структуры, нужным значением.  
 
-If you do not initialize a structure variable, the effect depends on
-whether it has static storage (@pxref{Storage Class Specifiers}) or
-not.  If it is, members with integral types are initialized with 0 and
-pointer members are initialized to NULL; otherwise, the value of the
-structure's members is indeterminate.
+Если не инициализировать переменную структуры, эффект зависит от того, имеет
+ли она статическое хранение (@pxref{Storage Class Specifiers}) или нет.  Если
+да, то элементы с целочисленными типами инициализируются значением 0 а
+элементы с типом указатель инициализируются значением NULL; в противном
+случае, значение элементов структуры является неопределенным.
 
-One way to initialize a structure is to specify the values in a set of
-braces and separated by commas.  Those values are assigned to the
-structure members in the same order that the members are declared in
-the structure in definition.
+Один из способов, чтобы инициализировать структуру - это указать значения
+разделённые запятыми внутри фигурных скобок.  Эти значения присваиваются
+элементам структуры в том же порядке, в котором они объявлены в объявлении
+структуры.
 
 
 @example
 @group
-struct point
+struct точка
   @{
     int x, y;
   @};
-struct point first_point = @{ 5, 10 @};
+struct точка первая_точка = @{ 5, 10 @};
 @end group
 @end example
 
-In that example, the @code{x} member of @code{first_point} gets the
-value 5, and the @code{y} member gets the value 10.
+В этом примере элемент @code{x} структуры @code{первая_точка} получает
+значение 5, а элемент структуры @code{y} получает значение 10.
 
-Another way to initialize the members is to specify the name of the
-member to initialize.  This way, you can initialize the members in
-any order you like, and even leave some of them uninitialized.  There
-are two methods that you can use.  The first method is available in
-C99 and as a C89 extension in GCC:
+Другой способ инициализации элементов - это указать имя элемента для
+инициализации.  Таким образом, можно инициализировать элементы в любом
+порядке, и даже оставить некоторые из них не инициализироваными.  Есть два
+метода, которые можно использовать.  Первый метод доступен в C99 и как
+расширение C89 в GCC:
 
 @example
 @group
-struct point first_point = @{ .y = 10, .x = 5 @};
+struct точка первая_точка = @{ .y = 10, .x = 5 @};
 @end group
 @end example
 
-You can also omit the period and use a colon instead of @samp{=},
-though this is a GNU C extension:
+Кроме того, можно опустить точку и использовать вместо этого двоеточие вместо
+символа @samp{=}, хотя это расширение GNU C:
 
 @example
 @group
-struct point first_point = @{ y: 10, x: 5 @};
+struct точка первая_точка = @{ y: 10, x: 5 @};
 @end group
 @end example
 
-You can also initialize the structure variable's members when you declare
-the variable during the structure definition:
+Можно инициализировать элементы переменной типа структура, при объявлении
+переменной в процессе определения структуры:
 
 @example
 @group
-struct point
+struct точка
   @{
     int x, y;
-  @} first_point = @{ 5, 10 @};
+  @} первая_точка = @{ 5, 10 @};
 @end group
 @end example
 
-You can also initialize fewer than all of a structure variable's members:
+Кроме того, можно также опустить инициализацию некоторых элементов переменной
+структуры:
 
 @example
 @group
-struct pointy
+struct точка
   @{
     int x, y;
     char *p;
   @};
-struct pointy first_pointy = @{ 5 @};
+struct pointy первая_точка = @{ 5 @};
 @end group
 @end example
 
-Here, @code{x} is initialized with 5, @code{y} is initialized with 0,
-and @code{p} is initialized with NULL.  The rule here is that @code{y}
-and @code{p} are initialized just as they would be if they were static
-variables.
-@c See ANSI C89, sec 6.5.7, ``Initialization''.
+Здесь @code{x} устанавливается в 5, @code{y} устанавливается в 0, и @code{p}
+инициализируется NULL.  Здесь правило предписывает то, что @code{y} и
+@code{p} инициализируются так же, как если бы они были статическими
+переменными.
+@c смотреть ANSI C89, секция 6.5.7, ``Инициализация''.
 
 
-Here is another example that initializes a structure's members which
-are structure variables themselves:
+Вот еще один пример, который инициализирует элемент структуры, который
+является сам переменной структуры:
 
 @example
 @group
-struct point
+struct точка
   @{
     int x, y;
   @};
 
-struct rectangle
+struct прямоугольник
   @{
-    struct point top_left, bottom_right;
+    struct точка верхняя_левая, правая_нижняя;
   @};
 
-struct rectangle my_rectangle = @{ @{0, 5@}, @{10, 0@} @};
+struct прямоугольник мой_прямоугольник = @{ @{0, 5@}, @{10, 0@} @};
 @end group
 @end example
 
-That example defines the @code{rectangle} structure to consist of
-two @code{point} structure variables.  Then it declares one variable
-of type @code{struct rectangle} and initializes its members.  Since
-its members are structure variables, we used an extra set of braces
-surrounding the members that belong to the @code{point} structure
-variables.  However, those extra braces are not necessary; they just
-make the code easier to read.
+Этот пример определяет структуру @code{прямоугольник} состоящую из двух
+элементов переменных структуры @code{точка}.  Затем объявляется одна
+переменная типа @code{struct прямоугольник} и инициализируются её элементы.
+Поскольку ее элементы являются переменными с типом структура, используется
+дополнительный набор скобок, окружающих элементы, которые принадлежат к
+переменным структура @code{точка}.  Тем не менее, эти дополнительные скобки
+не требуются обязательно; они используются чтобы человеку легче было читать
+код.
 
 
 
 @node Accessing Structure Members
-@subsection Accessing Structure Members
+@subsection Доступ к Элементам Структуры
 @cindex accessing structure members
 @cindex structure members, accessing
 
-You can access the members of a structure variable using the member
-access operator.  You put the name of the structure
-variable on the left side of the operator, and the name of the
-member on the right side.
+Можно получить доступ к членам переменной структуры с помощью оператора
+доступа к элементу @code{ТОЧКА}.  Вы помещаете имя переменной структуры на
+левой стороне оператора @code{ТОЧКА}, а имя элемента с правой стороны.
 
 @example
 @group
-struct point
+struct точка
   @{
     int x, y;
   @};
 
-struct point first_point;
+struct точка первая_точка;
 
-first_point.x = 0;
-first_point.y = 5;
+первая_точка.x = 0;
+первая_точка.y = 5;
 @end group
 @end example
 
-You can also access the members of a structure variable which is itself a
-member of a structure variable.
+Также можно получить доступ к элементу переменной структуры, которая сама
+является элементом переменной структуры.
 
 @example
 @group
-struct rectangle
+struct прямоугольник
   @{
-    struct point top_left, bottom_right;
+    struct точка верхняя_левая, нижняя_правая;
   @};
 
-struct rectangle my_rectangle;
+struct прямоугольник мой_прямоугольник;
 
-my_rectangle.top_left.x = 0;
-my_rectangle.top_left.y = 5;
+мой_прямоугольник.верхняя_левая.x = 0;
+мой_прямоугольник.верхняя_левая.y = 5;
 
-my_rectangle.bottom_right.x = 10;
-my_rectangle.bottom_right.y = 0;
+мой_прямоугольник.нижняя_правая.x = 10;
+мой_прямоугольник.нижняя_правая.y = 0;
 @end group
 @end example
 
 
 
 @node Bit Fields
-@subsection Bit Fields
+@subsection Битовы Поля
 @cindex bit fields
 @cindex fields, bit
 
-You can create structures with integer members of nonstandard sizes, called
-@emph{bit fields}.  You do this by specifying an integer (@code{int},
-@code{char}, @code{long int}, etc.@:) member as usual, and inserting a colon
-and the number of bits that the member should occupy in between the
-member's name and the semicolon.
+Можно создавать структуры с целочисленными элементами нестандартных размеров,
+называемые @emph{битовыми полями}.  Можно сделать это, указав целочисленный
+элемент (@code{int}, @code{char}, @code{long int}@:), как обычно, и вставив
+далее двоеточие, а затем число бит, которое элемент должен занимать и затем
+завершающую точку с запятой.
 
 @example
 @group
-struct card
+struct карта
   @{
-    unsigned int suit : 2;
-    unsigned int face_value : 4;
+    unsigned int масть : 2;
+    unsigned int старшенство : 4;
   @};
 @end group
 @end example
 
-That example defines a structure type with two bit fields, @code{suit} and
-@code{face_value}, which take up 2 bits and 4 bits, respectively.  @code{suit}
-can hold values from 0 to 3, and @code{face_value} can hold values from 0 to
-15.  Notice that these bit fields were declared as @code{unsigned int}; had
-they been signed integers, then their ranges would have been from
-@minus{}2 to 1, and from @minus{}8 to 7, respectively.
+Этот пример определяет тип структуры с двумя битовыми полями, @code{масть} и
+@code{старшенство}, которые занимают 2 и 4 бита соответственно. @code{suit} может содержать значение от 0 до 3, и @code{старшинство} может содержать
+значение от 0 до 15.  Обратите внимание, что эти битовые поля были объявлены
+как тип @code{unsigned int}; если бы они были определенены обычно как
+целочисленные, то их диапазон был бы от @minus{}2 до 1 и от @minus{}8 до 7,
+соответственно.
 
-More generally, the range of an unsigned bit field of @math{N} bits is from
-0 to @math{2^N - 1}, and the range of a signed bit field of @math{N}
-bits is from @math{-(2^N) / 2} to @math{((2^N) / 2) - 1}.
+В более общем смысле, диапазон беззнакового битового поля из @math{N} бит
+составляет от 0 до @math{2^N - 1}, а диапазон знакового битового поля
+составляет @math{N} бит от @math{-(2^N) / 2} до @math{((2^N) / 2) - 1}.
 
-@c ??? Want to research this further...
+@c ??? Хотите исследовать это дальше...
 
-@c Avoid using signed bitfields of size 1, since the interpretation of
-@c that single bit (that is, whether it is a sign bit or not) is
-@c implementation-defined.  GCC implements it as a sign bit.
+@c Избегайте использование подписанных битовых полей размера в 1 бит, так как
+@c это интерпретация знакового одного бита (то есть, определяется установлен
+@c знак числа или нет) реализации.  GCC реализует его как знаковый бит.
 
-@c @c @c At least it does on the platform I tried.  Unsure about other platforms.
+@c @c @c По крайней мере, это делается на платформе которую я опробовал.
+@c Не уверенности относительно других платформ.
 
-Bit fields can be specified without a name in order to control which
-actual bits within the containing unit are used.  However,
-the effect of this is not very portable and it is rarely useful.
-You can also specify a bit field of size 0, which indicates that
-subsequent bit fields not further bit fields should be packed into the
-unit containing the previous bit field.  This is likewise not
-generally useful.
+Битовые поля могут быть указаны без имени, в целях контроля, какие биты
+используются фактически внутри содержащего блока.  Однако, эффект от этого
+не очень переносим, и это редко бывает полезным.  Можно установить битовое
+поле размером в 0, что указывает, что последующие битовые поля - это не
+дополнительные битовые поля и должны быть упакованы в блок, содержащий
+предыдущее битовое поле.  Это также как правило, не полезно.
 
-You may not take the address of a bit field with the address
-operator @code{&} (@pxref{Pointer Operators}).
+Нет возможности взять адрес битового поля сиспользованием оператора взятия
+адреса @code{&} (@pxref{Pointer Operators}).  (ВопросTypes1062)
 
 @node Size of Structures
-@subsection Size of Structures
+@subsection Размер Cтруктур
 @cindex size of structures
 @cindex structures, size of
 
-The size of a structure type is equal to the sum of the size of all of its
-members, possibly including padding to cause the structure type to align to
-a particular byte boundary.  The details vary depending on your computer
-platform, but it would not be atypical to see structures padded to align
-on four- or eight-byte boundaries.  This is done in order to speed up
-memory accesses of instances of the structure type.
+Размер типа структуры равен сумме размеров всех её членов, и возможно,
+включая дополненин, чтобы обеспечить типу структуры выравнивание до
+определенной границы байта.  Детали различаются в зависимости от компьютерной
+платформы, но будет нетипичным, увидеть структуры дополненные до выравнивания
+на четырёх- или восемь байтовых границах.  Это делается для того, чтобы
+ускорить доступ в памяти к экземплярам типа структуры. (ВопросTypes1074)
 
-As a GNU extension, GCC allows structures with no members.  Such structures
-have zero size.
+В качестве расширения GNU, GCC позволяет создавать структуры без каких-либо
+элементов.  Такие структуры имеют нулевой размер.
 
-If you wish to explicitly omit padding from your structure types (which may,
-in turn, decrease the speed of structure memory accesses), then GCC provides
-multiple methods of turning packing off.  The quick and easy method is to
-use the @code{-fpack-struct} compiler option.  For more details on omitting
-packing, please see the GCC manual which corresponds to your version of the
-compiler.
+Если требуется явно опустить заполнение для типов структур (что, в свою
+очередь, уменьшает скорость доступа к структурам в памяти), то GCC
+обеспечивает несколько способов отключения упаковки.  Быстрый и простой
+способ заключается в использовании опции @code{-fpack-struct} компилятора.
+Для получения более подробной информации об отключенмм упаковку, пожалуйста,
+обратитесь к руководству GCC, которое соответствует вашей версии компилятора.
 
-@c ----------------------------------------------------------------------------
+@c -------------------------------------------------------------------------
 @node Arrays
-@section Arrays
+@section Массивы
 @cindex arrays
 @cindex types, array
 @cindex data types, array
 
-An array is a data structure that lets you store one or more elements
-consecutively in memory.  In C, array elements are indexed beginning at
-position zero, not one.
+Массив представляет собой структуру данных, которая позволяет хранить один
+или несколько элементов в памяти последовательно.  В Cи, элементы массива
+индексируются с нулевого значения индекса, а не с единицы.
 
 @menu
 * Declaring Arrays::
@@ -1108,26 +1106,27 @@ position zero, not one.
 
 
 @node Declaring Arrays
-@subsection Declaring Arrays
+@subsection Объявление Массивов
 @cindex declaring arrays
 @cindex arrays, declaring
 
-You declare an array by specifying the data type for its elements, its name,
-and the number of elements it can store.  Here is an example that declares
-an array that can store ten integers:
+Объявляется массив, указанием типа данных для его элементов, его имени и
+количества элементов которые он может хранить.  Вот пример, который
+объявляет массив, который может хранить десять целых чисел:
 
 @example
 @group
-int my_array[10];
+int мой_массив[10];
 @end group
 @end example
 
 
-For standard C code, the number of elements in an array must be positive.
+Для стандартного кода Cи, количество элементов в массиве, должно быть
+указано положительным значением.
 
-As a GNU extension, the number of elements can be as small as zero.
-Zero-length arrays are useful as the last element of a structure which is
-really a header for a variable-length object:
+В качестве расширения GNU, число элементов может быть нулевым.  Нулевая длина
+массивы являются полезна в качестве последнего элемента структуры, который
+на самом деле является заголовком для объекта переменной длинны:
 
 @example
 @group
@@ -1145,9 +1144,10 @@ struct line
 @end group
 @end example
 
-Another GNU extension allows you to declare an array size using
-variables, rather than only constants.  For example, here is a function definition
-that declares an array using its parameter as the number of elements:
+Другое расширение GNU позволяет объявить размер массива с помощью переменных,
+а не только с помощью констант.  Например, вот определение функции, которое
+объявляет массив, используя свой параметр, как значение количества элементов
+массива:
 
 @example
 @group
@@ -1162,13 +1162,12 @@ my_function (int number)
 
 
 @node Initializing Arrays
-@subsection Initializing Arrays
+@subsection Инициализация Массивов
 @cindex initializing arrays
 @cindex arrays, initializing
 
-You can initialize the elements in an array when you declare it by listing
-the initializing values, separated by commas, in a set of braces.  Here
-is an example:
+Можно инициализировать элементы массива при его объявлении, перечисляя
+значения инициализации, разделенных запятыми, в фигурных скобок.  Вот пример:
 
 @example
 @group
@@ -1176,9 +1175,9 @@ int my_array[5] = @{ 0, 1, 2, 3, 4 @};
 @end group
 @end example
 
-You don't have to explicitly initialize all of the array elements.  For example, this code
-initializes the first three elements as specified, and then initializes the last two
-elements to a default value of zero:
+Не нужно явно инициализировать все элементы массива.  Например, этот код
+инициализирует первые три элемента массива, как указано, а все остальные
+инициализирует значением по умолчанию, в этом случае равного нулю:
 
 @example
 @group
@@ -1186,75 +1185,74 @@ int my_array[5] = @{ 0, 1, 2 @};
 @end group
 @end example
 
-When using either ISO C99, or C89 with GNU extensions, you can initialize array
-elements out of order, by specifying which array indices to initialize.  To do
-this, include the array index in brackets, and optionally the assignment operator,
-before the value.  Here is an example:
+При использовании стандарта ISO C99 или C89 с расширениями GNU, можно
+инициализировать элементы массива не по порядку, указывая индекс массива для
+инициализации.  Чтобы достич этого, дополнительно включаетя индекс массива в
+скобках, и, возможно, оператор присваивания, перед значением. Вот пример:
 
 @example
 @group
-int my_array[5] = @{ [2] 5, [4] 9 @};
+int мой_массив[5] = @{ [2] 5, [4] 9 @};
 @end group
 @end example
 @c
 @noindent
-Or, using the assignment operator:
+Или, используя оператор присваивания:
 
 @example
 @group
-int my_array[5] = @{ [2] = 5, [4] = 9 @};
+int мой_массив[5] = @{ [2] = 5, [4] = 9 @};
 @end group
 @end example
 
 @noindent
-Both of those examples are equivalent to:
+Оба этих примера эквивалентны:
 
 @example
-int my_array[5] = @{ 0, 0, 5, 0, 9 @};
+int мой_массив[5] = @{ 0, 0, 5, 0, 9 @};
 @end example
 
 
-When using GNU extensions, you can initialize a range of elements to
-the same value, by specifying the first and last indices, in the form
-@code{ [@var{first}] ... [@var{last}] }.  Here is an example:
-
-@example
-@group
-int new_array[100] = @{ [0 ... 9] = 1, [10 ... 98] = 2, 3 @};
-@end group
-@end example
-
-That initializes elements 0 through 9 to 1, elements 10 through 98
-to 2, and element 99 to 3.  (You also could explicitly write
-@code{[99] = 3}.)  Also, notice that you @emph{must} have spaces on both
-sides of the @samp{...}.
-
-If you initialize every element of an array, then you do not have to
-specify its size; its size is determined by the number of elements you
-initialize.  Here is an example:
+При использовании расширений GNU, можно инициализировать диапазон элементов
+значением, указав первые и последние индексы, в виде
+@code{ [@var{first}] ... [@var{last}] }.  Вот пример:
 
 @example
 @group
-int my_array[] = @{ 0, 1, 2, 3, 4 @};
+int новый_массив[100] = @{ [0 ... 9] = 1, [10 ... 98] = 2, 3 @};
 @end group
 @end example
 
-Although this does not explicitly state that the array has five elements
-using @code{my_array[5]}, it initializes five elements, so that is how many
-it has.
+Это инициализирует элементы с индексами от 0 до 9 в значение 1, элементы
+с индексом от 10 до 98 в значение 2, а элемент 99 в значение 3.  (Также можноявно написать @code{[99] = 3}).  Кроме того, обратите внимание, что
+@emph{должны быть} пробелы с обеих сторон выражения @samp{...}.
 
-Alternately, if you specify which elements to initialize, then the size of
-the array is equal to the highest element number initialized, plus one.
-For example:
+Если инициализировать каждый элемент массива, то не нужно указывать размер
+массива; его размер определяется числом элементов инициализации.  Вот пример:
 
 @example
 @group
-int my_array[] = @{ 0, 1, 2, [99] = 99 @};
+int мой_массив[] = @{ 0, 1, 2, 3, 4 @};
 @end group
 @end example
 
-In that example, only four elements are initialized, but the last one
-initialized is element number 99, so there are 100 elements.
+Хотя здесь явно не указывается, что массив состоит из пяти элементов,
+используется @code{мой_массив[5]} инициализируя пять элементов, основываясь
+на фактическое колличество.
+
+С другой стороны, если указать, какие элементы инициализируются, то размер
+массива равен наибольшему значению индекса инициализированного элемента плюс
+один.  Например:
+
+@example
+@group
+int мой_массив[] = @{ 0, 1, 2, [99] = 99 @};
+@end group
+@end example
+
+В этом примере, только четыре элемента инициализации, но последний 
+инициализированный элемент массива имеет индекс 99, таким образом, массив
+состоит из 100 элементов.
 
 
 @node Accessing Array Elements

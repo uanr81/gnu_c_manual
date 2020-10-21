@@ -1109,11 +1109,12 @@ File: gnu-c-manual.info,  Node: Size of Unions,  Prev: Accessing Union Members, 
 
 File: gnu-c-manual.info,  Node: Structures,  Next: Arrays,  Prev: Unions,  Up: Data Types
 
-2.4 Structures
-==============
+2.4 Структуры
+=============
 
-A structure is a programmer-defined data type made up of variables of
-other data types (possibly including other structure types).
+Структура - это определяемый программистом тип данных, состоящий из
+переменных других типов данных (в том числе, возможно, другие типы
+структур).
 
 * Menu:
 
@@ -1126,46 +1127,46 @@ other data types (possibly including other structure types).
 
 File: gnu-c-manual.info,  Node: Defining Structures,  Next: Declaring Structure Variables,  Up: Structures
 
-2.4.1 Defining Structures
--------------------------
+2.4.1 Определение Структур
+--------------------------
 
-You define a structure using the 'struct' keyword followed by the
-declarations of the structure's members, enclosed in braces.  You
-declare each member of a structure just as you would normally declare a
-variable--using the data type followed by one or more variable names
-separated by commas, and ending with a semicolon.  Then end the
-structure definition with a semicolon after the closing brace.
+Вы определяете структуру, используя ключевое слово 'struct' с
+последующим объявлением элементов структуры, заключенных в скобки.  Вы
+объявляете каждый элемент структуры так же, как вы обычно объявляете
+переменную -- используя тип данных за которым следует одно или несколько
+имён переменных, разделенных запятыми, и заканчиваете точкой с запятой.
+Затем завершение определения структуры с точкой с запятой после
+закрывающей скобки.
 
-   You should also include a name for the structure in between the
-'struct' keyword and the opening brace.  This is optional, but if you
-leave it out, you can't refer to that structure data type later on
-(without a 'typedef', *note The typedef Statement::).
+   Вы должны также включать включить имя структуры между 'struct'
+ключевым словом и открывающей скобкой.  Это необязательно, но если вы
+опустите имя, не сможетемпотом обратиться к этому типу структуры данных
+(без 'typedef', *note The typedef Statement::).
 
-   Here is an example of defining a simple structure for holding the X
-and Y coordinates of a point:
+   Ниже приведен пример определения простой структуры для хранения
+координат х и у точки:
 
-     struct point
+     struct точка
        {
          int x, y;
        };
 
-   That defines a structure type named 'struct point', which contains
-two members, 'x' and 'y', both of which are of type 'int'.
+   Это определяет тип структуры с именем 'struct точка', которая
+содержит два элемента 'x' и 'y', оба из которых имеют тип 'int'.
 
-   Structures (and unions) may contain instances of other structures and
-unions, but of course not themselves.  It is possible for a structure or
-union type to contain a field which is a pointer to the same type (*note
-Incomplete Types::).
+   Структуры (и объединения) могут содержать экземпляры других структур
+и объединений, но, конечно, не самих себя.  Вполне возможно, для типов
+структуры или объединения, содержать поле, которое является указателем
+на тот же тип стркутуры (*note Incomplete Types::).
 
 
 File: gnu-c-manual.info,  Node: Declaring Structure Variables,  Next: Accessing Structure Members,  Prev: Defining Structures,  Up: Structures
 
-2.4.2 Declaring Structure Variables
------------------------------------
+2.4.2 Объявление Переменных Структуры
+-------------------------------------
 
-You can declare variables of a structure type when both you initially
-define the structure and after the definition, provided you gave the
-structure type a name.
+Можно объявлять переменные типа структуры, когда определяется тип
+структуры и после её определения, если задано имя структуре.
 
 * Menu:
 
@@ -1176,235 +1177,241 @@ structure type a name.
 
 File: gnu-c-manual.info,  Node: Declaring Structure Variables at Definition,  Next: Declaring Structure Variables After Definition,  Up: Declaring Structure Variables
 
-2.4.2.1 Declaring Structure Variables at Definition
-...................................................
+2.4.2.1 Объявление Переменной Структуры в Определении
+.....................................................
 
-You can declare variables of a structure type when you define the
-structure type by putting the variable names after the closing brace of
-the structure definition, but before the final semicolon.  You can
-declare more than one such variable by separating the names with commas.
+Можно объявлять переменные типа структуры, когда определяется тип
+структуры, поместив имена переменных после закрывающей скобки
+определения структуры, но до заключительной точки с запятой объявления.
+можете объявить более чем одну такую ​​переменную, разделив их запятыми.
 
-     struct point
+     struct точка
        {
          int x, y;
-       } first_point, second_point;
+       } первая_точка, вторая_точка;
 
-   That example declares two variables of type 'struct point',
-'first_point' and 'second_point'.
+   Этот пример объявляет две переменные типа 'struct точка',
+'первая_точка' и 'вторая_точка'.
 
 
 File: gnu-c-manual.info,  Node: Declaring Structure Variables After Definition,  Next: Initializing Structure Members,  Prev: Declaring Structure Variables at Definition,  Up: Declaring Structure Variables
 
-2.4.2.2 Declaring Structure Variables After Definition
-......................................................
+2.4.2.2 Объявление Переменных Структур После Определения
+........................................................
 
-You can declare variables of a structure type after defining the
-structure by using the 'struct' keyword and the name you gave the
-structure type, followed by one or more variable names separated by
-commas.
+Можно объявлять переменные типа структуры после определения структуры,
+используя ключевое слово 'struct' и имя типа структуры, за которым
+следует одно или несколько имен переменных, разделенных запятыми.
 
-     struct point
+     struct точка
        {
          int x, y;
        };
-     struct point first_point, second_point;
+     struct point первая_точка, вторая_точка;
 
-   That example declares two variables of type 'struct point',
-'first_point' and 'second_point'.
+   Этот пример объявляет две переменные типа 'struct точка',
+'первая_точка' и 'втора_точка'.
 
 
 File: gnu-c-manual.info,  Node: Initializing Structure Members,  Prev: Declaring Structure Variables After Definition,  Up: Declaring Structure Variables
 
-2.4.2.3 Initializing Structure Members
-......................................
+2.4.2.3 Инициализация Элементов Структуры
+.........................................
 
-You can initialize the members of a structure type to have certain
-values when you declare structure variables.
+Можно инициализировать элемент типа структуры при определеннии
+переменной структуры, нужным значением.
 
-   If you do not initialize a structure variable, the effect depends on
-whether it has static storage (*note Storage Class Specifiers::) or not.
-If it is, members with integral types are initialized with 0 and pointer
-members are initialized to NULL; otherwise, the value of the structure's
-members is indeterminate.
+   Если не инициализировать переменную структуры, эффект зависит от
+того, имеет ли она статическое хранение (*note Storage Class
+Specifiers::) или нет.  Если да, то элементы с целочисленными типами
+инициализируются значением 0 а элементы с типом указатель
+инициализируются значением NULL; в противном случае, значение элементов
+структуры является неопределенным.
 
-   One way to initialize a structure is to specify the values in a set
-of braces and separated by commas.  Those values are assigned to the
-structure members in the same order that the members are declared in the
-structure in definition.
+   Один из способов, чтобы инициализировать структуру - это указать
+значения разделённые запятыми внутри фигурных скобок.  Эти значения
+присваиваются элементам структуры в том же порядке, в котором они
+объявлены в объявлении структуры.
 
-     struct point
+     struct точка
        {
          int x, y;
        };
-     struct point first_point = { 5, 10 };
+     struct точка первая_точка = { 5, 10 };
 
-   In that example, the 'x' member of 'first_point' gets the value 5,
-and the 'y' member gets the value 10.
+   В этом примере элемент 'x' структуры 'первая_точка' получает значение
+5, а элемент структуры 'y' получает значение 10.
 
-   Another way to initialize the members is to specify the name of the
-member to initialize.  This way, you can initialize the members in any
-order you like, and even leave some of them uninitialized.  There are
-two methods that you can use.  The first method is available in C99 and
-as a C89 extension in GCC:
+   Другой способ инициализации элементов - это указать имя элемента для
+инициализации.  Таким образом, можно инициализировать элементы в любом
+порядке, и даже оставить некоторые из них не инициализироваными.  Есть
+два метода, которые можно использовать.  Первый метод доступен в C99 и
+как расширение C89 в GCC:
 
-     struct point first_point = { .y = 10, .x = 5 };
+     struct точка первая_точка = { .y = 10, .x = 5 };
 
-   You can also omit the period and use a colon instead of '=', though
-this is a GNU C extension:
+   Кроме того, можно опустить точку и использовать вместо этого
+двоеточие вместо символа '=', хотя это расширение GNU C:
 
-     struct point first_point = { y: 10, x: 5 };
+     struct точка первая_точка = { y: 10, x: 5 };
 
-   You can also initialize the structure variable's members when you
-declare the variable during the structure definition:
+   Можно инициализировать элементы переменной типа структура, при
+объявлении переменной в процессе определения структуры:
 
-     struct point
+     struct точка
        {
          int x, y;
-       } first_point = { 5, 10 };
+       } первая_точка = { 5, 10 };
 
-   You can also initialize fewer than all of a structure variable's
-members:
+   Кроме того, можно также опустить инициализацию некоторых элементов
+переменной структуры:
 
-     struct pointy
+     struct точка
        {
          int x, y;
          char *p;
        };
-     struct pointy first_pointy = { 5 };
+     struct pointy первая_точка = { 5 };
 
-   Here, 'x' is initialized with 5, 'y' is initialized with 0, and 'p'
-is initialized with NULL. The rule here is that 'y' and 'p' are
-initialized just as they would be if they were static variables.
+   Здесь 'x' устанавливается в 5, 'y' устанавливается в 0, и 'p'
+инициализируется NULL. Здесь правило предписывает то, что 'y' и 'p'
+инициализируются так же, как если бы они были статическими переменными.
 
-   Here is another example that initializes a structure's members which
-are structure variables themselves:
+   Вот еще один пример, который инициализирует элемент структуры,
+который является сам переменной структуры:
 
-     struct point
+     struct точка
        {
          int x, y;
        };
 
-     struct rectangle
+     struct прямоугольник
        {
-         struct point top_left, bottom_right;
+         struct точка верхняя_левая, правая_нижняя;
        };
 
-     struct rectangle my_rectangle = { {0, 5}, {10, 0} };
+     struct прямоугольник мой_прямоугольник = { {0, 5}, {10, 0} };
 
-   That example defines the 'rectangle' structure to consist of two
-'point' structure variables.  Then it declares one variable of type
-'struct rectangle' and initializes its members.  Since its members are
-structure variables, we used an extra set of braces surrounding the
-members that belong to the 'point' structure variables.  However, those
-extra braces are not necessary; they just make the code easier to read.
+   Этот пример определяет структуру 'прямоугольник' состоящую из двух
+элементов переменных структуры 'точка'.  Затем объявляется одна
+переменная типа 'struct прямоугольник' и инициализируются её элементы.
+Поскольку ее элементы являются переменными с типом структура,
+используется дополнительный набор скобок, окружающих элементы, которые
+принадлежат к переменным структура 'точка'.  Тем не менее, эти
+дополнительные скобки не требуются обязательно; они используются чтобы
+человеку легче было читать код.
 
 
 File: gnu-c-manual.info,  Node: Accessing Structure Members,  Next: Bit Fields,  Prev: Declaring Structure Variables,  Up: Structures
 
-2.4.3 Accessing Structure Members
----------------------------------
+2.4.3 Доступ к Элементам Структуры
+----------------------------------
 
-You can access the members of a structure variable using the member
-access operator.  You put the name of the structure variable on the left
-side of the operator, and the name of the member on the right side.
+Можно получить доступ к членам переменной структуры с помощью оператора
+доступа к элементу 'ТОЧКА'.  Вы помещаете имя переменной структуры на
+левой стороне оператора 'ТОЧКА', а имя элемента с правой стороны.
 
-     struct point
+     struct точка
        {
          int x, y;
        };
 
-     struct point first_point;
+     struct точка первая_точка;
 
-     first_point.x = 0;
-     first_point.y = 5;
+     первая_точка.x = 0;
+     первая_точка.y = 5;
 
-   You can also access the members of a structure variable which is
-itself a member of a structure variable.
+   Также можно получить доступ к элементу переменной структуры, которая
+сама является элементом переменной структуры.
 
-     struct rectangle
+     struct прямоугольник
        {
-         struct point top_left, bottom_right;
+         struct точка верхняя_левая, нижняя_правая;
        };
 
-     struct rectangle my_rectangle;
+     struct прямоугольник мой_прямоугольник;
 
-     my_rectangle.top_left.x = 0;
-     my_rectangle.top_left.y = 5;
+     мой_прямоугольник.верхняя_левая.x = 0;
+     мой_прямоугольник.верхняя_левая.y = 5;
 
-     my_rectangle.bottom_right.x = 10;
-     my_rectangle.bottom_right.y = 0;
+     мой_прямоугольник.нижняя_правая.x = 10;
+     мой_прямоугольник.нижняя_правая.y = 0;
 
 
 File: gnu-c-manual.info,  Node: Bit Fields,  Next: Size of Structures,  Prev: Accessing Structure Members,  Up: Structures
 
-2.4.4 Bit Fields
-----------------
+2.4.4 Битовы Поля
+-----------------
 
-You can create structures with integer members of nonstandard sizes,
-called _bit fields_.  You do this by specifying an integer ('int',
-'char', 'long int', etc.) member as usual, and inserting a colon and the
-number of bits that the member should occupy in between the member's
-name and the semicolon.
+Можно создавать структуры с целочисленными элементами нестандартных
+размеров, называемые _битовыми полями_.  Можно сделать это, указав
+целочисленный элемент ('int', 'char', 'long int'), как обычно, и вставив
+далее двоеточие, а затем число бит, которое элемент должен занимать и
+затем завершающую точку с запятой.
 
-     struct card
+     struct карта
        {
-         unsigned int suit : 2;
-         unsigned int face_value : 4;
+         unsigned int масть : 2;
+         unsigned int старшенство : 4;
        };
 
-   That example defines a structure type with two bit fields, 'suit' and
-'face_value', which take up 2 bits and 4 bits, respectively.  'suit' can
-hold values from 0 to 3, and 'face_value' can hold values from 0 to 15.
-Notice that these bit fields were declared as 'unsigned int'; had they
-been signed integers, then their ranges would have been from -2 to 1,
-and from -8 to 7, respectively.
+   Этот пример определяет тип структуры с двумя битовыми полями, 'масть'
+и 'старшенство', которые занимают 2 и 4 бита соответственно.  'suit'
+может содержать значение от 0 до 3, и 'старшинство' может содержать
+значение от 0 до 15.  Обратите внимание, что эти битовые поля были
+объявлены как тип 'unsigned int'; если бы они были определенены обычно
+как целочисленные, то их диапазон был бы от -2 до 1 и от -8 до 7,
+соответственно.
 
-   More generally, the range of an unsigned bit field of N bits is from
-0 to 2^N - 1, and the range of a signed bit field of N bits is from
--(2^N) / 2 to ((2^N) / 2) - 1.
+   В более общем смысле, диапазон беззнакового битового поля из N бит
+составляет от 0 до 2^N - 1, а диапазон знакового битового поля
+составляет N бит от -(2^N) / 2 до ((2^N) / 2) - 1.
 
-   Bit fields can be specified without a name in order to control which
-actual bits within the containing unit are used.  However, the effect of
-this is not very portable and it is rarely useful.  You can also specify
-a bit field of size 0, which indicates that subsequent bit fields not
-further bit fields should be packed into the unit containing the
-previous bit field.  This is likewise not generally useful.
+   Битовые поля могут быть указаны без имени, в целях контроля, какие
+биты используются фактически внутри содержащего блока.  Однако, эффект
+от этого не очень переносим, и это редко бывает полезным.  Можно
+установить битовое поле размером в 0, что указывает, что последующие
+битовые поля - это не дополнительные битовые поля и должны быть
+упакованы в блок, содержащий предыдущее битовое поле.  Это также как
+правило, не полезно.
 
-   You may not take the address of a bit field with the address operator
-'&' (*note Pointer Operators::).
+   Нет возможности взять адрес битового поля сиспользованием оператора
+взятия адреса '&' (*note Pointer Operators::).  (ВопросTypes1062)
 
 
 File: gnu-c-manual.info,  Node: Size of Structures,  Prev: Bit Fields,  Up: Structures
 
-2.4.5 Size of Structures
-------------------------
+2.4.5 Размер Cтруктур
+---------------------
 
-The size of a structure type is equal to the sum of the size of all of
-its members, possibly including padding to cause the structure type to
-align to a particular byte boundary.  The details vary depending on your
-computer platform, but it would not be atypical to see structures padded
-to align on four- or eight-byte boundaries.  This is done in order to
-speed up memory accesses of instances of the structure type.
+Размер типа структуры равен сумме размеров всех её членов, и возможно,
+включая дополненин, чтобы обеспечить типу структуры выравнивание до
+определенной границы байта.  Детали различаются в зависимости от
+компьютерной платформы, но будет нетипичным, увидеть структуры
+дополненные до выравнивания на четырёх- или восемь байтовых границах.
+Это делается для того, чтобы ускорить доступ в памяти к экземплярам типа
+структуры.  (ВопросTypes1074)
 
-   As a GNU extension, GCC allows structures with no members.  Such
-structures have zero size.
+   В качестве расширения GNU, GCC позволяет создавать структуры без
+каких-либо элементов.  Такие структуры имеют нулевой размер.
 
-   If you wish to explicitly omit padding from your structure types
-(which may, in turn, decrease the speed of structure memory accesses),
-then GCC provides multiple methods of turning packing off.  The quick
-and easy method is to use the '-fpack-struct' compiler option.  For more
-details on omitting packing, please see the GCC manual which corresponds
-to your version of the compiler.
+   Если требуется явно опустить заполнение для типов структур (что, в
+свою очередь, уменьшает скорость доступа к структурам в памяти), то GCC
+обеспечивает несколько способов отключения упаковки.  Быстрый и простой
+способ заключается в использовании опции '-fpack-struct' компилятора.
+Для получения более подробной информации об отключенмм упаковку,
+пожалуйста, обратитесь к руководству GCC, которое соответствует вашей
+версии компилятора.
 
 
 File: gnu-c-manual.info,  Node: Arrays,  Next: Pointers,  Prev: Structures,  Up: Data Types
 
-2.5 Arrays
-==========
+2.5 Массивы
+===========
 
-An array is a data structure that lets you store one or more elements
-consecutively in memory.  In C, array elements are indexed beginning at
-position zero, not one.
+Массив представляет собой структуру данных, которая позволяет хранить
+один или несколько элементов в памяти последовательно.  В Cи, элементы
+массива индексируются с нулевого значения индекса, а не с единицы.
 
 * Menu:
 
@@ -1419,21 +1426,22 @@ position zero, not one.
 
 File: gnu-c-manual.info,  Node: Declaring Arrays,  Next: Initializing Arrays,  Up: Arrays
 
-2.5.1 Declaring Arrays
-----------------------
+2.5.1 Объявление Массивов
+-------------------------
 
-You declare an array by specifying the data type for its elements, its
-name, and the number of elements it can store.  Here is an example that
-declares an array that can store ten integers:
+Объявляется массив, указанием типа данных для его элементов, его имени и
+количества элементов которые он может хранить.  Вот пример, который
+объявляет массив, который может хранить десять целых чисел:
 
-     int my_array[10];
+     int мой_массив[10];
 
-   For standard C code, the number of elements in an array must be
-positive.
+   Для стандартного кода Cи, количество элементов в массиве, должно быть
+указано положительным значением.
 
-   As a GNU extension, the number of elements can be as small as zero.
-Zero-length arrays are useful as the last element of a structure which
-is really a header for a variable-length object:
+   В качестве расширения GNU, число элементов может быть нулевым.
+Нулевая длина массивы являются полезна в качестве последнего элемента
+структуры, который на самом деле является заголовком для объекта
+переменной длинны:
 
      struct line
      {
@@ -1447,10 +1455,10 @@ is really a header for a variable-length object:
        this_line -> length = this_length;
      }
 
-   Another GNU extension allows you to declare an array size using
-variables, rather than only constants.  For example, here is a function
-definition that declares an array using its parameter as the number of
-elements:
+   Другое расширение GNU позволяет объявить размер массива с помощью
+переменных, а не только с помощью констант.  Например, вот определение
+функции, которое объявляет массив, используя свой параметр, как значение
+количества элементов массива:
 
      int
      my_function (int number)
@@ -1462,65 +1470,67 @@ elements:
 
 File: gnu-c-manual.info,  Node: Initializing Arrays,  Next: Accessing Array Elements,  Prev: Declaring Arrays,  Up: Arrays
 
-2.5.2 Initializing Arrays
--------------------------
+2.5.2 Инициализация Массивов
+----------------------------
 
-You can initialize the elements in an array when you declare it by
-listing the initializing values, separated by commas, in a set of
-braces.  Here is an example:
+Можно инициализировать элементы массива при его объявлении, перечисляя
+значения инициализации, разделенных запятыми, в фигурных скобок.  Вот
+пример:
 
      int my_array[5] = { 0, 1, 2, 3, 4 };
 
-   You don't have to explicitly initialize all of the array elements.
-For example, this code initializes the first three elements as
-specified, and then initializes the last two elements to a default value
-of zero:
+   Не нужно явно инициализировать все элементы массива.  Например, этот
+код инициализирует первые три элемента массива, как указано, а все
+остальные инициализирует значением по умолчанию, в этом случае равного
+нулю:
 
      int my_array[5] = { 0, 1, 2 };
 
-   When using either ISO C99, or C89 with GNU extensions, you can
-initialize array elements out of order, by specifying which array
-indices to initialize.  To do this, include the array index in brackets,
-and optionally the assignment operator, before the value.  Here is an
-example:
+   При использовании стандарта ISO C99 или C89 с расширениями GNU, можно
+инициализировать элементы массива не по порядку, указывая индекс массива
+для инициализации.  Чтобы достич этого, дополнительно включаетя индекс
+массива в скобках, и, возможно, оператор присваивания, перед значением.
+Вот пример:
 
-     int my_array[5] = { [2] 5, [4] 9 };
-Or, using the assignment operator:
+     int мой_массив[5] = { [2] 5, [4] 9 };
+Или, используя оператор присваивания:
 
-     int my_array[5] = { [2] = 5, [4] = 9 };
+     int мой_массив[5] = { [2] = 5, [4] = 9 };
 
-Both of those examples are equivalent to:
+Оба этих примера эквивалентны:
 
-     int my_array[5] = { 0, 0, 5, 0, 9 };
+     int мой_массив[5] = { 0, 0, 5, 0, 9 };
 
-   When using GNU extensions, you can initialize a range of elements to
-the same value, by specifying the first and last indices, in the form '
-[FIRST] ... [LAST] '.  Here is an example:
+   При использовании расширений GNU, можно инициализировать диапазон
+элементов значением, указав первые и последние индексы, в виде ' [FIRST]
+... [LAST] '.  Вот пример:
 
-     int new_array[100] = { [0 ... 9] = 1, [10 ... 98] = 2, 3 };
+     int новый_массив[100] = { [0 ... 9] = 1, [10 ... 98] = 2, 3 };
 
-   That initializes elements 0 through 9 to 1, elements 10 through 98 to
-2, and element 99 to 3.  (You also could explicitly write '[99] = 3'.)
-Also, notice that you _must_ have spaces on both sides of the '...'.
+   Это инициализирует элементы с индексами от 0 до 9 в значение 1,
+элементы с индексом от 10 до 98 в значение 2, а элемент 99 в значение 3.
+(Также можноявно написать '[99] = 3').  Кроме того, обратите внимание,
+что _должны быть_ пробелы с обеих сторон выражения '...'.
 
-   If you initialize every element of an array, then you do not have to
-specify its size; its size is determined by the number of elements you
-initialize.  Here is an example:
+   Если инициализировать каждый элемент массива, то не нужно указывать
+размер массива; его размер определяется числом элементов инициализации.
+Вот пример:
 
-     int my_array[] = { 0, 1, 2, 3, 4 };
+     int мой_массив[] = { 0, 1, 2, 3, 4 };
 
-   Although this does not explicitly state that the array has five
-elements using 'my_array[5]', it initializes five elements, so that is
-how many it has.
+   Хотя здесь явно не указывается, что массив состоит из пяти элементов,
+используется 'мой_массив[5]' инициализируя пять элементов, основываясь
+на фактическое колличество.
 
-   Alternately, if you specify which elements to initialize, then the
-size of the array is equal to the highest element number initialized,
-plus one.  For example:
+   С другой стороны, если указать, какие элементы инициализируются, то
+размер массива равен наибольшему значению индекса инициализированного
+элемента плюс один.  Например:
 
-     int my_array[] = { 0, 1, 2, [99] = 99 };
+     int мой_массив[] = { 0, 1, 2, [99] = 99 };
 
-   In that example, only four elements are initialized, but the last one
-initialized is element number 99, so there are 100 elements.
+   В этом примере, только четыре элемента инициализации, но последний
+инициализированный элемент массива имеет индекс 99, таким образом,
+массив состоит из 100 элементов.
 
 
 File: gnu-c-manual.info,  Node: Accessing Array Elements,  Next: Multidimensional Arrays,  Prev: Initializing Arrays,  Up: Arrays
@@ -5910,99 +5920,99 @@ Node: Initializing Union Members54419
 Node: Accessing Union Members56447
 Node: Size of Unions57504
 Node: Structures58783
-Node: Defining Structures59177
-Node: Declaring Structure Variables60530
-Node: Declaring Structure Variables at Definition61056
-Node: Declaring Structure Variables After Definition61791
-Node: Initializing Structure Members62519
-Node: Accessing Structure Members65483
-Node: Bit Fields66419
-Node: Size of Structures68075
-Node: Arrays69121
-Node: Declaring Arrays69586
-Node: Initializing Arrays70763
-Node: Accessing Array Elements73085
-Node: Multidimensional Arrays73949
-Node: Arrays as Strings74863
-Node: Arrays of Unions77435
-Node: Arrays of Structures78394
-Node: Pointers79895
-Node: Declaring Pointers80351
-Node: Initializing Pointers81324
-Node: Pointers to Unions83173
-Node: Pointers to Structures84247
-Node: Incomplete Types85371
-Node: Type Qualifiers86240
-Node: Storage Class Specifiers87219
-Node: Renaming Types90364
-Node: Expressions and Operators90665
-Node: Expressions91362
-Node: Assignment Operators93195
-Node: Incrementing and Decrementing97818
-Node: Arithmetic Operators100511
-Node: Complex Conjugation104869
-Node: Comparison Operators105930
-Node: Logical Operators108969
-Node: Bit Shifting111220
-Node: Bitwise Logical Operators114133
-Node: Pointer Operators117057
-Node: The sizeof Operator119619
-Node: Type Casts122387
-Node: Array Subscripts124838
-Node: Function Calls as Expressions125921
-Node: The Comma Operator126357
-Node: Member Access Expressions128765
-Node: Conditional Expressions130118
-Node: Statements and Declarations in Expressions132751
-Node: Operator Precedence136358
-Node: Order of Evaluation141054
-Node: Side Effects142645
-Node: Sequence Points144436
-Ref: Sequence Points-Footnote-1149197
-Node: Sequence Points Constrain Expressions149387
-Ref: Sequence Points Constrain Expressions-Footnote-1156231
-Node: Sequence Points and Signal Delivery156437
-Node: Statements159346
-Node: Labels159985
-Node: Expression Statements160808
-Node: The if Statement161876
-Node: The switch Statement163796
-Node: The while Statement166784
-Node: The do Statement167583
-Node: The for Statement168363
-Node: Blocks171829
-Node: The Null Statement173139
-Node: The goto Statement174137
-Node: The break Statement175911
-Node: The continue Statement176729
-Node: The return Statement177329
-Node: The typedef Statement179001
-Node: Functions180448
-Node: Function Declarations181362
-Node: Function Definitions183164
-Node: Calling Functions184770
-Node: Function Parameters185635
-Node: Variable Length Parameter Lists189126
-Node: Calling Functions Through Function Pointers191529
-Node: The main Function192401
-Ref: The main Function-Footnote-1194718
-Node: Recursive Functions194882
-Node: Static Functions195723
-Node: Nested Functions196398
-Node: Program Structure and Scope197197
-Node: Program Structure197524
-Node: Scope199009
-Node: A Sample Program200036
-Node: hello.c200892
-Node: system.h207237
-Node: Overflow208860
-Node: Integer Overflow Basics210000
-Node: Signed Overflow Examples211719
-Node: Optimization and Wraparound215212
-Node: Signed Overflow Advice218164
-Node: Signed Integer Division220828
-Node: GNU Free Documentation License221429
-Node: Index246556
+Node: Defining Structures59318
+Node: Declaring Structure Variables61614
+Node: Declaring Structure Variables at Definition62245
+Node: Declaring Structure Variables After Definition63344
+Node: Initializing Structure Members64370
+Node: Accessing Structure Members69540
+Node: Bit Fields71060
+Node: Size of Structures73943
+Node: Arrays75910
+Node: Declaring Arrays76599
+Node: Initializing Arrays78534
+Node: Accessing Array Elements82469
+Node: Multidimensional Arrays83333
+Node: Arrays as Strings84247
+Node: Arrays of Unions86819
+Node: Arrays of Structures87778
+Node: Pointers89279
+Node: Declaring Pointers89735
+Node: Initializing Pointers90708
+Node: Pointers to Unions92557
+Node: Pointers to Structures93631
+Node: Incomplete Types94755
+Node: Type Qualifiers95624
+Node: Storage Class Specifiers96603
+Node: Renaming Types99748
+Node: Expressions and Operators100049
+Node: Expressions100746
+Node: Assignment Operators102579
+Node: Incrementing and Decrementing107202
+Node: Arithmetic Operators109895
+Node: Complex Conjugation114253
+Node: Comparison Operators115314
+Node: Logical Operators118353
+Node: Bit Shifting120604
+Node: Bitwise Logical Operators123517
+Node: Pointer Operators126441
+Node: The sizeof Operator129003
+Node: Type Casts131771
+Node: Array Subscripts134222
+Node: Function Calls as Expressions135305
+Node: The Comma Operator135741
+Node: Member Access Expressions138149
+Node: Conditional Expressions139502
+Node: Statements and Declarations in Expressions142135
+Node: Operator Precedence145742
+Node: Order of Evaluation150438
+Node: Side Effects152029
+Node: Sequence Points153820
+Ref: Sequence Points-Footnote-1158581
+Node: Sequence Points Constrain Expressions158771
+Ref: Sequence Points Constrain Expressions-Footnote-1165615
+Node: Sequence Points and Signal Delivery165821
+Node: Statements168730
+Node: Labels169369
+Node: Expression Statements170192
+Node: The if Statement171260
+Node: The switch Statement173180
+Node: The while Statement176168
+Node: The do Statement176967
+Node: The for Statement177747
+Node: Blocks181213
+Node: The Null Statement182523
+Node: The goto Statement183521
+Node: The break Statement185295
+Node: The continue Statement186113
+Node: The return Statement186713
+Node: The typedef Statement188385
+Node: Functions189832
+Node: Function Declarations190746
+Node: Function Definitions192548
+Node: Calling Functions194154
+Node: Function Parameters195019
+Node: Variable Length Parameter Lists198510
+Node: Calling Functions Through Function Pointers200913
+Node: The main Function201785
+Ref: The main Function-Footnote-1204102
+Node: Recursive Functions204266
+Node: Static Functions205107
+Node: Nested Functions205782
+Node: Program Structure and Scope206581
+Node: Program Structure206908
+Node: Scope208393
+Node: A Sample Program209420
+Node: hello.c210276
+Node: system.h216621
+Node: Overflow218244
+Node: Integer Overflow Basics219384
+Node: Signed Overflow Examples221103
+Node: Optimization and Wraparound224596
+Node: Signed Overflow Advice227548
+Node: Signed Integer Division230212
+Node: GNU Free Documentation License230813
+Node: Index255940
 
 End Tag Table
 
