@@ -1256,13 +1256,13 @@ int мой_массив[] = @{ 0, 1, 2, [99] = 99 @};
 
 
 @node Accessing Array Elements
-@subsection Accessing Array Elements
+@subsection Доступ к Элементам Массива
 @cindex accessing array elements
 @cindex array elements, accessing
 
-You can access the elements of an array by specifying the array name,
-followed by the element index, enclosed in brackets.  Remember that the array
-elements are numbered starting with zero.  Here is an example:
+Можно получить доступ к элементам массива, указав имя массива, а затем индекс
+элемента, заключенный в квадратные скобки.  Следует помнить, что элементы
+массива нумеруются, начиная с нуля.  Вот пример:
 
 @example
 @group
@@ -1270,243 +1270,242 @@ my_array[0] = 5;
 @end group
 @end example
 
-That assigns the value 5 to the first element in the array, at position
-zero.  You can treat individual array elements like variables of whatever
-data type the array is made up of.  For example, if you have an array made
-of a structure data type, you can access the structure elements like this:
+Это присваивает значение 5 первому элементу в массиве, в нулевой позиции.
+Можно рассматривать отдельные элементы массива, как переменные любого типа
+данных из которых состоит массив.  Например, если есть массив, заполненный
+данными типа структура, можно получить доступ к элементам структуры, так:
+(ВопросTypes1277)
 
 @example
 @group
-struct point
+struct точка
 @{
   int x, y;
 @};
-struct point point_array[2] = @{ @{4, 5@}, @{8, 9@} @};
-point_array[0].x = 3;
+struct точка точка_массив[2] = @{ @{4, 5@}, @{8, 9@} @};
+точка_массив[0].x = 3;
 @end group
 @end example
 
 
 
 @node Multidimensional Arrays
-@subsection Multidimensional Arrays
+@subsection Многомерные Массивы
 @cindex multidimensional arrays
 @cindex arrays, multidimensional
 
-You can make multidimensional arrays, or ``arrays of arrays''.
-You do this by adding an extra set of brackets and array lengths for every
-additional dimension you want your array to have.  For example, here is
-a declaration for a two-dimensional array that holds five elements in each
-dimension (a two-element array consisting of five-element arrays):
+Можно создавать многомерные массивы или ``массивы массивов''.  Делается это,
+добавлением дополнительного набора скобок и указания длинны массива для
+каждого вложенного массива, если нужно указать колличество элементов, которое
+массив будет иметь.  Например, ниже объявление для двумерного массива,
+который содержит пять элементов в каждом элементе (массив из двух элементов
+массивов, каждый из которых, сам состоит из пяти элементов массива):
 
 @example
 @group
-int two_dimensions[2][5] @{ @{1, 2, 3, 4, 5@}, @{6, 7, 8, 9, 10@} @};
+int двух_уровневый_массив[2][5] @{ @{1, 2, 3, 4, 5@}, @{6, 7, 8, 9, 10@} @};
 @end group
 @end example
 
-Multidimensional array elements are accessed by specifying the desired index
-of both dimensions:
+Доступ к элементу многомерного массива осуществляется путём указания
+желаемого индекса обоих массивов:
 
 @example
 @group
-two_dimensions[1][3] = 12;
+двух_уровневый_массив[1][3] = 12;
 @end group
 @end example
 
-In our example, @code{two_dimensions[0]} is itself an array.  The
-element @code{two_dimensions[0][2]} is followed by
-@code{two_dimensions[0][3]}, not by @code{two_dimensions[1][2]}.
+В нашем примере, @code{двух_уровневый_массив[0]} это сам массив.  Элемент
+@code{двух_уровневый_массив[0][2]} за которым следует
+@code{двух_уровневый_массив[0][3]}, а не @code{двух_уровневый_массив[1][2]}.
 
 @node Arrays as Strings
-@subsection Arrays as Strings
+@subsection Строки как Массивы
 @cindex arrays as strings
 @cindex strings, arrays as
 
-You can use an array of characters to hold a string (@pxref{String Constants}).
-The array may be built of either signed or unsigned characters.
+Можно использовать массив символов для хранения строки
+(@pxref{String Constants}).
+Массив может содержать и буквенные и небуквенные символы.
 
 @cindex string arrays, declaring
 @cindex declaring string arrays
-When you declare the array, you can specify the number of elements it will
-have.  That number will be the maximum number of characters that should be
-in the string, including the null character used to end the string.  If you
-choose this option, then you do not have to initialize the array when you
-declare it.  Alternately, you can simply initialize the array to a value,
-and its size will then be exactly large enough to hold whatever string you
-used to initialize it.
+Когда объявляется массив, можно указать количество элементов, которые он
+будет иметь.  Это число будет максимальным количеством символов, которые
+может содержать строка, включая нулевой символ завершения строки.  Если
+выбирается этот вариант, то не нужно инициализировать массив при его
+объявлении.  Кроме того, можно просто инициализировать массив значением, и
+тогда его размер будет точно достаточно большим, чтобы вместить все строки,
+который использовались для его инициализации.
 
 @cindex string arrays, initializing
 @cindex initializing string arrays
-There are two different ways to initialize the array.  You can specify of
-comma-delimited list of characters enclosed in braces, or you can specify a
-string literal enclosed in double quotation marks.
+Есть два различных способа инициализации массива.  Можно указать список
+символов, разделенных запятыми и заключенных в фигурные скобки, или можно
+указать строку, заключённую в двойные кавычки.
 
-Here are some examples:
+Вот несколько примеров:
 
 @example
 @group
-char blue[26];
-char yellow[26] = @{'y', 'e', 'l', 'l', 'o', 'w', '\0'@};
-char orange[26] = "orange";
-char gray[] = @{'g', 'r', 'a', 'y', '\0'@};
-char salmon[] = "salmon";
+char синий[26];
+char желтый[26] = @{'ж', 'е', 'л', 'т', 'ы', 'й', '\0'@};
+char оранжевый[26] = "оранжевый";
+char серый[] = @{'с', 'е', 'р', 'ы', 'й', '\0'@};
+char лосось[] = "лосось";
 @end group
 @end example
 
-In each of these cases, the null character @code{\0} is included at the
-end of the string, even when not explicitly stated.   (Note that if you
-initialize a string using an array of individual characters, then the
-null character is @emph{not} guaranteed to be present.  It might be,
-but such an occurrence would be one of chance, and should not be relied
-upon.)
+В каждом из этих случаев нулевой символ @code{\0} всегда завершает строку,
+даже если он явно не указано.  (Обратите внимание, что если инициализировать
+строку, используя массив отдельных символов, то нулевой символ
+@emph{требуется} указывать.  Он может появится произвольно, но это редкий
+случай, и не следует на него полагаться.)
 
 
-After initialization, you cannot assign a new string literal to an array
-using the assignment operator.  For example, this
-@emph{will not work}:
+После инициализации, нельзя присвоить массиву новый строковый литерал с
+помощью оператора присваивания.  Например, это @emph{не сработает}:
 
 @example
 @group
-char lemon[26] = "custard";
-lemon = "steak sauce";      /* @r{Fails!} */
+char лемон[26] = "заварной крем";
+лемон = "соус стейк";      /* @r{Ошибка!} */
 @end group
 @end example
 
 @noindent
-However, there are functions in the GNU C library that perform operations
-(including copy) on string arrays.  You can also change one character at
-a time, by accessing individual string elements as you would any other
-array:
+Однако, есть функции в библиотеке GNU C, которые выполняют операции (в том
+числе копирования) на строковых массивах.  Можете изменить один символ за
+один раз, с помощью доступа к отдельным элементам строки, как и с любым
+другим массивом:
 
 @example
 @group
-char name[] = "bob";
-name[0] = 'r';
+char имя[] = "юля";
+имя[0] = 'а';
 @end group
 @end example
 
-It is possible for you to explicitly state the number of elements in the
-array, and then initialize it using a string that has more characters than
-there are elements in the array.  This is not a good thing.  The larger string
-will @emph{not} override the previously specified size of the array, and you
-will get a compile-time warning.  Since the original array size remains, any
-part of the string that exceeds that original size is being written to a memory
-location that was not allocated for it.
+Возможно явно указать количество элементов в массиве, а затем
+инициализировать его, используя строку, которая имеет больше символов, чем
+колличество элементов в массиве.  Это не хорошая идея.  Заданная превышающая
+по длинне строка @emph{не} переопределит ранее заданный размер массива, и
+при компиляции сгенерируется предупреждение.  Поскольку исходный размер
+массива не изменяется, та часть строки, которая превышает исходный размер
+записывается в смежные ячейки памяти, которые не были выделена для этого.
 
 
 @node Arrays of Unions
-@subsection Arrays of Unions
+@subsection Массивы Объединений
 @cindex arrays of unions
 @cindex unions, arrays of
 
-You can create an array of a union type just as you can an array
-of a primitive data type.
+Можно создать массив типа объединение так же, как и массив примитивного типа
+данных.
 
 @example
 @group
-union numbers
+union числа
   @{
     int i;
     float f;
   @};
-union numbers number_array [3];
+union числа массив_чисел [3];
 @end group
 @end example
 
-That example creates a 3-element array of @code{union numbers}
-variables called @code{number_array}.  You can also initialize the
-first members of the elements of a number array:
+Этот пример создает 3-элементный массив типа @code{union числа} в переменной,
+с именем @code{массив_чисел}.  Также можно инициализировать первый элемент
+массива @code{числа}:
 
 @example
 @group
-union numbers number_array [3] = @{ @{3@}, @{4@}, @{5@} @};
+union числа массив_чисел [3] = @{ @{3@}, @{4@}, @{5@} @};
 @end group
 @end example
 
-@noindent The additional inner grouping braces are optional.
+@noindent Дополнительные внутренние скобки не являются обязательными.
 
-After initialization, you can still access the union members in the
-array using the member access operator.  You put the array name and
-element number (enclosed in brackets) to the left of the operator, and
-the member name to the right.
+После инициализации, можно получить доступ к элементам объединения в массиве
+с помощью оператора доступа к элементу @code{точка (.)}.  Имя массива и номер
+элемента (заключенного в скобках) слева от оператора, а имя элемента справа.
 
 @example
 @group
-union numbers number_array [3];
-number_array[0].i = 2;
+union числа массив_чисел [3];
+массив_чисел[0].i = 2;
 @end group
 @end example
 
 @node Arrays of Structures
-@subsection Arrays of Structures
+@subsection Массивы Структур
 @cindex arrays of structures
 @cindex structures, arrays of
 
-You can create an array of a structure type just as you can an array
-of a primitive data type.
+Можно создать массив типа структура так же, как и массив примитивного типа
+данных.
 
 @example
 @group
-struct point
+struct точка
   @{
     int x, y;
   @};
-struct point point_array [3];
+struct точка массив_точек [3];
 @end group
 @end example
 
-That example creates a 3-element array of @code{struct point}
-variables called @code{point_array}.  You can also initialize the
-elements of a structure array:
+Этот пример создает 3-элементный массив типа @code{struct точка} в переменной
+с именем @code{массив_точек}.  Также можно инициализировать значениями
+элементы структур массива:
 
 @example
 @group
-struct point point_array [3] = @{ @{2, 3@}, @{4, 5@}, @{6, 7@} @};
+struct точка массив_точек [3] = @{ @{2, 3@}, @{4, 5@}, @{6, 7@} @};
 @end group
 @end example
 
-As with initializing structures which contain structure members, the
-additional inner grouping braces are optional.  But, if you use the
-additional braces, then you can partially initialize some of the
-structures in the array, and fully initialize others:
+Как и в случае инициализации структур, которые содержат элементы структуры,
+установка дополнительных внутренних скобок не является обязательным.  Но,
+если используются дополнительные фигурные скобки, то можно частично
+инициализировать некоторые структуры в массиве или полностью инициализировать
+остальные по желанию:
 
 @example
 @group
-struct point point_array [3] = @{ @{2@}, @{4, 5@}, @{6, 7@} @};
+struct точка массив_точек [3] = @{ @{2@}, @{4, 5@}, @{6, 7@} @};
 @end group
 @end example
 
-In that example, the first element of the array has only its @code{x}
-member initialized.  Because of the grouping braces, the value 4 is
-assigned to the @code{x} member of the second array element,
-@emph{not} to the @code{y} member of the first element, as would be
-the case without the grouping braces.
+В этом примере первому элементу массива устанавливается только значение
+структуры элементe @code{x}.  Фигурные скобки, указывают присвоить значение 4
+элементу @code{x} второго элемента массива, @emph{не} элементу @code{y}
+первого элемента, как это было бы в случае без указания фигурных скобок.
 
-After initialization, you can still access the structure members in the
-array using the member access operator.  You put the array name and
-element number (enclosed in brackets) to the left of the operator, and
-the member name to the right.
+После инициализации, можно получить доступ к элементам массива, элементам
+структуры с помощью оператора доступа к элементу @code{точка (.)}.  Имя
+массива и номер элемента (заключенный в скобках) устанавливается слева от
+оператора, а имя элемента справа.
 
 @example
 @group
-struct point point_array [3];
-point_array[0].x = 2;
-point_array[0].y = 3;
+struct точка массив_точек [3];
+массив_точек[0].x = 2;
+массив_точек[0].y = 3;
 @end group
 @end example
 
-@c ----------------------------------------------------------------------------
+@c --------------------------------------------------------------------------
 @node Pointers
-@section Pointers
+@section Указатели
 @cindex pointers
 @cindex types, pointer
 @cindex data types, pointer
 
-Pointers hold memory addresses of stored constants or variables.  For
-any data type, including both primitive types and custom types, you
-can create a pointer that holds the memory address of an instance of
-that type.
+Указатели хранят адреса памяти сохраннённых констант или переменных.  Для
+любого типа данных, включая как примитивные типы, так и определяемые типы,
+можно создать указатель, который содержит адрес памяти экземпляра этого типа.
 
 @menu
 * Declaring Pointers::
@@ -1516,34 +1515,34 @@ that type.
 @end menu
 
 @node Declaring Pointers
-@subsection Declaring Pointers
+@subsection Объявление Указателей
 @cindex declaring pointers
 @cindex pointers, declaring
 
-You declare a pointer by specifying a name for it and a data type.
-The data type indicates of what type of variable the pointer will
-hold memory addresses.
+Указатель объявляется указанием его имени и типа данных.  Тип данных
+указывает на то, какой тип имеет переменная по этому адресу в памяти для
+указателя.
 
-To declare a pointer, include the indirection
-operator (@pxref{Pointer Operators}) before 
-the identifier.  Here is the general form of a pointer declaration:
+Для того, чтобы объявить указатель, включают (@pxref{Pointer Operators})
+оператор косвенного обращения перед идентификатором.  Вот общая форма
+декларации указателя:
 
 @example
-@var{data-type} * @var{name};
+@var{тип-данных} * @var{имя};
 @end example
 
 @noindent
-White space is not significant around the indirection operator:
+Пробел не является обязательным вокруг оператора косвенного обращения:
 
 @example
 @group
-@var{data-type} *@var{name};
-@var{data-type}* @var{name};
+@var{тип-данных} *@var{имя};
+@var{тип-данных}* @var{имя};
 @end group
 @end example
 
-Here is an example of declaring a pointer to hold the address of
-an @code{int} variable:
+Вот пример того, чтобы объявить указатель содержащий адрес переменной типа
+@code{int}:
 
 @example
 @group
@@ -1551,26 +1550,27 @@ int *ip;
 @end group
 @end example
 
-Be careful, though:  when declaring multiple pointers in the same statement, you must
-explicitly declare each as a pointer, using the indirection operator:
+Будьте осторожны: при объявлении нескольких указателей в одном операторе,
+нужно явно объявить каждую переменную как указатель, с помощью оператора
+разыменования (он же косвенного обращения):
 
 @example
 @group
-int *foo, *bar;  /* @r{Two pointers.} */
-int *baz, quux;   /* @r{A pointer and an integer variable.} */
+int *один, *два;  /* @r{Два указателя.} */
+int *один, два;   /* @r{Указатель на переменную с типом @code{int} и
+                  целочисленная переменная.} */
 @end group
 @end example
 
 
 @node Initializing Pointers
-@subsection Initializing Pointers
+@subsection Инициализация Указателей
 @cindex initializing pointers
 @cindex pointers, initializing
 
-You can initialize a pointer when you first declare it by specifying
-a variable address to store in it.  For example, the following code
-declares an @code{int} variable @samp{i}, and a pointer which is
-initialized with the address of @samp{i}:
+Можно инициализировать указатель, при его объявлении, присвоив ему адрес
+переменной.  Например, следующий код объявляет переменную @code{int} @samp{i}
+и указатель, который инициализируется адресом @samp{i}:
 
 @example
 @group
@@ -1579,67 +1579,67 @@ int *ip = &i;
 @end group
 @end example
 
-Note the use of the address operator (@pxref{Pointer Operators}), used
-to get the memory address of a variable.  After you declare a pointer, you
-do @emph{not} use the indirection operator with the pointer's name when
-assigning it a new address to point to.  On the contrary, that would change
-the value of the variable that the points to, not the value of the pointer
-itself.  For example:
+Обратите внимание на использование оператора взятие адреса
+(@pxref{Pointer Operators}), используемого для получения адреса памяти
+переменной.  После того, как объявлен указатель, @emph{не} требуется
+использовать оператор разыменования с именем указателя при назначении ему
+нового адреса.  Наоборот, это значение используется для того, что бы изменить
+значение переменной, на адрес которой он указывает, а не значение самого
+указателя.  Например:
 
 @example
 @group
 int i, j;
-int *ip = &i;  /* @r{@samp{ip} now holds the address of @samp{i}.} */
-ip = &j;       /* @r{@samp{ip} now holds the address of @samp{j}.} */
-*ip = &i;      /* @r{@samp{j} now holds the address of @samp{i}.} */
+int *ip = &i;  /* @r{@samp{ip} теперь содержит адрес @samp{i}.} */
+ip = &j;       /* @r{@samp{ip} теперь содержит адрес @samp{j}.} */
+*ip = &i;      /* @r{@samp{j} теперь содержит адрес @samp{i}.} */
 @end group
 @end example
 
-The value stored in a pointer is an integral number: a location within
-the computer's memory space.  If you are so inclined, you can assign pointer
-values explicitly using literal integers, casting them to the appropriate
-pointer type.  However, we do not recommend this practice unless you need
-to have extremely fine-tuned control over what is stored in memory, and you
-know exactly what you are doing.  It would be all too easy to accidentally
-overwrite something that you did not intend to.   Most uses of this
-technique are also non-portable.
+Значение, хранящееся в указателе является целым числом: местоположение в
+пространстве памяти компьютера.  Если есть желание, можно присвоить значение
+указателю в явном виде с помощью литералов целых чисел, приведя указатель к
+соответствующему типу.  Тем не менее, не рекомендуется такая практика, если
+нет жёсткого контроля над тем, что хранится в памяти, и точно знаете, что
+происходит.  Слишком легко случайно перезапись то, что не требовалося.
+В большинстве случаев применения этой техники также делает код
+непереносимым.
 
-It is important to note that if you do not initialize a pointer with
-the address of some other existing object, it points nowhere in
-particular and will likely make your program crash if you use it
-(formally, this kind of thing is called @dfn{undefined behavior}).
+Важно отметить, что если не инициализировать указатель адресом какого-либо
+существующего объекта, это не отразится нигде, и вероятно, приведёт к сбою
+программы, при попытки использовать его (формально, такого рода проявления
+называют @dfn{неопределенное поведение}).
 
 @node Pointers to Unions
-@subsection Pointers to Unions
+@subsection Указатели на Объединения
 @cindex pointers to unions
 @cindex unions, pointers to
 
-You can create a pointer to a union type just as you can a pointer
-to a primitive data type.
+Можно создать указатель типа объединение так же, как и указатель на
+примитивный тип данных.
 
 @example
 @group
-union numbers
+union числа
   @{
     int i;
     float f;
   @};
-union numbers foo = @{4@};
-union numbers *number_ptr = &foo;
+union числа первый_набор = @{4@};
+union числа *числа_указатель = &первый_набор;
 @end group
 @end example
 
-That example creates a new union type, @code{union numbers}, and
-declares (and initializes the first member of) a variable of that type
-named @code{foo}.  Finally, it declares a pointer to the type
-@code{union numbers}, and gives it the address of @code{foo}.
+Этот пример создаёт новый тип объединения, @code{union числа} и объявляет
+(и инициализирует первый элемент) переменную этого типа с именем
+@code{первый_набор}.  Наконец, объявляется указатель типа @code{union числа},
+и дает ему адрес @code{первый_набор}.
 
-You can access the members of a union variable through a pointer, but
-you can't use the regular member access operator anymore.  Instead,
-you have to use the indirect member access operator (@pxref{Member
-Access Expressions}).  Continuing with the previous example, the
-following example will change the value of the first member of
-@code{foo}:
+Можно получить доступ к членам переменной объединения через указатель, но
+вы не можете больше использовать обычный оператор доступа к элементу.  Вместо
+этого, требуется использовать оператор косвенного доступа к элементу
+(@pxref{Member Access Expressions}).  Продолжая предыдущий пример, следующий
+пример будет менять значение первого элемента @code{первый_набор}:
 
 @example
 @group
@@ -1647,134 +1647,135 @@ number_ptr -> i = 450;
 @end group
 @end example
 
-Now the @code{i} member in @code{foo} is 450.
+Теперь элемент @code{i} в @code{первый_набор} содержит 450.
 
 
 @node Pointers to Structures
-@subsection Pointers to Structures
+@subsection Указатели на Структуры
 @cindex pointers to structures
 @cindex structures, pointers to
 
-You can create a pointer to a structure type just as you can a pointer
-to a primitive data type.
+Можно создать указатель с типом структура так же, как и указатель на
+примитивный тип данных.
 
 @example
 @group
-struct fish
+struct рыба
   @{
-    float length, weight;
+    float длинна, ширина;
   @};
-struct fish salmon = @{4.3, 5.8@};
-struct fish *fish_ptr = &salmon;
+struct рыба лосось = @{4.3, 5.8@};
+struct рыба *рыба_указатель = &лосось;
 @end group
 @end example
 
-That example creates a new structure type, @code{struct fish}, and
-declares (and initializes) a variable of that type named @code{salmon}.
-Finally, it declares a pointer to the type @code{struct fish}, and
-gives it the address of @code{salmon}.
+Этот пример создает новый тип структуры, @code{struct рыба} и заявляет (и
+инициализирует) переменную этого типа с именем @code{лосось}.  Наконец,
+объявляется указатель типа @code{struct рыба}, и даётся ему адрес переменной
+@code{лосось}.
 
-You can access the members of a structure variable through a pointer,
-but you can't use the regular member access operator anymore.
-Instead, you have to use the indirect member access operator
-(@pxref{Member Access Expressions}).  Continuing with the previous
-example, the following example will change the values of the members
-of @code{salmon}:
+Можно получить доступ к элементам переменной структуры через указатель, но
+нельзя больше использовать обычный оператор доступа к элементу.  Вместо этого
+требуется использовать оператор косвенного доступа к элементу
+(@pxref{Member Access Expressions}).  Продолжая предыдущий пример, следующий
+пример изменит значения элемента @code{лосось}:
 
 @example
 @group
-fish_ptr -> length = 5.1;
-fish_ptr -> weight = 6.2;
+рыба_указатель -> длинна = 5.1;
+рыба_указатель -> ширина = 6.2;
 @end group
 @end example
 
-Now the @code{length} and @code{width} members in @code{salmon} are
-5.1 and 6.2, respectively.
+Теперь элементы @code{длинна} и @code{ширина} в @code{лосось} являются 5,1 и
+6,2, соответственно.
 
 
-@c ----------------------------------------------------------------------------
+@c --------------------------------------------------------------------------
 
 @node Incomplete Types
-@section Incomplete Types
+@section Неполные Типы
 @cindex incomplete types
 @cindex types, incomplete
 @cindex structures, incomplete
 @cindex enumerations, incomplete
 @cindex unions, incomplete
 
-You can define structures, unions, and enumerations without listing their
-members (or values, in the case of enumerations).  Doing so results in
-an incomplete type.  You can't declare variables of incomplete types, but
-you can work with pointers to those types.
+Можно определить структуры, объединения и перечисления без перечисления их
+элементов (или значений, в случае перечислений).  Это производит неполный
+тип.  Можно объявлять переменные неполных типов и создавать и работать с
+указателями на эти типы.
 
 @example
 @group
-struct point;
+struct точка;
 @end group
 @end example
 
-At some time later in your program you will want to complete
-the type.  You do this by defining it as you usually would:
+В какой-то момент позже в вашей программе потребуется завершить этот тип.
+Это можно сделать, определив его, как обычно:
 
 @example
 @group
-struct point
+struct точка
   @{
     int x, y;
   @};
 @end group
 @end example
 
-This technique is commonly used to for linked lists:
+Этот метод обычно используется для связанных списков:
 
 @example
 @group
-struct singly_linked_list
+struct отдельный_связанный_список
   @{
-    struct singly_linked_list *next;
+    struct отдельный_связанный_список *следующий;
     int x;
-    /* other members here perhaps */
+    /* здесь возможно другие элементы */
   @};
-struct singly_linked_list *list_head;
+struct отдельный_связанный_список *список_начало;
 @end group
 @end example
 
 
 @c ----------------------------------------------------------------------------
 @node Type Qualifiers
-@section Type Qualifiers
+@section Квалификаторы Типов
 @cindex type qualifiers
 @cindex qualifiers, type
 @cindex @code{const} type qualifier
 @cindex @code{volatile} type qualifier
 @c ANSI C89, section 6.5.3. ``Type Qualifiers''.
-There are two type qualifiers that you can prepend to your variable declarations
-which change how the variables may be accessed:  @code{const} and @code{volatile}.
+Есть два типа квалификаторов, которые можно ДОБАВЛЯТЬ при объявлении
+переменных, которые влияют на доступ к ней: @code{const} и @code{volatile}.
 
-@code{const} causes the variable to be read-only; after initialization, its
-value may not be changed.
+@code{const} определяет переменную только для чтения; после её инициализации,её значение не может быть изменено.
 
 @example
 const float pi = 3.14159f;
 @end example
 
 @noindent
-In addition to helping to prevent accidental value changes, declaring variables
-with @code{const} can aid the compiler in code optimization.
+В дополнение к предупреждениям компилятора, которые сигнализируют о изменении
+константных значений, объявления переменных с квалификатором @code{const}
+помогает компилятору в оптимизации кода.
 
-@code{volatile} tells the compiler that the variable is explicitly changeable,
-and seemingly useless accesses of the variable (for instance, via pointers) should
-not be optimized away.  You might use @code{volatile} variables to store data
-that is updated via callback functions or signal handlers.
+@code{volatile} явно сообщает компилятору, что переменная будет менять своё
+значение, и то что рассматривается безполезным для компилятора, например
+доступ к переменной (например, с помощью указателей), не должно им
+оптимизироваться.  Можно использовать объявления переменных с квалификатором
+@code{volatile} для хранения данных, которые обновляются с помощью функций
+обратного вызова или обработчиков сигналов.
 @ref{Sequence Points and Signal Delivery}.
 
 @example
-volatile float currentTemperature = 40.0;
+volatile float текущаяТемпература = 40.0;
 @end example
 
 @c ----------------------------------------------------------------------------
 @node Storage Class Specifiers
-@section Storage Class Specifiers
+@section Спецификаторы Классов Хранения
 @cindex storage class specifiers
 @cindex specifiers, storage class
 @cindex @code{auto} storage class specifier
@@ -1782,40 +1783,42 @@ volatile float currentTemperature = 40.0;
 @cindex @code{register} storage class specifier
 @cindex @code{static} storage class specifier
 
-There are four storage class specifiers that you can prepend to your variable
-declarations which change how the variables are stored in memory:
-@code{auto}, @code{extern}, @code{register}, and @code{static}.
+Есть четыре спецификатора классов хранения, которыми можно ДОПОЛНЯТЬ
+объявления переменных, которые изменяют, как переменные хранятся в памяти:
+@code{auto}, @code{extern}, @code{register}, и @code{static}.
 
-You use @code{auto} for variables which are local to a function, and whose
-values should be discarded upon return from the function in which they are
-declared.  This is the default behavior for variables declared within functions.
+Можно использовать спецификатор @code{auto} для переменных, которые являются
+локальными для функции, и значение которых должно быть отброшены после
+возврата из функции, в которой переменные были объявлены.  Это поведение по
+умолчанию для переменных, объявленных внутри функций.
 
 @example
 @group
 void
-foo (int value)
+foo (int значение)
 @{
-  auto int x = value;
+  auto int x = значение;
   @dots{}
   return;
 @}
 @end group
 @end example
 
-@code{register} is nearly identical in purpose to @code{auto}, except that
-it also suggests to the compiler that the variable will be heavily used, and,
-if possible, should be stored in a register.  You cannot use the
-address-of operator to obtain the address of a variable declared with
-@code{register}.  This means that you cannot refer to the elements of
-an array declared with storage class @code{register}.  In fact the
-only thing you can do with such an array is measure its size with
-@code{sizeof}.  GCC normally makes good choices about which values to
-hold in registers, and so @code{register} is not often used.
+Спецификатор @code{register} почти идентичен @code{auto} по назначению, за
+исключением того, что он также указывает компилятору, что переменная будет
+активно использоваться, и, если это возможно, должна храниться в регистре.
+Нельзя использовать оператор взятия адреса, чтобы получить адрес переменной,
+объявленной с спецификатором @code{register}.  Это означает, что не
+получиться обратиться к элементам массива, объявленного с классом хранения
+@code{register}.  На самом деле единственное, где пригодится испоьзование
+такого массива, это измерение его размера с помощью @code{sizeof}.  GCC
+обычно делает правильный выбор о том, какие значения требуется хранить в
+регистрах, и поэтому квалификатор @code{register} не часто используется.
 
-@code{static} is essentially the opposite of @code{auto}: when applied to
-variables within a function or block, these variables will retain their
-value even when the function or block is finished.   This is known as
-@dfn{static storage duration}.
+Спецификатор @code{static}, по существу, отрабатывает противоположно
+@code{auto}: при применении к переменным внутри функции или блока, эти
+переменные сохраняют свое значение даже тогда, когда функция или блок
+закончены.  Это известно как @dfn{длительное статическое зранение}.
 
 @example
 @group
@@ -1830,47 +1833,52 @@ sum (int x)
 @end example
 
 @noindent
-You can also declare variables (or functions) at the top level (that
-is, not inside a function) to be @code{static}; such variables are
-visible (global) to the current source file (but not other source
-files).  This gives an unfortunate double meaning to @code{static};
-this second meaning is known as @dfn{static linkage}.  Two functions
-or variables having static linkage in separate files are entirely
-separate; neither is visible outside the file in which it is declared.
+Можно также объявить переменную (или функцию) на верхнем уровне (то есть, не
+внутри функции) используя спецификатор @code{static}; такие переменные видны
+(глобальные переменные) для текущего исходного файла (но не для других
+исходных файлов).  Это к сожалению даёт двойной смысл спецификатору
+@code{static}; это второе значение известно как @dfn{статическая связь}.
+Две функции или переменные, имеющие статическую связь в отдельных файлах
+полностью изолированы; ни одна из них не видна за пределами файла, в котором
+она объявлена.
 
-Uninitialized variables that are declared as @code{extern} are given
-default values of @code{0}, @code{0.0}, or @code{NULL}, depending on
-the type.  Uninitialized variables that are declared as @code{auto} or
-@code{register} (including the default usage of @code{auto}) are left
-uninitialized, and hence should not be assumed to hold any particular
-value.
+Неинициализированные переменные, объявленные с испльзованием спецификатора
+@code{extern} получают стандартные значения по умолчанию @code{0}, @code{0.0}
+или @code{NULL}, в зависимости от типа переменной.  Неинициализированные
+переменные, которые объявлены с использованием спецификатора @code{auto} или
+@code{register} (в том числе когда используется спецификатор по умолчанию
+@code{auto}) остаются неинициализированным, и, следовательно, не следует
+рассматривать то, что хранит неинициализированная переменная.
 
-@code{extern} is useful for declaring variables that you want to be visible to
-all source files that are linked into your project.  You cannot initialize a
-variable in an @code{extern} declaration, as no space is actually allocated
-during the declaration.  You must make both an @code{extern} declaration
-(typically in a header file that is included by the other source files which
-need to access the variable) and a non-@code{extern} declaration which is where
-space is actually allocated to store the variable.  The @code{extern} declaration
-may be repeated multiple times.
+@code{extern} полезно для объявления переменных, которые должны быть видимыми
+для всех исходных файлов, которые входят в проект.  Нельзя инициализировать
+переменную в объявлении с использовании спецификатора @code{extern}, так как
+фактически не выделяется место для хранения переменной во время её
+объявления.  Нужно использовать объявление с использованием спецификатора
+@code{extern} (обычно в заголовочном файле, который включается другими
+исходными файлами, которые должны получить доступ к переменной) где не
+требуется фактическое выделения места для переменной и использовать
+не-@code{extern} объявления в противном случае.  Объявления @code{extern}
+может повторяться несколько раз.
 
 @example
 @group
-extern int numberOfClients;
+extern int номерКлиента;
 
 @dots{}
 
-int numberOfClients = 0;
+int номерКлиента = 0;
 @end group
 @end example
 
-@xref{Program Structure and Scope}, for related information.
+@xref{Program Structure and Scope}, для дополнительное информации.
 
-@c ----------------------------------------------------------------------------
+@c --------------------------------------------------------------------------
 @node Renaming Types
-@section Renaming Types
+@section Переименование Типов
 @cindex renaming types
 @cindex types, renaming
 
-Sometimes it is convenient to give a new name to a type.  You can do this using
-the @code{typedef} statement.  @xref{The typedef Statement}, for more information.
+Иногда это удобно, чтобы дать новое имя типу.  Можно сделать это с помощью
+оператора @code{typedef}.  @xref{The typedef Statement}, для получения
+дополнительной информации.

@@ -120,23 +120,23 @@ ul.no-bullet {list-style: none}
     <ul class="no-bullet">
       <li><a id="toc-Obwyavlenie-Massivov" href="#Declaring-Arrays">2.5.1 Объявление Массивов</a></li>
       <li><a id="toc-Inicializaciya-Massivov" href="#Initializing-Arrays">2.5.2 Инициализация Массивов</a></li>
-      <li><a id="toc-Accessing-Array-Elements-1" href="#Accessing-Array-Elements">2.5.3 Accessing Array Elements</a></li>
-      <li><a id="toc-Multidimensional-Arrays-1" href="#Multidimensional-Arrays">2.5.4 Multidimensional Arrays</a></li>
-      <li><a id="toc-Arrays-as-Strings-1" href="#Arrays-as-Strings">2.5.5 Arrays as Strings</a></li>
-      <li><a id="toc-Arrays-of-Unions-1" href="#Arrays-of-Unions">2.5.6 Arrays of Unions</a></li>
-      <li><a id="toc-Arrays-of-Structures-1" href="#Arrays-of-Structures">2.5.7 Arrays of Structures</a></li>
+      <li><a id="toc-Dostup-k-Elementam-Massiva" href="#Accessing-Array-Elements">2.5.3 Доступ к Элементам Массива</a></li>
+      <li><a id="toc-Mnogomernye-Massivy" href="#Multidimensional-Arrays">2.5.4 Многомерные Массивы</a></li>
+      <li><a id="toc-Stroki-kak-Massivy" href="#Arrays-as-Strings">2.5.5 Строки как Массивы</a></li>
+      <li><a id="toc-Massivy-Obwedinenii" href="#Arrays-of-Unions">2.5.6 Массивы Объединений</a></li>
+      <li><a id="toc-Massivy-Struktur" href="#Arrays-of-Structures">2.5.7 Массивы Структур</a></li>
     </ul></li>
-    <li><a id="toc-Pointers-1" href="#Pointers">2.6 Pointers</a>
+    <li><a id="toc-Ukazateli" href="#Pointers">2.6 Указатели</a>
     <ul class="no-bullet">
-      <li><a id="toc-Declaring-Pointers-1" href="#Declaring-Pointers">2.6.1 Declaring Pointers</a></li>
-      <li><a id="toc-Initializing-Pointers-1" href="#Initializing-Pointers">2.6.2 Initializing Pointers</a></li>
-      <li><a id="toc-Pointers-to-Unions-1" href="#Pointers-to-Unions">2.6.3 Pointers to Unions</a></li>
-      <li><a id="toc-Pointers-to-Structures-1" href="#Pointers-to-Structures">2.6.4 Pointers to Structures</a></li>
+      <li><a id="toc-Obwyavlenie-Ukazatelei" href="#Declaring-Pointers">2.6.1 Объявление Указателей</a></li>
+      <li><a id="toc-Inicializaciya-Ukazatelei" href="#Initializing-Pointers">2.6.2 Инициализация Указателей</a></li>
+      <li><a id="toc-Ukazateli-na-Obwedineniya" href="#Pointers-to-Unions">2.6.3 Указатели на Объединения</a></li>
+      <li><a id="toc-Ukazateli-na-Struktury" href="#Pointers-to-Structures">2.6.4 Указатели на Структуры</a></li>
     </ul></li>
-    <li><a id="toc-Incomplete-Types-1" href="#Incomplete-Types">2.7 Incomplete Types</a></li>
-    <li><a id="toc-Type-Qualifiers-1" href="#Type-Qualifiers">2.8 Type Qualifiers</a></li>
-    <li><a id="toc-Storage-Class-Specifiers-1" href="#Storage-Class-Specifiers">2.9 Storage Class Specifiers</a></li>
-    <li><a id="toc-Renaming-Types-1" href="#Renaming-Types">2.10 Renaming Types</a></li>
+    <li><a id="toc-Nepolnye-Tipy" href="#Incomplete-Types">2.7 Неполные Типы</a></li>
+    <li><a id="toc-Kvalifikatory-Tipov" href="#Type-Qualifiers">2.8 Квалификаторы Типов</a></li>
+    <li><a id="toc-Specifikatory-Klassov-Khraneniya" href="#Storage-Class-Specifiers">2.9 Спецификаторы Классов Хранения</a></li>
+    <li><a id="toc-Pereimenovanie-Tipov" href="#Renaming-Types">2.10 Переименование Типов</a></li>
   </ul></li>
   <li><a id="toc-Vyrazheniya-i-Operatory" href="#Expressions-and-Operators">3 Выражения и Операторы</a>
   <ul class="no-bullet">
@@ -2164,30 +2164,31 @@ Next: <a href="#Accessing-Array-Elements" accesskey="n" rel="next">Accessing Arr
 <p>
 Next: <a href="#Multidimensional-Arrays" accesskey="n" rel="next">Multidimensional Arrays</a>, Previous: <a href="#Initializing-Arrays" accesskey="p" rel="prev">Initializing Arrays</a>, Up: <a href="#Arrays" accesskey="u" rel="up">Arrays</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Accessing-Array-Elements-1"></span><h4 class="subsection">2.5.3 Accessing Array Elements</h4>
+<span id="Dostup-k-Elementam-Massiva"></span><h4 class="subsection">2.5.3 Доступ к Элементам Массива</h4>
 <span id="index-accessing-array-elements"></span>
 <span id="index-array-elements_002c-accessing"></span>
 
-<p>You can access the elements of an array by specifying the array name,
-followed by the element index, enclosed in brackets.  Remember that the array
-elements are numbered starting with zero.  Here is an example:
+<p>Можно получить доступ к элементам массива, указав имя массива, а затем индекс
+элемента, заключенный в квадратные скобки.  Следует помнить, что элементы
+массива нумеруются, начиная с нуля.  Вот пример:
 </p>
 <div class="example">
 <pre class="example">my_array[0] = 5;
 </pre></div>
 
-<p>That assigns the value 5 to the first element in the array, at position
-zero.  You can treat individual array elements like variables of whatever
-data type the array is made up of.  For example, if you have an array made
-of a structure data type, you can access the structure elements like this:
+<p>Это присваивает значение 5 первому элементу в массиве, в нулевой позиции.
+Можно рассматривать отдельные элементы массива, как переменные любого типа
+данных из которых состоит массив.  Например, если есть массив, заполненный
+данными типа структура, можно получить доступ к элементам структуры, так:
+(ВопросTypes1277)
 </p>
 <div class="example">
-<pre class="example">struct point
+<pre class="example">struct точка
 {
   int x, y;
 };
-struct point point_array[2] = { {4, 5}, {8, 9} };
-point_array[0].x = 3;
+struct точка точка_массив[2] = { {4, 5}, {8, 9} };
+точка_массив[0].x = 3;
 </pre></div>
 
 
@@ -2197,103 +2198,103 @@ point_array[0].x = 3;
 <p>
 Next: <a href="#Arrays-as-Strings" accesskey="n" rel="next">Arrays as Strings</a>, Previous: <a href="#Accessing-Array-Elements" accesskey="p" rel="prev">Accessing Array Elements</a>, Up: <a href="#Arrays" accesskey="u" rel="up">Arrays</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Multidimensional-Arrays-1"></span><h4 class="subsection">2.5.4 Multidimensional Arrays</h4>
+<span id="Mnogomernye-Massivy"></span><h4 class="subsection">2.5.4 Многомерные Массивы</h4>
 <span id="index-multidimensional-arrays"></span>
 <span id="index-arrays_002c-multidimensional"></span>
 
-<p>You can make multidimensional arrays, or &ldquo;arrays of arrays&rdquo;.
-You do this by adding an extra set of brackets and array lengths for every
-additional dimension you want your array to have.  For example, here is
-a declaration for a two-dimensional array that holds five elements in each
-dimension (a two-element array consisting of five-element arrays):
+<p>Можно создавать многомерные массивы или &ldquo;массивы массивов&rdquo;.  Делается это,
+добавлением дополнительного набора скобок и указания длинны массива для
+каждого вложенного массива, если нужно указать колличество элементов, которое
+массив будет иметь.  Например, ниже объявление для двумерного массива,
+который содержит пять элементов в каждом элементе (массив из двух элементов
+массивов, каждый из которых, сам состоит из пяти элементов массива):
 </p>
 <div class="example">
-<pre class="example">int two_dimensions[2][5] { {1, 2, 3, 4, 5}, {6, 7, 8, 9, 10} };
+<pre class="example">int двух_уровневый_массив[2][5] { {1, 2, 3, 4, 5}, {6, 7, 8, 9, 10} };
 </pre></div>
 
-<p>Multidimensional array elements are accessed by specifying the desired index
-of both dimensions:
+<p>Доступ к элементу многомерного массива осуществляется путём указания
+желаемого индекса обоих массивов:
 </p>
 <div class="example">
-<pre class="example">two_dimensions[1][3] = 12;
+<pre class="example">двух_уровневый_массив[1][3] = 12;
 </pre></div>
 
-<p>In our example, <code>two_dimensions[0]</code> is itself an array.  The
-element <code>two_dimensions[0][2]</code> is followed by
-<code>two_dimensions[0][3]</code>, not by <code>two_dimensions[1][2]</code>.
+<p>В нашем примере, <code>двух_уровневый_массив[0]</code> это сам массив.  Элемент
+<code>двух_уровневый_массив[0][2]</code> за которым следует
+<code>двух_уровневый_массив[0][3]</code>, а не <code>двух_уровневый_массив[1][2]</code>.
 </p>
 <hr>
 <span id="Arrays-as-Strings"></span><div class="header">
 <p>
 Next: <a href="#Arrays-of-Unions" accesskey="n" rel="next">Arrays of Unions</a>, Previous: <a href="#Multidimensional-Arrays" accesskey="p" rel="prev">Multidimensional Arrays</a>, Up: <a href="#Arrays" accesskey="u" rel="up">Arrays</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Arrays-as-Strings-1"></span><h4 class="subsection">2.5.5 Arrays as Strings</h4>
+<span id="Stroki-kak-Massivy"></span><h4 class="subsection">2.5.5 Строки как Массивы</h4>
 <span id="index-arrays-as-strings"></span>
 <span id="index-strings_002c-arrays-as"></span>
 
-<p>You can use an array of characters to hold a string (see <a href="#String-Constants">String Constants</a>).
-The array may be built of either signed or unsigned characters.
+<p>Можно использовать массив символов для хранения строки
+(see <a href="#String-Constants">String Constants</a>).
+Массив может содержать и буквенные и небуквенные символы.
 </p>
 <span id="index-string-arrays_002c-declaring"></span>
 <span id="index-declaring-string-arrays"></span>
-<p>When you declare the array, you can specify the number of elements it will
-have.  That number will be the maximum number of characters that should be
-in the string, including the null character used to end the string.  If you
-choose this option, then you do not have to initialize the array when you
-declare it.  Alternately, you can simply initialize the array to a value,
-and its size will then be exactly large enough to hold whatever string you
-used to initialize it.
+<p>Когда объявляется массив, можно указать количество элементов, которые он
+будет иметь.  Это число будет максимальным количеством символов, которые
+может содержать строка, включая нулевой символ завершения строки.  Если
+выбирается этот вариант, то не нужно инициализировать массив при его
+объявлении.  Кроме того, можно просто инициализировать массив значением, и
+тогда его размер будет точно достаточно большим, чтобы вместить все строки,
+который использовались для его инициализации.
 </p>
 <span id="index-string-arrays_002c-initializing"></span>
 <span id="index-initializing-string-arrays"></span>
-<p>There are two different ways to initialize the array.  You can specify of
-comma-delimited list of characters enclosed in braces, or you can specify a
-string literal enclosed in double quotation marks.
+<p>Есть два различных способа инициализации массива.  Можно указать список
+символов, разделенных запятыми и заключенных в фигурные скобки, или можно
+указать строку, заключённую в двойные кавычки.
 </p>
-<p>Here are some examples:
-</p>
-<div class="example">
-<pre class="example">char blue[26];
-char yellow[26] = {'y', 'e', 'l', 'l', 'o', 'w', '\0'};
-char orange[26] = &quot;orange&quot;;
-char gray[] = {'g', 'r', 'a', 'y', '\0'};
-char salmon[] = &quot;salmon&quot;;
-</pre></div>
-
-<p>In each of these cases, the null character <code>\0</code> is included at the
-end of the string, even when not explicitly stated.   (Note that if you
-initialize a string using an array of individual characters, then the
-null character is <em>not</em> guaranteed to be present.  It might be,
-but such an occurrence would be one of chance, and should not be relied
-upon.)
-</p>
-
-<p>After initialization, you cannot assign a new string literal to an array
-using the assignment operator.  For example, this
-<em>will not work</em>:
+<p>Вот несколько примеров:
 </p>
 <div class="example">
-<pre class="example">char lemon[26] = &quot;custard&quot;;
-lemon = &quot;steak sauce&quot;;      /* <span class="roman">Fails!</span> */
+<pre class="example">char синий[26];
+char желтый[26] = {'ж', 'е', 'л', 'т', 'ы', 'й', '\0'};
+char оранжевый[26] = &quot;оранжевый&quot;;
+char серый[] = {'с', 'е', 'р', 'ы', 'й', '\0'};
+char лосось[] = &quot;лосось&quot;;
 </pre></div>
 
-<p>However, there are functions in the GNU C library that perform operations
-(including copy) on string arrays.  You can also change one character at
-a time, by accessing individual string elements as you would any other
-array:
+<p>В каждом из этих случаев нулевой символ <code>\0</code> всегда завершает строку,
+даже если он явно не указано.  (Обратите внимание, что если инициализировать
+строку, используя массив отдельных символов, то нулевой символ
+<em>требуется</em> указывать.  Он может появится произвольно, но это редкий
+случай, и не следует на него полагаться.)
+</p>
+
+<p>После инициализации, нельзя присвоить массиву новый строковый литерал с
+помощью оператора присваивания.  Например, это <em>не сработает</em>:
 </p>
 <div class="example">
-<pre class="example">char name[] = &quot;bob&quot;;
-name[0] = 'r';
+<pre class="example">char лемон[26] = &quot;заварной крем&quot;;
+лемон = &quot;соус стейк&quot;;      /* <span class="roman">Ошибка!</span> */
 </pre></div>
 
-<p>It is possible for you to explicitly state the number of elements in the
-array, and then initialize it using a string that has more characters than
-there are elements in the array.  This is not a good thing.  The larger string
-will <em>not</em> override the previously specified size of the array, and you
-will get a compile-time warning.  Since the original array size remains, any
-part of the string that exceeds that original size is being written to a memory
-location that was not allocated for it.
+<p>Однако, есть функции в библиотеке GNU C, которые выполняют операции (в том
+числе копирования) на строковых массивах.  Можете изменить один символ за
+один раз, с помощью доступа к отдельным элементам строки, как и с любым
+другим массивом:
+</p>
+<div class="example">
+<pre class="example">char имя[] = &quot;юля&quot;;
+имя[0] = 'а';
+</pre></div>
+
+<p>Возможно явно указать количество элементов в массиве, а затем
+инициализировать его, используя строку, которая имеет больше символов, чем
+колличество элементов в массиве.  Это не хорошая идея.  Заданная превышающая
+по длинне строка <em>не</em> переопределит ранее заданный размер массива, и
+при компиляции сгенерируется предупреждение.  Поскольку исходный размер
+массива не изменяется, та часть строки, которая превышает исходный размер
+записывается в смежные ячейки памяти, которые не были выделена для этого.
 </p>
 
 <hr>
@@ -2301,40 +2302,39 @@ location that was not allocated for it.
 <p>
 Next: <a href="#Arrays-of-Structures" accesskey="n" rel="next">Arrays of Structures</a>, Previous: <a href="#Arrays-as-Strings" accesskey="p" rel="prev">Arrays as Strings</a>, Up: <a href="#Arrays" accesskey="u" rel="up">Arrays</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Arrays-of-Unions-1"></span><h4 class="subsection">2.5.6 Arrays of Unions</h4>
+<span id="Massivy-Obwedinenii"></span><h4 class="subsection">2.5.6 Массивы Объединений</h4>
 <span id="index-arrays-of-unions"></span>
 <span id="index-unions_002c-arrays-of"></span>
 
-<p>You can create an array of a union type just as you can an array
-of a primitive data type.
+<p>Можно создать массив типа объединение так же, как и массив примитивного типа
+данных.
 </p>
 <div class="example">
-<pre class="example">union numbers
+<pre class="example">union числа
   {
     int i;
     float f;
   };
-union numbers number_array [3];
+union числа массив_чисел [3];
 </pre></div>
 
-<p>That example creates a 3-element array of <code>union numbers</code>
-variables called <code>number_array</code>.  You can also initialize the
-first members of the elements of a number array:
+<p>Этот пример создает 3-элементный массив типа <code>union числа</code> в переменной,
+с именем <code>массив_чисел</code>.  Также можно инициализировать первый элемент
+массива <code>числа</code>:
 </p>
 <div class="example">
-<pre class="example">union numbers number_array [3] = { {3}, {4}, {5} };
+<pre class="example">union числа массив_чисел [3] = { {3}, {4}, {5} };
 </pre></div>
 
-<p>The additional inner grouping braces are optional.
+<p>Дополнительные внутренние скобки не являются обязательными.
 </p>
-<p>After initialization, you can still access the union members in the
-array using the member access operator.  You put the array name and
-element number (enclosed in brackets) to the left of the operator, and
-the member name to the right.
+<p>После инициализации, можно получить доступ к элементам объединения в массиве
+с помощью оператора доступа к элементу <code>точка (.)</code>.  Имя массива и номер
+элемента (заключенного в скобках) слева от оператора, а имя элемента справа.
 </p>
 <div class="example">
-<pre class="example">union numbers number_array [3];
-number_array[0].i = 2;
+<pre class="example">union числа массив_чисел [3];
+массив_чисел[0].i = 2;
 </pre></div>
 
 <hr>
@@ -2342,53 +2342,53 @@ number_array[0].i = 2;
 <p>
 Previous: <a href="#Arrays-of-Unions" accesskey="p" rel="prev">Arrays of Unions</a>, Up: <a href="#Arrays" accesskey="u" rel="up">Arrays</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Arrays-of-Structures-1"></span><h4 class="subsection">2.5.7 Arrays of Structures</h4>
+<span id="Massivy-Struktur"></span><h4 class="subsection">2.5.7 Массивы Структур</h4>
 <span id="index-arrays-of-structures"></span>
 <span id="index-structures_002c-arrays-of"></span>
 
-<p>You can create an array of a structure type just as you can an array
-of a primitive data type.
+<p>Можно создать массив типа структура так же, как и массив примитивного типа
+данных.
 </p>
 <div class="example">
-<pre class="example">struct point
+<pre class="example">struct точка
   {
     int x, y;
   };
-struct point point_array [3];
+struct точка массив_точек [3];
 </pre></div>
 
-<p>That example creates a 3-element array of <code>struct point</code>
-variables called <code>point_array</code>.  You can also initialize the
-elements of a structure array:
+<p>Этот пример создает 3-элементный массив типа <code>struct точка</code> в переменной
+с именем <code>массив_точек</code>.  Также можно инициализировать значениями
+элементы структур массива:
 </p>
 <div class="example">
-<pre class="example">struct point point_array [3] = { {2, 3}, {4, 5}, {6, 7} };
+<pre class="example">struct точка массив_точек [3] = { {2, 3}, {4, 5}, {6, 7} };
 </pre></div>
 
-<p>As with initializing structures which contain structure members, the
-additional inner grouping braces are optional.  But, if you use the
-additional braces, then you can partially initialize some of the
-structures in the array, and fully initialize others:
+<p>Как и в случае инициализации структур, которые содержат элементы структуры,
+установка дополнительных внутренних скобок не является обязательным.  Но,
+если используются дополнительные фигурные скобки, то можно частично
+инициализировать некоторые структуры в массиве или полностью инициализировать
+остальные по желанию:
 </p>
 <div class="example">
-<pre class="example">struct point point_array [3] = { {2}, {4, 5}, {6, 7} };
+<pre class="example">struct точка массив_точек [3] = { {2}, {4, 5}, {6, 7} };
 </pre></div>
 
-<p>In that example, the first element of the array has only its <code>x</code>
-member initialized.  Because of the grouping braces, the value 4 is
-assigned to the <code>x</code> member of the second array element,
-<em>not</em> to the <code>y</code> member of the first element, as would be
-the case without the grouping braces.
+<p>В этом примере первому элементу массива устанавливается только значение
+структуры элементe <code>x</code>.  Фигурные скобки, указывают присвоить значение 4
+элементу <code>x</code> второго элемента массива, <em>не</em> элементу <code>y</code>
+первого элемента, как это было бы в случае без указания фигурных скобок.
 </p>
-<p>After initialization, you can still access the structure members in the
-array using the member access operator.  You put the array name and
-element number (enclosed in brackets) to the left of the operator, and
-the member name to the right.
+<p>После инициализации, можно получить доступ к элементам массива, элементам
+структуры с помощью оператора доступа к элементу <code>точка (.)</code>.  Имя
+массива и номер элемента (заключенный в скобках) устанавливается слева от
+оператора, а имя элемента справа.
 </p>
 <div class="example">
-<pre class="example">struct point point_array [3];
-point_array[0].x = 2;
-point_array[0].y = 3;
+<pre class="example">struct точка массив_точек [3];
+массив_точек[0].x = 2;
+массив_точек[0].y = 3;
 </pre></div>
 
 <hr>
@@ -2396,15 +2396,14 @@ point_array[0].y = 3;
 <p>
 Next: <a href="#Incomplete-Types" accesskey="n" rel="next">Incomplete Types</a>, Previous: <a href="#Arrays" accesskey="p" rel="prev">Arrays</a>, Up: <a href="#Data-Types" accesskey="u" rel="up">Data Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Pointers-1"></span><h3 class="section">2.6 Pointers</h3>
+<span id="Ukazateli"></span><h3 class="section">2.6 Указатели</h3>
 <span id="index-pointers"></span>
 <span id="index-types_002c-pointer"></span>
 <span id="index-data-types_002c-pointer"></span>
 
-<p>Pointers hold memory addresses of stored constants or variables.  For
-any data type, including both primitive types and custom types, you
-can create a pointer that holds the memory address of an instance of
-that type.
+<p>Указатели хранят адреса памяти сохраннённых констант или переменных.  Для
+любого типа данных, включая как примитивные типы, так и определяемые типы,
+можно создать указатель, который содержит адрес памяти экземпляра этого типа.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Declaring-Pointers" accesskey="1">Declaring Pointers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -2422,42 +2421,44 @@ that type.
 <p>
 Next: <a href="#Initializing-Pointers" accesskey="n" rel="next">Initializing Pointers</a>, Up: <a href="#Pointers" accesskey="u" rel="up">Pointers</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Declaring-Pointers-1"></span><h4 class="subsection">2.6.1 Declaring Pointers</h4>
+<span id="Obwyavlenie-Ukazatelei"></span><h4 class="subsection">2.6.1 Объявление Указателей</h4>
 <span id="index-declaring-pointers"></span>
 <span id="index-pointers_002c-declaring"></span>
 
-<p>You declare a pointer by specifying a name for it and a data type.
-The data type indicates of what type of variable the pointer will
-hold memory addresses.
+<p>Указатель объявляется указанием его имени и типа данных.  Тип данных
+указывает на то, какой тип имеет переменная по этому адресу в памяти для
+указателя.
 </p>
-<p>To declare a pointer, include the indirection
-operator (see <a href="#Pointer-Operators">Pointer Operators</a>) before 
-the identifier.  Here is the general form of a pointer declaration:
-</p>
-<div class="example">
-<pre class="example"><var>data-type</var> * <var>name</var>;
-</pre></div>
-
-<p>White space is not significant around the indirection operator:
+<p>Для того, чтобы объявить указатель, включают (see <a href="#Pointer-Operators">Pointer Operators</a>)
+оператор косвенного обращения перед идентификатором.  Вот общая форма
+декларации указателя:
 </p>
 <div class="example">
-<pre class="example"><var>data-type</var> *<var>name</var>;
-<var>data-type</var>* <var>name</var>;
+<pre class="example"><var>тип-данных</var> * <var>имя</var>;
 </pre></div>
 
-<p>Here is an example of declaring a pointer to hold the address of
-an <code>int</code> variable:
+<p>Пробел не является обязательным вокруг оператора косвенного обращения:
+</p>
+<div class="example">
+<pre class="example"><var>тип-данных</var> *<var>имя</var>;
+<var>тип-данных</var>* <var>имя</var>;
+</pre></div>
+
+<p>Вот пример того, чтобы объявить указатель содержащий адрес переменной типа
+<code>int</code>:
 </p>
 <div class="example">
 <pre class="example">int *ip;
 </pre></div>
 
-<p>Be careful, though:  when declaring multiple pointers in the same statement, you must
-explicitly declare each as a pointer, using the indirection operator:
+<p>Будьте осторожны: при объявлении нескольких указателей в одном операторе,
+нужно явно объявить каждую переменную как указатель, с помощью оператора
+разыменования (он же косвенного обращения):
 </p>
 <div class="example">
-<pre class="example">int *foo, *bar;  /* <span class="roman">Two pointers.</span> */
-int *baz, quux;   /* <span class="roman">A pointer and an integer variable.</span> */
+<pre class="example">int *один, *два;  /* <span class="roman">Два указателя.</span> */
+int *один, два;   /* <span class="roman">Указатель на переменную с типом <code>int</code> и
+                  целочисленная переменная.</span> */
 </pre></div>
 
 
@@ -2466,86 +2467,86 @@ int *baz, quux;   /* <span class="roman">A pointer and an integer variable.</spa
 <p>
 Next: <a href="#Pointers-to-Unions" accesskey="n" rel="next">Pointers to Unions</a>, Previous: <a href="#Declaring-Pointers" accesskey="p" rel="prev">Declaring Pointers</a>, Up: <a href="#Pointers" accesskey="u" rel="up">Pointers</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Initializing-Pointers-1"></span><h4 class="subsection">2.6.2 Initializing Pointers</h4>
+<span id="Inicializaciya-Ukazatelei"></span><h4 class="subsection">2.6.2 Инициализация Указателей</h4>
 <span id="index-initializing-pointers"></span>
 <span id="index-pointers_002c-initializing"></span>
 
-<p>You can initialize a pointer when you first declare it by specifying
-a variable address to store in it.  For example, the following code
-declares an <code>int</code> variable &lsquo;<samp>i</samp>&rsquo;, and a pointer which is
-initialized with the address of &lsquo;<samp>i</samp>&rsquo;:
+<p>Можно инициализировать указатель, при его объявлении, присвоив ему адрес
+переменной.  Например, следующий код объявляет переменную <code>int</code> &lsquo;<samp>i</samp>&rsquo;
+и указатель, который инициализируется адресом &lsquo;<samp>i</samp>&rsquo;:
 </p>
 <div class="example">
 <pre class="example">int i;
 int *ip = &amp;i;
 </pre></div>
 
-<p>Note the use of the address operator (see <a href="#Pointer-Operators">Pointer Operators</a>), used
-to get the memory address of a variable.  After you declare a pointer, you
-do <em>not</em> use the indirection operator with the pointer&rsquo;s name when
-assigning it a new address to point to.  On the contrary, that would change
-the value of the variable that the points to, not the value of the pointer
-itself.  For example:
+<p>Обратите внимание на использование оператора взятие адреса
+(see <a href="#Pointer-Operators">Pointer Operators</a>), используемого для получения адреса памяти
+переменной.  После того, как объявлен указатель, <em>не</em> требуется
+использовать оператор разыменования с именем указателя при назначении ему
+нового адреса.  Наоборот, это значение используется для того, что бы изменить
+значение переменной, на адрес которой он указывает, а не значение самого
+указателя.  Например:
 </p>
 <div class="example">
 <pre class="example">int i, j;
-int *ip = &amp;i;  /* <span class="roman">&lsquo;<samp>ip</samp>&rsquo; now holds the address of &lsquo;<samp>i</samp>&rsquo;.</span> */
-ip = &amp;j;       /* <span class="roman">&lsquo;<samp>ip</samp>&rsquo; now holds the address of &lsquo;<samp>j</samp>&rsquo;.</span> */
-*ip = &amp;i;      /* <span class="roman">&lsquo;<samp>j</samp>&rsquo; now holds the address of &lsquo;<samp>i</samp>&rsquo;.</span> */
+int *ip = &amp;i;  /* <span class="roman">&lsquo;<samp>ip</samp>&rsquo; теперь содержит адрес &lsquo;<samp>i</samp>&rsquo;.</span> */
+ip = &amp;j;       /* <span class="roman">&lsquo;<samp>ip</samp>&rsquo; теперь содержит адрес &lsquo;<samp>j</samp>&rsquo;.</span> */
+*ip = &amp;i;      /* <span class="roman">&lsquo;<samp>j</samp>&rsquo; теперь содержит адрес &lsquo;<samp>i</samp>&rsquo;.</span> */
 </pre></div>
 
-<p>The value stored in a pointer is an integral number: a location within
-the computer&rsquo;s memory space.  If you are so inclined, you can assign pointer
-values explicitly using literal integers, casting them to the appropriate
-pointer type.  However, we do not recommend this practice unless you need
-to have extremely fine-tuned control over what is stored in memory, and you
-know exactly what you are doing.  It would be all too easy to accidentally
-overwrite something that you did not intend to.   Most uses of this
-technique are also non-portable.
+<p>Значение, хранящееся в указателе является целым числом: местоположение в
+пространстве памяти компьютера.  Если есть желание, можно присвоить значение
+указателю в явном виде с помощью литералов целых чисел, приведя указатель к
+соответствующему типу.  Тем не менее, не рекомендуется такая практика, если
+нет жёсткого контроля над тем, что хранится в памяти, и точно знаете, что
+происходит.  Слишком легко случайно перезапись то, что не требовалося.
+В большинстве случаев применения этой техники также делает код
+непереносимым.
 </p>
-<p>It is important to note that if you do not initialize a pointer with
-the address of some other existing object, it points nowhere in
-particular and will likely make your program crash if you use it
-(formally, this kind of thing is called <em>undefined behavior</em>).
+<p>Важно отметить, что если не инициализировать указатель адресом какого-либо
+существующего объекта, это не отразится нигде, и вероятно, приведёт к сбою
+программы, при попытки использовать его (формально, такого рода проявления
+называют <em>неопределенное поведение</em>).
 </p>
 <hr>
 <span id="Pointers-to-Unions"></span><div class="header">
 <p>
 Next: <a href="#Pointers-to-Structures" accesskey="n" rel="next">Pointers to Structures</a>, Previous: <a href="#Initializing-Pointers" accesskey="p" rel="prev">Initializing Pointers</a>, Up: <a href="#Pointers" accesskey="u" rel="up">Pointers</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Pointers-to-Unions-1"></span><h4 class="subsection">2.6.3 Pointers to Unions</h4>
+<span id="Ukazateli-na-Obwedineniya"></span><h4 class="subsection">2.6.3 Указатели на Объединения</h4>
 <span id="index-pointers-to-unions"></span>
 <span id="index-unions_002c-pointers-to"></span>
 
-<p>You can create a pointer to a union type just as you can a pointer
-to a primitive data type.
+<p>Можно создать указатель типа объединение так же, как и указатель на
+примитивный тип данных.
 </p>
 <div class="example">
-<pre class="example">union numbers
+<pre class="example">union числа
   {
     int i;
     float f;
   };
-union numbers foo = {4};
-union numbers *number_ptr = &amp;foo;
+union числа первый_набор = {4};
+union числа *числа_указатель = &amp;первый_набор;
 </pre></div>
 
-<p>That example creates a new union type, <code>union numbers</code>, and
-declares (and initializes the first member of) a variable of that type
-named <code>foo</code>.  Finally, it declares a pointer to the type
-<code>union numbers</code>, and gives it the address of <code>foo</code>.
+<p>Этот пример создаёт новый тип объединения, <code>union числа</code> и объявляет
+(и инициализирует первый элемент) переменную этого типа с именем
+<code>первый_набор</code>.  Наконец, объявляется указатель типа <code>union числа</code>,
+и дает ему адрес <code>первый_набор</code>.
 </p>
-<p>You can access the members of a union variable through a pointer, but
-you can&rsquo;t use the regular member access operator anymore.  Instead,
-you have to use the indirect member access operator (see <a href="#Member-Access-Expressions">Member Access Expressions</a>).  Continuing with the previous example, the
-following example will change the value of the first member of
-<code>foo</code>:
+<p>Можно получить доступ к членам переменной объединения через указатель, но
+вы не можете больше использовать обычный оператор доступа к элементу.  Вместо
+этого, требуется использовать оператор косвенного доступа к элементу
+(see <a href="#Member-Access-Expressions">Member Access Expressions</a>).  Продолжая предыдущий пример, следующий
+пример будет менять значение первого элемента <code>первый_набор</code>:
 </p>
 <div class="example">
 <pre class="example">number_ptr -&gt; i = 450;
 </pre></div>
 
-<p>Now the <code>i</code> member in <code>foo</code> is 450.
+<p>Теперь элемент <code>i</code> в <code>первый_набор</code> содержит 450.
 </p>
 
 <hr>
@@ -2553,41 +2554,40 @@ following example will change the value of the first member of
 <p>
 Previous: <a href="#Pointers-to-Unions" accesskey="p" rel="prev">Pointers to Unions</a>, Up: <a href="#Pointers" accesskey="u" rel="up">Pointers</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Pointers-to-Structures-1"></span><h4 class="subsection">2.6.4 Pointers to Structures</h4>
+<span id="Ukazateli-na-Struktury"></span><h4 class="subsection">2.6.4 Указатели на Структуры</h4>
 <span id="index-pointers-to-structures"></span>
 <span id="index-structures_002c-pointers-to"></span>
 
-<p>You can create a pointer to a structure type just as you can a pointer
-to a primitive data type.
+<p>Можно создать указатель с типом структура так же, как и указатель на
+примитивный тип данных.
 </p>
 <div class="example">
-<pre class="example">struct fish
+<pre class="example">struct рыба
   {
-    float length, weight;
+    float длинна, ширина;
   };
-struct fish salmon = {4.3, 5.8};
-struct fish *fish_ptr = &amp;salmon;
+struct рыба лосось = {4.3, 5.8};
+struct рыба *рыба_указатель = &amp;лосось;
 </pre></div>
 
-<p>That example creates a new structure type, <code>struct fish</code>, and
-declares (and initializes) a variable of that type named <code>salmon</code>.
-Finally, it declares a pointer to the type <code>struct fish</code>, and
-gives it the address of <code>salmon</code>.
+<p>Этот пример создает новый тип структуры, <code>struct рыба</code> и заявляет (и
+инициализирует) переменную этого типа с именем <code>лосось</code>.  Наконец,
+объявляется указатель типа <code>struct рыба</code>, и даётся ему адрес переменной
+<code>лосось</code>.
 </p>
-<p>You can access the members of a structure variable through a pointer,
-but you can&rsquo;t use the regular member access operator anymore.
-Instead, you have to use the indirect member access operator
-(see <a href="#Member-Access-Expressions">Member Access Expressions</a>).  Continuing with the previous
-example, the following example will change the values of the members
-of <code>salmon</code>:
+<p>Можно получить доступ к элементам переменной структуры через указатель, но
+нельзя больше использовать обычный оператор доступа к элементу.  Вместо этого
+требуется использовать оператор косвенного доступа к элементу
+(see <a href="#Member-Access-Expressions">Member Access Expressions</a>).  Продолжая предыдущий пример, следующий
+пример изменит значения элемента <code>лосось</code>:
 </p>
 <div class="example">
-<pre class="example">fish_ptr -&gt; length = 5.1;
-fish_ptr -&gt; weight = 6.2;
+<pre class="example">рыба_указатель -&gt; длинна = 5.1;
+рыба_указатель -&gt; ширина = 6.2;
 </pre></div>
 
-<p>Now the <code>length</code> and <code>width</code> members in <code>salmon</code> are
-5.1 and 6.2, respectively.
+<p>Теперь элементы <code>длинна</code> и <code>ширина</code> в <code>лосось</code> являются 5,1 и
+6,2, соответственно.
 </p>
 
 
@@ -2596,42 +2596,42 @@ fish_ptr -&gt; weight = 6.2;
 <p>
 Next: <a href="#Type-Qualifiers" accesskey="n" rel="next">Type Qualifiers</a>, Previous: <a href="#Pointers" accesskey="p" rel="prev">Pointers</a>, Up: <a href="#Data-Types" accesskey="u" rel="up">Data Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Incomplete-Types-1"></span><h3 class="section">2.7 Incomplete Types</h3>
+<span id="Nepolnye-Tipy"></span><h3 class="section">2.7 Неполные Типы</h3>
 <span id="index-incomplete-types"></span>
 <span id="index-types_002c-incomplete"></span>
 <span id="index-structures_002c-incomplete"></span>
 <span id="index-enumerations_002c-incomplete"></span>
 <span id="index-unions_002c-incomplete"></span>
 
-<p>You can define structures, unions, and enumerations without listing their
-members (or values, in the case of enumerations).  Doing so results in
-an incomplete type.  You can&rsquo;t declare variables of incomplete types, but
-you can work with pointers to those types.
+<p>Можно определить структуры, объединения и перечисления без перечисления их
+элементов (или значений, в случае перечислений).  Это производит неполный
+тип.  Можно объявлять переменные неполных типов и создавать и работать с
+указателями на эти типы.
 </p>
 <div class="example">
-<pre class="example">struct point;
+<pre class="example">struct точка;
 </pre></div>
 
-<p>At some time later in your program you will want to complete
-the type.  You do this by defining it as you usually would:
+<p>В какой-то момент позже в вашей программе потребуется завершить этот тип.
+Это можно сделать, определив его, как обычно:
 </p>
 <div class="example">
-<pre class="example">struct point
+<pre class="example">struct точка
   {
     int x, y;
   };
 </pre></div>
 
-<p>This technique is commonly used to for linked lists:
+<p>Этот метод обычно используется для связанных списков:
 </p>
 <div class="example">
-<pre class="example">struct singly_linked_list
+<pre class="example">struct отдельный_связанный_список
   {
-    struct singly_linked_list *next;
+    struct отдельный_связанный_список *следующий;
     int x;
-    /* other members here perhaps */
+    /* здесь возможно другие элементы */
   };
-struct singly_linked_list *list_head;
+struct отдельный_связанный_список *список_начало;
 </pre></div>
 
 
@@ -2640,32 +2640,34 @@ struct singly_linked_list *list_head;
 <p>
 Next: <a href="#Storage-Class-Specifiers" accesskey="n" rel="next">Storage Class Specifiers</a>, Previous: <a href="#Incomplete-Types" accesskey="p" rel="prev">Incomplete Types</a>, Up: <a href="#Data-Types" accesskey="u" rel="up">Data Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Type-Qualifiers-1"></span><h3 class="section">2.8 Type Qualifiers</h3>
+<span id="Kvalifikatory-Tipov"></span><h3 class="section">2.8 Квалификаторы Типов</h3>
 <span id="index-type-qualifiers"></span>
 <span id="index-qualifiers_002c-type"></span>
 <span id="index-const-type-qualifier"></span>
 <span id="index-volatile-type-qualifier"></span>
-<p>There are two type qualifiers that you can prepend to your variable declarations
-which change how the variables may be accessed:  <code>const</code> and <code>volatile</code>.
+<p>Есть два типа квалификаторов, которые можно ДОБАВЛЯТЬ при объявлении
+переменных, которые влияют на доступ к ней: <code>const</code> и <code>volatile</code>.
 </p>
-<p><code>const</code> causes the variable to be read-only; after initialization, its
-value may not be changed.
+<p><code>const</code> определяет переменную только для чтения; после её инициализации,её значение не может быть изменено.
 </p>
 <div class="example">
 <pre class="example">const float pi = 3.14159f;
 </pre></div>
 
-<p>In addition to helping to prevent accidental value changes, declaring variables
-with <code>const</code> can aid the compiler in code optimization.
+<p>В дополнение к предупреждениям компилятора, которые сигнализируют о изменении
+константных значений, объявления переменных с квалификатором <code>const</code>
+помогает компилятору в оптимизации кода.
 </p>
-<p><code>volatile</code> tells the compiler that the variable is explicitly changeable,
-and seemingly useless accesses of the variable (for instance, via pointers) should
-not be optimized away.  You might use <code>volatile</code> variables to store data
-that is updated via callback functions or signal handlers.
+<p><code>volatile</code> явно сообщает компилятору, что переменная будет менять своё
+значение, и то что рассматривается безполезным для компилятора, например
+доступ к переменной (например, с помощью указателей), не должно им
+оптимизироваться.  Можно использовать объявления переменных с квалификатором
+<code>volatile</code> для хранения данных, которые обновляются с помощью функций
+обратного вызова или обработчиков сигналов.
 <a href="#Sequence-Points-and-Signal-Delivery">Sequence Points and Signal Delivery</a>.
 </p>
 <div class="example">
-<pre class="example">volatile float currentTemperature = 40.0;
+<pre class="example">volatile float текущаяТемпература = 40.0;
 </pre></div>
 
 <hr>
@@ -2673,7 +2675,7 @@ that is updated via callback functions or signal handlers.
 <p>
 Next: <a href="#Renaming-Types" accesskey="n" rel="next">Renaming Types</a>, Previous: <a href="#Type-Qualifiers" accesskey="p" rel="prev">Type Qualifiers</a>, Up: <a href="#Data-Types" accesskey="u" rel="up">Data Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Storage-Class-Specifiers-1"></span><h3 class="section">2.9 Storage Class Specifiers</h3>
+<span id="Specifikatory-Klassov-Khraneniya"></span><h3 class="section">2.9 Спецификаторы Классов Хранения</h3>
 <span id="index-storage-class-specifiers"></span>
 <span id="index-specifiers_002c-storage-class"></span>
 <span id="index-auto-storage-class-specifier"></span>
@@ -2681,38 +2683,40 @@ Next: <a href="#Renaming-Types" accesskey="n" rel="next">Renaming Types</a>, Pre
 <span id="index-register-storage-class-specifier"></span>
 <span id="index-static-storage-class-specifier"></span>
 
-<p>There are four storage class specifiers that you can prepend to your variable
-declarations which change how the variables are stored in memory:
-<code>auto</code>, <code>extern</code>, <code>register</code>, and <code>static</code>.
+<p>Есть четыре спецификатора классов хранения, которыми можно ДОПОЛНЯТЬ
+объявления переменных, которые изменяют, как переменные хранятся в памяти:
+<code>auto</code>, <code>extern</code>, <code>register</code>, и <code>static</code>.
 </p>
-<p>You use <code>auto</code> for variables which are local to a function, and whose
-values should be discarded upon return from the function in which they are
-declared.  This is the default behavior for variables declared within functions.
+<p>Можно использовать спецификатор <code>auto</code> для переменных, которые являются
+локальными для функции, и значение которых должно быть отброшены после
+возврата из функции, в которой переменные были объявлены.  Это поведение по
+умолчанию для переменных, объявленных внутри функций.
 </p>
 <div class="example">
 <pre class="example">void
-foo (int value)
+foo (int значение)
 {
-  auto int x = value;
+  auto int x = значение;
   &hellip;
   return;
 }
 </pre></div>
 
-<p><code>register</code> is nearly identical in purpose to <code>auto</code>, except that
-it also suggests to the compiler that the variable will be heavily used, and,
-if possible, should be stored in a register.  You cannot use the
-address-of operator to obtain the address of a variable declared with
-<code>register</code>.  This means that you cannot refer to the elements of
-an array declared with storage class <code>register</code>.  In fact the
-only thing you can do with such an array is measure its size with
-<code>sizeof</code>.  GCC normally makes good choices about which values to
-hold in registers, and so <code>register</code> is not often used.
+<p>Спецификатор <code>register</code> почти идентичен <code>auto</code> по назначению, за
+исключением того, что он также указывает компилятору, что переменная будет
+активно использоваться, и, если это возможно, должна храниться в регистре.
+Нельзя использовать оператор взятия адреса, чтобы получить адрес переменной,
+объявленной с спецификатором <code>register</code>.  Это означает, что не
+получиться обратиться к элементам массива, объявленного с классом хранения
+<code>register</code>.  На самом деле единственное, где пригодится испоьзование
+такого массива, это измерение его размера с помощью <code>sizeof</code>.  GCC
+обычно делает правильный выбор о том, какие значения требуется хранить в
+регистрах, и поэтому квалификатор <code>register</code> не часто используется.
 </p>
-<p><code>static</code> is essentially the opposite of <code>auto</code>: when applied to
-variables within a function or block, these variables will retain their
-value even when the function or block is finished.   This is known as
-<em>static storage duration</em>.
+<p>Спецификатор <code>static</code>, по существу, отрабатывает противоположно
+<code>auto</code>: при применении к переменным внутри функции или блока, эти
+переменные сохраняют свое значение даже тогда, когда функция или блок
+закончены.  Это известно как <em>длительное статическое зранение</em>.
 </p>
 <div class="example">
 <pre class="example">int
@@ -2724,51 +2728,56 @@ sum (int x)
 }
 </pre></div>
 
-<p>You can also declare variables (or functions) at the top level (that
-is, not inside a function) to be <code>static</code>; such variables are
-visible (global) to the current source file (but not other source
-files).  This gives an unfortunate double meaning to <code>static</code>;
-this second meaning is known as <em>static linkage</em>.  Two functions
-or variables having static linkage in separate files are entirely
-separate; neither is visible outside the file in which it is declared.
+<p>Можно также объявить переменную (или функцию) на верхнем уровне (то есть, не
+внутри функции) используя спецификатор <code>static</code>; такие переменные видны
+(глобальные переменные) для текущего исходного файла (но не для других
+исходных файлов).  Это к сожалению даёт двойной смысл спецификатору
+<code>static</code>; это второе значение известно как <em>статическая связь</em>.
+Две функции или переменные, имеющие статическую связь в отдельных файлах
+полностью изолированы; ни одна из них не видна за пределами файла, в котором
+она объявлена.
 </p>
-<p>Uninitialized variables that are declared as <code>extern</code> are given
-default values of <code>0</code>, <code>0.0</code>, or <code>NULL</code>, depending on
-the type.  Uninitialized variables that are declared as <code>auto</code> or
-<code>register</code> (including the default usage of <code>auto</code>) are left
-uninitialized, and hence should not be assumed to hold any particular
-value.
+<p>Неинициализированные переменные, объявленные с испльзованием спецификатора
+<code>extern</code> получают стандартные значения по умолчанию <code>0</code>, <code>0.0</code>
+или <code>NULL</code>, в зависимости от типа переменной.  Неинициализированные
+переменные, которые объявлены с использованием спецификатора <code>auto</code> или
+<code>register</code> (в том числе когда используется спецификатор по умолчанию
+<code>auto</code>) остаются неинициализированным, и, следовательно, не следует
+рассматривать то, что хранит неинициализированная переменная.
 </p>
-<p><code>extern</code> is useful for declaring variables that you want to be visible to
-all source files that are linked into your project.  You cannot initialize a
-variable in an <code>extern</code> declaration, as no space is actually allocated
-during the declaration.  You must make both an <code>extern</code> declaration
-(typically in a header file that is included by the other source files which
-need to access the variable) and a non-<code>extern</code> declaration which is where
-space is actually allocated to store the variable.  The <code>extern</code> declaration
-may be repeated multiple times.
+<p><code>extern</code> полезно для объявления переменных, которые должны быть видимыми
+для всех исходных файлов, которые входят в проект.  Нельзя инициализировать
+переменную в объявлении с использовании спецификатора <code>extern</code>, так как
+фактически не выделяется место для хранения переменной во время её
+объявления.  Нужно использовать объявление с использованием спецификатора
+<code>extern</code> (обычно в заголовочном файле, который включается другими
+исходными файлами, которые должны получить доступ к переменной) где не
+требуется фактическое выделения места для переменной и использовать
+не-<code>extern</code> объявления в противном случае.  Объявления <code>extern</code>
+может повторяться несколько раз.
 </p>
 <div class="example">
-<pre class="example">extern int numberOfClients;
+<pre class="example">extern int номерКлиента;
 
 &hellip;
 
-int numberOfClients = 0;
+int номерКлиента = 0;
 </pre></div>
 
-<p>See <a href="#Program-Structure-and-Scope">Program Structure and Scope</a>, for related information.
+<p>See <a href="#Program-Structure-and-Scope">Program Structure and Scope</a>, для дополнительное информации.
 </p>
 <hr>
 <span id="Renaming-Types"></span><div class="header">
 <p>
 Previous: <a href="#Storage-Class-Specifiers" accesskey="p" rel="prev">Storage Class Specifiers</a>, Up: <a href="#Data-Types" accesskey="u" rel="up">Data Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Renaming-Types-1"></span><h3 class="section">2.10 Renaming Types</h3>
+<span id="Pereimenovanie-Tipov"></span><h3 class="section">2.10 Переименование Типов</h3>
 <span id="index-renaming-types"></span>
 <span id="index-types_002c-renaming"></span>
 
-<p>Sometimes it is convenient to give a new name to a type.  You can do this using
-the <code>typedef</code> statement.  See <a href="#The-typedef-Statement">The typedef Statement</a>, for more information.
+<p>Иногда это удобно, чтобы дать новое имя типу.  Можно сделать это с помощью
+оператора <code>typedef</code>.  See <a href="#The-typedef-Statement">The typedef Statement</a>, для получения
+дополнительной информации.
 </p>
 
 <hr>

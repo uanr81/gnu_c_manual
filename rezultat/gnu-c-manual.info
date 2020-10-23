@@ -1535,195 +1535,196 @@ File: gnu-c-manual.info,  Node: Initializing Arrays,  Next: Accessing Array Elem
 
 File: gnu-c-manual.info,  Node: Accessing Array Elements,  Next: Multidimensional Arrays,  Prev: Initializing Arrays,  Up: Arrays
 
-2.5.3 Accessing Array Elements
-------------------------------
+2.5.3 Доступ к Элементам Массива
+--------------------------------
 
-You can access the elements of an array by specifying the array name,
-followed by the element index, enclosed in brackets.  Remember that the
-array elements are numbered starting with zero.  Here is an example:
+Можно получить доступ к элементам массива, указав имя массива, а затем
+индекс элемента, заключенный в квадратные скобки.  Следует помнить, что
+элементы массива нумеруются, начиная с нуля.  Вот пример:
 
      my_array[0] = 5;
 
-   That assigns the value 5 to the first element in the array, at
-position zero.  You can treat individual array elements like variables
-of whatever data type the array is made up of.  For example, if you have
-an array made of a structure data type, you can access the structure
-elements like this:
+   Это присваивает значение 5 первому элементу в массиве, в нулевой
+позиции.  Можно рассматривать отдельные элементы массива, как переменные
+любого типа данных из которых состоит массив.  Например, если есть
+массив, заполненный данными типа структура, можно получить доступ к
+элементам структуры, так: (ВопросTypes1277)
 
-     struct point
+     struct точка
      {
        int x, y;
      };
-     struct point point_array[2] = { {4, 5}, {8, 9} };
-     point_array[0].x = 3;
+     struct точка точка_массив[2] = { {4, 5}, {8, 9} };
+     точка_массив[0].x = 3;
 
 
 File: gnu-c-manual.info,  Node: Multidimensional Arrays,  Next: Arrays as Strings,  Prev: Accessing Array Elements,  Up: Arrays
 
-2.5.4 Multidimensional Arrays
------------------------------
+2.5.4 Многомерные Массивы
+-------------------------
 
-You can make multidimensional arrays, or "arrays of arrays".  You do
-this by adding an extra set of brackets and array lengths for every
-additional dimension you want your array to have.  For example, here is
-a declaration for a two-dimensional array that holds five elements in
-each dimension (a two-element array consisting of five-element arrays):
+Можно создавать многомерные массивы или "массивы массивов".  Делается
+это, добавлением дополнительного набора скобок и указания длинны массива
+для каждого вложенного массива, если нужно указать колличество
+элементов, которое массив будет иметь.  Например, ниже объявление для
+двумерного массива, который содержит пять элементов в каждом элементе
+(массив из двух элементов массивов, каждый из которых, сам состоит из
+пяти элементов массива):
 
-     int two_dimensions[2][5] { {1, 2, 3, 4, 5}, {6, 7, 8, 9, 10} };
+     int двух_уровневый_массив[2][5] { {1, 2, 3, 4, 5}, {6, 7, 8, 9, 10} };
 
-   Multidimensional array elements are accessed by specifying the
-desired index of both dimensions:
+   Доступ к элементу многомерного массива осуществляется путём указания
+желаемого индекса обоих массивов:
 
-     two_dimensions[1][3] = 12;
+     двух_уровневый_массив[1][3] = 12;
 
-   In our example, 'two_dimensions[0]' is itself an array.  The element
-'two_dimensions[0][2]' is followed by 'two_dimensions[0][3]', not by
-'two_dimensions[1][2]'.
+   В нашем примере, 'двух_уровневый_массив[0]' это сам массив.  Элемент
+'двух_уровневый_массив[0][2]' за которым следует
+'двух_уровневый_массив[0][3]', а не 'двух_уровневый_массив[1][2]'.
 
 
 File: gnu-c-manual.info,  Node: Arrays as Strings,  Next: Arrays of Unions,  Prev: Multidimensional Arrays,  Up: Arrays
 
-2.5.5 Arrays as Strings
------------------------
+2.5.5 Строки как Массивы
+------------------------
 
-You can use an array of characters to hold a string (*note String
-Constants::).  The array may be built of either signed or unsigned
-characters.
+Можно использовать массив символов для хранения строки (*note String
+Constants::).  Массив может содержать и буквенные и небуквенные символы.
 
-   When you declare the array, you can specify the number of elements it
-will have.  That number will be the maximum number of characters that
-should be in the string, including the null character used to end the
-string.  If you choose this option, then you do not have to initialize
-the array when you declare it.  Alternately, you can simply initialize
-the array to a value, and its size will then be exactly large enough to
-hold whatever string you used to initialize it.
+   Когда объявляется массив, можно указать количество элементов, которые
+он будет иметь.  Это число будет максимальным количеством символов,
+которые может содержать строка, включая нулевой символ завершения
+строки.  Если выбирается этот вариант, то не нужно инициализировать
+массив при его объявлении.  Кроме того, можно просто инициализировать
+массив значением, и тогда его размер будет точно достаточно большим,
+чтобы вместить все строки, который использовались для его инициализации.
 
-   There are two different ways to initialize the array.  You can
-specify of comma-delimited list of characters enclosed in braces, or you
-can specify a string literal enclosed in double quotation marks.
+   Есть два различных способа инициализации массива.  Можно указать
+список символов, разделенных запятыми и заключенных в фигурные скобки,
+или можно указать строку, заключённую в двойные кавычки.
 
-   Here are some examples:
+   Вот несколько примеров:
 
-     char blue[26];
-     char yellow[26] = {'y', 'e', 'l', 'l', 'o', 'w', '\0'};
-     char orange[26] = "orange";
-     char gray[] = {'g', 'r', 'a', 'y', '\0'};
-     char salmon[] = "salmon";
+     char синий[26];
+     char желтый[26] = {'ж', 'е', 'л', 'т', 'ы', 'й', '\0'};
+     char оранжевый[26] = "оранжевый";
+     char серый[] = {'с', 'е', 'р', 'ы', 'й', '\0'};
+     char лосось[] = "лосось";
 
-   In each of these cases, the null character '\0' is included at the
-end of the string, even when not explicitly stated.  (Note that if you
-initialize a string using an array of individual characters, then the
-null character is _not_ guaranteed to be present.  It might be, but such
-an occurrence would be one of chance, and should not be relied upon.)
+   В каждом из этих случаев нулевой символ '\0' всегда завершает строку,
+даже если он явно не указано.  (Обратите внимание, что если
+инициализировать строку, используя массив отдельных символов, то нулевой
+символ _требуется_ указывать.  Он может появится произвольно, но это
+редкий случай, и не следует на него полагаться.)
 
-   After initialization, you cannot assign a new string literal to an
-array using the assignment operator.  For example, this _will not work_:
+   После инициализации, нельзя присвоить массиву новый строковый литерал
+с помощью оператора присваивания.  Например, это _не сработает_:
 
-     char lemon[26] = "custard";
-     lemon = "steak sauce";      /* Fails! */
+     char лемон[26] = "заварной крем";
+     лемон = "соус стейк";      /* Ошибка! */
 
-However, there are functions in the GNU C library that perform
-operations (including copy) on string arrays.  You can also change one
-character at a time, by accessing individual string elements as you
-would any other array:
+Однако, есть функции в библиотеке GNU C, которые выполняют операции (в
+том числе копирования) на строковых массивах.  Можете изменить один
+символ за один раз, с помощью доступа к отдельным элементам строки, как
+и с любым другим массивом:
 
-     char name[] = "bob";
-     name[0] = 'r';
+     char имя[] = "юля";
+     имя[0] = 'а';
 
-   It is possible for you to explicitly state the number of elements in
-the array, and then initialize it using a string that has more
-characters than there are elements in the array.  This is not a good
-thing.  The larger string will _not_ override the previously specified
-size of the array, and you will get a compile-time warning.  Since the
-original array size remains, any part of the string that exceeds that
-original size is being written to a memory location that was not
-allocated for it.
+   Возможно явно указать количество элементов в массиве, а затем
+инициализировать его, используя строку, которая имеет больше символов,
+чем колличество элементов в массиве.  Это не хорошая идея.  Заданная
+превышающая по длинне строка _не_ переопределит ранее заданный размер
+массива, и при компиляции сгенерируется предупреждение.  Поскольку
+исходный размер массива не изменяется, та часть строки, которая
+превышает исходный размер записывается в смежные ячейки памяти, которые
+не были выделена для этого.
 
 
 File: gnu-c-manual.info,  Node: Arrays of Unions,  Next: Arrays of Structures,  Prev: Arrays as Strings,  Up: Arrays
 
-2.5.6 Arrays of Unions
-----------------------
+2.5.6 Массивы Объединений
+-------------------------
 
-You can create an array of a union type just as you can an array of a
-primitive data type.
+Можно создать массив типа объединение так же, как и массив примитивного
+типа данных.
 
-     union numbers
+     union числа
        {
          int i;
          float f;
        };
-     union numbers number_array [3];
+     union числа массив_чисел [3];
 
-   That example creates a 3-element array of 'union numbers' variables
-called 'number_array'.  You can also initialize the first members of the
-elements of a number array:
+   Этот пример создает 3-элементный массив типа 'union числа' в
+переменной, с именем 'массив_чисел'.  Также можно инициализировать
+первый элемент массива 'числа':
 
-     union numbers number_array [3] = { {3}, {4}, {5} };
+     union числа массив_чисел [3] = { {3}, {4}, {5} };
 
-The additional inner grouping braces are optional.
+Дополнительные внутренние скобки не являются обязательными.
 
-   After initialization, you can still access the union members in the
-array using the member access operator.  You put the array name and
-element number (enclosed in brackets) to the left of the operator, and
-the member name to the right.
+   После инициализации, можно получить доступ к элементам объединения в
+массиве с помощью оператора доступа к элементу 'точка (.)'.  Имя массива
+и номер элемента (заключенного в скобках) слева от оператора, а имя
+элемента справа.
 
-     union numbers number_array [3];
-     number_array[0].i = 2;
+     union числа массив_чисел [3];
+     массив_чисел[0].i = 2;
 
 
 File: gnu-c-manual.info,  Node: Arrays of Structures,  Prev: Arrays of Unions,  Up: Arrays
 
-2.5.7 Arrays of Structures
---------------------------
+2.5.7 Массивы Структур
+----------------------
 
-You can create an array of a structure type just as you can an array of
-a primitive data type.
+Можно создать массив типа структура так же, как и массив примитивного
+типа данных.
 
-     struct point
+     struct точка
        {
          int x, y;
        };
-     struct point point_array [3];
+     struct точка массив_точек [3];
 
-   That example creates a 3-element array of 'struct point' variables
-called 'point_array'.  You can also initialize the elements of a
-structure array:
+   Этот пример создает 3-элементный массив типа 'struct точка' в
+переменной с именем 'массив_точек'.  Также можно инициализировать
+значениями элементы структур массива:
 
-     struct point point_array [3] = { {2, 3}, {4, 5}, {6, 7} };
+     struct точка массив_точек [3] = { {2, 3}, {4, 5}, {6, 7} };
 
-   As with initializing structures which contain structure members, the
-additional inner grouping braces are optional.  But, if you use the
-additional braces, then you can partially initialize some of the
-structures in the array, and fully initialize others:
+   Как и в случае инициализации структур, которые содержат элементы
+структуры, установка дополнительных внутренних скобок не является
+обязательным.  Но, если используются дополнительные фигурные скобки, то
+можно частично инициализировать некоторые структуры в массиве или
+полностью инициализировать остальные по желанию:
 
-     struct point point_array [3] = { {2}, {4, 5}, {6, 7} };
+     struct точка массив_точек [3] = { {2}, {4, 5}, {6, 7} };
 
-   In that example, the first element of the array has only its 'x'
-member initialized.  Because of the grouping braces, the value 4 is
-assigned to the 'x' member of the second array element, _not_ to the 'y'
-member of the first element, as would be the case without the grouping
-braces.
+   В этом примере первому элементу массива устанавливается только
+значение структуры элементe 'x'.  Фигурные скобки, указывают присвоить
+значение 4 элементу 'x' второго элемента массива, _не_ элементу 'y'
+первого элемента, как это было бы в случае без указания фигурных скобок.
 
-   After initialization, you can still access the structure members in
-the array using the member access operator.  You put the array name and
-element number (enclosed in brackets) to the left of the operator, and
-the member name to the right.
+   После инициализации, можно получить доступ к элементам массива,
+элементам структуры с помощью оператора доступа к элементу 'точка (.)'.
+Имя массива и номер элемента (заключенный в скобках) устанавливается
+слева от оператора, а имя элемента справа.
 
-     struct point point_array [3];
-     point_array[0].x = 2;
-     point_array[0].y = 3;
+     struct точка массив_точек [3];
+     массив_точек[0].x = 2;
+     массив_точек[0].y = 3;
 
 
 File: gnu-c-manual.info,  Node: Pointers,  Next: Incomplete Types,  Prev: Arrays,  Up: Data Types
 
-2.6 Pointers
-============
+2.6 Указатели
+=============
 
-Pointers hold memory addresses of stored constants or variables.  For
-any data type, including both primitive types and custom types, you can
-create a pointer that holds the memory address of an instance of that
-type.
+Указатели хранят адреса памяти сохраннённых констант или переменных.
+Для любого типа данных, включая как примитивные типы, так и определяемые
+типы, можно создать указатель, который содержит адрес памяти экземпляра
+этого типа.
 
 * Menu:
 
@@ -1735,236 +1736,242 @@ type.
 
 File: gnu-c-manual.info,  Node: Declaring Pointers,  Next: Initializing Pointers,  Up: Pointers
 
-2.6.1 Declaring Pointers
-------------------------
+2.6.1 Объявление Указателей
+---------------------------
 
-You declare a pointer by specifying a name for it and a data type.  The
-data type indicates of what type of variable the pointer will hold
-memory addresses.
+Указатель объявляется указанием его имени и типа данных.  Тип данных
+указывает на то, какой тип имеет переменная по этому адресу в памяти для
+указателя.
 
-   To declare a pointer, include the indirection operator (*note Pointer
-Operators::) before the identifier.  Here is the general form of a
-pointer declaration:
+   Для того, чтобы объявить указатель, включают (*note Pointer
+Operators::) оператор косвенного обращения перед идентификатором.  Вот
+общая форма декларации указателя:
 
-     DATA-TYPE * NAME;
+     ТИП-ДАННЫХ * ИМЯ;
 
-White space is not significant around the indirection operator:
+Пробел не является обязательным вокруг оператора косвенного обращения:
 
-     DATA-TYPE *NAME;
-     DATA-TYPE* NAME;
+     ТИП-ДАННЫХ *ИМЯ;
+     ТИП-ДАННЫХ* ИМЯ;
 
-   Here is an example of declaring a pointer to hold the address of an
-'int' variable:
+   Вот пример того, чтобы объявить указатель содержащий адрес переменной
+типа 'int':
 
      int *ip;
 
-   Be careful, though: when declaring multiple pointers in the same
-statement, you must explicitly declare each as a pointer, using the
-indirection operator:
+   Будьте осторожны: при объявлении нескольких указателей в одном
+операторе, нужно явно объявить каждую переменную как указатель, с
+помощью оператора разыменования (он же косвенного обращения):
 
-     int *foo, *bar;  /* Two pointers. */
-     int *baz, quux;   /* A pointer and an integer variable. */
+     int *один, *два;  /* Два указателя. */
+     int *один, два;   /* Указатель на переменную с типом 'int' и
+                       целочисленная переменная. */
 
 
 File: gnu-c-manual.info,  Node: Initializing Pointers,  Next: Pointers to Unions,  Prev: Declaring Pointers,  Up: Pointers
 
-2.6.2 Initializing Pointers
----------------------------
+2.6.2 Инициализация Указателей
+------------------------------
 
-You can initialize a pointer when you first declare it by specifying a
-variable address to store in it.  For example, the following code
-declares an 'int' variable 'i', and a pointer which is initialized with
-the address of 'i':
+Можно инициализировать указатель, при его объявлении, присвоив ему адрес
+переменной.  Например, следующий код объявляет переменную 'int' 'i' и
+указатель, который инициализируется адресом 'i':
 
      int i;
      int *ip = &i;
 
-   Note the use of the address operator (*note Pointer Operators::),
-used to get the memory address of a variable.  After you declare a
-pointer, you do _not_ use the indirection operator with the pointer's
-name when assigning it a new address to point to.  On the contrary, that
-would change the value of the variable that the points to, not the value
-of the pointer itself.  For example:
+   Обратите внимание на использование оператора взятие адреса (*note
+Pointer Operators::), используемого для получения адреса памяти
+переменной.  После того, как объявлен указатель, _не_ требуется
+использовать оператор разыменования с именем указателя при назначении
+ему нового адреса.  Наоборот, это значение используется для того, что бы
+изменить значение переменной, на адрес которой он указывает, а не
+значение самого указателя.  Например:
 
      int i, j;
-     int *ip = &i;  /* 'ip' now holds the address of 'i'. */
-     ip = &j;       /* 'ip' now holds the address of 'j'. */
-     *ip = &i;      /* 'j' now holds the address of 'i'. */
+     int *ip = &i;  /* 'ip' теперь содержит адрес 'i'. */
+     ip = &j;       /* 'ip' теперь содержит адрес 'j'. */
+     *ip = &i;      /* 'j' теперь содержит адрес 'i'. */
 
-   The value stored in a pointer is an integral number: a location
-within the computer's memory space.  If you are so inclined, you can
-assign pointer values explicitly using literal integers, casting them to
-the appropriate pointer type.  However, we do not recommend this
-practice unless you need to have extremely fine-tuned control over what
-is stored in memory, and you know exactly what you are doing.  It would
-be all too easy to accidentally overwrite something that you did not
-intend to.  Most uses of this technique are also non-portable.
+   Значение, хранящееся в указателе является целым числом:
+местоположение в пространстве памяти компьютера.  Если есть желание,
+можно присвоить значение указателю в явном виде с помощью литералов
+целых чисел, приведя указатель к соответствующему типу.  Тем не менее,
+не рекомендуется такая практика, если нет жёсткого контроля над тем, что
+хранится в памяти, и точно знаете, что происходит.  Слишком легко
+случайно перезапись то, что не требовалося.  В большинстве случаев
+применения этой техники также делает код непереносимым.
 
-   It is important to note that if you do not initialize a pointer with
-the address of some other existing object, it points nowhere in
-particular and will likely make your program crash if you use it
-(formally, this kind of thing is called "undefined behavior").
+   Важно отметить, что если не инициализировать указатель адресом
+какого-либо существующего объекта, это не отразится нигде, и вероятно,
+приведёт к сбою программы, при попытки использовать его (формально,
+такого рода проявления называют "неопределенное поведение").
 
 
 File: gnu-c-manual.info,  Node: Pointers to Unions,  Next: Pointers to Structures,  Prev: Initializing Pointers,  Up: Pointers
 
-2.6.3 Pointers to Unions
-------------------------
+2.6.3 Указатели на Объединения
+------------------------------
 
-You can create a pointer to a union type just as you can a pointer to a
-primitive data type.
+Можно создать указатель типа объединение так же, как и указатель на
+примитивный тип данных.
 
-     union numbers
+     union числа
        {
          int i;
          float f;
        };
-     union numbers foo = {4};
-     union numbers *number_ptr = &foo;
+     union числа первый_набор = {4};
+     union числа *числа_указатель = &первый_набор;
 
-   That example creates a new union type, 'union numbers', and declares
-(and initializes the first member of) a variable of that type named
-'foo'.  Finally, it declares a pointer to the type 'union numbers', and
-gives it the address of 'foo'.
+   Этот пример создаёт новый тип объединения, 'union числа' и объявляет
+(и инициализирует первый элемент) переменную этого типа с именем
+'первый_набор'.  Наконец, объявляется указатель типа 'union числа', и
+дает ему адрес 'первый_набор'.
 
-   You can access the members of a union variable through a pointer, but
-you can't use the regular member access operator anymore.  Instead, you
-have to use the indirect member access operator (*note Member Access
-Expressions::).  Continuing with the previous example, the following
-example will change the value of the first member of 'foo':
+   Можно получить доступ к членам переменной объединения через
+указатель, но вы не можете больше использовать обычный оператор доступа
+к элементу.  Вместо этого, требуется использовать оператор косвенного
+доступа к элементу (*note Member Access Expressions::).  Продолжая
+предыдущий пример, следующий пример будет менять значение первого
+элемента 'первый_набор':
 
      number_ptr -> i = 450;
 
-   Now the 'i' member in 'foo' is 450.
+   Теперь элемент 'i' в 'первый_набор' содержит 450.
 
 
 File: gnu-c-manual.info,  Node: Pointers to Structures,  Prev: Pointers to Unions,  Up: Pointers
 
-2.6.4 Pointers to Structures
+2.6.4 Указатели на Структуры
 ----------------------------
 
-You can create a pointer to a structure type just as you can a pointer
-to a primitive data type.
+Можно создать указатель с типом структура так же, как и указатель на
+примитивный тип данных.
 
-     struct fish
+     struct рыба
        {
-         float length, weight;
+         float длинна, ширина;
        };
-     struct fish salmon = {4.3, 5.8};
-     struct fish *fish_ptr = &salmon;
+     struct рыба лосось = {4.3, 5.8};
+     struct рыба *рыба_указатель = &лосось;
 
-   That example creates a new structure type, 'struct fish', and
-declares (and initializes) a variable of that type named 'salmon'.
-Finally, it declares a pointer to the type 'struct fish', and gives it
-the address of 'salmon'.
+   Этот пример создает новый тип структуры, 'struct рыба' и заявляет (и
+инициализирует) переменную этого типа с именем 'лосось'.  Наконец,
+объявляется указатель типа 'struct рыба', и даётся ему адрес переменной
+'лосось'.
 
-   You can access the members of a structure variable through a pointer,
-but you can't use the regular member access operator anymore.  Instead,
-you have to use the indirect member access operator (*note Member Access
-Expressions::).  Continuing with the previous example, the following
-example will change the values of the members of 'salmon':
+   Можно получить доступ к элементам переменной структуры через
+указатель, но нельзя больше использовать обычный оператор доступа к
+элементу.  Вместо этого требуется использовать оператор косвенного
+доступа к элементу (*note Member Access Expressions::).  Продолжая
+предыдущий пример, следующий пример изменит значения элемента 'лосось':
 
-     fish_ptr -> length = 5.1;
-     fish_ptr -> weight = 6.2;
+     рыба_указатель -> длинна = 5.1;
+     рыба_указатель -> ширина = 6.2;
 
-   Now the 'length' and 'width' members in 'salmon' are 5.1 and 6.2,
-respectively.
+   Теперь элементы 'длинна' и 'ширина' в 'лосось' являются 5,1 и 6,2,
+соответственно.
 
 
 File: gnu-c-manual.info,  Node: Incomplete Types,  Next: Type Qualifiers,  Prev: Pointers,  Up: Data Types
 
-2.7 Incomplete Types
-====================
+2.7 Неполные Типы
+=================
 
-You can define structures, unions, and enumerations without listing
-their members (or values, in the case of enumerations).  Doing so
-results in an incomplete type.  You can't declare variables of
-incomplete types, but you can work with pointers to those types.
+Можно определить структуры, объединения и перечисления без перечисления
+их элементов (или значений, в случае перечислений).  Это производит
+неполный тип.  Можно объявлять переменные неполных типов и создавать и
+работать с указателями на эти типы.
 
-     struct point;
+     struct точка;
 
-   At some time later in your program you will want to complete the
-type.  You do this by defining it as you usually would:
+   В какой-то момент позже в вашей программе потребуется завершить этот
+тип.  Это можно сделать, определив его, как обычно:
 
-     struct point
+     struct точка
        {
          int x, y;
        };
 
-   This technique is commonly used to for linked lists:
+   Этот метод обычно используется для связанных списков:
 
-     struct singly_linked_list
+     struct отдельный_связанный_список
        {
-         struct singly_linked_list *next;
+         struct отдельный_связанный_список *следующий;
          int x;
-         /* other members here perhaps */
+         /* здесь возможно другие элементы */
        };
-     struct singly_linked_list *list_head;
+     struct отдельный_связанный_список *список_начало;
 
 
 File: gnu-c-manual.info,  Node: Type Qualifiers,  Next: Storage Class Specifiers,  Prev: Incomplete Types,  Up: Data Types
 
-2.8 Type Qualifiers
-===================
+2.8 Квалификаторы Типов
+=======================
 
-There are two type qualifiers that you can prepend to your variable
-declarations which change how the variables may be accessed: 'const' and
-'volatile'.
+Есть два типа квалификаторов, которые можно ДОБАВЛЯТЬ при объявлении
+переменных, которые влияют на доступ к ней: 'const' и 'volatile'.
 
-   'const' causes the variable to be read-only; after initialization,
-its value may not be changed.
+   'const' определяет переменную только для чтения; после её
+инициализации,её значение не может быть изменено.
 
      const float pi = 3.14159f;
 
-In addition to helping to prevent accidental value changes, declaring
-variables with 'const' can aid the compiler in code optimization.
+В дополнение к предупреждениям компилятора, которые сигнализируют о
+изменении константных значений, объявления переменных с квалификатором
+'const' помогает компилятору в оптимизации кода.
 
-   'volatile' tells the compiler that the variable is explicitly
-changeable, and seemingly useless accesses of the variable (for
-instance, via pointers) should not be optimized away.  You might use
-'volatile' variables to store data that is updated via callback
-functions or signal handlers.  *note Sequence Points and Signal
-Delivery::.
+   'volatile' явно сообщает компилятору, что переменная будет менять
+своё значение, и то что рассматривается безполезным для компилятора,
+например доступ к переменной (например, с помощью указателей), не должно
+им оптимизироваться.  Можно использовать объявления переменных с
+квалификатором 'volatile' для хранения данных, которые обновляются с
+помощью функций обратного вызова или обработчиков сигналов.  *note
+Sequence Points and Signal Delivery::.
 
-     volatile float currentTemperature = 40.0;
+     volatile float текущаяТемпература = 40.0;
 
 
 File: gnu-c-manual.info,  Node: Storage Class Specifiers,  Next: Renaming Types,  Prev: Type Qualifiers,  Up: Data Types
 
-2.9 Storage Class Specifiers
-============================
+2.9 Спецификаторы Классов Хранения
+==================================
 
-There are four storage class specifiers that you can prepend to your
-variable declarations which change how the variables are stored in
-memory: 'auto', 'extern', 'register', and 'static'.
+Есть четыре спецификатора классов хранения, которыми можно ДОПОЛНЯТЬ
+объявления переменных, которые изменяют, как переменные хранятся в
+памяти: 'auto', 'extern', 'register', и 'static'.
 
-   You use 'auto' for variables which are local to a function, and whose
-values should be discarded upon return from the function in which they
-are declared.  This is the default behavior for variables declared
-within functions.
+   Можно использовать спецификатор 'auto' для переменных, которые
+являются локальными для функции, и значение которых должно быть
+отброшены после возврата из функции, в которой переменные были
+объявлены.  Это поведение по умолчанию для переменных, объявленных
+внутри функций.
 
      void
-     foo (int value)
+     foo (int значение)
      {
-       auto int x = value;
+       auto int x = значение;
        ...
        return;
      }
 
-   'register' is nearly identical in purpose to 'auto', except that it
-also suggests to the compiler that the variable will be heavily used,
-and, if possible, should be stored in a register.  You cannot use the
-address-of operator to obtain the address of a variable declared with
-'register'.  This means that you cannot refer to the elements of an
-array declared with storage class 'register'.  In fact the only thing
-you can do with such an array is measure its size with 'sizeof'.  GCC
-normally makes good choices about which values to hold in registers, and
-so 'register' is not often used.
+   Спецификатор 'register' почти идентичен 'auto' по назначению, за
+исключением того, что он также указывает компилятору, что переменная
+будет активно использоваться, и, если это возможно, должна храниться в
+регистре.  Нельзя использовать оператор взятия адреса, чтобы получить
+адрес переменной, объявленной с спецификатором 'register'.  Это
+означает, что не получиться обратиться к элементам массива, объявленного
+с классом хранения 'register'.  На самом деле единственное, где
+пригодится испоьзование такого массива, это измерение его размера с
+помощью 'sizeof'.  GCC обычно делает правильный выбор о том, какие
+значения требуется хранить в регистрах, и поэтому квалификатор
+'register' не часто используется.
 
-   'static' is essentially the opposite of 'auto': when applied to
-variables within a function or block, these variables will retain their
-value even when the function or block is finished.  This is known as
-"static storage duration".
+   Спецификатор 'static', по существу, отрабатывает противоположно
+'auto': при применении к переменным внутри функции или блока, эти
+переменные сохраняют свое значение даже тогда, когда функция или блок
+закончены.  Это известно как "длительное статическое зранение".
 
      int
      sum (int x)
@@ -1974,46 +1981,52 @@ value even when the function or block is finished.  This is known as
        return sumSoFar;
      }
 
-You can also declare variables (or functions) at the top level (that is,
-not inside a function) to be 'static'; such variables are visible
-(global) to the current source file (but not other source files).  This
-gives an unfortunate double meaning to 'static'; this second meaning is
-known as "static linkage".  Two functions or variables having static
-linkage in separate files are entirely separate; neither is visible
-outside the file in which it is declared.
+Можно также объявить переменную (или функцию) на верхнем уровне (то
+есть, не внутри функции) используя спецификатор 'static'; такие
+переменные видны (глобальные переменные) для текущего исходного файла
+(но не для других исходных файлов).  Это к сожалению даёт двойной смысл
+спецификатору 'static'; это второе значение известно как "статическая
+связь".  Две функции или переменные, имеющие статическую связь в
+отдельных файлах полностью изолированы; ни одна из них не видна за
+пределами файла, в котором она объявлена.
 
-   Uninitialized variables that are declared as 'extern' are given
-default values of '0', '0.0', or 'NULL', depending on the type.
-Uninitialized variables that are declared as 'auto' or 'register'
-(including the default usage of 'auto') are left uninitialized, and
-hence should not be assumed to hold any particular value.
+   Неинициализированные переменные, объявленные с испльзованием
+спецификатора 'extern' получают стандартные значения по умолчанию '0',
+'0.0' или 'NULL', в зависимости от типа переменной.
+Неинициализированные переменные, которые объявлены с использованием
+спецификатора 'auto' или 'register' (в том числе когда используется
+спецификатор по умолчанию 'auto') остаются неинициализированным, и,
+следовательно, не следует рассматривать то, что хранит
+неинициализированная переменная.
 
-   'extern' is useful for declaring variables that you want to be
-visible to all source files that are linked into your project.  You
-cannot initialize a variable in an 'extern' declaration, as no space is
-actually allocated during the declaration.  You must make both an
-'extern' declaration (typically in a header file that is included by the
-other source files which need to access the variable) and a non-'extern'
-declaration which is where space is actually allocated to store the
-variable.  The 'extern' declaration may be repeated multiple times.
+   'extern' полезно для объявления переменных, которые должны быть
+видимыми для всех исходных файлов, которые входят в проект.  Нельзя
+инициализировать переменную в объявлении с использовании спецификатора
+'extern', так как фактически не выделяется место для хранения переменной
+во время её объявления.  Нужно использовать объявление с использованием
+спецификатора 'extern' (обычно в заголовочном файле, который включается
+другими исходными файлами, которые должны получить доступ к переменной)
+где не требуется фактическое выделения места для переменной и
+использовать не-'extern' объявления в противном случае.  Объявления
+'extern' может повторяться несколько раз.
 
-     extern int numberOfClients;
+     extern int номерКлиента;
 
      ...
 
-     int numberOfClients = 0;
+     int номерКлиента = 0;
 
-   *Note Program Structure and Scope::, for related information.
+   *Note Program Structure and Scope::, для дополнительное информации.
 
 
 File: gnu-c-manual.info,  Node: Renaming Types,  Prev: Storage Class Specifiers,  Up: Data Types
 
-2.10 Renaming Types
-===================
+2.10 Переименование Типов
+=========================
 
-Sometimes it is convenient to give a new name to a type.  You can do
-this using the 'typedef' statement.  *Note The typedef Statement::, for
-more information.
+Иногда это удобно, чтобы дать новое имя типу.  Можно сделать это с
+помощью оператора 'typedef'.  *Note The typedef Statement::, для
+получения дополнительной информации.
 
 
 File: gnu-c-manual.info,  Node: Expressions and Operators,  Next: Statements,  Prev: Data Types,  Up: Top
@@ -5617,7 +5630,7 @@ Index
 * declaring enumerations:                Declaring Enumerations.
                                                                (line  6)
 * declaring pointers:                    Declaring Pointers.   (line  6)
-* declaring string arrays:               Arrays as Strings.    (line 10)
+* declaring string arrays:               Arrays as Strings.    (line  9)
 * declaring structure variables:         Declaring Structure Variables.
                                                                (line  6)
 * declaring structure variables after definition: Declaring Structure Variables After Definition.
@@ -5695,7 +5708,7 @@ Index
 * initializing arrays:                   Initializing Arrays.  (line  6)
 * initializing pointers:                 Initializing Pointers.
                                                                (line  6)
-* initializing string arrays:            Arrays as Strings.    (line 18)
+* initializing string arrays:            Arrays as Strings.    (line 17)
 * initializing structure members:        Initializing Structure Members.
                                                                (line  6)
 * initializing union members:            Initializing Union Members.
@@ -5805,8 +5818,8 @@ Index
                                                                (line  6)
 * storage class specifiers:              Storage Class Specifiers.
                                                                (line  6)
-* string arrays, declaring:              Arrays as Strings.    (line 10)
-* string arrays, initializing:           Arrays as Strings.    (line 18)
+* string arrays, declaring:              Arrays as Strings.    (line  9)
+* string arrays, initializing:           Arrays as Strings.    (line 17)
 * string constants:                      String Constants.     (line  6)
 * string literals:                       String Constants.     (line  6)
 * strings, arrays as:                    Arrays as Strings.    (line  6)
@@ -5932,87 +5945,87 @@ Node: Arrays75910
 Node: Declaring Arrays76599
 Node: Initializing Arrays78534
 Node: Accessing Array Elements82469
-Node: Multidimensional Arrays83333
-Node: Arrays as Strings84247
-Node: Arrays of Unions86819
-Node: Arrays of Structures87778
-Node: Pointers89279
-Node: Declaring Pointers89735
-Node: Initializing Pointers90708
-Node: Pointers to Unions92557
-Node: Pointers to Structures93631
-Node: Incomplete Types94755
-Node: Type Qualifiers95624
-Node: Storage Class Specifiers96603
-Node: Renaming Types99748
-Node: Expressions and Operators100049
-Node: Expressions100746
-Node: Assignment Operators102579
-Node: Incrementing and Decrementing107202
-Node: Arithmetic Operators109895
-Node: Complex Conjugation114253
-Node: Comparison Operators115314
-Node: Logical Operators118353
-Node: Bit Shifting120604
-Node: Bitwise Logical Operators123517
-Node: Pointer Operators126441
-Node: The sizeof Operator129003
-Node: Type Casts131771
-Node: Array Subscripts134222
-Node: Function Calls as Expressions135305
-Node: The Comma Operator135741
-Node: Member Access Expressions138149
-Node: Conditional Expressions139502
-Node: Statements and Declarations in Expressions142135
-Node: Operator Precedence145742
-Node: Order of Evaluation150438
-Node: Side Effects152029
-Node: Sequence Points153820
-Ref: Sequence Points-Footnote-1158581
-Node: Sequence Points Constrain Expressions158771
-Ref: Sequence Points Constrain Expressions-Footnote-1165615
-Node: Sequence Points and Signal Delivery165821
-Node: Statements168730
-Node: Labels169369
-Node: Expression Statements170192
-Node: The if Statement171260
-Node: The switch Statement173180
-Node: The while Statement176168
-Node: The do Statement176967
-Node: The for Statement177747
-Node: Blocks181213
-Node: The Null Statement182523
-Node: The goto Statement183521
-Node: The break Statement185295
-Node: The continue Statement186113
-Node: The return Statement186713
-Node: The typedef Statement188385
-Node: Functions189832
-Node: Function Declarations190746
-Node: Function Definitions192548
-Node: Calling Functions194154
-Node: Function Parameters195019
-Node: Variable Length Parameter Lists198510
-Node: Calling Functions Through Function Pointers200913
-Node: The main Function201785
-Ref: The main Function-Footnote-1204102
-Node: Recursive Functions204266
-Node: Static Functions205107
-Node: Nested Functions205782
-Node: Program Structure and Scope206581
-Node: Program Structure206908
-Node: Scope208393
-Node: A Sample Program209420
-Node: hello.c210276
-Node: system.h216621
-Node: Overflow218244
-Node: Integer Overflow Basics219384
-Node: Signed Overflow Examples221103
-Node: Optimization and Wraparound224596
-Node: Signed Overflow Advice227548
-Node: Signed Integer Division230212
-Node: GNU Free Documentation License230813
-Node: Index255940
+Node: Multidimensional Arrays83821
+Node: Arrays as Strings85501
+Node: Arrays of Unions89859
+Node: Arrays of Structures91309
+Node: Pointers93870
+Node: Declaring Pointers94535
+Node: Initializing Pointers96275
+Node: Pointers to Unions99349
+Node: Pointers to Structures101111
+Node: Incomplete Types102891
+Node: Type Qualifiers104267
+Node: Storage Class Specifiers106106
+Node: Renaming Types112279
+Node: Expressions and Operators112725
+Node: Expressions113422
+Node: Assignment Operators115255
+Node: Incrementing and Decrementing119878
+Node: Arithmetic Operators122571
+Node: Complex Conjugation126929
+Node: Comparison Operators127990
+Node: Logical Operators131029
+Node: Bit Shifting133280
+Node: Bitwise Logical Operators136193
+Node: Pointer Operators139117
+Node: The sizeof Operator141679
+Node: Type Casts144447
+Node: Array Subscripts146898
+Node: Function Calls as Expressions147981
+Node: The Comma Operator148417
+Node: Member Access Expressions150825
+Node: Conditional Expressions152178
+Node: Statements and Declarations in Expressions154811
+Node: Operator Precedence158418
+Node: Order of Evaluation163114
+Node: Side Effects164705
+Node: Sequence Points166496
+Ref: Sequence Points-Footnote-1171257
+Node: Sequence Points Constrain Expressions171447
+Ref: Sequence Points Constrain Expressions-Footnote-1178291
+Node: Sequence Points and Signal Delivery178497
+Node: Statements181406
+Node: Labels182045
+Node: Expression Statements182868
+Node: The if Statement183936
+Node: The switch Statement185856
+Node: The while Statement188844
+Node: The do Statement189643
+Node: The for Statement190423
+Node: Blocks193889
+Node: The Null Statement195199
+Node: The goto Statement196197
+Node: The break Statement197971
+Node: The continue Statement198789
+Node: The return Statement199389
+Node: The typedef Statement201061
+Node: Functions202508
+Node: Function Declarations203422
+Node: Function Definitions205224
+Node: Calling Functions206830
+Node: Function Parameters207695
+Node: Variable Length Parameter Lists211186
+Node: Calling Functions Through Function Pointers213589
+Node: The main Function214461
+Ref: The main Function-Footnote-1216778
+Node: Recursive Functions216942
+Node: Static Functions217783
+Node: Nested Functions218458
+Node: Program Structure and Scope219257
+Node: Program Structure219584
+Node: Scope221069
+Node: A Sample Program222096
+Node: hello.c222952
+Node: system.h229297
+Node: Overflow230920
+Node: Integer Overflow Basics232060
+Node: Signed Overflow Examples233779
+Node: Optimization and Wraparound237272
+Node: Signed Overflow Advice240224
+Node: Signed Integer Division242888
+Node: GNU Free Documentation License243489
+Node: Index268616
 
 End Tag Table
 
