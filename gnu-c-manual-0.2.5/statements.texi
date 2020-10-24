@@ -4,12 +4,12 @@
 @c See the file gnu-c-manual.texi for copying conditions.
 
 @node Statements
-@chapter Statements
+@chapter Инструкции
 @cindex statements
 
-You write statements to cause actions and to control flow within your
-programs.  You can also write statements that do not do anything at all,
-or do things that are uselessly trivial.
+Инструкция вызывает действия и управляет потоком выполнения в программах.
+Можно написать инструкцию, которая не будет делать вообще ничего, или делать
+то, что бесполезно.
 
 @menu
 * Labels::
@@ -29,15 +29,15 @@ or do things that are uselessly trivial.
 @end menu
 
 @node Labels
-@section Labels
+@section Метки
 @cindex labels
 @cindex labeled statements
 @cindex statements, labeled
 
-You can use labels to identify a section of source code for use with a
-later @code{goto} (@pxref{The goto Statement}).  A label consists of an
-identifier (such as those used for variable names) followed by a
-colon.  Here is an example:
+Можно использовать метки для идентификации места исходного кода для
+использования в будущем оператором @code{goto} (@pxref{The goto Statement}).
+Метка состоит из идентификатора (например, такого, которые используются для
+имен переменных), с последующим двоеточием. Вот пример:
 
 @example
 @group
@@ -45,29 +45,28 @@ treet:
 @end group
 @end example
 
-You should be aware that label names do not interfere with other
-identifier names:
+Имена меток не конфликтуют с другими идентификаторами:
 
 @example
 @group
-int treet = 5;    /* @r{@code{treet} the variable.} */
-treet:            /* @r{@code{treet} the label.} */
+int treet = 5;    /* @r{@code{treet} это переменная.} */
+treet:            /* @r{@code{treet} это метка.} */
 @end group
 @end example
 
-The ISO C standard mandates that a label must be followed by at least
-one statement, possibly a null statement (@pxref{The Null Statement}).
-GCC will compile code that does not meet this requirement, but be
-aware that if you violate it, your code may have portability issues.
+Стандартные мандаты ISO C, что за меткой следовало, по крайней мере, одно
+выражение, возможно, пустой оператор (@pxref{The Null Statement}).  GCC будет
+компилировать код, который не соответствует этому требованию, но это может
+повлечь проблемы с переносимостью.
 
 
 @node Expression Statements
-@section Expression Statements
+@section Выражения Инструкций
 @cindex expression statements
 @cindex statements, expression
 
-You can turn any expression into a statement by adding a semicolon to
-the end of the expression.  Here are some examples:
+Можно превратить любое выражение в инструкцию, добавив точку с запятой в
+конце выражения.  Вот некоторые примеры:
 
 @example
 @group
@@ -77,101 +76,97 @@ the end of the expression.  Here are some examples:
 @end group
 @end example
 
-In each of those, all that happens is that each expression is
-evaluated.  However, they are useless because they do not store
-a value anywhere, nor do they actually do anything, other than
-the evaluation itself.  The compiler is free to ignore such
-statements.
+В каждом из них, все, что происходит - это вычисление каждого выражения.  Тем
+не менее, они бесполезны, потому что они нигде не сохраняют результат, здесь
+только происходит оценка выражений.  Компилятор может игнорировать подобные
+инструкции.
 
-Expression statements are only useful when they have some kind
-of side effect, such as storing a value, calling a function, or
-(this is esoteric) causing a fault in the program.  Here are
-some more useful examples:
+Инструкции выражений тогда полезны, когда имеют побочный эффект, такой как
+сохранение значения, вызов функции, или (это эзотерическое) вызов сбоя в
+программе.  Вот несколько полезных примеров:
 
 @example
 @group
 x++;
 y = x + 25;
-puts ("Hello, user!");
+puts ("Привет, пользователь!");
 *cucumber;
 @end group
 @end example
 
-The last of those statements, @code{*cucumber;}, could potentially
-cause a fault in the program if the value of @code{cucumber} is both
-not a valid pointer and has been declared as @code{volatile}.
+Последняя из этих инструкций, @code{*cucumber;}, потенциально может вызвать
+сбой в программе, если значение @code{cucumber} одновременно не является
+допустимым указателем и было объявлено не как @code{volatile}.
 
-@comment reference to `volatile'
+@comment ссылка `volatile'
 
 
 @node The if Statement
-@section The @code{if} Statement
+@section Конструкция @code{if}
 @cindex @code{if} statements
 @cindex @code{else} statements
 
-You can use the @code{if} statement to conditionally execute part of your
-program, based on the truth value of a given expression.  Here is the
-general form of an @code{if} statement:
+Можно использовать условную конструкцию @code{if}, чтобы выполнить часть
+программы, на основе истинности заданного выражения.  Вот общий вид
+конструкции @code{if}:
 
 @example
 @group
-if (@var{test})
-  @var{then-statement}
+if (@var{тест})
+  @var{тогда-часть}
 else
-  @var{else-statement}
+  @var{иначе-часть}
 @end group
 @end example
 
-If @var{test} evaluates to true, then @var{then-statement} is executed and
-@var{else-statement} is not.  If @var{test} evaluates to false, then
-@var{else-statement} is executed and @var{then-statement} is not.  The
-@code{else} clause is optional.
+Если выражение @var{тест} оценено в значение истинна, то выполняется
+@var{тогда-часть} а @var{иначе-часть} нет.  Если выражение @var{тест}
+оценено в значение ложь, то @var{тогда-часть} выполняется а
+@var{тогда-часть} нет.  Выражение @code{else} не является обязательным.
 
-Here is an actual example:
+Вот конкретный пример:
 
 @example
 @group
 if (x == 10)
-  puts ("x is 10");
+  puts ("x это 10");
 @end group
 @end example
 
-If @code{x == 10} evaluates to true, then the statement
-@code{puts ("x is 10");} is executed.  If @code{x == 10} evaluates to
-false, then the statement @code{puts ("x is 10");} is not executed.
-
-Here is an example using @code{else}:
+Если выражение @code{x == 10} оценивается как истинна, то выполняется
+инструкция @code{puts ("x это 10");}.  Если @code{x == 10}
+оценивается в значение ЛОЖЬ, то инструкция @code{puts ("x это 10");} не
+выполняется.  Ниже приведен пример использования с @code{else}:
 
 @example
 @group
 if (x == 10)
-  puts ("x is 10");
+  puts ("x это 10");
 else
-  puts ("x is not 10");
+  puts ("x не 10");
 @end group
 @end example
 
-You can use a series of @code{if} statements to test for multiple
-conditions:
+Можно использовать ряд инструкций @code{if} для проверки нескольких условий:
 
 @example
 @group
 if (x == 1)
-  puts ("x is 1");
+  puts ("x это 1");
 else if (x == 2)
-  puts ("x is 2");
+  puts ("x это 2");
 else if (x == 3)
-  puts ("x is 3");
+  puts ("x это 3");
 else
-  puts ("x is something else");
+  puts ("x что-то другое");
 @end group
 @end example
 
-This function calculates and displays the date of Easter for the given year @code{y}:
+Эта функция вычисляет и отображает дату Пасхи для заданного года @code{y}:
 
 @example
 void
-easterDate (int y)
+датаПасхи (int y)
 @{
   int n = 0;
   int g = (y % 19) + 1;
@@ -192,46 +187,48 @@ easterDate (int y)
   n = n + 7 - ((d + n) % 7);
 
   if (n > 31)
-    printf ("Easter: %d April %d", n - 31, y);
+    printf ("Пасха: %d Апрель %d", n - 31, y);
   else
-    printf ("Easter: %d March %d", n, y);
+    printf ("Пасха: %d Март %d", n, y);
 @}
 @end example
 
 @node The switch Statement
-@section The @code{switch} Statement
+@section Переключатель @code{switch}
 @cindex @code{switch} statement
 
-You can use the @code{switch} statement to compare one expression with others,
-and then execute a series of sub-statements based on the result of the
-comparisons.  Here is the general form of a @code{switch} statement:
+Можно использовать оператор @code{switch} для сравнения одного выражения с
+другими, а затем выполнения ряда вспомогательных инструкций, основанных на
+результате сравнения.  Вот общий вид переключателя @code{switch}:
 
 @example
 @group
-switch (@var{test})
+switch (@var{тест})
   @{
-    case @var{compare-1}:
-      @var{if-equal-statement-1}
-    case @var{compare-2}:
-      @var{if-equal-statement-2}
+    case @var{сравнитьТест-1}:
+      @var{если-соответствует-сравнитьТест-1}
+    case @var{сравнитьТест-2}:
+      @var{если-соответствует-сравнитьТест-2}
     @dots{}
     default:
-      @var{default-statement}
+      @var{соответствие-по-умолчанию}
   @}
 @end group
 @end example
 
-The @code{switch} statement compares @var{test} to each of the
-@var{compare} expressions, until it finds one that is
-equal to @var{test}.  Then, the statements following the successful
-case are executed.  All of the expressions compared must be of an integer
-type, and the @var{compare-N} expressions must be of a constant integer
-type (e.g., a literal integer or an expression built of literal integers).
+Инструкция @code{switch} сравнивает @var{тест} с каждым из выражений
+вариантов @var{сравнитьТест-N}, пока не найдет то, которое удовлетворяет
+@var{test}.  Затем выполняются вложенные инструкции выбранного варианта.  Все
+сравниваемые выражения, должны быть целочисленного типа, и выражения
+@var{сравнитьТест-N} должны быть константами целочисленного типа, как
+константа целого числа (например, буквальное целое число или выражение,
+построенное из литералов целых чисел).
 
-Optionally, you can specify a default case.  If @var{test} doesn't match
-any of the specific cases listed prior to the default case, then
-the statements for the default case are executed.  Traditionally, the
-default case is put after the specific cases, but that isn't required.
+При желании можно указать вариант по умолчанию.  Если @var{тест} нет
+соответствия ни к одному из конкретных вариантов, перечисленных до варианта
+по умолчанию, то выполняются инструкции варианта по умолчанию.  Традиционно,
+вариант по умолчанию записывается в конце всех вариантов, но это не
+требуется обязательно.
 
 
 @example
@@ -239,21 +236,22 @@ default case is put after the specific cases, but that isn't required.
 switch (x)
   @{
     case 0:
-      puts ("x is 0");
+      puts ("x это 0");
       break;
     case 1:
-      puts ("x is 1");
+      puts ("x это 1");
       break;
     default:
-      puts ("x is something else");
+      puts ("x что-то другое");
       break;
   @}
 @end group
 @end example
 
-Notice the usage of the @code{break} statement in each of the cases.  This
-is because, once a matching case is found, not only are its statements
-executed, but so are the statements for all following cases:
+Использование инструкции @code{break} в каждом из вариантов, приводит к
+тому, что, в случае выиграша варианта, выполняются вложенные утверждения и
+управление потоком выполнения передаётся после всей конструкции переключателя
+@code{switch} в обход выполнения всех оставшихся инструкций переключателя:
 
 @example
 @group
@@ -261,89 +259,91 @@ int x = 0;
 switch (x)
   @{
     case 0:
-      puts ("x is 0");
+      puts ("x это 0");
     case 1:
-      puts ("x is 1");
+      puts ("x это 1");
     default:
-      puts ("x is something else");
+      puts ("x что-то другое");
   @}
 @end group
 @end example
 
 @noindent
-The output of that example is:
+Выход этого примера без инструкции @code{break;}:
 
 @example
 @group
 x is 0
 x is 1
-x is something else
+x is что-то другое
 @end group
 @end example
 
-This is often not desired.  Including a @code{break} statement at the
-end of each case redirects program flow to after the @code{switch} statement.
+Это часто не желательно.  Инструкции @code{break;} в конце каждого варианта
+перенаправляет поток выполнения программы в точку сразу после конструкции
+переключателя @code{switch}.
 
-As a GNU C extension, you can also specify a range of consecutive integer
-values in a single @code{case} label, like this:
+В качестве расширения GNU C, можно также указать диапазон последовательных
+целочисленных значений в одной метке @code{case}, как здесь:
 
 @example
-case @var{low} ... @var{high}:
+case @var{начало} ... @var{предел}:
 @end example
 
 @noindent
-This has the same effect as the corresponding number of individual @code{case}
-labels, one for each integer value from @var{low} to @var{high}, inclusive.
+Это имеет тот же эффект, что и соответствующее число отдельных @code{case}
+меток, по одному для каждого целого значения от @var{начало} до @var{предел}
+включительно.
 
-This feature is especially useful for ranges of ASCII character codes:
+Эта функция особенно полезна для диапазонов кодов символов ASCII:
 
 @example
 case 'A' ... 'Z':
 @end example
 
-Be careful to include spaces around the @code{...}; otherwise it
-may be parsed incorrectly when you use it with integer values.  For
-example, write this:
+Будьте осторожны, не нужно добавлять пробелы вокруг @code{...}, иначе это
+может быть разобрано неправильно, при использовании с целочисленными
+значениями.  Например, если написать следующим образом:
 
 @example
 case 1 ... 5:
 @end example
 
 @noindent
-instead of this:
+вместо этого требуется писать так:
 
 @example
 case 1...5:
 @end example
 
-It is common to use a @code{switch} statement to handle various
-possible values of @code{errno}.  In this case a portable program
-should watch out for the possibility that two macros for @code{errno}
-values in fact have the same value, for example @code{EWOULDBLOCK} and
-@code{EAGAIN}.
+Распространено использовать конструкцию переключателя @code{switch} для
+обработки различных возможных значений конструкции @code{errno}.  В этом
+случае, для переносимости программы, нужно следить за макросами, которые
+используют значение @code{errno}, которое на самом деле имеет такое же
+значение, например как @code{EWOULDBLOCK} и @code{EAGAIN}.
 
 
 @node The while Statement
-@section The @code{while} Statement
+@section Конструкция @code{while}
 @cindex @code{while} statement
 
-The @code{while} statement is a loop statement with an exit test at
-the beginning of the loop.  Here is the general form of the @code{while}
-statement:
+Конструкция @code{while} является инструкцией цикла с условием на входе в
+начале цикла.  Вот общая форма конструкции @code{while}:
 
 @example
 @group
-while (@var{test})
-  @var{statement}
+while (@var{тест})
+  @var{инструкции}
 @end group
 @end example
 
-The @code{while} statement first evaluates @var{test}.  If @var{test}
-evaluates to true, @var{statement} is executed, and then @var{test} is
-evaluated again.  @var{statement} continues to execute repeatedly as long as
-@var{test} is true after each execution of @var{statement}.  
+Инструкция @code{while} вначале оценивает условие @var{тест}.  Если выражение
+@var{тест} вычислено как истинна, выполняются @var{инструкции}, а затем
+@var{тест} оценивается снова.  @var{инструкции} продолжают выполняться до тех
+пор, пока условие @var{тест} оценивается как истина после каждого выполнения
+@var{инструкции}.  
 
-This example prints the integers from zero through nine:
+Этот пример печатает целые числа от нуля до девяти:
 
 @example
 @group
@@ -353,29 +353,29 @@ while (counter < 10)
 @end group
 @end example
 
-A @code{break} statement can also cause a @code{while} loop to exit.
+Инструкция @code{break} может также вызвать выход из цикла @code{while}.
 
 @node The do Statement
-@section The @code{do} Statement
+@section Конструкция @code{do}
 @cindex @code{do} statement
 
-The @code{do} statement is a loop statement with an exit test at the end
-of the loop.  Here is the general form of the @code{do} statement:
+Конструкция @code{do} является инструкцией цикла с условием в конце цикла.
+Вот общая форма конструкции @code{do}:
 
 @example
 @group
 do
-  @var{statement}
-while (@var{test});
+  @var{инструкции}
+while (@var{тест});
 @end group
 @end example
 
-The @code{do} statement first executes @var{statement}.  After that,
-it evaluates @var{test}.  If @var{test} is true, then @var{statement} is
-executed again.  @var{statement} continues to execute repeatedly as long as
-@var{test} is true after each execution of @var{statement}.
-
-This example also prints the integers from zero through nine:
+Конструкция @code{do} вначале выполняет @var{инструкции}.  После этого,
+оценивается условие @var{тест}.  Если @var{тест} оценено в истину, то
+выполняются @var{инструкции} снова.  @var{инструкции} продолжают выполняться
+до тех пор, пока условие @var{тест} будет оцениватся в истину, после каждого
+выполнения @var{инструкции}.  Этот пример также печатает целые числа от нуля
+до девяти:
 
 @example
 @group
@@ -386,7 +386,7 @@ while (x < 10);
 @end group
 @end example
 
-A @code{break} statement can also cause a @code{do} loop to exit.
+Инструкция @code{break} может также произвести выход из цикла @code{do}.
 
 @node The for Statement
 @section The @code{for} Statement

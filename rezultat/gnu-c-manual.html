@@ -167,14 +167,14 @@ ul.no-bullet {list-style: none}
       <li><a id="toc-Tochki-Posledovatelxnosti-i-Dostavka-Signalov" href="#Sequence-Points-and-Signal-Delivery">3.20.4 Точки Последовательности и Доставка Сигналов</a></li>
     </ul></li>
   </ul></li>
-  <li><a id="toc-Statements-1" href="#Statements">4 Statements</a>
+  <li><a id="toc-Instrukcii" href="#Statements">4 Инструкции</a>
   <ul class="no-bullet">
-    <li><a id="toc-Labels-1" href="#Labels">4.1 Labels</a></li>
-    <li><a id="toc-Expression-Statements-1" href="#Expression-Statements">4.2 Expression Statements</a></li>
-    <li><a id="toc-The-if-Statement-1" href="#The-if-Statement">4.3 The <code>if</code> Statement</a></li>
-    <li><a id="toc-The-switch-Statement-1" href="#The-switch-Statement">4.4 The <code>switch</code> Statement</a></li>
-    <li><a id="toc-The-while-Statement-1" href="#The-while-Statement">4.5 The <code>while</code> Statement</a></li>
-    <li><a id="toc-The-do-Statement-1" href="#The-do-Statement">4.6 The <code>do</code> Statement</a></li>
+    <li><a id="toc-Metki" href="#Labels">4.1 Метки</a></li>
+    <li><a id="toc-Vyrazheniya-Instrukcii" href="#Expression-Statements">4.2 Выражения Инструкций</a></li>
+    <li><a id="toc-Konstrukciya-if" href="#The-if-Statement">4.3 Конструкция <code>if</code></a></li>
+    <li><a id="toc-Perekliuchatelx-switch" href="#The-switch-Statement">4.4 Переключатель <code>switch</code></a></li>
+    <li><a id="toc-Konstrukciya-while" href="#The-while-Statement">4.5 Конструкция <code>while</code></a></li>
+    <li><a id="toc-Konstrukciya-do" href="#The-do-Statement">4.6 Конструкция <code>do</code></a></li>
     <li><a id="toc-The-for-Statement-1" href="#The-for-Statement">4.7 The <code>for</code> Statement</a></li>
     <li><a id="toc-Blocks-1" href="#Blocks">4.8 Blocks</a></li>
     <li><a id="toc-The-Null-Statement-1" href="#The-Null-Statement">4.9 The Null Statement</a></li>
@@ -4213,12 +4213,12 @@ Previous: <a href="#Sequence-Points-Constrain-Expressions" accesskey="p" rel="pr
 <p>
 Next: <a href="#Functions" accesskey="n" rel="next">Functions</a>, Previous: <a href="#Expressions-and-Operators" accesskey="p" rel="prev">Expressions and Operators</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Statements-1"></span><h2 class="chapter">4 Statements</h2>
+<span id="Instrukcii"></span><h2 class="chapter">4 Инструкции</h2>
 <span id="index-statements"></span>
 
-<p>You write statements to cause actions and to control flow within your
-programs.  You can also write statements that do not do anything at all,
-or do things that are uselessly trivial.
+<p>Инструкция вызывает действия и управляет потоком выполнения в программах.
+Можно написать инструкцию, которая не будет делать вообще ничего, или делать
+то, что бесполезно.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Labels" accesskey="1">Labels</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -4256,32 +4256,31 @@ or do things that are uselessly trivial.
 <p>
 Next: <a href="#Expression-Statements" accesskey="n" rel="next">Expression Statements</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Labels-1"></span><h3 class="section">4.1 Labels</h3>
+<span id="Metki"></span><h3 class="section">4.1 Метки</h3>
 <span id="index-labels"></span>
 <span id="index-labeled-statements"></span>
 <span id="index-statements_002c-labeled"></span>
 
-<p>You can use labels to identify a section of source code for use with a
-later <code>goto</code> (see <a href="#The-goto-Statement">The goto Statement</a>).  A label consists of an
-identifier (such as those used for variable names) followed by a
-colon.  Here is an example:
+<p>Можно использовать метки для идентификации места исходного кода для
+использования в будущем оператором <code>goto</code> (see <a href="#The-goto-Statement">The goto Statement</a>).
+Метка состоит из идентификатора (например, такого, которые используются для
+имен переменных), с последующим двоеточием. Вот пример:
 </p>
 <div class="example">
 <pre class="example">treet:
 </pre></div>
 
-<p>You should be aware that label names do not interfere with other
-identifier names:
+<p>Имена меток не конфликтуют с другими идентификаторами:
 </p>
 <div class="example">
-<pre class="example">int treet = 5;    /* <span class="roman"><code>treet</code> the variable.</span> */
-treet:            /* <span class="roman"><code>treet</code> the label.</span> */
+<pre class="example">int treet = 5;    /* <span class="roman"><code>treet</code> это переменная.</span> */
+treet:            /* <span class="roman"><code>treet</code> это метка.</span> */
 </pre></div>
 
-<p>The ISO C standard mandates that a label must be followed by at least
-one statement, possibly a null statement (see <a href="#The-Null-Statement">The Null Statement</a>).
-GCC will compile code that does not meet this requirement, but be
-aware that if you violate it, your code may have portability issues.
+<p>Стандартные мандаты ISO C, что за меткой следовало, по крайней мере, одно
+выражение, возможно, пустой оператор (see <a href="#The-Null-Statement">The Null Statement</a>).  GCC будет
+компилировать код, который не соответствует этому требованию, но это может
+повлечь проблемы с переносимостью.
 </p>
 
 <hr>
@@ -4289,12 +4288,12 @@ aware that if you violate it, your code may have portability issues.
 <p>
 Next: <a href="#The-if-Statement" accesskey="n" rel="next">The if Statement</a>, Previous: <a href="#Labels" accesskey="p" rel="prev">Labels</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Expression-Statements-1"></span><h3 class="section">4.2 Expression Statements</h3>
+<span id="Vyrazheniya-Instrukcii"></span><h3 class="section">4.2 Выражения Инструкций</h3>
 <span id="index-expression-statements"></span>
 <span id="index-statements_002c-expression"></span>
 
-<p>You can turn any expression into a statement by adding a semicolon to
-the end of the expression.  Here are some examples:
+<p>Можно превратить любое выражение в инструкцию, добавив точку с запятой в
+конце выражения.  Вот некоторые примеры:
 </p>
 <div class="example">
 <pre class="example">5;
@@ -4302,27 +4301,25 @@ the end of the expression.  Here are some examples:
 10 &gt;= 9;
 </pre></div>
 
-<p>In each of those, all that happens is that each expression is
-evaluated.  However, they are useless because they do not store
-a value anywhere, nor do they actually do anything, other than
-the evaluation itself.  The compiler is free to ignore such
-statements.
+<p>В каждом из них, все, что происходит - это вычисление каждого выражения.  Тем
+не менее, они бесполезны, потому что они нигде не сохраняют результат, здесь
+только происходит оценка выражений.  Компилятор может игнорировать подобные
+инструкции.
 </p>
-<p>Expression statements are only useful when they have some kind
-of side effect, such as storing a value, calling a function, or
-(this is esoteric) causing a fault in the program.  Here are
-some more useful examples:
+<p>Инструкции выражений тогда полезны, когда имеют побочный эффект, такой как
+сохранение значения, вызов функции, или (это эзотерическое) вызов сбоя в
+программе.  Вот несколько полезных примеров:
 </p>
 <div class="example">
 <pre class="example">x++;
 y = x + 25;
-puts (&quot;Hello, user!&quot;);
+puts (&quot;Привет, пользователь!&quot;);
 *cucumber;
 </pre></div>
 
-<p>The last of those statements, <code>*cucumber;</code>, could potentially
-cause a fault in the program if the value of <code>cucumber</code> is both
-not a valid pointer and has been declared as <code>volatile</code>.
+<p>Последняя из этих инструкций, <code>*cucumber;</code>, потенциально может вызвать
+сбой в программе, если значение <code>cucumber</code> одновременно не является
+допустимым указателем и было объявлено не как <code>volatile</code>.
 </p>
 
 
@@ -4331,65 +4328,63 @@ not a valid pointer and has been declared as <code>volatile</code>.
 <p>
 Next: <a href="#The-switch-Statement" accesskey="n" rel="next">The switch Statement</a>, Previous: <a href="#Expression-Statements" accesskey="p" rel="prev">Expression Statements</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-if-Statement-1"></span><h3 class="section">4.3 The <code>if</code> Statement</h3>
+<span id="Konstrukciya-if"></span><h3 class="section">4.3 Конструкция <code>if</code></h3>
 <span id="index-if-statements"></span>
 <span id="index-else-statements"></span>
 
-<p>You can use the <code>if</code> statement to conditionally execute part of your
-program, based on the truth value of a given expression.  Here is the
-general form of an <code>if</code> statement:
+<p>Можно использовать условную конструкцию <code>if</code>, чтобы выполнить часть
+программы, на основе истинности заданного выражения.  Вот общий вид
+конструкции <code>if</code>:
 </p>
 <div class="example">
-<pre class="example">if (<var>test</var>)
-  <var>then-statement</var>
+<pre class="example">if (<var>тест</var>)
+  <var>тогда-часть</var>
 else
-  <var>else-statement</var>
+  <var>иначе-часть</var>
 </pre></div>
 
-<p>If <var>test</var> evaluates to true, then <var>then-statement</var> is executed and
-<var>else-statement</var> is not.  If <var>test</var> evaluates to false, then
-<var>else-statement</var> is executed and <var>then-statement</var> is not.  The
-<code>else</code> clause is optional.
+<p>Если выражение <var>тест</var> оценено в значение истинна, то выполняется
+<var>тогда-часть</var> а <var>иначе-часть</var> нет.  Если выражение <var>тест</var>
+оценено в значение ложь, то <var>тогда-часть</var> выполняется а
+<var>тогда-часть</var> нет.  Выражение <code>else</code> не является обязательным.
 </p>
-<p>Here is an actual example:
+<p>Вот конкретный пример:
 </p>
 <div class="example">
 <pre class="example">if (x == 10)
-  puts (&quot;x is 10&quot;);
+  puts (&quot;x это 10&quot;);
 </pre></div>
 
-<p>If <code>x == 10</code> evaluates to true, then the statement
-<code>puts (&quot;x is 10&quot;);</code> is executed.  If <code>x == 10</code> evaluates to
-false, then the statement <code>puts (&quot;x is 10&quot;);</code> is not executed.
-</p>
-<p>Here is an example using <code>else</code>:
+<p>Если выражение <code>x == 10</code> оценивается как истинна, то выполняется
+инструкция <code>puts (&quot;x это 10&quot;);</code>.  Если <code>x == 10</code>
+оценивается в значение ЛОЖЬ, то инструкция <code>puts (&quot;x это 10&quot;);</code> не
+выполняется.  Ниже приведен пример использования с <code>else</code>:
 </p>
 <div class="example">
 <pre class="example">if (x == 10)
-  puts (&quot;x is 10&quot;);
+  puts (&quot;x это 10&quot;);
 else
-  puts (&quot;x is not 10&quot;);
+  puts (&quot;x не 10&quot;);
 </pre></div>
 
-<p>You can use a series of <code>if</code> statements to test for multiple
-conditions:
+<p>Можно использовать ряд инструкций <code>if</code> для проверки нескольких условий:
 </p>
 <div class="example">
 <pre class="example">if (x == 1)
-  puts (&quot;x is 1&quot;);
+  puts (&quot;x это 1&quot;);
 else if (x == 2)
-  puts (&quot;x is 2&quot;);
+  puts (&quot;x это 2&quot;);
 else if (x == 3)
-  puts (&quot;x is 3&quot;);
+  puts (&quot;x это 3&quot;);
 else
-  puts (&quot;x is something else&quot;);
+  puts (&quot;x что-то другое&quot;);
 </pre></div>
 
-<p>This function calculates and displays the date of Easter for the given year <code>y</code>:
+<p>Эта функция вычисляет и отображает дату Пасхи для заданного года <code>y</code>:
 </p>
 <div class="example">
 <pre class="example">void
-easterDate (int y)
+датаПасхи (int y)
 {
   int n = 0;
   int g = (y % 19) + 1;
@@ -4410,9 +4405,9 @@ easterDate (int y)
   n = n + 7 - ((d + n) % 7);
 
   if (n &gt; 31)
-    printf (&quot;Easter: %d April %d&quot;, n - 31, y);
+    printf (&quot;Пасха: %d Апрель %d&quot;, n - 31, y);
   else
-    printf (&quot;Easter: %d March %d&quot;, n, y);
+    printf (&quot;Пасха: %d Март %d&quot;, n, y);
 }
 </pre></div>
 
@@ -4421,117 +4416,122 @@ easterDate (int y)
 <p>
 Next: <a href="#The-while-Statement" accesskey="n" rel="next">The while Statement</a>, Previous: <a href="#The-if-Statement" accesskey="p" rel="prev">The if Statement</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-switch-Statement-1"></span><h3 class="section">4.4 The <code>switch</code> Statement</h3>
+<span id="Perekliuchatelx-switch"></span><h3 class="section">4.4 Переключатель <code>switch</code></h3>
 <span id="index-switch-statement"></span>
 
-<p>You can use the <code>switch</code> statement to compare one expression with others,
-and then execute a series of sub-statements based on the result of the
-comparisons.  Here is the general form of a <code>switch</code> statement:
+<p>Можно использовать оператор <code>switch</code> для сравнения одного выражения с
+другими, а затем выполнения ряда вспомогательных инструкций, основанных на
+результате сравнения.  Вот общий вид переключателя <code>switch</code>:
 </p>
 <div class="example">
-<pre class="example">switch (<var>test</var>)
+<pre class="example">switch (<var>тест</var>)
   {
-    case <var>compare-1</var>:
-      <var>if-equal-statement-1</var>
-    case <var>compare-2</var>:
-      <var>if-equal-statement-2</var>
+    case <var>сравнитьТест-1</var>:
+      <var>если-соответствует-сравнитьТест-1</var>
+    case <var>сравнитьТест-2</var>:
+      <var>если-соответствует-сравнитьТест-2</var>
     &hellip;
     default:
-      <var>default-statement</var>
+      <var>соответствие-по-умолчанию</var>
   }
 </pre></div>
 
-<p>The <code>switch</code> statement compares <var>test</var> to each of the
-<var>compare</var> expressions, until it finds one that is
-equal to <var>test</var>.  Then, the statements following the successful
-case are executed.  All of the expressions compared must be of an integer
-type, and the <var>compare-N</var> expressions must be of a constant integer
-type (e.g., a literal integer or an expression built of literal integers).
+<p>Инструкция <code>switch</code> сравнивает <var>тест</var> с каждым из выражений
+вариантов <var>сравнитьТест-N</var>, пока не найдет то, которое удовлетворяет
+<var>test</var>.  Затем выполняются вложенные инструкции выбранного варианта.  Все
+сравниваемые выражения, должны быть целочисленного типа, и выражения
+<var>сравнитьТест-N</var> должны быть константами целочисленного типа, как
+константа целого числа (например, буквальное целое число или выражение,
+построенное из литералов целых чисел).
 </p>
-<p>Optionally, you can specify a default case.  If <var>test</var> doesn&rsquo;t match
-any of the specific cases listed prior to the default case, then
-the statements for the default case are executed.  Traditionally, the
-default case is put after the specific cases, but that isn&rsquo;t required.
+<p>При желании можно указать вариант по умолчанию.  Если <var>тест</var> нет
+соответствия ни к одному из конкретных вариантов, перечисленных до варианта
+по умолчанию, то выполняются инструкции варианта по умолчанию.  Традиционно,
+вариант по умолчанию записывается в конце всех вариантов, но это не
+требуется обязательно.
 </p>
 
 <div class="example">
 <pre class="example">switch (x)
   {
     case 0:
-      puts (&quot;x is 0&quot;);
+      puts (&quot;x это 0&quot;);
       break;
     case 1:
-      puts (&quot;x is 1&quot;);
+      puts (&quot;x это 1&quot;);
       break;
     default:
-      puts (&quot;x is something else&quot;);
+      puts (&quot;x что-то другое&quot;);
       break;
   }
 </pre></div>
 
-<p>Notice the usage of the <code>break</code> statement in each of the cases.  This
-is because, once a matching case is found, not only are its statements
-executed, but so are the statements for all following cases:
+<p>Использование инструкции <code>break</code> в каждом из вариантов, приводит к
+тому, что, в случае выиграша варианта, выполняются вложенные утверждения и
+управление потоком выполнения передаётся после всей конструкции переключателя
+<code>switch</code> в обход выполнения всех оставшихся инструкций переключателя:
 </p>
 <div class="example">
 <pre class="example">int x = 0;
 switch (x)
   {
     case 0:
-      puts (&quot;x is 0&quot;);
+      puts (&quot;x это 0&quot;);
     case 1:
-      puts (&quot;x is 1&quot;);
+      puts (&quot;x это 1&quot;);
     default:
-      puts (&quot;x is something else&quot;);
+      puts (&quot;x что-то другое&quot;);
   }
 </pre></div>
 
-<p>The output of that example is:
+<p>Выход этого примера без инструкции <code>break;</code>:
 </p>
 <div class="example">
 <pre class="example">x is 0
 x is 1
-x is something else
+x is что-то другое
 </pre></div>
 
-<p>This is often not desired.  Including a <code>break</code> statement at the
-end of each case redirects program flow to after the <code>switch</code> statement.
+<p>Это часто не желательно.  Инструкции <code>break;</code> в конце каждого варианта
+перенаправляет поток выполнения программы в точку сразу после конструкции
+переключателя <code>switch</code>.
 </p>
-<p>As a GNU C extension, you can also specify a range of consecutive integer
-values in a single <code>case</code> label, like this:
+<p>В качестве расширения GNU C, можно также указать диапазон последовательных
+целочисленных значений в одной метке <code>case</code>, как здесь:
 </p>
 <div class="example">
-<pre class="example">case <var>low</var> ... <var>high</var>:
+<pre class="example">case <var>начало</var> ... <var>предел</var>:
 </pre></div>
 
-<p>This has the same effect as the corresponding number of individual <code>case</code>
-labels, one for each integer value from <var>low</var> to <var>high</var>, inclusive.
+<p>Это имеет тот же эффект, что и соответствующее число отдельных <code>case</code>
+меток, по одному для каждого целого значения от <var>начало</var> до <var>предел</var>
+включительно.
 </p>
-<p>This feature is especially useful for ranges of ASCII character codes:
+<p>Эта функция особенно полезна для диапазонов кодов символов ASCII:
 </p>
 <div class="example">
 <pre class="example">case 'A' ... 'Z':
 </pre></div>
 
-<p>Be careful to include spaces around the <code>...</code>; otherwise it
-may be parsed incorrectly when you use it with integer values.  For
-example, write this:
+<p>Будьте осторожны, не нужно добавлять пробелы вокруг <code>...</code>, иначе это
+может быть разобрано неправильно, при использовании с целочисленными
+значениями.  Например, если написать следующим образом:
 </p>
 <div class="example">
 <pre class="example">case 1 ... 5:
 </pre></div>
 
-<p>instead of this:
+<p>вместо этого требуется писать так:
 </p>
 <div class="example">
 <pre class="example">case 1...5:
 </pre></div>
 
-<p>It is common to use a <code>switch</code> statement to handle various
-possible values of <code>errno</code>.  In this case a portable program
-should watch out for the possibility that two macros for <code>errno</code>
-values in fact have the same value, for example <code>EWOULDBLOCK</code> and
-<code>EAGAIN</code>.
+<p>Распространено использовать конструкцию переключателя <code>switch</code> для
+обработки различных возможных значений конструкции <code>errno</code>.  В этом
+случае, для переносимости программы, нужно следить за макросами, которые
+используют значение <code>errno</code>, которое на самом деле имеет такое же
+значение, например как <code>EWOULDBLOCK</code> и <code>EAGAIN</code>.
 </p>
 
 <hr>
@@ -4539,24 +4539,24 @@ values in fact have the same value, for example <code>EWOULDBLOCK</code> and
 <p>
 Next: <a href="#The-do-Statement" accesskey="n" rel="next">The do Statement</a>, Previous: <a href="#The-switch-Statement" accesskey="p" rel="prev">The switch Statement</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-while-Statement-1"></span><h3 class="section">4.5 The <code>while</code> Statement</h3>
+<span id="Konstrukciya-while"></span><h3 class="section">4.5 Конструкция <code>while</code></h3>
 <span id="index-while-statement"></span>
 
-<p>The <code>while</code> statement is a loop statement with an exit test at
-the beginning of the loop.  Here is the general form of the <code>while</code>
-statement:
+<p>Конструкция <code>while</code> является инструкцией цикла с условием на входе в
+начале цикла.  Вот общая форма конструкции <code>while</code>:
 </p>
 <div class="example">
-<pre class="example">while (<var>test</var>)
-  <var>statement</var>
+<pre class="example">while (<var>тест</var>)
+  <var>инструкции</var>
 </pre></div>
 
-<p>The <code>while</code> statement first evaluates <var>test</var>.  If <var>test</var>
-evaluates to true, <var>statement</var> is executed, and then <var>test</var> is
-evaluated again.  <var>statement</var> continues to execute repeatedly as long as
-<var>test</var> is true after each execution of <var>statement</var>.  
+<p>Инструкция <code>while</code> вначале оценивает условие <var>тест</var>.  Если выражение
+<var>тест</var> вычислено как истинна, выполняются <var>инструкции</var>, а затем
+<var>тест</var> оценивается снова.  <var>инструкции</var> продолжают выполняться до тех
+пор, пока условие <var>тест</var> оценивается как истина после каждого выполнения
+<var>инструкции</var>.  
 </p>
-<p>This example prints the integers from zero through nine:
+<p>Этот пример печатает целые числа от нуля до девяти:
 </p>
 <div class="example">
 <pre class="example">int counter = 0;
@@ -4564,31 +4564,31 @@ while (counter &lt; 10)
   printf (&quot;%d &quot;, counter++);
 </pre></div>
 
-<p>A <code>break</code> statement can also cause a <code>while</code> loop to exit.
+<p>Инструкция <code>break</code> может также вызвать выход из цикла <code>while</code>.
 </p>
 <hr>
 <span id="The-do-Statement"></span><div class="header">
 <p>
 Next: <a href="#The-for-Statement" accesskey="n" rel="next">The for Statement</a>, Previous: <a href="#The-while-Statement" accesskey="p" rel="prev">The while Statement</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-do-Statement-1"></span><h3 class="section">4.6 The <code>do</code> Statement</h3>
+<span id="Konstrukciya-do"></span><h3 class="section">4.6 Конструкция <code>do</code></h3>
 <span id="index-do-statement"></span>
 
-<p>The <code>do</code> statement is a loop statement with an exit test at the end
-of the loop.  Here is the general form of the <code>do</code> statement:
+<p>Конструкция <code>do</code> является инструкцией цикла с условием в конце цикла.
+Вот общая форма конструкции <code>do</code>:
 </p>
 <div class="example">
 <pre class="example">do
-  <var>statement</var>
-while (<var>test</var>);
+  <var>инструкции</var>
+while (<var>тест</var>);
 </pre></div>
 
-<p>The <code>do</code> statement first executes <var>statement</var>.  After that,
-it evaluates <var>test</var>.  If <var>test</var> is true, then <var>statement</var> is
-executed again.  <var>statement</var> continues to execute repeatedly as long as
-<var>test</var> is true after each execution of <var>statement</var>.
-</p>
-<p>This example also prints the integers from zero through nine:
+<p>Конструкция <code>do</code> вначале выполняет <var>инструкции</var>.  После этого,
+оценивается условие <var>тест</var>.  Если <var>тест</var> оценено в истину, то
+выполняются <var>инструкции</var> снова.  <var>инструкции</var> продолжают выполняться
+до тех пор, пока условие <var>тест</var> будет оцениватся в истину, после каждого
+выполнения <var>инструкции</var>.  Этот пример также печатает целые числа от нуля
+до девяти:
 </p>
 <div class="example">
 <pre class="example">int x = 0;
@@ -4597,7 +4597,7 @@ do
 while (x &lt; 10);
 </pre></div>
 
-<p>A <code>break</code> statement can also cause a <code>do</code> loop to exit.
+<p>Инструкция <code>break</code> может также произвести выход из цикла <code>do</code>.
 </p>
 <hr>
 <span id="The-for-Statement"></span><div class="header">

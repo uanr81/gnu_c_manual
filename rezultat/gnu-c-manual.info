@@ -3217,12 +3217,12 @@ File: gnu-c-manual.info,  Node: Sequence Points and Signal Delivery,  Prev: Sequ
 
 File: gnu-c-manual.info,  Node: Statements,  Next: Functions,  Prev: Expressions and Operators,  Up: Top
 
-4 Statements
+4 Инструкции
 ************
 
-You write statements to cause actions and to control flow within your
-programs.  You can also write statements that do not do anything at all,
-or do things that are uselessly trivial.
+Инструкция вызывает действия и управляет потоком выполнения в
+программах.  Можно написать инструкцию, которая не будет делать вообще
+ничего, или делать то, что бесполезно.
 
 * Menu:
 
@@ -3244,111 +3244,108 @@ or do things that are uselessly trivial.
 
 File: gnu-c-manual.info,  Node: Labels,  Next: Expression Statements,  Up: Statements
 
-4.1 Labels
-==========
+4.1 Метки
+=========
 
-You can use labels to identify a section of source code for use with a
-later 'goto' (*note The goto Statement::).  A label consists of an
-identifier (such as those used for variable names) followed by a colon.
-Here is an example:
+Можно использовать метки для идентификации места исходного кода для
+использования в будущем оператором 'goto' (*note The goto Statement::).
+Метка состоит из идентификатора (например, такого, которые используются
+для имен переменных), с последующим двоеточием.  Вот пример:
 
      treet:
 
-   You should be aware that label names do not interfere with other
-identifier names:
+   Имена меток не конфликтуют с другими идентификаторами:
 
-     int treet = 5;    /* 'treet' the variable. */
-     treet:            /* 'treet' the label. */
+     int treet = 5;    /* 'treet' это переменная. */
+     treet:            /* 'treet' это метка. */
 
-   The ISO C standard mandates that a label must be followed by at least
-one statement, possibly a null statement (*note The Null Statement::).
-GCC will compile code that does not meet this requirement, but be aware
-that if you violate it, your code may have portability issues.
+   Стандартные мандаты ISO C, что за меткой следовало, по крайней мере,
+одно выражение, возможно, пустой оператор (*note The Null Statement::).
+GCC будет компилировать код, который не соответствует этому требованию,
+но это может повлечь проблемы с переносимостью.
 
 
 File: gnu-c-manual.info,  Node: Expression Statements,  Next: The if Statement,  Prev: Labels,  Up: Statements
 
-4.2 Expression Statements
-=========================
+4.2 Выражения Инструкций
+========================
 
-You can turn any expression into a statement by adding a semicolon to
-the end of the expression.  Here are some examples:
+Можно превратить любое выражение в инструкцию, добавив точку с запятой в
+конце выражения.  Вот некоторые примеры:
 
      5;
      2 + 2;
      10 >= 9;
 
-   In each of those, all that happens is that each expression is
-evaluated.  However, they are useless because they do not store a value
-anywhere, nor do they actually do anything, other than the evaluation
-itself.  The compiler is free to ignore such statements.
+   В каждом из них, все, что происходит - это вычисление каждого
+выражения.  Тем не менее, они бесполезны, потому что они нигде не
+сохраняют результат, здесь только происходит оценка выражений.
+Компилятор может игнорировать подобные инструкции.
 
-   Expression statements are only useful when they have some kind of
-side effect, such as storing a value, calling a function, or (this is
-esoteric) causing a fault in the program.  Here are some more useful
-examples:
+   Инструкции выражений тогда полезны, когда имеют побочный эффект,
+такой как сохранение значения, вызов функции, или (это эзотерическое)
+вызов сбоя в программе.  Вот несколько полезных примеров:
 
      x++;
      y = x + 25;
-     puts ("Hello, user!");
+     puts ("Привет, пользователь!");
      *cucumber;
 
-   The last of those statements, '*cucumber;', could potentially cause a
-fault in the program if the value of 'cucumber' is both not a valid
-pointer and has been declared as 'volatile'.
+   Последняя из этих инструкций, '*cucumber;', потенциально может
+вызвать сбой в программе, если значение 'cucumber' одновременно не
+является допустимым указателем и было объявлено не как 'volatile'.
 
 
 File: gnu-c-manual.info,  Node: The if Statement,  Next: The switch Statement,  Prev: Expression Statements,  Up: Statements
 
-4.3 The 'if' Statement
-======================
+4.3 Конструкция 'if'
+====================
 
-You can use the 'if' statement to conditionally execute part of your
-program, based on the truth value of a given expression.  Here is the
-general form of an 'if' statement:
+Можно использовать условную конструкцию 'if', чтобы выполнить часть
+программы, на основе истинности заданного выражения.  Вот общий вид
+конструкции 'if':
 
-     if (TEST)
-       THEN-STATEMENT
+     if (ТЕСТ)
+       ТОГДА-ЧАСТЬ
      else
-       ELSE-STATEMENT
+       ИНАЧЕ-ЧАСТЬ
 
-   If TEST evaluates to true, then THEN-STATEMENT is executed and
-ELSE-STATEMENT is not.  If TEST evaluates to false, then ELSE-STATEMENT
-is executed and THEN-STATEMENT is not.  The 'else' clause is optional.
+   Если выражение ТЕСТ оценено в значение истинна, то выполняется
+ТОГДА-ЧАСТЬ а ИНАЧЕ-ЧАСТЬ нет.  Если выражение ТЕСТ оценено в значение
+ложь, то ТОГДА-ЧАСТЬ выполняется а ТОГДА-ЧАСТЬ нет.  Выражение 'else' не
+является обязательным.
 
-   Here is an actual example:
+   Вот конкретный пример:
 
      if (x == 10)
-       puts ("x is 10");
+       puts ("x это 10");
 
-   If 'x == 10' evaluates to true, then the statement 'puts ("x is
-10");' is executed.  If 'x == 10' evaluates to false, then the statement
-'puts ("x is 10");' is not executed.
-
-   Here is an example using 'else':
+   Если выражение 'x == 10' оценивается как истинна, то выполняется
+инструкция 'puts ("x это 10");'.  Если 'x == 10' оценивается в значение
+ЛОЖЬ, то инструкция 'puts ("x это 10");' не выполняется.  Ниже приведен
+пример использования с 'else':
 
      if (x == 10)
-       puts ("x is 10");
+       puts ("x это 10");
      else
-       puts ("x is not 10");
+       puts ("x не 10");
 
-   You can use a series of 'if' statements to test for multiple
-conditions:
+   Можно использовать ряд инструкций 'if' для проверки нескольких
+условий:
 
      if (x == 1)
-       puts ("x is 1");
+       puts ("x это 1");
      else if (x == 2)
-       puts ("x is 2");
+       puts ("x это 2");
      else if (x == 3)
-       puts ("x is 3");
+       puts ("x это 3");
      else
-       puts ("x is something else");
+       puts ("x что-то другое");
 
-   This function calculates and displays the date of Easter for the
-given year 'y':
+   Эта функция вычисляет и отображает дату Пасхи для заданного года 'y':
 
      void
-     easterDate (int y)
+     датаПасхи (int y)
      {
        int n = 0;
        int g = (y % 19) + 1;
@@ -3369,161 +3366,165 @@ given year 'y':
        n = n + 7 - ((d + n) % 7);
 
        if (n > 31)
-         printf ("Easter: %d April %d", n - 31, y);
+         printf ("Пасха: %d Апрель %d", n - 31, y);
        else
-         printf ("Easter: %d March %d", n, y);
+         printf ("Пасха: %d Март %d", n, y);
      }
 
 
 File: gnu-c-manual.info,  Node: The switch Statement,  Next: The while Statement,  Prev: The if Statement,  Up: Statements
 
-4.4 The 'switch' Statement
+4.4 Переключатель 'switch'
 ==========================
 
-You can use the 'switch' statement to compare one expression with
-others, and then execute a series of sub-statements based on the result
-of the comparisons.  Here is the general form of a 'switch' statement:
+Можно использовать оператор 'switch' для сравнения одного выражения с
+другими, а затем выполнения ряда вспомогательных инструкций, основанных
+на результате сравнения.  Вот общий вид переключателя 'switch':
 
-     switch (TEST)
+     switch (ТЕСТ)
        {
-         case COMPARE-1:
-           IF-EQUAL-STATEMENT-1
-         case COMPARE-2:
-           IF-EQUAL-STATEMENT-2
+         case СРАВНИТЬТЕСТ-1:
+           ЕСЛИ-СООТВЕТСТВУЕТ-СРАВНИТЬТЕСТ-1
+         case СРАВНИТЬТЕСТ-2:
+           ЕСЛИ-СООТВЕТСТВУЕТ-СРАВНИТЬТЕСТ-2
          ...
          default:
-           DEFAULT-STATEMENT
+           СООТВЕТСТВИЕ-ПО-УМОЛЧАНИЮ
        }
 
-   The 'switch' statement compares TEST to each of the COMPARE
-expressions, until it finds one that is equal to TEST.  Then, the
-statements following the successful case are executed.  All of the
-expressions compared must be of an integer type, and the COMPARE-N
-expressions must be of a constant integer type (e.g., a literal integer
-or an expression built of literal integers).
+   Инструкция 'switch' сравнивает ТЕСТ с каждым из выражений вариантов
+СРАВНИТЬТЕСТ-N, пока не найдет то, которое удовлетворяет TEST.  Затем
+выполняются вложенные инструкции выбранного варианта.  Все сравниваемые
+выражения, должны быть целочисленного типа, и выражения СРАВНИТЬТЕСТ-N
+должны быть константами целочисленного типа, как константа целого числа
+(например, буквальное целое число или выражение, построенное из
+литералов целых чисел).
 
-   Optionally, you can specify a default case.  If TEST doesn't match
-any of the specific cases listed prior to the default case, then the
-statements for the default case are executed.  Traditionally, the
-default case is put after the specific cases, but that isn't required.
+   При желании можно указать вариант по умолчанию.  Если ТЕСТ нет
+соответствия ни к одному из конкретных вариантов, перечисленных до
+варианта по умолчанию, то выполняются инструкции варианта по умолчанию.
+Традиционно, вариант по умолчанию записывается в конце всех вариантов,
+но это не требуется обязательно.
 
      switch (x)
        {
          case 0:
-           puts ("x is 0");
+           puts ("x это 0");
            break;
          case 1:
-           puts ("x is 1");
+           puts ("x это 1");
            break;
          default:
-           puts ("x is something else");
+           puts ("x что-то другое");
            break;
        }
 
-   Notice the usage of the 'break' statement in each of the cases.  This
-is because, once a matching case is found, not only are its statements
-executed, but so are the statements for all following cases:
+   Использование инструкции 'break' в каждом из вариантов, приводит к
+тому, что, в случае выиграша варианта, выполняются вложенные утверждения
+и управление потоком выполнения передаётся после всей конструкции
+переключателя 'switch' в обход выполнения всех оставшихся инструкций
+переключателя:
 
      int x = 0;
      switch (x)
        {
          case 0:
-           puts ("x is 0");
+           puts ("x это 0");
          case 1:
-           puts ("x is 1");
+           puts ("x это 1");
          default:
-           puts ("x is something else");
+           puts ("x что-то другое");
        }
 
-The output of that example is:
+Выход этого примера без инструкции 'break;':
 
      x is 0
      x is 1
-     x is something else
+     x is что-то другое
 
-   This is often not desired.  Including a 'break' statement at the end
-of each case redirects program flow to after the 'switch' statement.
+   Это часто не желательно.  Инструкции 'break;' в конце каждого
+варианта перенаправляет поток выполнения программы в точку сразу после
+конструкции переключателя 'switch'.
 
-   As a GNU C extension, you can also specify a range of consecutive
-integer values in a single 'case' label, like this:
+   В качестве расширения GNU C, можно также указать диапазон
+последовательных целочисленных значений в одной метке 'case', как здесь:
 
-     case LOW ... HIGH:
+     case НАЧАЛО ... ПРЕДЕЛ:
 
-This has the same effect as the corresponding number of individual
-'case' labels, one for each integer value from LOW to HIGH, inclusive.
+Это имеет тот же эффект, что и соответствующее число отдельных 'case'
+меток, по одному для каждого целого значения от НАЧАЛО до ПРЕДЕЛ
+включительно.
 
-   This feature is especially useful for ranges of ASCII character
-codes:
+   Эта функция особенно полезна для диапазонов кодов символов ASCII:
 
      case 'A' ... 'Z':
 
-   Be careful to include spaces around the '...'; otherwise it may be
-parsed incorrectly when you use it with integer values.  For example,
-write this:
+   Будьте осторожны, не нужно добавлять пробелы вокруг '...', иначе это
+может быть разобрано неправильно, при использовании с целочисленными
+значениями.  Например, если написать следующим образом:
 
      case 1 ... 5:
 
-instead of this:
+вместо этого требуется писать так:
 
      case 1...5:
 
-   It is common to use a 'switch' statement to handle various possible
-values of 'errno'.  In this case a portable program should watch out for
-the possibility that two macros for 'errno' values in fact have the same
-value, for example 'EWOULDBLOCK' and 'EAGAIN'.
+   Распространено использовать конструкцию переключателя 'switch' для
+обработки различных возможных значений конструкции 'errno'.  В этом
+случае, для переносимости программы, нужно следить за макросами, которые
+используют значение 'errno', которое на самом деле имеет такое же
+значение, например как 'EWOULDBLOCK' и 'EAGAIN'.
 
 
 File: gnu-c-manual.info,  Node: The while Statement,  Next: The do Statement,  Prev: The switch Statement,  Up: Statements
 
-4.5 The 'while' Statement
-=========================
+4.5 Конструкция 'while'
+=======================
 
-The 'while' statement is a loop statement with an exit test at the
-beginning of the loop.  Here is the general form of the 'while'
-statement:
+Конструкция 'while' является инструкцией цикла с условием на входе в
+начале цикла.  Вот общая форма конструкции 'while':
 
-     while (TEST)
-       STATEMENT
+     while (ТЕСТ)
+       ИНСТРУКЦИИ
 
-   The 'while' statement first evaluates TEST.  If TEST evaluates to
-true, STATEMENT is executed, and then TEST is evaluated again.
-STATEMENT continues to execute repeatedly as long as TEST is true after
-each execution of STATEMENT.
+   Инструкция 'while' вначале оценивает условие ТЕСТ.  Если выражение
+ТЕСТ вычислено как истинна, выполняются ИНСТРУКЦИИ, а затем ТЕСТ
+оценивается снова.  ИНСТРУКЦИИ продолжают выполняться до тех пор, пока
+условие ТЕСТ оценивается как истина после каждого выполнения ИНСТРУКЦИИ.
 
-   This example prints the integers from zero through nine:
+   Этот пример печатает целые числа от нуля до девяти:
 
      int counter = 0;
      while (counter < 10)
        printf ("%d ", counter++);
 
-   A 'break' statement can also cause a 'while' loop to exit.
+   Инструкция 'break' может также вызвать выход из цикла 'while'.
 
 
 File: gnu-c-manual.info,  Node: The do Statement,  Next: The for Statement,  Prev: The while Statement,  Up: Statements
 
-4.6 The 'do' Statement
-======================
+4.6 Конструкция 'do'
+====================
 
-The 'do' statement is a loop statement with an exit test at the end of
-the loop.  Here is the general form of the 'do' statement:
+Конструкция 'do' является инструкцией цикла с условием в конце цикла.
+Вот общая форма конструкции 'do':
 
      do
-       STATEMENT
-     while (TEST);
+       ИНСТРУКЦИИ
+     while (ТЕСТ);
 
-   The 'do' statement first executes STATEMENT.  After that, it
-evaluates TEST.  If TEST is true, then STATEMENT is executed again.
-STATEMENT continues to execute repeatedly as long as TEST is true after
-each execution of STATEMENT.
-
-   This example also prints the integers from zero through nine:
+   Конструкция 'do' вначале выполняет ИНСТРУКЦИИ.  После этого,
+оценивается условие ТЕСТ.  Если ТЕСТ оценено в истину, то выполняются
+ИНСТРУКЦИИ снова.  ИНСТРУКЦИИ продолжают выполняться до тех пор, пока
+условие ТЕСТ будет оцениватся в истину, после каждого выполнения
+ИНСТРУКЦИИ.  Этот пример также печатает целые числа от нуля до девяти:
 
      int x = 0;
      do
        printf ("%d ", x++);
      while (x < 10);
 
-   A 'break' statement can also cause a 'do' loop to exit.
+   Инструкция 'break' может также произвести выход из цикла 'do'.
 
 
 File: gnu-c-manual.info,  Node: The for Statement,  Next: Blocks,  Prev: The do Statement,  Up: Statements
@@ -5986,46 +5987,46 @@ Node: Sequence Points Constrain Expressions171447
 Ref: Sequence Points Constrain Expressions-Footnote-1178291
 Node: Sequence Points and Signal Delivery178497
 Node: Statements181406
-Node: Labels182045
-Node: Expression Statements182868
-Node: The if Statement183936
-Node: The switch Statement185856
-Node: The while Statement188844
-Node: The do Statement189643
-Node: The for Statement190423
-Node: Blocks193889
-Node: The Null Statement195199
-Node: The goto Statement196197
-Node: The break Statement197971
-Node: The continue Statement198789
-Node: The return Statement199389
-Node: The typedef Statement201061
-Node: Functions202508
-Node: Function Declarations203422
-Node: Function Definitions205224
-Node: Calling Functions206830
-Node: Function Parameters207695
-Node: Variable Length Parameter Lists211186
-Node: Calling Functions Through Function Pointers213589
-Node: The main Function214461
-Ref: The main Function-Footnote-1216778
-Node: Recursive Functions216942
-Node: Static Functions217783
-Node: Nested Functions218458
-Node: Program Structure and Scope219257
-Node: Program Structure219584
-Node: Scope221069
-Node: A Sample Program222096
-Node: hello.c222952
-Node: system.h229297
-Node: Overflow230920
-Node: Integer Overflow Basics232060
-Node: Signed Overflow Examples233779
-Node: Optimization and Wraparound237272
-Node: Signed Overflow Advice240224
-Node: Signed Integer Division242888
-Node: GNU Free Documentation License243489
-Node: Index268616
+Node: Labels182186
+Node: Expression Statements183465
+Node: The if Statement185129
+Node: The switch Statement187726
+Node: The while Statement193164
+Node: The do Statement194403
+Node: The for Statement195622
+Node: Blocks199088
+Node: The Null Statement200398
+Node: The goto Statement201396
+Node: The break Statement203170
+Node: The continue Statement203988
+Node: The return Statement204588
+Node: The typedef Statement206260
+Node: Functions207707
+Node: Function Declarations208621
+Node: Function Definitions210423
+Node: Calling Functions212029
+Node: Function Parameters212894
+Node: Variable Length Parameter Lists216385
+Node: Calling Functions Through Function Pointers218788
+Node: The main Function219660
+Ref: The main Function-Footnote-1221977
+Node: Recursive Functions222141
+Node: Static Functions222982
+Node: Nested Functions223657
+Node: Program Structure and Scope224456
+Node: Program Structure224783
+Node: Scope226268
+Node: A Sample Program227295
+Node: hello.c228151
+Node: system.h234496
+Node: Overflow236119
+Node: Integer Overflow Basics237259
+Node: Signed Overflow Examples238978
+Node: Optimization and Wraparound242471
+Node: Signed Overflow Advice245423
+Node: Signed Integer Division248087
+Node: GNU Free Documentation License248688
+Node: Index273815
 
 End Tag Table
 
