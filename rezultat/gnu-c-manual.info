@@ -3529,78 +3529,88 @@ File: gnu-c-manual.info,  Node: The do Statement,  Next: The for Statement,  Pre
 
 File: gnu-c-manual.info,  Node: The for Statement,  Next: Blocks,  Prev: The do Statement,  Up: Statements
 
-4.7 The 'for' Statement
-=======================
+4.7 Конструкция 'for'
+=====================
 
-The 'for' statement is a loop statement whose structure allows easy
-variable initialization, expression testing, and variable modification.
-It is very convenient for making counter-controlled loops.  Here is the
-general form of the 'for' statement:
+Конструкция 'for' является инструкцией цикла, структура которой
+позволяет легко производить инициализацию переменной, проверку условного
+выражения и модификацию подконтрольной переменной.  Это очень удобно для
+создания счетчика контролируемых циклов.  Вот общая форма конструкции
+'for':
 
-     for (INITIALIZE; TEST; STEP)
-       STATEMENT
+     for (ИНИЦИАЛИЗАЦИЯ; УСЛОВИЕ; ШАГ)
+       ИНСТРУКЦИЯ
 
-   The 'for' statement first evaluates the expression INITIALIZE.  Then
-it evaluates the expression TEST.  If TEST is false, then the loop ends
-and program control resumes after STATEMENT.  Otherwise, if TEST is
-true, then STATEMENT is executed.  Finally, STEP is evaluated, and the
-next iteration of the loop begins with evaluating TEST again.
+   В конструкции 'for' вначале единократно вычисляется выражение
+ИНИЦИАЛИЗАЦИЯ.  Затем вычисляется выражение УСЛОВИЕ.  Если результат
+оценки выражения УСЛОВИЕ устанавливается в ложь, то цикл завершается и
+программа продолжает выполнение, не вычисляя выражение ИНСТРУКЦИЯ, уже
+после всей конструкции.  В противном случае, если УСЛОВИЕ оценивается в
+истину, то вычисляется выражение ИНСТРУКЦИЯ.  Наконец, оценивается
+выражение ШАГ, и следующая итерация цикла начинается снова с оценки
+выражения УСЛОВИЕ.
 
-   Most often, INITIALIZE assigns values to one or more variables, which
-are generally used as counters, TEST compares those variables to a
-predefined expression, and STEP modifies those variables' values.  Here
-is another example that prints the integers from zero through nine:
+   Чаще всего, в выражении ИНИЦИАЛИЗАЦИЯ присваивается значения одной
+или нескольким переменным, которые обычно используются в качестве
+счётчиков, УСЛОВИЕ сравнивает значения этих переменных с заранее
+заданным выражением, и выражение ШАГ модифицирует значения этих
+переменных.  Вот еще один пример, который печатает целые числа от нуля
+до девяти:
 
      int x;
      for (x = 0; x < 10; x++)
        printf ("%d ", x);
 
-   First, it evaluates INITIALIZE, which assigns 'x' the value 0.  Then,
-as long as 'x' is less than 10, the value of 'x' is printed (in the body
-of the loop).  Then 'x' is incremented in the STEP clause and the test
-re-evaluated.
+   Во-первых, выполняется инструкция ИНИЦИАЛИЗАЦИЯ - 'x = 0;',
+присваивается переменной 'x' значение 0.  Затем, выполняется инструкция
+УСЛОВИЕ - 'x < 10;', так как 'x' меньше, чем 10, то значение инструкции
+устанавливается в истину и выполняется инструкция 'инструкция' и 'x'
+печатается (в теле цикла).  Затем 'x' увеличивается в инструкции ШАГ и
+цикл переходит снова к оценки выражения УСЛОВИЕ.
 
-   All three of the expressions in a 'for' statement are optional, and
-any combination of the three is valid.  Since the first expression is
-evaluated only once, it is perhaps the most commonly omitted expression.
-You could also write the above example as:
+   Все три из выражений конструкции 'for' не являются обязательными, и
+любая комбинация из трёх является допустимой.  Так как первое выражение
+вычисляется только один раз, наиболее часто это выражение опущено.
+Также можете написать приведенный выше пример, как:
 
      int x = 1;
      for (; x <= 10; x++)
        printf ("%d ", x);
 
-In this example, 'x' receives its value prior to the beginning of the
-'for' statement.
+В этом примере, 'x' получает свое значение до начала конструкции 'for'.
 
-   If you leave out the TEST expression, then the 'for' statement is an
-infinite loop (unless you put a 'break' or 'goto' statement somewhere in
-STATEMENT).  This is like using '1' as TEST; it is never false.
+   Если опущена инструкция УСЛОВИЕ, то конструкция 'for' произведёт
+бесконечный цикл (если не поставить инструкцию 'break' или 'goto' где-то
+в инструкции ИНСТРУКЦИИ).  Это похоже на использование в качестве
+выражения УСЛОВИЕ константого значения '1', что сделает значение этого
+выражения всегда истина.
 
-   This 'for' statement starts printing numbers at 1 and then continues
-indefinitely, always printing 'x' incremented by 1:
+   Эта конструкция 'for' начинает печатать числа с 1, а затем
+продолжается до бесконечности, всегда перед печатью 'x' увеличивается на
+1:
 
      for (x = 1; ; x++)
        printf ("%d ", x);
 
-   If you leave out the STEP expression, then no progress is made toward
-completing the loop--at least not as is normally expected with a 'for'
-statement.
+   Если опущенно выражение ШАГ, то не будет никакого процеса завершения
+цикла -- по крайней мере, в разрезе нормального функционирования
+конструкции 'for'.
 
-   This example prints the number 1 over and over, indefinitely:
+   Этот пример печатает номер 1 снова и снова, бесконечно:
 
      for (x = 1; x <= 10;)
        printf ("%d ", x);
 
-   Perhaps confusingly, you cannot use the comma operator (*note The
-Comma Operator::) for monitoring multiple variables in a 'for'
-statement, because as usual the comma operator discards the result of
-its left operand.  This loop:
+   Нельзя использовать оператор запятая (*note The Comma Operator::) для
+мониторинга нескольких переменных в конструкции 'for', потому что,
+оператор запятая, отбрасывает результата оценки своего левого операнда.
+Пример цикла:
 
      int x, y;
      for (x = 1, y = 10; x <= 10, y >= 1; x+=2, y--)
        printf ("%d %d\n", x, y);
 
-Outputs:
+Вывод:
 
      1 10
      3 9
@@ -3613,18 +3623,18 @@ Outputs:
      17 2
      19 1
 
-   If you need to test two conditions, you will need to use the '&&'
-operator:
+   Если необходимо проверить два условия, нужно будет использовать
+оператор '&&':
 
      int x, y;
      for (x = 1, y = 10; x <= 10 && y >= 1; x+=2, y--)
        printf ("%d %d\n", x, y);
 
-   A 'break' statement can also cause a 'for' loop to exit.
+   Инструкция 'break' может также произвести выход из цикла 'for'.
 
-   Here is an example of a function that computes the summation of
-squares, given a starting integer to square and an ending integer to
-square:
+   Ниже приведен пример функции, которая вычисляет сумму квадратов
+последовательных чисел, заданных диапазоном от исходного числа, до
+максимального допустимого значения этой суммы:
 
      int
      sum_of_squares (int start, int end)
@@ -3638,116 +3648,115 @@ square:
 
 File: gnu-c-manual.info,  Node: Blocks,  Next: The Null Statement,  Prev: The for Statement,  Up: Statements
 
-4.8 Blocks
-==========
+4.8 Блоки
+=========
 
-A "block" is a set of zero or more statements enclosed in braces.
-Blocks are also known as "compound statements".  Often, a block is used
-as the body of an 'if' statement or a loop statement, to group
-statements together.
+"Блок" представляет собой набор из нуля или более инструкций,
+заключенных в фигурные скобки.  Блоки также известны как "составные
+инструкции".  Часто, блок используется как тело конструкции 'if' или
+конструкций цикла, чтобы группировать инструкции вместе.
 
      for (x = 1; x <= 10; x++)
        {
-         printf ("x is %d\n", x);
+         printf ("значение x это %d\n", x);
 
          if ((x % 2) == 0)
-           printf ("%d is even\n", x);
+           printf ("%d это чётное\n", x);
          else
-           printf ("%d is odd\n", x);
+           printf ("%d это нечётное\n", x);
        }
 
-   You can also put blocks inside other blocks:
+   Также можно поместить блоки внутри других блоков:
 
      for (x = 1; x <= 10; x++)
        {
          if ((x % 2) == 0)
            {
-             printf ("x is %d\n", x);
-             printf ("%d is even\n", x);
+             printf ("x значение это %d\n", x);
+             printf ("%d чётное число\n", x);
            }
          else
            {
-             printf ("x is %d\n", x);
-             printf ("%d is odd\n", x);
+             printf ("x значение это %d\n", x);
+             printf ("%d не чётное число\n", x);
            }
        }
 
-   You can declare variables inside a block; such variables are local to
-that block.  In C89, declarations must occur before other statements,
-and so sometimes it is useful to introduce a block simply for this
-purpose:
+   Можно объявлять переменные внутри блока; такие переменные являются
+локальными по отношению к этому блоку.  В C89, объявление переменных
+должно произойти до использования их в инструкциях и поэтому иногда
+полезно ввести блок просто для этой цели:
 
      {
        int x = 5;
        printf ("%d\n", x);
      }
-     printf ("%d\n", x);   /* Compilation error! 'x' exists only
-                            in the preceding block. */
+     printf ("%d\n", x);   /* Ошибка компиляции! 'x' существует
+                            только в предыдущем блоке. */
 
 
 File: gnu-c-manual.info,  Node: The Null Statement,  Next: The goto Statement,  Prev: Blocks,  Up: Statements
 
-4.9 The Null Statement
-======================
+4.9 Инструкция Null
+===================
 
-The "null statement" is merely a semicolon alone.
+"NULL инструкция" - просто одна точка с запятой.
 
      ;
 
-   A null statement does not do anything.  It does not store a value
-anywhere.  It does not cause time to pass during the execution of your
-program.
+   Null инструкция ничего не делает.  Нигде не хранит значения.  Не
+вызывает трату времени во время выполнения программы.
 
-   Most often, a null statement is used as the body of a loop statement,
-or as one or more of the expressions in a 'for' statement.  Here is an
-example of a 'for' statement that uses the null statement as the body of
-the loop (and also calculates the integer square root of 'n', just for
-fun):
+   Чаще всего, пустой оператор используется как в теле инструкции цикла,
+или в качестве одного или нескольких выражений инструкции 'for'.  Вот
+пример инструкции 'for', где используется инструкция 'Null', как тело
+цикла (вычисляется целочисленный квадратный корень из значения 'n',
+просто для удовольствия):
 
      for (i = 1; i*i < n; i++)
        ;
 
-   Here is another example that uses the null statement as the body of a
-'for' loop and also produces output:
+   Вот еще один пример, который использует 'Null' инструкцию в качестве
+тела цикла 'for', а также производит вывод:
 
-     for (x = 1; x <= 5; printf ("x is now %d\n", x), x++)
+     for (x = 1; x <= 5; printf ("x сейчас %d\n", x), x++)
        ;
 
-   A null statement is also sometimes used to follow a label that would
-otherwise be the last thing in a block.
+   Инструкция 'Null' также используется следом за меткой, в противном
+случае, метка была бы последней в блоке.
 
 
 File: gnu-c-manual.info,  Node: The goto Statement,  Next: The break Statement,  Prev: The Null Statement,  Up: Statements
 
-4.10 The 'goto' Statement
-=========================
+4.10 Инструкция 'goto'
+======================
 
-You can use the 'goto' statement to unconditionally jump to a different
-place in the program.  Here is the general form of a 'goto' statement:
+Можно использовать инструкцию 'goto' для безоговорочного перехода в
+другое место в программе.  Вот общий вид инструкции 'goto':
 
-     goto LABEL;
+     goto МЕТКА;
 
-   You have to specify a label to jump to; when the 'goto' statement is
-executed, program control jumps to that label.  *Note Labels::.  Here is
-an example:
+   Указывается метка для перехода оператором 'goto', когда программа
+достигает этой метки.  *Note Labels::.  Вот пример:
 
      goto end_of_program;
      ...
      end_of_program:
 
-   The label can be anywhere in the same function as the 'goto'
-statement that jumps to it, but a 'goto' statement cannot jump to a
-label in a different function.
+   Метка может распологаться в той же функции, что и инструкция 'goto' и
+передавать управление к нему, но инструкция 'goto' не может перевести
+выполнение к метке в другой функции.
 
-   You _can_ use 'goto' statements to simulate loop statements, but we
-do not recommend it--it makes the program harder to read, and GCC cannot
-optimize it as well.  You should use 'for', 'while', and 'do' statements
-instead of 'goto' statements, when possible.
+   Инструкцию 'goto' _можно_ использовать для ИМИТАЦИИ цикла, но не
+рекомендуем так поступать -- это делает программу труднее для чтения, и
+GCC не сможет оптимизировать такой код.  Нужно использовать инструкции
+для циклов 'for', 'while' и 'do' вместо инструкции 'goto', когда это
+возможно.
 
-   As an extension, GCC allows a goto statement to jump to an address
-specified by a 'void*' variable.  To make this work, you also need to
-take the address of a label by using the unary operator '&&' (not '&').
-Here is a contrived example:
+   В качестве расширения, GCC позволяет инструкции 'goto' осуществлять
+переход к адресу, указанному в переменной 'void*'.  Для того, чтобы это
+совершить, нужно взять адрес метки с помощью одинарного оператора '&&'
+(не '&').  Вот надуманный пример:
 
      enum Play { ROCK=0, PAPER=1, SCISSORS=2 };
      enum Result { WIN, LOSE, DRAW };
@@ -3768,11 +3777,11 @@ Here is a contrived example:
 
 File: gnu-c-manual.info,  Node: The break Statement,  Next: The continue Statement,  Prev: The goto Statement,  Up: Statements
 
-4.11 The 'break' Statement
-==========================
+4.11 Инструкция 'break'
+=======================
 
-You can use the 'break' statement to terminate a 'while', 'do', 'for',
-or 'switch' statement.  Here is an example:
+Можно использовать инструкцию 'break', чтобы прервать выполнение
+конструкций 'while', 'do', 'for', или 'switch'.  Вот пример:
 
      int x;
      for (x = 1; x <= 10; x++)
@@ -3783,22 +3792,24 @@ or 'switch' statement.  Here is an example:
            printf ("%d ", x);
        }
 
-   That example prints numbers from 1 to 7.  When 'x' is incremented to
-8, 'x == 8' is true, so the 'break' statement is executed, terminating
-the 'for' loop prematurely.
+   Этот пример печатает числа от 1 до 7.  Когда 'x' увеличивается до 8,
+выражение условия 'x == 8' возвращает результат истина и выполняется
+инструкция 'break', завершающая выполнение инструкции цикла 'for'
+преждевременно.
 
-   If you put a 'break' statement inside of a loop or 'switch' statement
-which itself is inside of a loop or 'switch' statement, the 'break' only
-terminates the innermost loop or 'switch' statement.
+   Если присутствует инструкция 'break' внутри инструкции цикла или
+инструкции 'switch', которая сама находится внутри инструкции цикла или
+инструкции 'switch', то инструкция 'break' сработывает только во
+внутреннем цикле или 'switch'.  (ВопросStatements739)
 
 
 File: gnu-c-manual.info,  Node: The continue Statement,  Next: The return Statement,  Prev: The break Statement,  Up: Statements
 
-4.12 The 'continue' Statement
-=============================
+4.12 Инструкция 'continue'
+==========================
 
-You can use the 'continue' statement in loops to terminate an iteration
-of the loop and begin the next iteration.  Here is an example:
+Можно использовать инструкцию 'continue' в циклах для прекращения
+текущей итерации цикла и перехода на следующую итерацию.  Вот пример:
 
      for (x = 0; x < 100; x++)
        {
@@ -3808,45 +3819,50 @@ of the loop and begin the next iteration.  Here is an example:
            sum_of_odd_numbers + = x;
        }
 
-   If you put a 'continue' statement inside a loop which itself is
-inside a loop, then it affects only the innermost loop.
+   Если поставить инструкцию 'continue' внутри цикла, который сам
+находится внутри цикла, то это повлияет только на внутренний цикл.
 
 
 File: gnu-c-manual.info,  Node: The return Statement,  Next: The typedef Statement,  Prev: The continue Statement,  Up: Statements
 
-4.13 The 'return' Statement
-===========================
+4.13 Инструкция 'return'
+========================
 
-You can use the 'return' statement to end the execution of a function
-and return program control to the function that called it.  Here is the
-general form of the 'return' statement:
+Можно использовать инструкцию 'return' для прекращения выполнения
+функции и возврата управления программе из функцию, которая её вызвала.
+Вот общая форма инструкции 'return':
 
-     return RETURN-VALUE;
+     return ВОЗВРАЩАЕМОЕ-ЗНАЧЕНИЕ;
 
-   RETURN-VALUE is an optional expression to return.  If the function's
-return type is 'void', then it is invalid to return an expression.  You
-can, however, use the 'return' statement without a return value.
+   ВОЗВРАЩАЕМОЕ-ЗНАЧЕНИЕ является необязательным выражением для
+возврата.  Если тип возвращаемого знечения функцией объявлен как 'void',
+то функция возвращает значение неопределено.  Можно, однако,
+использовать оператор 'return' без указания возвращаемого значения.
 
-   If the function's return type is not the same as the type of
-RETURN-VALUE, and automatic type conversion cannot be performed, then
-returning RETURN-VALUE is invalid.
+   Если возвращаемый тип значения функции не совпадает с указанным типом
+ВОЗВРАЩАЕМОЕ-ЗНАЧЕНИЕ и автоматическое преобразование типа не может быть
+выполнено, то возвращаемое значение ВОЗВРАЩАЕМОЕ-ЗНАЧЕНИЕ является
+неопределенно.
 
-   If the function's return type is not 'void' and no return value is
-specified, then the 'return' statement is valid unless the function is
-called in a context that requires a return value.  For example:
+   Если функция возвращает значение типа отличного от 'void', то
+инструкция 'return' допустима, если функция вызывается в контексте,
+который требует возврата значения.  Например:
 
      x = cosine (y);
 
-   In that case, the function 'cosine' was called in a context that
-required a return value, so the value could be assigned to 'x'.
+   В этом случае функции 'cosine' была вызвана в контексте требования
+возврата значения, так что бы значение могло быть присвоено 'x'.
 
-   Even in contexts where a return value is not required, it is a bad
-idea for a non-'void' function to omit the return value.  With GCC, you
-can use the command line option '-Wreturn-type' to issue a warning if
-you omit the return value in such functions.
+   Даже в условиях, когда не требуется использовать возвращаемое
+значение функции, плохая идея при вызове функции с возвращаемым
+не-'void' типом значения, опускать это значение.  В GCC, можно
+использовать параметр командной строки '-Wreturn-type' для выдачи
+предупреждений, если опускается возвращаемое значение в вызове таких
+функций.
 
-   Here are some examples of using the 'return' statement, in both a
-'void' and non-'void' function:
+   Вот некоторые примеры использования оператора 'return', как в
+функциях с возвращаемым значением 'void' и так и значениями с типом
+не-'void':
 
      void
      print_plus_five (int x)
@@ -3864,25 +3880,26 @@ you omit the return value in such functions.
 
 File: gnu-c-manual.info,  Node: The typedef Statement,  Prev: The return Statement,  Up: Statements
 
-4.14 The 'typedef' Statement
-============================
+4.14 Инструкция 'typedef'
+=========================
 
-You can use the 'typedef' statement to create new names for data types.
-Here is the general form of the 'typedef' statement:
+Можно использовать инструкцию 'typedef' для создания новых имен для
+типов данных.  Вот общая форма инструкции 'typedef':
 
-     typedef OLD-TYPE-NAME NEW-TYPE-NAME
+     typedef ПРЕЖДНЕЕ-ИМЯ-ТИПА НОВОЕ-ИМЯ-ТИПА
 
-   OLD-TYPE-NAME is the existing name for the type, and may consist of
-more than one token (e.g., 'unsigned long int').  NEW-TYPE-NAME is the
-resulting new name for the type, and must be a single identifier.
-Creating this new name for the type does not cause the old name to cease
-to exist.  Here are some examples:
+   ПРЕЖДНЕЕ-ИМЯ-ТИПА этого имя существующего типа данных, возможно
+объявленного с использованием более чем одного спецификатора (например,
+'unsigned long int').  НОВОЕ-ИМЯ-ТИПА является полученным новым именем
+для данного типа, и должно быть одним идентификатором.  Создание этого
+нового имени для заданного типа не прекращает существование прежднего.
+Вот некоторые примеры:
 
      typedef unsigned char byte_type;
      typedef double real_number_type;
 
-In the case of custom data types, you can use 'typedef' to make a new
-name for the type while defining the type:
+В случае пользовательских типов данных, можно использовать 'typedef' для
+создания нового имени типа, сразу при при определении типа:
 
      typedef struct fish
      {
@@ -3891,17 +3908,16 @@ name for the type while defining the type:
        float probability_of_being_caught;
      } fish_type;
 
-To make a type definition of an array, you first provide the type of the
-element, and then establish the number of elements at the end of the
-type definition:
+Для того, чтобы определить новый тип массива, вначале указывается тип
+элементов массива, затем количество элементов и, в конце определения,
+указывается имя нового типа:
 
      typedef char array_of_bytes [5];
      array_of_bytes five_bytes = {0, 1, 2, 3, 4};
 
-   When selecting names for types, you should avoid ending your type
-names with a '_t' suffix.  The compiler will allow you to do this, but
-the POSIX standard reserves use of the '_t' suffix for standard library
-type names.
+   При выборе имени для типа, нужно избегать завершение имен типов с
+суффиксом '_t'.  Компилятор позволит это сделать, но POSIX резервирует
+использование '_t' суффикса для имен типов стандартных библиотек.
 
 
 File: gnu-c-manual.info,  Node: Functions,  Next: Program Structure and Scope,  Prev: Statements,  Up: Top
@@ -5994,39 +6010,39 @@ Node: The switch Statement187726
 Node: The while Statement193164
 Node: The do Statement194403
 Node: The for Statement195622
-Node: Blocks199088
-Node: The Null Statement200398
-Node: The goto Statement201396
-Node: The break Statement203170
-Node: The continue Statement203988
-Node: The return Statement204588
-Node: The typedef Statement206260
-Node: Functions207707
-Node: Function Declarations208621
-Node: Function Definitions210423
-Node: Calling Functions212029
-Node: Function Parameters212894
-Node: Variable Length Parameter Lists216385
-Node: Calling Functions Through Function Pointers218788
-Node: The main Function219660
-Ref: The main Function-Footnote-1221977
-Node: Recursive Functions222141
-Node: Static Functions222982
-Node: Nested Functions223657
-Node: Program Structure and Scope224456
-Node: Program Structure224783
-Node: Scope226268
-Node: A Sample Program227295
-Node: hello.c228151
-Node: system.h234496
-Node: Overflow236119
-Node: Integer Overflow Basics237259
-Node: Signed Overflow Examples238978
-Node: Optimization and Wraparound242471
-Node: Signed Overflow Advice245423
-Node: Signed Integer Division248087
-Node: GNU Free Documentation License248688
-Node: Index273815
+Node: Blocks202115
+Node: The Null Statement204129
+Node: The goto Statement205653
+Node: The break Statement208126
+Node: The continue Statement209473
+Node: The return Statement210292
+Node: The typedef Statement213336
+Node: Functions215665
+Node: Function Declarations216579
+Node: Function Definitions218381
+Node: Calling Functions219987
+Node: Function Parameters220852
+Node: Variable Length Parameter Lists224343
+Node: Calling Functions Through Function Pointers226746
+Node: The main Function227618
+Ref: The main Function-Footnote-1229935
+Node: Recursive Functions230099
+Node: Static Functions230940
+Node: Nested Functions231615
+Node: Program Structure and Scope232414
+Node: Program Structure232741
+Node: Scope234226
+Node: A Sample Program235253
+Node: hello.c236109
+Node: system.h242454
+Node: Overflow244077
+Node: Integer Overflow Basics245217
+Node: Signed Overflow Examples246936
+Node: Optimization and Wraparound250429
+Node: Signed Overflow Advice253381
+Node: Signed Integer Division256045
+Node: GNU Free Documentation License256646
+Node: Index281773
 
 End Tag Table
 

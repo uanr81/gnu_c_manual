@@ -175,14 +175,14 @@ ul.no-bullet {list-style: none}
     <li><a id="toc-Perekliuchatelx-switch" href="#The-switch-Statement">4.4 Переключатель <code>switch</code></a></li>
     <li><a id="toc-Konstrukciya-while" href="#The-while-Statement">4.5 Конструкция <code>while</code></a></li>
     <li><a id="toc-Konstrukciya-do" href="#The-do-Statement">4.6 Конструкция <code>do</code></a></li>
-    <li><a id="toc-The-for-Statement-1" href="#The-for-Statement">4.7 The <code>for</code> Statement</a></li>
-    <li><a id="toc-Blocks-1" href="#Blocks">4.8 Blocks</a></li>
-    <li><a id="toc-The-Null-Statement-1" href="#The-Null-Statement">4.9 The Null Statement</a></li>
-    <li><a id="toc-The-goto-Statement-1" href="#The-goto-Statement">4.10 The <code>goto</code> Statement</a></li>
-    <li><a id="toc-The-break-Statement-1" href="#The-break-Statement">4.11 The <code>break</code> Statement</a></li>
-    <li><a id="toc-The-continue-Statement-1" href="#The-continue-Statement">4.12 The <code>continue</code> Statement</a></li>
-    <li><a id="toc-The-return-Statement-1" href="#The-return-Statement">4.13 The <code>return</code> Statement</a></li>
-    <li><a id="toc-The-typedef-Statement-1" href="#The-typedef-Statement">4.14 The <code>typedef</code> Statement</a></li>
+    <li><a id="toc-Konstrukciya-for" href="#The-for-Statement">4.7 Конструкция <code>for</code></a></li>
+    <li><a id="toc-Bloki" href="#Blocks">4.8 Блоки</a></li>
+    <li><a id="toc-Instrukciya-Null" href="#The-Null-Statement">4.9 Инструкция Null</a></li>
+    <li><a id="toc-Instrukciya-goto" href="#The-goto-Statement">4.10 Инструкция <code>goto</code></a></li>
+    <li><a id="toc-Instrukciya-break" href="#The-break-Statement">4.11 Инструкция <code>break</code></a></li>
+    <li><a id="toc-Instrukciya-continue" href="#The-continue-Statement">4.12 Инструкция <code>continue</code></a></li>
+    <li><a id="toc-Instrukciya-return" href="#The-return-Statement">4.13 Инструкция <code>return</code></a></li>
+    <li><a id="toc-Instrukciya-typedef" href="#The-typedef-Statement">4.14 Инструкция <code>typedef</code></a></li>
   </ul></li>
   <li><a id="toc-Functions-1" href="#Functions">5 Functions</a>
   <ul class="no-bullet">
@@ -4604,31 +4604,34 @@ while (x &lt; 10);
 <p>
 Next: <a href="#Blocks" accesskey="n" rel="next">Blocks</a>, Previous: <a href="#The-do-Statement" accesskey="p" rel="prev">The do Statement</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-for-Statement-1"></span><h3 class="section">4.7 The <code>for</code> Statement</h3>
+<span id="Konstrukciya-for"></span><h3 class="section">4.7 Конструкция <code>for</code></h3>
 <span id="index-for-statement"></span>
 
-<p>The <code>for</code> statement is a loop statement whose structure allows
-easy variable initialization, expression testing, and variable
-modification.  It is very convenient for making counter-controlled
-loops.  Here is the general form of the <code>for</code> statement:
+<p>Конструкция <code>for</code> является инструкцией цикла, структура которой
+позволяет легко производить инициализацию переменной, проверку условного
+выражения и модификацию подконтрольной переменной.  Это очень удобно для
+создания счетчика контролируемых циклов.  Вот общая форма конструкции
+<code>for</code>:
 </p>
 <div class="example">
-<pre class="example">for (<var>initialize</var>; <var>test</var>; <var>step</var>)
-  <var>statement</var>
+<pre class="example">for (<var>инициализация</var>; <var>условие</var>; <var>шаг</var>)
+  <var>инструкция</var>
 </pre></div>
 
-<p>The <code>for</code> statement first evaluates the expression <var>initialize</var>.
-Then it evaluates the expression <var>test</var>.  If <var>test</var> is false, then
-the loop ends and program control resumes after <var>statement</var>.  Otherwise,
-if <var>test</var> is true, then <var>statement</var> is executed.  Finally,
-<var>step</var> is evaluated, and the next iteration of the loop begins with
-evaluating <var>test</var> again.
+<p>В конструкции <code>for</code> вначале единократно вычисляется выражение
+<var>инициализация</var>. Затем вычисляется выражение <var>условие</var>.  Если
+результат оценки выражения <var>условие</var> устанавливается в ложь, то цикл
+завершается и программа продолжает выполнение, не вычисляя выражение
+<var>инструкция</var>, уже после всей конструкции.  В противном случае, если
+<var>условие</var> оценивается в истину, то вычисляется выражение
+<var>инструкция</var>.  Наконец, оценивается выражение <var>шаг</var>, и следующая
+итерация цикла начинается снова с оценки выражения <var>условие</var>.
 </p>
-<p>Most often, <var>initialize</var> assigns values to one or more variables,
-which are generally used as counters,  <var>test</var> compares those
-variables to a predefined expression, and <var>step</var> modifies those
-variables&rsquo; values.  Here is another example that prints the integers
-from zero through nine:
+<p>Чаще всего, в выражении <var>инициализация</var> присваивается значения одной или
+нескольким переменным, которые обычно используются в качестве счётчиков,
+<var>условие</var> сравнивает значения этих переменных с заранее заданным
+выражением, и выражение <var>шаг</var> модифицирует значения этих переменных.  Вот
+еще один пример, который печатает целые числа от нуля до девяти:
 </p>
 <div class="example">
 <pre class="example">int x;
@@ -4636,15 +4639,18 @@ for (x = 0; x &lt; 10; x++)
   printf (&quot;%d &quot;, x);
 </pre></div>
 
-<p>First, it evaluates <var>initialize</var>, which assigns <code>x</code> the value
-0.  Then, as long as <code>x</code> is less than 10, the value of <code>x</code>
-is printed (in the body of the loop).  Then <code>x</code> is incremented in
-the <var>step</var> clause and the test re-evaluated.
+<p>Во-первых, выполняется инструкция <var>инициализация</var> - <code>x = 0;</code>,
+присваивается переменной <code>x</code> значение 0.  Затем, выполняется инструкция
+<var>условие</var> - <code>x &lt; 10;</code>, так как <code>x</code> меньше, чем 10, то значение
+инструкции устанавливается в истину и выполняется инструкция
+<code>инструкция</code> и <code>x</code> печатается (в теле цикла).  Затем <code>x</code>
+увеличивается в инструкции <var>шаг</var> и цикл переходит снова к оценки
+выражения <var>условие</var>.
 </p>
-<p>All three of the expressions in a <code>for</code> statement are optional, and any
-combination of the three is valid.  Since the first expression is evaluated
-only once, it is perhaps the most commonly omitted expression.  You could
-also write the above example as:
+<p>Все три из выражений конструкции <code>for</code> не являются обязательными, и
+любая комбинация из трёх является допустимой.  Так как первое выражение
+вычисляется только один раз, наиболее часто это выражение опущено.  Также
+можете написать приведенный выше пример, как:
 </p>
 <div class="example">
 <pre class="example">int x = 1;
@@ -4652,36 +4658,38 @@ for (; x &lt;= 10; x++)
   printf (&quot;%d &quot;, x);
 </pre></div>
 
-<p>In this example, <code>x</code> receives its value prior to the beginning of the
-<code>for</code> statement.
+<p>В этом примере, <code>x</code> получает свое значение до начала конструкции
+<code>for</code>.
 </p>
-<p>If you leave out the <var>test</var> expression, then the <code>for</code> statement
-is an infinite loop (unless you put a <code>break</code> or <code>goto</code> statement
-somewhere in <var>statement</var>).  This is like using <code>1</code> as
-<var>test</var>; it is never false.
+<p>Если опущена инструкция <var>условие</var>, то конструкция <code>for</code> произведёт
+бесконечный цикл (если не поставить инструкцию <code>break</code> или <code>goto</code>
+где-то в инструкции <var>инструкции</var>).  Это похоже на использование в
+качестве выражения <var>условие</var> константого значения <code>1</code>, что сделает
+значение этого выражения всегда истина.
 </p>
-<p>This <code>for</code> statement starts printing numbers at 1 and then
-continues indefinitely, always printing <code>x</code> incremented by 1:
+<p>Эта конструкция <code>for</code> начинает печатать числа с 1, а затем продолжается
+до бесконечности, всегда перед печатью <code>x</code> увеличивается на 1:
 </p>
 <div class="example">
 <pre class="example">for (x = 1; ; x++)
   printf (&quot;%d &quot;, x);
 </pre></div>
 
-<p>If you leave out the <var>step</var> expression, then no progress is made
-toward completing the loop&mdash;at least not as is normally expected with
-a <code>for</code> statement.
+<p>Если опущенно выражение <var>шаг</var>, то не будет никакого процеса завершения
+цикла &mdash; по крайней мере, в разрезе нормального функционирования конструкции
+<code>for</code>.
 </p>
-<p>This example prints the number 1 over and over, indefinitely:
+<p>Этот пример печатает номер 1 снова и снова, бесконечно:
 </p>
 <div class="example">
 <pre class="example">for (x = 1; x &lt;= 10;)
   printf (&quot;%d &quot;, x);
 </pre></div>
 
-<p>Perhaps confusingly, you cannot use the comma operator (see <a href="#The-Comma-Operator">The Comma Operator</a>) for monitoring multiple variables in a <code>for</code>
-statement, because as usual the comma operator discards the result of
-its left operand.  This loop:
+<p>Нельзя использовать оператор запятая (see <a href="#The-Comma-Operator">The Comma Operator</a>) для
+мониторинга нескольких переменных в конструкции <code>for</code>, потому что,
+оператор запятая, отбрасывает результата оценки своего левого операнда.
+Пример цикла:
 </p>
 <div class="example">
 <pre class="example">int x, y;
@@ -4689,7 +4697,7 @@ for (x = 1, y = 10; x &lt;= 10, y &gt;= 1; x+=2, y--)
   printf (&quot;%d %d\n&quot;, x, y);
 </pre></div>
 
-<p>Outputs:
+<p>Вывод:
 </p>
 <div class="example">
 <pre class="example">1 10
@@ -4704,8 +4712,8 @@ for (x = 1, y = 10; x &lt;= 10, y &gt;= 1; x+=2, y--)
 19 1
 </pre></div>
 
-<p>If you need to test two conditions, you will need to use the <code>&amp;&amp;</code>
-operator:
+<p>Если необходимо проверить два условия, нужно будет использовать оператор
+<code>&amp;&amp;</code>:
 </p>
 <div class="example">
 <pre class="example">int x, y;
@@ -4713,10 +4721,11 @@ for (x = 1, y = 10; x &lt;= 10 &amp;&amp; y &gt;= 1; x+=2, y--)
   printf (&quot;%d %d\n&quot;, x, y);
 </pre></div>
 
-<p>A <code>break</code> statement can also cause a <code>for</code> loop to exit.
+<p>Инструкция <code>break</code> может также произвести выход из цикла <code>for</code>.
 </p>
-<p>Here is an example of a function that computes the summation of squares, given a 
-starting integer to square and an ending integer to square:
+<p>Ниже приведен пример функции, которая вычисляет сумму квадратов
+последовательных чисел, заданных диапазоном от исходного числа, до
+максимального допустимого значения этой суммы:
 </p>
 <div class="example">
 <pre class="example">int
@@ -4734,49 +4743,49 @@ sum_of_squares (int start, int end)
 <p>
 Next: <a href="#The-Null-Statement" accesskey="n" rel="next">The Null Statement</a>, Previous: <a href="#The-for-Statement" accesskey="p" rel="prev">The for Statement</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Blocks-1"></span><h3 class="section">4.8 Blocks</h3>
+<span id="Bloki"></span><h3 class="section">4.8 Блоки</h3>
 <span id="index-blocks"></span>
 <span id="index-compound-statements"></span>
 
-<p>A <em>block</em> is a set of zero or more statements enclosed in braces.
-Blocks are also known as <em>compound statements</em>.  Often, a block is
-used as the body of an <code>if</code> statement or a loop statement, to
-group statements together.
+<p><em>Блок</em> представляет собой набор из нуля или более инструкций, заключенных
+в фигурные скобки.  Блоки также известны как <em>составные инструкции</em>.
+Часто, блок используется как тело конструкции <code>if</code> или конструкций
+цикла, чтобы группировать инструкции вместе.
 </p>
 <div class="example">
 <pre class="example">for (x = 1; x &lt;= 10; x++)
   {
-    printf (&quot;x is %d\n&quot;, x);
+    printf (&quot;значение x это %d\n&quot;, x);
     
     if ((x % 2) == 0)
-      printf (&quot;%d is even\n&quot;, x);
+      printf (&quot;%d это чётное\n&quot;, x);
     else
-      printf (&quot;%d is odd\n&quot;, x);
+      printf (&quot;%d это нечётное\n&quot;, x);
   }
 </pre></div>
 
-<p>You can also put blocks inside other blocks:
+<p>Также можно поместить блоки внутри других блоков:
 </p>
 <div class="example">
 <pre class="example">for (x = 1; x &lt;= 10; x++)
   {
     if ((x % 2) == 0)
       {
-        printf (&quot;x is %d\n&quot;, x);
-        printf (&quot;%d is even\n&quot;, x);
+        printf (&quot;x значение это %d\n&quot;, x);
+        printf (&quot;%d чётное число\n&quot;, x);
       }
     else
       {
-        printf (&quot;x is %d\n&quot;, x);
-        printf (&quot;%d is odd\n&quot;, x);
+        printf (&quot;x значение это %d\n&quot;, x);
+        printf (&quot;%d не чётное число\n&quot;, x);
       }
   }
 </pre></div>
 
-<p>You can declare variables inside a block; such variables are local to
-that block.  In C89, declarations must occur before other statements,
-and so sometimes it is useful to introduce a block simply for this
-purpose:
+<p>Можно объявлять переменные внутри блока; такие переменные являются локальными
+по отношению к этому блоку.  В C89, объявление переменных должно произойти до
+использования их в инструкциях и поэтому иногда полезно ввести блок просто
+для этой цели:
 </p>
 
 <div class="example">
@@ -4784,8 +4793,8 @@ purpose:
   int x = 5;
   printf (&quot;%d\n&quot;, x);
 }
-printf (&quot;%d\n&quot;, x);   /* <span class="roman">Compilation error! <code>x</code> exists only</span>
-                       <span class="roman">in the preceding block.</span> */
+printf (&quot;%d\n&quot;, x);   /* <span class="roman">Ошибка компиляции! <code>x</code> существует</span>
+                       <span class="roman">только в предыдущем блоке.</span> */
 </pre></div>
 
 
@@ -4794,40 +4803,40 @@ printf (&quot;%d\n&quot;, x);   /* <span class="roman">Compilation error! <code>
 <p>
 Next: <a href="#The-goto-Statement" accesskey="n" rel="next">The goto Statement</a>, Previous: <a href="#Blocks" accesskey="p" rel="prev">Blocks</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-Null-Statement-1"></span><h3 class="section">4.9 The Null Statement</h3>
+<span id="Instrukciya-Null"></span><h3 class="section">4.9 Инструкция Null</h3>
 <span id="index-null-statement"></span>
 <span id="index-statement_002c-null"></span>
 
-<p>The <em>null statement</em> is merely a semicolon alone.
+<p><em>NULL инструкция</em> - просто одна точка с запятой.
 </p>
 <div class="example">
 <pre class="example">;
 </pre></div>
 
-<p>A null statement does not do anything.  It does not store a value anywhere.
-It does not cause time to pass during the execution of your program.
+<p>Null инструкция ничего не делает.  Нигде не хранит значения.  Не вызывает
+трату времени во время выполнения программы.
 </p>
-<p>Most often, a null statement is used as the body of
-a loop statement, or as one or more of the expressions in a <code>for</code>
-statement.  Here is an example of a <code>for</code> statement that uses the
-null statement as the body of the loop (and also calculates the integer
-square root of <code>n</code>, just for fun):
+<p>Чаще всего, пустой оператор используется как в теле инструкции цикла, или в
+качестве одного или нескольких выражений инструкции <code>for</code>.  Вот пример
+инструкции <code>for</code>, где используется инструкция <code>Null</code>, как тело
+цикла (вычисляется целочисленный квадратный корень из значения <code>n</code>,
+просто для удовольствия):
 </p>
 <div class="example">
 <pre class="example">for (i = 1; i*i &lt; n; i++)
   ;
 </pre></div>
 
-<p>Here is another example that uses the null statement as the body
-of a <code>for</code> loop and also produces output:
+<p>Вот еще один пример, который использует <code>Null</code> инструкцию в качестве
+тела цикла <code>for</code>, а также производит вывод:
 </p>
 <div class="example">
-<pre class="example">for (x = 1; x &lt;= 5; printf (&quot;x is now %d\n&quot;, x), x++)
+<pre class="example">for (x = 1; x &lt;= 5; printf (&quot;x сейчас %d\n&quot;, x), x++)
   ;
 </pre></div>
 
-<p>A null statement is also sometimes used to follow a label that would
-otherwise be the last thing in a block.
+<p>Инструкция <code>Null</code> также используется следом за меткой, в противном
+случае, метка была бы последней в блоке.
 </p>
 
 <hr>
@@ -4835,19 +4844,18 @@ otherwise be the last thing in a block.
 <p>
 Next: <a href="#The-break-Statement" accesskey="n" rel="next">The break Statement</a>, Previous: <a href="#The-Null-Statement" accesskey="p" rel="prev">The Null Statement</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-goto-Statement-1"></span><h3 class="section">4.10 The <code>goto</code> Statement</h3>
+<span id="Instrukciya-goto"></span><h3 class="section">4.10 Инструкция <code>goto</code></h3>
 <span id="index-goto-statement"></span>
 
-<p>You can use the <code>goto</code> statement to unconditionally jump to a different
-place in the program.  Here is the general form of a <code>goto</code> statement:
+<p>Можно использовать инструкцию <code>goto</code> для безоговорочного перехода в
+другое место в программе.  Вот общий вид инструкции <code>goto</code>:
 </p>
 <div class="example">
-<pre class="example">goto <var>label</var>;
+<pre class="example">goto <var>метка</var>;
 </pre></div>
 
-<p>You have to specify a label to jump to; when the <code>goto</code> statement
-is executed, program control jumps to that label.  See <a href="#Labels">Labels</a>.  Here
-is an example:
+<p>Указывается метка для перехода оператором <code>goto</code>, когда программа
+достигает этой метки.  See <a href="#Labels">Labels</a>.  Вот пример:
 </p>
 <div class="example">
 <pre class="example">goto end_of_program;
@@ -4855,20 +4863,20 @@ is an example:
 end_of_program:
 </pre></div>
 
-<p>The label can be anywhere in the same function as the <code>goto</code>
-statement that jumps to it, but a <code>goto</code> statement cannot jump to a
-label in a different function.
+<p>Метка может распологаться в той же функции, что и инструкция <code>goto</code> и
+передавать управление к нему, но инструкция <code>goto</code> не может перевести
+выполнение к метке в другой функции.
 </p>
-<p>You <em>can</em> use <code>goto</code> statements to simulate loop statements,
-but we do not recommend it&mdash;it makes the program harder to read, and GCC
-cannot optimize it as well.  You should use <code>for</code>,
-<code>while</code>, and <code>do</code> statements instead of <code>goto</code> statements,
-when possible.
+<p>Инструкцию <code>goto</code> <em>можно</em> использовать  для ИМИТАЦИИ цикла, но не
+рекомендуем так поступать &mdash; это делает программу труднее для чтения, и GCC
+не сможет оптимизировать такой код.  Нужно использовать инструкции для циклов
+<code>for</code>, <code>while</code> и <code>do</code> вместо инструкции <code>goto</code>, когда
+это возможно.
 </p>
-<p>As an extension, GCC allows a goto statement to jump to an address
-specified by a <code>void*</code> variable.  To make this work, you also
-need to take the address of a label by using the unary operator
-<code>&amp;&amp;</code> (not <code>&amp;</code>).  Here is a contrived example:
+<p>В качестве расширения, GCC позволяет инструкции <code>goto</code> осуществлять
+переход к адресу, указанному в переменной <code>void*</code>.  Для того, чтобы
+это совершить, нужно взять адрес метки с помощью одинарного оператора
+<code>&amp;&amp;</code> (не <code>&amp;</code>).  Вот надуманный пример:
 </p>
 <div class="example">
 <pre class="example">enum Play { ROCK=0, PAPER=1, SCISSORS=2 };
@@ -4895,11 +4903,12 @@ static enum Result turn (void)
 <p>
 Next: <a href="#The-continue-Statement" accesskey="n" rel="next">The continue Statement</a>, Previous: <a href="#The-goto-Statement" accesskey="p" rel="prev">The goto Statement</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-break-Statement-1"></span><h3 class="section">4.11 The <code>break</code> Statement</h3>
+<span id="Instrukciya-break"></span><h3 class="section">4.11 Инструкция <code>break</code></h3>
 <span id="index-break-statement"></span>
 
-<p>You can use the <code>break</code> statement to terminate a <code>while</code>, <code>do</code>,
-<code>for</code>, or <code>switch</code> statement.  Here is an example:
+<p>Можно использовать инструкцию <code>break</code>, чтобы прервать выполнение
+конструкций <code>while</code>, <code>do</code>, <code>for</code>, или <code>switch</code>.
+Вот пример:
 </p>
 <div class="example">
 <pre class="example">int x;
@@ -4912,13 +4921,15 @@ for (x = 1; x &lt;= 10; x++)
   }
 </pre></div>
 
-<p>That example prints numbers from 1 to 7.  When <code>x</code> is incremented
-to 8, <code>x == 8</code> is true, so the <code>break</code> statement is executed, 
-terminating the <code>for</code> loop prematurely.
+<p>Этот пример печатает числа от 1 до 7.  Когда <code>x</code> увеличивается до 8,
+выражение условия <code>x == 8</code> возвращает результат истина и выполняется
+инструкция <code>break</code>, завершающая выполнение инструкции цикла <code>for</code>
+преждевременно.
 </p>
-<p>If you put a <code>break</code> statement inside of a loop or <code>switch</code>
-statement which itself is inside of a loop or <code>switch</code> statement, the
-<code>break</code> only terminates the innermost loop or <code>switch</code> statement.
+<p>Если присутствует инструкция <code>break</code> внутри инструкции цикла или
+инструкции <code>switch</code>, которая сама находится внутри инструкции цикла или
+инструкции <code>switch</code>, то инструкция  <code>break</code> сработывает только во
+внутреннем цикле или <code>switch</code>.  (ВопросStatements739)
 </p>
 
 <hr>
@@ -4926,12 +4937,11 @@ statement which itself is inside of a loop or <code>switch</code> statement, the
 <p>
 Next: <a href="#The-return-Statement" accesskey="n" rel="next">The return Statement</a>, Previous: <a href="#The-break-Statement" accesskey="p" rel="prev">The break Statement</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-continue-Statement-1"></span><h3 class="section">4.12 The <code>continue</code> Statement</h3>
+<span id="Instrukciya-continue"></span><h3 class="section">4.12 Инструкция <code>continue</code></h3>
 <span id="index-continue-statement"></span>
 
-<p>You can use the <code>continue</code> statement in loops to terminate an
-iteration of the loop and begin the next iteration.  Here is an
-example:
+<p>Можно использовать инструкцию <code>continue</code> в циклах для прекращения
+текущей итерации цикла и перехода на следующую итерацию.  Вот пример:
 </p>
 <div class="example">
 <pre class="example">for (x = 0; x &lt; 100; x++)
@@ -4943,8 +4953,8 @@ example:
   }
 </pre></div>
 
-<p>If you put a <code>continue</code> statement inside a loop which itself is
-inside a loop, then it affects only the innermost loop.
+<p>Если поставить инструкцию <code>continue</code> внутри цикла, который сам находится
+внутри цикла, то это повлияет только на внутренний цикл.
 </p>
 
 
@@ -4953,46 +4963,48 @@ inside a loop, then it affects only the innermost loop.
 <p>
 Next: <a href="#The-typedef-Statement" accesskey="n" rel="next">The typedef Statement</a>, Previous: <a href="#The-continue-Statement" accesskey="p" rel="prev">The continue Statement</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-return-Statement-1"></span><h3 class="section">4.13 The <code>return</code> Statement</h3>
+<span id="Instrukciya-return"></span><h3 class="section">4.13 Инструкция <code>return</code></h3>
 <span id="index-return-statement"></span>
 
-<p>You can use the <code>return</code> statement to end the execution of a function
-and return program control to the function that called it.  Here is the
-general form of the <code>return</code> statement:
+<p>Можно использовать инструкцию <code>return</code> для прекращения выполнения
+функции и возврата управления программе из функцию, которая её вызвала.  Вот
+общая форма инструкции <code>return</code>:
 </p>
 <div class="example">
-<pre class="example">return <var>return-value</var>;
+<pre class="example">return <var>возвращаемое-значение</var>;
 </pre></div>
 
-<p><var>return-value</var> is an optional expression to return.  If the
-function&rsquo;s return type is <code>void</code>, then it is invalid to return
-an expression.  You can, however, use the <code>return</code> statement
-without a return value.
+<p><var>возвращаемое-значение</var> является необязательным выражением для возврата.
+Если тип возвращаемого знечения функцией объявлен как <code>void</code>, то функция
+возвращает значение неопределено.  Можно, однако, использовать оператор
+<code>return</code> без указания возвращаемого значения.
 </p>
-<p>If the function&rsquo;s return type is not the same as the type of
-<var>return-value</var>, and automatic type conversion cannot be performed,
-then returning <var>return-value</var> is invalid.
+<p>Если возвращаемый тип значения функции не совпадает с указанным типом
+<var>возвращаемое-значение</var> и автоматическое преобразование типа не может
+быть выполнено, то возвращаемое значение <var>возвращаемое-значение</var> является
+неопределенно.
 </p>
 
-<p>If the function&rsquo;s return type is not <code>void</code> and no return value
-is specified, then the <code>return</code> statement is valid unless the
-function is called in a context that requires a return value.  For
-example:
+<p>Если функция возвращает значение типа отличного от <code>void</code>, то инструкция
+<code>return</code> допустима, если функция вызывается в контексте, который требует
+возврата значения.  Например:
 </p>
 <div class="example">
 <pre class="example">x = cosine (y);
 </pre></div>
 
-<p>In that case, the function <code>cosine</code> was called in a context that
-required a return value, so the value could be assigned to <code>x</code>.
+<p>В этом случае функции <code>cosine</code> была вызвана в контексте требования
+возврата значения, так что бы значение могло быть присвоено <code>x</code>.
 </p>
-<p>Even in contexts where a return value is not required, it is a bad idea
-for a non-<code>void</code> function to omit the return value.  With GCC, you
-can use the command line option <code><span class="nolinebreak">-Wreturn</span><!-- /@w -->-type</code> to issue a warning
-if you omit the return value in such functions.
+<p>Даже в условиях, когда не требуется использовать возвращаемое значение
+функции, плохая идея при вызове функции с возвращаемым не-<code>void</code> типом
+значения,  опускать это значение.  В GCC, можно использовать параметр
+командной строки <code><span class="nolinebreak">-Wreturn</span><!-- /@w -->-type</code> для выдачи предупреждений, если
+опускается возвращаемое значение в вызове таких функций.
 </p>
-<p>Here are some examples of using the <code>return</code> statement, in both
-a <code>void</code> and non-<code>void</code> function:
+<p>Вот некоторые примеры использования оператора <code>return</code>, как в функциях
+с возвращаемым значением <code>void</code> и так и значениями с типом
+не-<code>void</code>:
 </p>
 <div class="example">
 <pre class="example">void
@@ -5017,29 +5029,30 @@ square_value (int x)
 <p>
 Previous: <a href="#The-return-Statement" accesskey="p" rel="prev">The return Statement</a>, Up: <a href="#Statements" accesskey="u" rel="up">Statements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-typedef-Statement-1"></span><h3 class="section">4.14 The <code>typedef</code> Statement</h3>
+<span id="Instrukciya-typedef"></span><h3 class="section">4.14 Инструкция <code>typedef</code></h3>
 <span id="index-typedef-statement"></span>
 
-<p>You can use the <code>typedef</code> statement to create new names for data
-types.  Here is the general form of the <code>typedef</code> statement:
+<p>Можно использовать инструкцию <code>typedef</code> для создания новых имен для
+типов данных.  Вот общая форма инструкции <code>typedef</code>:
 </p>
 <div class="example">
-<pre class="example">typedef <var>old-type-name</var> <var>new-type-name</var>
+<pre class="example">typedef <var>прежднее-имя-типа</var> <var>новое-имя-типа</var>
 </pre></div>
 
-<p><var>old-type-name</var> is the existing name for the type, and may consist
-of more than one token (e.g., <code>unsigned long int</code>).
-<var>new-type-name</var> is the resulting new name for the type, and must
-be a single identifier.  Creating this new name for the type does
-not cause the old name to cease to exist.  Here are some examples:
+<p><var>прежднее-имя-типа</var> этого имя существующего типа данных, возможно
+объявленного с использованием более чем одного спецификатора (например,
+<code>unsigned long int</code>).  <var>новое-имя-типа</var> является полученным новым
+именем для данного типа, и должно быть одним идентификатором.  Создание этого
+нового имени для заданного типа не прекращает существование прежднего.  Вот
+некоторые примеры:
 </p>
 <div class="example">
 <pre class="example">typedef unsigned char byte_type;
 typedef double real_number_type;
 </pre></div>
 
-<p>In the case of custom data types, you can use <code>typedef</code> to make a
-new name for the type while defining the type:
+<p>В случае пользовательских типов данных, можно использовать <code>typedef</code>
+для создания нового имени типа, сразу при при определении типа:
 </p>
 <div class="example">
 <pre class="example">typedef struct fish
@@ -5050,18 +5063,18 @@ new name for the type while defining the type:
 } fish_type;
 </pre></div>
 
-<p>To make a type definition of an array, you first provide the type of the element, and
-then establish the number of elements at the end of the type definition:
+<p>Для того, чтобы определить новый тип массива, вначале указывается тип
+элементов массива, затем количество элементов и, в конце определения,
+указывается имя нового типа:
 </p>
 <div class="example">
 <pre class="example">typedef char array_of_bytes [5];
 array_of_bytes five_bytes = {0, 1, 2, 3, 4};
 </pre></div>
 
-<p>When selecting names for types, you should avoid ending your type names with
-a <code>_t</code> suffix.  The compiler will allow you to do this, but the
-POSIX standard reserves use of the <code>_t</code> suffix for standard library
-type names.
+<p>При выборе имени для типа, нужно избегать завершение имен типов с суффиксом
+<code>_t</code>.  Компилятор позволит это сделать, но POSIX резервирует
+использование <code>_t</code> суффикса для имен типов стандартных библиотек.
 </p>
 
 

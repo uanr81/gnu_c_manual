@@ -389,31 +389,34 @@ while (x < 10);
 Инструкция @code{break} может также произвести выход из цикла @code{do}.
 
 @node The for Statement
-@section The @code{for} Statement
+@section Конструкция @code{for}
 @cindex @code{for} statement
 
-The @code{for} statement is a loop statement whose structure allows
-easy variable initialization, expression testing, and variable
-modification.  It is very convenient for making counter-controlled
-loops.  Here is the general form of the @code{for} statement:
+Конструкция @code{for} является инструкцией цикла, структура которой
+позволяет легко производить инициализацию переменной, проверку условного
+выражения и модификацию подконтрольной переменной.  Это очень удобно для
+создания счетчика контролируемых циклов.  Вот общая форма конструкции
+@code{for}:
 
 @example
-for (@var{initialize}; @var{test}; @var{step})
-  @var{statement}
+for (@var{инициализация}; @var{условие}; @var{шаг})
+  @var{инструкция}
 @end example
 
-The @code{for} statement first evaluates the expression @var{initialize}.
-Then it evaluates the expression @var{test}.  If @var{test} is false, then
-the loop ends and program control resumes after @var{statement}.  Otherwise,
-if @var{test} is true, then @var{statement} is executed.  Finally,
-@var{step} is evaluated, and the next iteration of the loop begins with
-evaluating @var{test} again.
+В конструкции @code{for} вначале единократно вычисляется выражение
+@var{инициализация}. Затем вычисляется выражение @var{условие}.  Если
+результат оценки выражения @var{условие} устанавливается в ложь, то цикл
+завершается и программа продолжает выполнение, не вычисляя выражение
+@var{инструкция}, уже после всей конструкции.  В противном случае, если
+@var{условие} оценивается в истину, то вычисляется выражение
+@var{инструкция}.  Наконец, оценивается выражение @var{шаг}, и следующая
+итерация цикла начинается снова с оценки выражения @var{условие}.
 
-Most often, @var{initialize} assigns values to one or more variables,
-which are generally used as counters,  @var{test} compares those
-variables to a predefined expression, and @var{step} modifies those
-variables' values.  Here is another example that prints the integers
-from zero through nine:
+Чаще всего, в выражении @var{инициализация} присваивается значения одной или
+нескольким переменным, которые обычно используются в качестве счётчиков,
+@var{условие} сравнивает значения этих переменных с заранее заданным
+выражением, и выражение @var{шаг} модифицирует значения этих переменных.  Вот
+еще один пример, который печатает целые числа от нуля до девяти:
 
 @example
 @group
@@ -423,15 +426,18 @@ for (x = 0; x < 10; x++)
 @end group
 @end example
 
-First, it evaluates @var{initialize}, which assigns @code{x} the value
-0.  Then, as long as @code{x} is less than 10, the value of @code{x}
-is printed (in the body of the loop).  Then @code{x} is incremented in
-the @var{step} clause and the test re-evaluated.
+Во-первых, выполняется инструкция @var{инициализация} - @code{x = 0;},
+присваивается переменной @code{x} значение 0.  Затем, выполняется инструкция
+@var{условие} - @code{x < 10;}, так как @code{x} меньше, чем 10, то значение
+инструкции устанавливается в истину и выполняется инструкция
+@code{инструкция} и @code{x} печатается (в теле цикла).  Затем @code{x}
+увеличивается в инструкции @var{шаг} и цикл переходит снова к оценки
+выражения @var{условие}.
 
-All three of the expressions in a @code{for} statement are optional, and any
-combination of the three is valid.  Since the first expression is evaluated
-only once, it is perhaps the most commonly omitted expression.  You could
-also write the above example as:
+Все три из выражений конструкции @code{for} не являются обязательными, и
+любая комбинация из трёх является допустимой.  Так как первое выражение
+вычисляется только один раз, наиболее часто это выражение опущено.  Также
+можете написать приведенный выше пример, как:
 
 @example
 @group
@@ -442,16 +448,17 @@ for (; x <= 10; x++)
 @end example
 
 @noindent
-In this example, @code{x} receives its value prior to the beginning of the
-@code{for} statement.
+В этом примере, @code{x} получает свое значение до начала конструкции
+@code{for}.
 
-If you leave out the @var{test} expression, then the @code{for} statement
-is an infinite loop (unless you put a @code{break} or @code{goto} statement
-somewhere in @var{statement}).  This is like using @code{1} as
-@var{test}; it is never false.
+Если опущена инструкция @var{условие}, то конструкция @code{for} произведёт
+бесконечный цикл (если не поставить инструкцию @code{break} или @code{goto}
+где-то в инструкции @var{инструкции}).  Это похоже на использование в
+качестве выражения @var{условие} константого значения @code{1}, что сделает
+значение этого выражения всегда истина.
 
-This @code{for} statement starts printing numbers at 1 and then
-continues indefinitely, always printing @code{x} incremented by 1:
+Эта конструкция @code{for} начинает печатать числа с 1, а затем продолжается
+до бесконечности, всегда перед печатью @code{x} увеличивается на 1:
 
 @example
 @group
@@ -460,11 +467,11 @@ for (x = 1; ; x++)
 @end group
 @end example
 
-If you leave out the @var{step} expression, then no progress is made
-toward completing the loop---at least not as is normally expected with
-a @code{for} statement.
+Если опущенно выражение @var{шаг}, то не будет никакого процеса завершения
+цикла --- по крайней мере, в разрезе нормального функционирования конструкции
+@code{for}.
 
-This example prints the number 1 over and over, indefinitely:
+Этот пример печатает номер 1 снова и снова, бесконечно:
 
 @example
 @group
@@ -473,10 +480,10 @@ for (x = 1; x <= 10;)
 @end group
 @end example
 
-Perhaps confusingly, you cannot use the comma operator (@pxref{The
-Comma Operator}) for monitoring multiple variables in a @code{for}
-statement, because as usual the comma operator discards the result of
-its left operand.  This loop:
+Нельзя использовать оператор запятая (@pxref{The Comma Operator}) для
+мониторинга нескольких переменных в конструкции @code{for}, потому что,
+оператор запятая, отбрасывает результата оценки своего левого операнда.
+Пример цикла:
 
 @example
 @group
@@ -486,7 +493,7 @@ for (x = 1, y = 10; x <= 10, y >= 1; x+=2, y--)
 @end group
 @end example
 
-@noindent Outputs:
+@noindent Вывод:
 
 @example
 1 10
@@ -501,8 +508,8 @@ for (x = 1, y = 10; x <= 10, y >= 1; x+=2, y--)
 19 1
 @end example
 
-If you need to test two conditions, you will need to use the @code{&&}
-operator:
+Если необходимо проверить два условия, нужно будет использовать оператор
+@code{&&}:
 
 @example
 @group
@@ -512,10 +519,11 @@ for (x = 1, y = 10; x <= 10 && y >= 1; x+=2, y--)
 @end group
 @end example
 
-A @code{break} statement can also cause a @code{for} loop to exit.
+Инструкция @code{break} может также произвести выход из цикла @code{for}.
 
-Here is an example of a function that computes the summation of squares, given a 
-starting integer to square and an ending integer to square:
+Ниже приведен пример функции, которая вычисляет сумму квадратов
+последовательных чисел, заданных диапазоном от исходного числа, до
+максимального допустимого значения этой суммы:
 
 @example
 @group
@@ -531,30 +539,30 @@ sum_of_squares (int start, int end)
 @end example
 
 @node Blocks
-@section Blocks
+@section Блоки
 @cindex blocks
 @cindex compound statements
 
-A @dfn{block} is a set of zero or more statements enclosed in braces.
-Blocks are also known as @dfn{compound statements}.  Often, a block is
-used as the body of an @code{if} statement or a loop statement, to
-group statements together.
+@dfn{Блок} представляет собой набор из нуля или более инструкций, заключенных
+в фигурные скобки.  Блоки также известны как @dfn{составные инструкции}.
+Часто, блок используется как тело конструкции @code{if} или конструкций
+цикла, чтобы группировать инструкции вместе.
 
 @example
 @group
 for (x = 1; x <= 10; x++)
   @{
-    printf ("x is %d\n", x);
+    printf ("значение x это %d\n", x);
     
     if ((x % 2) == 0)
-      printf ("%d is even\n", x);
+      printf ("%d это чётное\n", x);
     else
-      printf ("%d is odd\n", x);
+      printf ("%d это нечётное\n", x);
   @}
 @end group
 @end example
 
-You can also put blocks inside other blocks:
+Также можно поместить блоки внутри других блоков:
 
 @example
 @group
@@ -562,22 +570,22 @@ for (x = 1; x <= 10; x++)
   @{
     if ((x % 2) == 0)
       @{
-        printf ("x is %d\n", x);
-        printf ("%d is even\n", x);
+        printf ("x значение это %d\n", x);
+        printf ("%d чётное число\n", x);
       @}
     else
       @{
-        printf ("x is %d\n", x);
-        printf ("%d is odd\n", x);
+        printf ("x значение это %d\n", x);
+        printf ("%d не чётное число\n", x);
       @}
   @}
 @end group
 @end example  
 
-You can declare variables inside a block; such variables are local to
-that block.  In C89, declarations must occur before other statements,
-and so sometimes it is useful to introduce a block simply for this
-purpose:
+Можно объявлять переменные внутри блока; такие переменные являются локальными
+по отношению к этому блоку.  В C89, объявление переменных должно произойти до
+использования их в инструкциях и поэтому иногда полезно ввести блок просто
+для этой цели:
 
 @comment scope reference  (locality)
 
@@ -587,18 +595,18 @@ purpose:
   int x = 5;
   printf ("%d\n", x);
 @}
-printf ("%d\n", x);   /* @r{Compilation error! @code{x} exists only}
-                       @r{in the preceding block.} */
+printf ("%d\n", x);   /* @r{Ошибка компиляции! @code{x} существует}
+                       @r{только в предыдущем блоке.} */
 @end group
 @end example
 
 
 @node The Null Statement
-@section The Null Statement
+@section Инструкция Null
 @cindex null statement
 @cindex statement, null
 
-The @dfn{null statement} is merely a semicolon alone.
+@dfn{NULL инструкция} - просто одна точка с запятой.
 
 @example
 @group
@@ -606,14 +614,14 @@ The @dfn{null statement} is merely a semicolon alone.
 @end group
 @end example
 
-A null statement does not do anything.  It does not store a value anywhere.
-It does not cause time to pass during the execution of your program.
+Null инструкция ничего не делает.  Нигде не хранит значения.  Не вызывает
+трату времени во время выполнения программы.
 
-Most often, a null statement is used as the body of
-a loop statement, or as one or more of the expressions in a @code{for}
-statement.  Here is an example of a @code{for} statement that uses the
-null statement as the body of the loop (and also calculates the integer
-square root of @code{n}, just for fun):
+Чаще всего, пустой оператор используется как в теле инструкции цикла, или в
+качестве одного или нескольких выражений инструкции @code{for}.  Вот пример
+инструкции @code{for}, где используется инструкция @code{Null}, как тело
+цикла (вычисляется целочисленный квадратный корень из значения @code{n},
+просто для удовольствия):
 
 @example
 @group
@@ -622,34 +630,33 @@ for (i = 1; i*i < n; i++)
 @end group
 @end example
 
-Here is another example that uses the null statement as the body
-of a @code{for} loop and also produces output:
+Вот еще один пример, который использует @code{Null} инструкцию в качестве
+тела цикла @code{for}, а также производит вывод:
 
 @example
 @group
-for (x = 1; x <= 5; printf ("x is now %d\n", x), x++)
+for (x = 1; x <= 5; printf ("x сейчас %d\n", x), x++)
   ;
 @end group
 @end example
 
-A null statement is also sometimes used to follow a label that would
-otherwise be the last thing in a block.
+Инструкция @code{Null} также используется следом за меткой, в противном
+случае, метка была бы последней в блоке.
 
 
 @node The goto Statement
-@section The @code{goto} Statement
+@section Инструкция @code{goto}
 @cindex @code{goto} statement
 
-You can use the @code{goto} statement to unconditionally jump to a different
-place in the program.  Here is the general form of a @code{goto} statement:
+Можно использовать инструкцию @code{goto} для безоговорочного перехода в
+другое место в программе.  Вот общий вид инструкции @code{goto}:
 
 @example
-goto @var{label};
+goto @var{метка};
 @end example
 
-You have to specify a label to jump to; when the @code{goto} statement
-is executed, program control jumps to that label.  @xref{Labels}.  Here
-is an example:
+Указывается метка для перехода оператором @code{goto}, когда программа
+достигает этой метки.  @xref{Labels}.  Вот пример:
 
 @example
 @group
@@ -659,20 +666,20 @@ end_of_program:
 @end group
 @end example
 
-The label can be anywhere in the same function as the @code{goto}
-statement that jumps to it, but a @code{goto} statement cannot jump to a
-label in a different function.
+Метка может распологаться в той же функции, что и инструкция @code{goto} и
+передавать управление к нему, но инструкция @code{goto} не может перевести
+выполнение к метке в другой функции.
 
-You @emph{can} use @code{goto} statements to simulate loop statements,
-but we do not recommend it---it makes the program harder to read, and GCC
-cannot optimize it as well.  You should use @code{for},
-@code{while}, and @code{do} statements instead of @code{goto} statements,
-when possible.
+Инструкцию @code{goto} @emph{можно} использовать  для ИМИТАЦИИ цикла, но не
+рекомендуем так поступать --- это делает программу труднее для чтения, и GCC
+не сможет оптимизировать такой код.  Нужно использовать инструкции для циклов
+@code{for}, @code{while} и @code{do} вместо инструкции @code{goto}, когда
+это возможно.
 
-As an extension, GCC allows a goto statement to jump to an address
-specified by a @code{void*} variable.  To make this work, you also
-need to take the address of a label by using the unary operator
-@code{&&} (not @code{&}).  Here is a contrived example:
+В качестве расширения, GCC позволяет инструкции @code{goto} осуществлять
+переход к адресу, указанному в переменной @code{void*}.  Для того, чтобы
+это совершить, нужно взять адрес метки с помощью одинарного оператора
+@code{&&} (не @code{&}).  Вот надуманный пример:
 
 @example
 @group
@@ -694,18 +701,19 @@ static enum Result turn (void)
 @end group
 @end example
 
-@c Here we should mention that programs should not jump over an
-@c initializer with a goto (and elsewhere say the same for a case
-@c label).  However, just now I can't find the section of the C89
-@c standard that stipulates this.
+@c Здесь следует отметить, что в программе не должно быть перехода через
+@c инструкцию @code{goto}(в других местах говорят то же самое для меток).
+@c Однако, сейчас я не могу найти раздел стандарта C89, который
+@c предусматривает это.
 
 
 @node The break Statement
-@section The @code{break} Statement
+@section Инструкция @code{break}
 @cindex @code{break} statement
 
-You can use the @code{break} statement to terminate a @code{while}, @code{do},
-@code{for}, or @code{switch} statement.  Here is an example:
+Можно использовать инструкцию @code{break}, чтобы прервать выполнение
+конструкций @code{while}, @code{do}, @code{for}, или @code{switch}.
+Вот пример:
 
 @example
 @group
@@ -720,22 +728,23 @@ for (x = 1; x <= 10; x++)
 @end group
 @end example
 
-That example prints numbers from 1 to 7.  When @code{x} is incremented
-to 8, @code{x == 8} is true, so the @code{break} statement is executed, 
-terminating the @code{for} loop prematurely.
+Этот пример печатает числа от 1 до 7.  Когда @code{x} увеличивается до 8,
+выражение условия @code{x == 8} возвращает результат истина и выполняется
+инструкция @code{break}, завершающая выполнение инструкции цикла @code{for}
+преждевременно.
 
-If you put a @code{break} statement inside of a loop or @code{switch}
-statement which itself is inside of a loop or @code{switch} statement, the
-@code{break} only terminates the innermost loop or @code{switch} statement.
+Если присутствует инструкция @code{break} внутри инструкции цикла или
+инструкции @code{switch}, которая сама находится внутри инструкции цикла или
+инструкции @code{switch}, то инструкция  @code{break} сработывает только во
+внутреннем цикле или @code{switch}.  (ВопросStatements739)
 
 
 @node The continue Statement
-@section The @code{continue} Statement
+@section Инструкция @code{continue}
 @cindex @code{continue} statement
 
-You can use the @code{continue} statement in loops to terminate an
-iteration of the loop and begin the next iteration.  Here is an
-example:
+Можно использовать инструкцию @code{continue} в циклах для прекращения
+текущей итерации цикла и перехода на следующую итерацию.  Вот пример:
 
 @example
 @group
@@ -749,53 +758,55 @@ for (x = 0; x < 100; x++)
 @end group
 @end example
 
-If you put a @code{continue} statement inside a loop which itself is
-inside a loop, then it affects only the innermost loop.
+Если поставить инструкцию @code{continue} внутри цикла, который сам находится
+внутри цикла, то это повлияет только на внутренний цикл.
 
 
 
 @node The return Statement
-@section The @code{return} Statement
+@section Инструкция @code{return}
 @cindex @code{return} statement
 
-You can use the @code{return} statement to end the execution of a function
-and return program control to the function that called it.  Here is the
-general form of the @code{return} statement:
+Можно использовать инструкцию @code{return} для прекращения выполнения
+функции и возврата управления программе из функцию, которая её вызвала.  Вот
+общая форма инструкции @code{return}:
 
 @example
-return @var{return-value};
+return @var{возвращаемое-значение};
 @end example
 
-@var{return-value} is an optional expression to return.  If the
-function's return type is @code{void}, then it is invalid to return
-an expression.  You can, however, use the @code{return} statement
-without a return value.
+@var{возвращаемое-значение} является необязательным выражением для возврата.
+Если тип возвращаемого знечения функцией объявлен как @code{void}, то функция
+возвращает значение неопределено.  Можно, однако, использовать оператор
+@code{return} без указания возвращаемого значения.
 
-If the function's return type is not the same as the type of
-@var{return-value}, and automatic type conversion cannot be performed,
-then returning @var{return-value} is invalid.
+Если возвращаемый тип значения функции не совпадает с указанным типом
+@var{возвращаемое-значение} и автоматическое преобразование типа не может
+быть выполнено, то возвращаемое значение @var{возвращаемое-значение} является
+неопределенно.
 
-@comment Reference to type conversion
+@comment ссылки преобразование типа
 
-If the function's return type is not @code{void} and no return value
-is specified, then the @code{return} statement is valid unless the
-function is called in a context that requires a return value.  For
-example:
+Если функция возвращает значение типа отличного от @code{void}, то инструкция
+@code{return} допустима, если функция вызывается в контексте, который требует
+возврата значения.  Например:
 
 @example
 x = cosine (y);
 @end example
 
-In that case, the function @code{cosine} was called in a context that
-required a return value, so the value could be assigned to @code{x}.
+В этом случае функции @code{cosine} была вызвана в контексте требования
+возврата значения, так что бы значение могло быть присвоено @code{x}.
 
-Even in contexts where a return value is not required, it is a bad idea
-for a non-@code{void} function to omit the return value.  With GCC, you
-can use the command line option @code{@w{-Wreturn}-type} to issue a warning
-if you omit the return value in such functions.
+Даже в условиях, когда не требуется использовать возвращаемое значение
+функции, плохая идея при вызове функции с возвращаемым не-@code{void} типом
+значения,  опускать это значение.  В GCC, можно использовать параметр
+командной строки @code{@w{-Wreturn}-type} для выдачи предупреждений, если
+опускается возвращаемое значение в вызове таких функций.
 
-Here are some examples of using the @code{return} statement, in both
-a @code{void} and non-@code{void} function:
+Вот некоторые примеры использования оператора @code{return}, как в функциях
+с возвращаемым значением @code{void} и так и значениями с типом
+не-@code{void}:
 
 @example
 @group
@@ -820,21 +831,22 @@ square_value (int x)
 
 
 @node The typedef Statement
-@section The @code{typedef} Statement
+@section Инструкция @code{typedef}
 @cindex @code{typedef} statement
 
-You can use the @code{typedef} statement to create new names for data
-types.  Here is the general form of the @code{typedef} statement:
+Можно использовать инструкцию @code{typedef} для создания новых имен для
+типов данных.  Вот общая форма инструкции @code{typedef}:
 
 @example
-typedef @var{old-type-name} @var{new-type-name}
+typedef @var{прежднее-имя-типа} @var{новое-имя-типа}
 @end example
 
-@var{old-type-name} is the existing name for the type, and may consist
-of more than one token (e.g., @code{unsigned long int}).
-@var{new-type-name} is the resulting new name for the type, and must
-be a single identifier.  Creating this new name for the type does
-not cause the old name to cease to exist.  Here are some examples:
+@var{прежднее-имя-типа} этого имя существующего типа данных, возможно
+объявленного с использованием более чем одного спецификатора (например,
+@code{unsigned long int}).  @var{новое-имя-типа} является полученным новым
+именем для данного типа, и должно быть одним идентификатором.  Создание этого
+нового имени для заданного типа не прекращает существование прежднего.  Вот
+некоторые примеры:
 
 @example
 @group
@@ -844,8 +856,8 @@ typedef double real_number_type;
 @end example
 
 @noindent
-In the case of custom data types, you can use @code{typedef} to make a
-new name for the type while defining the type:
+В случае пользовательских типов данных, можно использовать @code{typedef}
+для создания нового имени типа, сразу при при определении типа:
 
 @example
 @group
@@ -859,8 +871,9 @@ typedef struct fish
 @end example
 
 @noindent
-To make a type definition of an array, you first provide the type of the element, and
-then establish the number of elements at the end of the type definition:
+Для того, чтобы определить новый тип массива, вначале указывается тип
+элементов массива, затем количество элементов и, в конце определения,
+указывается имя нового типа:
 
 @example
 @group
@@ -869,7 +882,6 @@ array_of_bytes five_bytes = @{0, 1, 2, 3, 4@};
 @end group
 @end example
 
-When selecting names for types, you should avoid ending your type names with
-a @code{_t} suffix.  The compiler will allow you to do this, but the
-POSIX standard reserves use of the @code{_t} suffix for standard library
-type names.
+При выборе имени для типа, нужно избегать завершение имен типов с суффиксом
+@code{_t}.  Компилятор позволит это сделать, но POSIX резервирует
+использование @code{_t} суффикса для имен типов стандартных библиотек.
