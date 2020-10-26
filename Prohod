@@ -1,6 +1,6 @@
   expressions.texi  +
   fdl.texi          + 
-  functions.texi
+  functions.texi    +
   gnu-c-manual.texi +
   lexical.texi      +
   Makefile

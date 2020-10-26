@@ -184,18 +184,18 @@ ul.no-bullet {list-style: none}
     <li><a id="toc-Instrukciya-return" href="#The-return-Statement">4.13 Инструкция <code>return</code></a></li>
     <li><a id="toc-Instrukciya-typedef" href="#The-typedef-Statement">4.14 Инструкция <code>typedef</code></a></li>
   </ul></li>
-  <li><a id="toc-Functions-1" href="#Functions">5 Functions</a>
+  <li><a id="toc-Funkcii" href="#Functions">5 Функции</a>
   <ul class="no-bullet">
-    <li><a id="toc-Function-Declarations-1" href="#Function-Declarations">5.1 Function Declarations</a></li>
-    <li><a id="toc-Function-Definitions-1" href="#Function-Definitions">5.2 Function Definitions</a></li>
-    <li><a id="toc-Calling-Functions-1" href="#Calling-Functions">5.3 Calling Functions</a></li>
-    <li><a id="toc-Function-Parameters-1" href="#Function-Parameters">5.4 Function Parameters</a></li>
-    <li><a id="toc-Variable-Length-Parameter-Lists-1" href="#Variable-Length-Parameter-Lists">5.5 Variable Length Parameter Lists</a></li>
-    <li><a id="toc-Calling-Functions-Through-Function-Pointers-1" href="#Calling-Functions-Through-Function-Pointers">5.6 Calling Functions Through Function Pointers</a></li>
-    <li><a id="toc-The-main-Function-1" href="#The-main-Function">5.7 The <code>main</code> Function</a></li>
-    <li><a id="toc-Recursive-Functions-1" href="#Recursive-Functions">5.8 Recursive Functions</a></li>
-    <li><a id="toc-Static-Functions-1" href="#Static-Functions">5.9 Static Functions</a></li>
-    <li><a id="toc-Nested-Functions-1" href="#Nested-Functions">5.10 Nested Functions</a></li>
+    <li><a id="toc-Obwyavlenie-Funkcii" href="#Function-Declarations">5.1 Объявление Функции</a></li>
+    <li><a id="toc-Opredelenie-funkcii" href="#Function-Definitions">5.2 Определение функции</a></li>
+    <li><a id="toc-Vyzov-Funkcii" href="#Calling-Functions">5.3 Вызов Функции</a></li>
+    <li><a id="toc-Parametry-Funkcii" href="#Function-Parameters">5.4 Параметры Функции</a></li>
+    <li><a id="toc-Spisok-Parametrov-Funkcii-Peremennoi-Dlinny" href="#Variable-Length-Parameter-Lists">5.5 Список Параметров Функции Переменной Длинны</a></li>
+    <li><a id="toc-Vyzov-Funkcii-Cherez-Ukazatelx-na-Funkciiu" href="#Calling-Functions-Through-Function-Pointers">5.6 Вызов Функции Через Указатель на Функцию</a></li>
+    <li><a id="toc-Funkciya-main" href="#The-main-Function">5.7 Функция <code>main</code></a></li>
+    <li><a id="toc-Rekursivnye-Funkcii" href="#Recursive-Functions">5.8 Рекурсивные Функции</a></li>
+    <li><a id="toc-Staticheskie-Funkcii" href="#Static-Functions">5.9 Статические Функции</a></li>
+    <li><a id="toc-Vlozhennye-Funkcii" href="#Nested-Functions">5.10 Вложенные Функции</a></li>
   </ul></li>
   <li><a id="toc-Program-Structure-and-Scope-1" href="#Program-Structure-and-Scope">6 Program Structure and Scope</a>
   <ul class="no-bullet">
@@ -5083,18 +5083,19 @@ array_of_bytes five_bytes = {0, 1, 2, 3, 4};
 <p>
 Next: <a href="#Program-Structure-and-Scope" accesskey="n" rel="next">Program Structure and Scope</a>, Previous: <a href="#Statements" accesskey="p" rel="prev">Statements</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Functions-1"></span><h2 class="chapter">5 Functions</h2>
+<span id="Funkcii"></span><h2 class="chapter">5 Функции</h2>
 <span id="index-functions"></span>
 
-<p>You can write functions to separate parts of your program into distinct
-subprocedures.  To write a function, you must at least create a function
-definition.  It is a good idea also to have an explicit function
-declaration; you don&rsquo;t have to, but if you leave it out, then the
-default implicit declaration might not match the function itself, and
-you will get some compile-time warnings.
+<p>Можно написать функции для разделения частей программы на подпроераммы.
+Чтобы написать функцию, необходимо, по крайней мере создать определение
+функции.  Это хорошая идея также иметь явное объявление функции.  Это не
+требуется в обязательном порядке, но неявное объявление по умолчанию может
+не соответствовать самой функции, и во время компиляции могут возникнуть
+предупреждения.
 </p>
-<p>Every program requires at least one function, called <code>main</code>.
-That is where the program&rsquo;s execution begins.
+<p>В каждой программе требуется, по меньшей мере, одна функция, которая
+именуется <code>main</code>.  То есть, место с чего начинается выполнение
+программы.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Function-Declarations" accesskey="1">Function Declarations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -5125,53 +5126,55 @@ That is where the program&rsquo;s execution begins.
 <p>
 Next: <a href="#Function-Definitions" accesskey="n" rel="next">Function Definitions</a>, Up: <a href="#Functions" accesskey="u" rel="up">Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Function-Declarations-1"></span><h3 class="section">5.1 Function Declarations</h3>
+<span id="Obwyavlenie-Funkcii"></span><h3 class="section">5.1 Объявление Функции</h3>
 <span id="index-function-declarations"></span>
 <span id="index-declarations_002c-function"></span>
 
-<p>You write a function declaration to specify the name of a function, a
-list of parameters, and the function&rsquo;s return type.  A function declaration
-ends with a semicolon.  Here is the general form:
+<p>В объявление функции, указывается имя функции, список параметров и
+тип возвращаемого функцией значения.  Объявление функции заканчивается точкой
+с запятой.  Вот общий вид:
 </p>
 <div class="example">
-<pre class="example"><var>return-type</var> <var>function-name</var> (<var>parameter-list</var>);
+<pre class="example"><var>тип-возвращаемого-значения</var> <var>имя-функции</var> (<var>список-параметров</var>);
 </pre></div>
 
-<p><var>return-type</var> indicates the data type of the value returned by the function.
-You can declare a function that doesn&rsquo;t return anything by using the return
-type <code>void</code>.
+<p><var>тип-возвращаемого-значения</var> указывает тип данных значения, возвращаемого
+функцией.  Можно объявить функцию, которая не возвращает ничего, используя
+тип возвращаемого значения <code>void</code>.
 </p>
-<p><var>function-name</var> can be any valid identifier (see <a href="#Identifiers">Identifiers</a>).
+<p><var>имя-функции</var> может быть любой допустимый идентификатор
+(see <a href="#Identifiers">Identifiers</a>).
 </p>
-<p><var>parameter-list</var> consists of zero or more parameters, separated by commas.
-A typical parameter consists of a data type and an optional name for the
-parameter.  You can also declare a function that has a variable number of
-parameters (see <a href="#Variable-Length-Parameter-Lists">Variable Length Parameter Lists</a>), or no parameters using
-<code>void</code>.  Leaving out <var>parameter-list</var> entirely also indicates
-no parameters, but it is better to specify it explicitly with <code>void</code>.
+<p><var>список-параметров</var> состоит из нуля или более параметров, разделенных
+запятыми.  Типичный запись параметра состоит из типа данных и необязательного
+имени параметра.  Также объявляется функция, которая имеет переменное число
+параметров (see <a href="#Variable-Length-Parameter-Lists">Variable Length Parameter Lists</a>), или не содержит совсем
+параметров, отмечается с помощью <code>void</code>.  Полностью отсутствующий
+<var>список-параметров</var>, также указывает на то, что функция не использует
+никаких параметров, но лучше явное указание отсутствия с помощью <code>void</code>.
 </p>
-<p>Here is an example of a function declaration with two parameters:
+<p>Вот пример объявления функции с двумя параметрами:
 </p>
 <div class="example">
 <pre class="example">int foo (int, double);
 </pre></div>
 
-<p>If you include a name for a parameter, the name immediately follows the
-data type, like this:
+<p>Если включить имя параметра, имя следует непосредственно после указания
+типа данных, например:
 </p>
 <div class="example">
 <pre class="example">int foo (int x, double y);
 </pre></div>
 
-<p>The parameter names can be any identifier (see <a href="#Identifiers">Identifiers</a>), and if you
-have more than one parameter, you can&rsquo;t use the same name more than
-once within a single declaration.  The parameter names in the
-declaration need not match the names in the definition.
+<p>Имя параметра может быть любой идентификатор (see <a href="#Identifiers">Identifiers</a>), и если
+есть более одного параметра, нельзя использовать одно и то же имя, более
+одного раза в одном объявлении.  Имена параметров в объявлении не обязательно
+должны совпадать с именами в определении.
 </p>
-<p>You should write the function declaration above the first use of
-the function.  You can put it in a header file and use the <code>#include</code>
-directive to include that function declaration in any source code files that
-use the function.
+<p>Объявление функции требуется до первого использования этой функции.  Можне
+поместить его в заголовочный файл и использовать директиву <code>#include</code>,
+чтобы включить объявление этой функцию в любых файлах исходного кода, которые
+используют функцию.
 </p>
 
 <hr>
@@ -5179,35 +5182,35 @@ use the function.
 <p>
 Next: <a href="#Calling-Functions" accesskey="n" rel="next">Calling Functions</a>, Previous: <a href="#Function-Declarations" accesskey="p" rel="prev">Function Declarations</a>, Up: <a href="#Functions" accesskey="u" rel="up">Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Function-Definitions-1"></span><h3 class="section">5.2 Function Definitions</h3>
+<span id="Opredelenie-funkcii"></span><h3 class="section">5.2 Определение функции</h3>
 <span id="index-function-definitions"></span>
 <span id="index-definitions_002c-function"></span>
 
-<p>You write a function definition to specify what a function
-actually does.  A function definition consists of information regarding
-the function&rsquo;s name, return type, and types and names of parameters, along
-with the body of the function.  The function body is a series of statements
-enclosed in braces; in fact it is simply a block (see <a href="#Blocks">Blocks</a>).
+<p>Определение функции, служит для того, чтобы указать, что функция на самом
+деле делает.  Определение функции состоит из информации о имени функции, типа
+возвращаемого значения и типов и именах параметров, вместе с телом функции.
+Тело функции представляет собой ряд инструкций, заключенных в скобки, на
+самом деле это просто блок (see <a href="#Blocks">Blocks</a>).
 </p>
-<p>Here is the general form of a function definition:
+<p>Вот общий вид определения функции:
 </p>
 <div class="example">
-<pre class="example"><var>return-type</var>
-<var>function-name</var> (<var>parameter-list</var>)
+<pre class="example"><var>тип-возвращаемого-значения</var>
+<var>имя-функции</var> (<var>список-параметров</var>)
 {
-  <var>function-body</var>
+  <var>тело-функции</var>
 }
 </pre></div>
 
-<p><var>return-type</var> and <var>function-name</var> are the same as what you use
-in the function declaration (see <a href="#Function-Declarations">Function Declarations</a>).
+<p><var>тип-возвращиемого-значения</var> и <var>имя-функции</var> такие же, как
+используются в объявлении функции (see <a href="#Function-Declarations">Function Declarations</a>).
+<var>список-параметров</var> такой же, как и список параметров, используемый в
+объявлении функции (see <a href="#Function-Declarations">Function Declarations</a>), за исключением того,
+что <em>обязательно</em> включаются имена параметров в определении функции.
 </p>
-<p><var>parameter-list</var> is the same as the parameter list used in the function
-declaration (see <a href="#Function-Declarations">Function Declarations</a>), except you
-<em>must</em> include names for the parameters in a function definition.
-</p>
-<p>Here is an simple example of a function definition&mdash;it takes two integers as
-its parameters and returns the sum of them as its return value:
+<p>Вот простой пример определения функции &mdash; она ​​принимает два целых числа,
+в качестве её параметров и возвращает их сумму в качестве возвращаемого
+значения:
 </p>
 <div class="example">
 <pre class="example">int
@@ -5217,9 +5220,8 @@ add_values (int x, int y)
 }
 </pre></div>
 
-<p>For compatibility with the original design of C, you can also specify
-the type of the function parameters <em>after</em> the closing
-parenthesis of the parameter list, like this:
+<p>Для совместимости с оригинальным C, также требуется указать тип параметров
+функции <em>после</em> закрывающей скобкой списка параметров, так:
 </p>
 <div class="example">
 <pre class="example">int
@@ -5230,8 +5232,8 @@ add_values (x, y)
 }
 </pre></div>
 
-<p>However, we strongly discourage this style of coding; it can cause
-subtle problems with type casting, among other problems.
+<p>Тем не менее, не рекомендуется этот стиль кодирования; это может вызвать
+тонкие проблемы с приведением типов, наряду с другими проблемами.
 </p>
 
 <hr>
@@ -5239,37 +5241,37 @@ subtle problems with type casting, among other problems.
 <p>
 Next: <a href="#Function-Parameters" accesskey="n" rel="next">Function Parameters</a>, Previous: <a href="#Function-Definitions" accesskey="p" rel="prev">Function Definitions</a>, Up: <a href="#Functions" accesskey="u" rel="up">Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Calling-Functions-1"></span><h3 class="section">5.3 Calling Functions</h3>
+<span id="Vyzov-Funkcii"></span><h3 class="section">5.3 Вызов Функции</h3>
 <span id="index-calling-functions"></span>
 <span id="index-functions_002c-calling"></span>
 
-<p>You can call a function by using its name and supplying any needed parameters.
-Here is the general form of a function call:
+<p>Можно вызвать функцию, используя её имя и передав значения параметров.
+Вот общий вид вызова функции:
 </p>
 <div class="example">
-<pre class="example"><var>function-name</var> (<var>parameters</var>)
+<pre class="example"><var>имя-функции</var> (<var>параметры</var>)
 </pre></div>
 
-<p>A function call can make up an entire statement, or it can be used as a
-subexpression.  Here is an example of a standalone function call:
+<p>Вызов функции может составить целую инструкцию, или может быть использован в
+качестве подвыражения.  Вот пример полной инструкции вызова функции:
 </p>
 <div class="example">
 <pre class="example">foo (5);
 </pre></div>
 
-<p>In that example, the function &lsquo;<samp>foo</samp>&rsquo; is called with the
-parameter <code>5</code>.
+<p>В этом примере функция &lsquo;<samp>foo</samp>&rsquo; вызывается с параметром <code>5</code>.
 </p>
-<p>Here is an example of a function call used as a subexpression:
+<p>Ниже приведен пример вызова функции, используемый в качестве подвыражения:
 </p>
 <div class="example">
 <pre class="example">a = square (5);
 </pre></div>
 
-<p>Supposing that the function &lsquo;<samp>square</samp>&rsquo; squares its parameter, the
-above example assigns the value 25 to <code>a</code>.
+<p>Предпологая, что функция &lsquo;<samp>square</samp>&rsquo; возводит в квадрат ее параметр,
+приведенный выше пример присваивает значение 25 переменной <code>a</code>.
 </p>
-<p>If a parameter takes more than one argument, you separate parameters with commas:
+<p>Если список параметров принимает более одного аргумента, то отдельные
+параметры разделяются запятой:
 </p>
 <div class="example">
 <pre class="example">a = quux (5, 10);
@@ -5281,22 +5283,23 @@ above example assigns the value 25 to <code>a</code>.
 <p>
 Next: <a href="#Variable-Length-Parameter-Lists" accesskey="n" rel="next">Variable Length Parameter Lists</a>, Previous: <a href="#Calling-Functions" accesskey="p" rel="prev">Calling Functions</a>, Up: <a href="#Functions" accesskey="u" rel="up">Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Function-Parameters-1"></span><h3 class="section">5.4 Function Parameters</h3>
+<span id="Parametry-Funkcii"></span><h3 class="section">5.4 Параметры Функции</h3>
 <span id="index-function-parameters"></span>
 <span id="index-parameters_002c-function"></span>
 
-<p>Function parameters can be any expression&mdash;a literal value, a value stored in
-variable, an address in memory, or a more complex expression built by
-combining these.
+<p>Параметр функции может быть любым выражением &mdash; буквальным значением,
+значением, сохраненным в переменной, адресом в памяти, или более сложным
+выражением путём объединения этого.
 </p>
-<p>Within the function body, the parameter is a local copy of the value passed into
-the function; you cannot change the value passed in by changing the local copy.
+<p>В теле функции, параметр является локальной копией значения, переданного в
+функцию, поэтому нельзя изменить само переданное параметром значение, изменяя
+его локальную копию.
 </p>
 <div class="example">
 <pre class="example">int x = 23;
 foo (x);
 &hellip;
-/* <span class="roman">Definition for function <code>foo</code>.</span> */
+/* <span class="roman">Определение функции <code>foo</code>.</span> */
 int foo (int a)
 {
   a = 2 * a;
@@ -5304,25 +5307,25 @@ int foo (int a)
 }
 </pre></div>
 
-<p>In that example, even though the parameter <code>a</code> is modified in the
-function &lsquo;<samp>foo</samp>&rsquo;, the variable <code>x</code> that is passed to
-the function does not change.  If you wish to use the function to change
-the original value of <code>x</code>, then you would have to incorporate the
-function call into an assignment statement:
+<p>В этом примере, даже если <code>a</code> параметр изменяется в функции &lsquo;<samp>foo</samp>&rsquo;,
+переменная <code>x</code>, которая передается функции как параметр не меняется.
+Если требуется использовать функцию, чтобы изменить исходное значение
+<code>x</code>, используется вызов функции в операторе присваивания:
 </p>
 <div class="example">
 <pre class="example">x = foo (x);
 </pre></div>
 
-<p>If the value that you pass to a function is a memory address (that is, a pointer), then you
-can access (and change) the data stored at the memory address.  This
-achieves an effect similar to pass-by-reference in
-other languages, but is not the same: the memory address is simply a
-value, just like any other value, and cannot itself be changed.  The
-difference between passing a pointer and passing an integer lies in
-what you can do using the value within the function.
+<p>Если значение, передаваемое функции в качестве параметра является адресом
+памяти (то есть указателем), то можно получить доступ (и изменить) данные,
+хранящиеся в памяти по адресу.  Благодаря этому достигается эффект, схожий
+передачи в параметре по ссылке в других языках, но это не то же самое: адрес
+в памяти - это просто значение, так же как и любое другое значение, и само
+по себе не может быть изменено.  Разница между передачей указателя и
+передачи целого числа состоим в том, что можно использовать значение
+указателя в пределах тела функции.
 </p>
-<p>Here is an example of calling a function with a pointer parameter:
+<p>Вот пример вызова функции в качестве указателя в параметре:
 </p>
 <div class="example">
 <pre class="example">void
@@ -5335,16 +5338,17 @@ int a = 15;
 foo (&amp;a);
 </pre></div>
 
-<p>The formal parameter for the function is of type pointer-to-<code>int</code>, and we
-call the function by passing it the address of a variable of type <code>int</code>.  By
-dereferencing the pointer within the function body, we can both see and change
-the value stored in the address.  The above changes the value of
-<code>a</code> to &lsquo;<samp>57</samp>&rsquo;.
+<p>Формальный параметр для функции имеет тип указатель-на-тип-<code>int</code>, и
+функция вызывается с передачей в качестве параметра значения адреса
+переменной типа <code>int</code>.  Разыменовав указатель в пределах тела функции,
+можно получить и изменить значение, находящееся по значению адреса.  Выше
+изменяется значение переменной <code>a</code> в значение &lsquo;<samp>57</samp>&rsquo;.
 </p>
-<p>Even if you don&rsquo;t want to change the value stored in the address, passing the
-address of a variable rather than the variable itself can be useful if the
-variable type is large and you need to conserve memory space or limit
-the performance impact of parameter copying.  For example:
+<p>Даже если не требуется изменение значения, сохраненного в адресе, передавая
+адрес переменной, а не саму переменную саму по себе, может быть полезным,
+если тип переменной слишком велик, и необходима экономия памяти или
+ограничить влияние на производительность при копировании параметра.
+Например:
 </p>
 <div class="example">
 <pre class="example">struct foo
@@ -5357,12 +5361,12 @@ the performance impact of parameter copying.  For example:
 void bar (const struct foo *a);
 </pre></div>
 
-<p>In this case, unless you are working on a computer with very large memory
-addresses, it will take less memory to pass a pointer to the structure
-than to pass an instance of the structure.
+<p>В том случае, если работа выпролняется на компьютере с не очень большими
+адресами памяти, он будет занимать меньше памяти, передача указателя на
+структуру, чем передача экземпляря структуры.
 </p>
-<p>One type of parameter that is always passed as a pointer is any sort
-of array:
+<p>Один из типов параметров, который всегда передаётся как указатель - это любой
+вид массива:
 </p>
 <div class="example">
 <pre class="example">void foo (int a[]);
@@ -5371,12 +5375,13 @@ int x[100];
 foo (x);
 </pre></div>
 
-<p>In this example, calling the function <code>foo</code> with the parameter <code>a</code>
-does not copy the entire array into a new local parameter within <code>foo</code>;
-rather, it passes <code>x</code> as a pointer to the first element in <code>x</code>.
-Be careful, though: within the function, you cannot use <code>sizeof</code> to determine
-the size of the array <code>x</code>&mdash;<code>sizeof</code> instead tells you the size of the
-pointer <code>x</code>.   Indeed, the above code is equivalent to:
+<p>В этом примере, вызов функции <code>foo</code> с параметром <code>a</code> не производит
+копированее всего массива в локальную переменную параметра <code>foo</code>,
+передаётся в параметре <code>x</code> указатель на первый элемент массива <code>x</code>.
+Нужно проявлять осторожность: в пределах функции, нельза использовать
+<code>sizeof</code>, чтобы определить размер массива <code>x</code>&mdash;<code>sizeof</code>
+вместо этого укажет размер указателя <code>x</code>.  Действительно, указаный выше
+код эквивалентен:
 </p>
 <div class="example">
 <pre class="example">void foo (int *a);
@@ -5385,12 +5390,11 @@ int x[100];
 foo (x);
 </pre></div>
 
-<p>Explicitly specifying the length of the array in the
-parameter declaration will not help.  If you really need to pass an
-array by value, you can wrap it in a <code>struct</code>, though doing this
-will rarely be useful (passing a <code>const</code>-qualified pointer is
-normally sufficient to indicate that the caller should not modify the
-array).
+<p>Явное указание длины массива в объявлении параметра не поможет.
+Если действительно нужно передать массив по значению, можно обернуть его в
+<code>struct</code>, хотя это редко бывает полезно (обычно достаточно передавать
+указатель с <code>const</code>-спецификатором, чтобы показать, что вызваший код
+не должен изменять массив).
 </p>
 
 <hr>
@@ -5398,31 +5402,32 @@ array).
 <p>
 Next: <a href="#Calling-Functions-Through-Function-Pointers" accesskey="n" rel="next">Calling Functions Through Function Pointers</a>, Previous: <a href="#Function-Parameters" accesskey="p" rel="prev">Function Parameters</a>, Up: <a href="#Functions" accesskey="u" rel="up">Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Variable-Length-Parameter-Lists-1"></span><h3 class="section">5.5 Variable Length Parameter Lists</h3>
+<span id="Spisok-Parametrov-Funkcii-Peremennoi-Dlinny"></span><h3 class="section">5.5 Список Параметров Функции Переменной Длинны</h3>
 <span id="index-variable-length-parameter-lists"></span>
 <span id="index-parameters-lists_002c-variable-length"></span>
 <span id="index-function-parameter-lists_002c-variable-length"></span>
 
-<p>You can write a function that takes a variable number of arguments; these are
-called <em>variadic functions</em>.  To do this, the function needs to have at
-least one parameter of a known data type, but the remaining parameters are
-optional, and can vary in both quantity and data type.
+<p>Можно написать функцию, которая принимает переменное число аргументов, такие
+функции называются <em>вариативными функциями</em>.  Чтобы получить это, функция
+должна иметь, по меньшей мере, один параметр известного типа данных, а
+остальные параметры являются необязательными и могут различаться по
+количеству и типу данных.
 </p>
-<p>You list the initial parameters as normal, but then after that, use an
-ellipsis: &lsquo;<samp>...</samp>&rsquo;.  Here is an example function prototype:
+<p>Перечисляются начальные параметры, как обычно, но после этого, используется
+многоточие: &lsquo;<samp>...</samp>&rsquo;.  Вот пример прототипа функции:
 </p>
 <div class="example">
 <pre class="example">int add_multiple_values (int number, ...);
 </pre></div>
 
-<p>To work with the optional parameters in the function definition, you need
-to use macros that are defined in the library header file
-&lsquo;<samp>&lt;stdarg.h&gt;</samp>&rsquo;, so you must <code>#include</code> that file.  For a
-detailed description of these macros, see <cite>The GNU C
-Library</cite> manual&rsquo;s section on variadic functions.
+<p>Для работы с дополнительными параметрами в определении функции, нужно
+использовать макросц, которые определены в библиотеке заголовочного файла
+&lsquo;<samp>&lt;stdarg.h&gt;</samp>&rsquo;, так что требуется включить <code>#include</code> этот файл.
+Подробное описание этих макросов, раздел <cite>The GNU C Library</cite>
+руководства по переменному числу параметров функций.
 </p>
 
-<p>Here is an example:
+<p>Вот пример:
 </p>
 <div class="example">
 <pre class="example">int
@@ -5430,19 +5435,19 @@ add_multiple_values (int number, ...)
 {
   int counter, total = 0;
   
-  /* <span class="roman">Declare a variable of type &lsquo;<samp>va_list</samp>&rsquo;.</span> */
+  /* <span class="roman">Объявляется переменная типа &lsquo;<samp>va_list</samp>&rsquo;.</span> */
   va_list parameters;
 
-  /* <span class="roman">Call the &lsquo;<samp>va_start</samp>&rsquo; function.</span> */
+  /* <span class="roman">Вызов функции &lsquo;<samp>va_start</samp>&rsquo;.</span> */
   va_start (parameters, number);
 
   for (counter = 0; counter &lt; number; counter++)
     {
-      /* <span class="roman">Get the values of the optional parameters.</span> */
+      /* <span class="roman">Получение значений дополнительных параметров.</span> */
       total += va_arg (parameters, int);
     }
 
-  /* <span class="roman">End use of the &lsquo;<samp>parameters</samp>&rsquo; variable.</span> */
+  /* <span class="roman">Итоговое присвоение переменной &lsquo;<samp>parameters</samp>&rsquo;.</span> */
   va_end (parameters);
 
   return total;
@@ -5450,23 +5455,25 @@ add_multiple_values (int number, ...)
 </pre></div>
 
 
-<p>To use optional parameters, you need to have a way to know how many
-there are.  This can vary, so it can&rsquo;t be hard-coded, but if you
-don&rsquo;t know how many optional parameters you have, then you could
-have difficulty knowing when to stop using the &lsquo;<samp>va_arg</samp>&rsquo; function.
-In the above example, the first parameter to the &lsquo;<samp>add_multiple_values</samp>&rsquo;
-function, &lsquo;<samp>number</samp>&rsquo;, is the number of optional parameters actually passed.
-So, we might call the function like this:
+<p>Для использования дополнительных параметров, нужно знать, сколько их есть.
+Это количество может варьироваться, поэтому не задаётся жестко, но
+если не известно точное количество необязательных параметров, то могут
+возникнуть трудности, когда требуется прекратить использование функции
+&lsquo;<samp>va_arg</samp>&rsquo;.  В приведенном выше примере, первый параметр функции
+&lsquo;<samp>add_multiple_values</samp>&rsquo;, &lsquo;<samp>number</samp>&rsquo;, это количество для передачи
+необязательных параметров.  Таким образом, можно вызвать функцию так:
 </p>
 <div class="example">
 <pre class="example">sum = add_multiple_values (3, 12, 34, 190);
 </pre></div>
 
-<p>The first parameter indicates how many optional parameters follow it.
+<p>Первый параметр указывает на то, сколько дополнительных параметров следуют
+за ним.
 </p>
-<p>Also, note that you don&rsquo;t actually need to use &lsquo;<samp>va_end</samp>&rsquo; function.
-In fact, with GCC it doesn&rsquo;t do anything at all.  However, you might want
-to include it to maximize compatibility with other compilers.
+<p>Кроме того, можно обратить внимание, что на самом деле не нужно использовать
+функцию &lsquo;<samp>va_end</samp>&rsquo;.  В самом деле, при использовании GCC совсем ничего
+не произойдёт.  Тем не менее, можно включить это для обеспечения максимальной
+совместимости с другими компиляторами.
 </p>
 <p>See <a href="https://www.gnu.org/software/libc/manual/html_mono/libc.html#Variadic-Functions">Variadic Functions</a> in <cite>The GNU C Library Reference Manual</cite>.
 </p>
@@ -5475,11 +5482,11 @@ to include it to maximize compatibility with other compilers.
 <p>
 Next: <a href="#The-main-Function" accesskey="n" rel="next">The main Function</a>, Previous: <a href="#Variable-Length-Parameter-Lists" accesskey="p" rel="prev">Variable Length Parameter Lists</a>, Up: <a href="#Functions" accesskey="u" rel="up">Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Calling-Functions-Through-Function-Pointers-1"></span><h3 class="section">5.6 Calling Functions Through Function Pointers</h3>
+<span id="Vyzov-Funkcii-Cherez-Ukazatelx-na-Funkciiu"></span><h3 class="section">5.6 Вызов Функции Через Указатель на Функцию</h3>
 <span id="index-function-pointers_002c-calling-through"></span>
 
-<p>You can also call a function identified by a pointer.   The
-indirection operator <code>*</code> is optional when doing this.
+<p>Можно также вызвать функцию, используя на неё указателя.  Оператор
+разыменования <code>*</code> не является обязательным при выполнении этого.
 </p>
 <div class="example">
 <pre class="example">#include &lt;stdio.h&gt;
@@ -5500,7 +5507,7 @@ void foo (int i)
 {
   int j;
   for (j=0; j&lt;times; ++j)
-    func (j);  /* (*func) (j); would be equivalent. */
+    func (j);  /* (*func) (j); будет эквивалентно. */
 }
 
 void example (int want_foo) 
@@ -5518,17 +5525,18 @@ void example (int want_foo)
 <p>
 Next: <a href="#Recursive-Functions" accesskey="n" rel="next">Recursive Functions</a>, Previous: <a href="#Calling-Functions-Through-Function-Pointers" accesskey="p" rel="prev">Calling Functions Through Function Pointers</a>, Up: <a href="#Functions" accesskey="u" rel="up">Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="The-main-Function-1"></span><h3 class="section">5.7 The <code>main</code> Function</h3>
+<span id="Funkciya-main"></span><h3 class="section">5.7 Функция <code>main</code></h3>
 <span id="index-main-function"></span>
 <span id="index-function_002c-main"></span>
 
-<p>Every program requires at least one function, called &lsquo;<samp>main</samp>&rsquo;.
-This is where the program begins executing.  You do not need to write a
-declaration or prototype for <code>main</code>, but you do need to define it.
+<p>Каждая программа требует, по меньшей мере, одну функцию, которая имеет имя
+&lsquo;<samp>main</samp>&rsquo;.  Это то, где программа начинает выполняться.  Не нужно писать
+объявление или прототип функции <code>main</code>, но требуется определить её.
 </p>
-<p>The return type for <code>main</code> is always <code>int</code>.  You do not have
-to specify the return type for <code>main</code>, but you can.  However, you
-<em>cannot</em> specify that it has a return type other than <code>int</code>.
+<p>Возвращаемый тип значения функции <code>main</code> всегда тип <code>int</code>.  Не
+требуется обязательно указывать тип возвращаемого значения <code>main</code>, но
+можно.  Тем не менее, <em>нельзя</em> указать, что возвращаемое значение имеет
+тип отличныей от <code>int</code>.
 </p>
 
 <span id="index-exit-status"></span>
@@ -5536,44 +5544,43 @@ to specify the return type for <code>main</code>, but you can.  However, you
 <span id="index-EXIT_005fSUCCESS"></span>
 <span id="index-return-value-of-main"></span>
 
-<p>In general, the return value from  <code>main</code> indicates the program&rsquo;s
-<em>exit status</em>.  A value of zero or EXIT_SUCCESS indicates success
-and EXIT_FAILURE indicates an error.   Otherwise, the significance of
-the value returned is implementation-defined.
+<p>В общем, возвращаемое значение функцей <code>main</code> указывает
+<em>статус возврата</em> программы.  Нулевое значение или EXIT_SUCCESS указывает
+на успех и EXIT_FAILURE указывает на ошибку.  В противном случае, значение
+возвращаемого значения зависит от реализации.
 </p>
 
-<p>Reaching the <code>}</code> at the end of <code>main</code> without a return, or
-executing a <code>return</code> statement with no value (that is,
-<code>return;</code>) are both equivalent.  In C89, the effect of this is
-undefined, but in C99 the effect is equivalent to <code>return 0;</code>.
+<p>Достижение выполнением программы <code>}</code> в конце тела функции <code>main</code>
+без указания возврата значения или использовании <code>return</code> без указания
+возвращаемого значения (то есть, <code>return;</code>) являются эквивалентными.  В
+C89, эффект этого не определен, но в C99 эффект эквивалентен вызову
+<code>return 0;</code>.
 </p>
-<p>You can write your <code>main</code> function to have no parameters (that
-is, as <code>int main (void)</code>), or to accept parameters from the
-command line.  Here is a very simple <code>main</code> function with no
-parameters:
+<p>Можно написать функцию <code>main</code> не имеющую никаких параметров (то есть,
+как <code>int main (void)</code>), или принимающую параметры из командной строки.
+Вот очень простая функция <code>main</code> без параметров:
 </p>
 <div class="example">
 <pre class="example">int
 main (void)
 {
-  puts (&quot;Hi there!&quot;);
+  puts (&quot;Всем привет!&quot;);
   return 0;
 }
 </pre></div>
 
-<p>To accept command line parameters, you need to have two parameters in the
-<code>main</code> function, <code>int argc</code> followed by <code>char *argv[]</code>.  You
-can change the names of those parameters, but they must have those data
-types&mdash;<code>int</code> and array of pointers to <code>char</code>.  <code>argc</code> is the
-number of command line parameters, including the name of the program itself.
-<code>argv</code> is an array of the parameters, as character strings.
-<code>argv[0]</code>, the first element in the array, is the name of the program
-as typed at the command line<a id="DOCF4" href="#FOOT4"><sup>4</sup></a>;
-any following array elements are the parameters that followed the name
-of the program.
+<p>Чтобы принять параметры командной строки, необходимо иметь два параметра в
+функции <code>main</code>, <code>int argc</code> с последующим <code>char *argv[]</code>.
+Можно изменить имена этих параметров, но они должны иметь типы
+данных&mdash;<code>int</code> и массив указателей на тип <code>char</code>.  <code>argc</code>
+указывает количество параметров командной строки, в том числе параметр с
+именем самой программы.  <code>argv</code> представляет собой массив параметров,
+как строки символов.  <code>argv[0]</code>, первый элемент в массиве, это имя
+программы, как и набирается в командной строке<a id="DOCF4" href="#FOOT4"><sup>4</sup></a>; любые следующие элементы
+массива являются параметрами, которые следуют за именем программы.
 </p>
-<p>Here is an example <code>main</code> function that accepts command line
-parameters, and prints out what those parameters are:
+<p>Ниже приведен пример функции <code>main</code>, которая принимает параметры
+командной строки, и выводит то, что передаётся этими параметрами:
 </p>
 <div class="example">
 <pre class="example">int
@@ -5594,12 +5601,13 @@ main (int argc, char *argv[])
 <p>
 Next: <a href="#Static-Functions" accesskey="n" rel="next">Static Functions</a>, Previous: <a href="#The-main-Function" accesskey="p" rel="prev">The main Function</a>, Up: <a href="#Functions" accesskey="u" rel="up">Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Recursive-Functions-1"></span><h3 class="section">5.8 Recursive Functions</h3>
+<span id="Rekursivnye-Funkcii"></span><h3 class="section">5.8 Рекурсивные Функции</h3>
 <span id="index-recursive-functions"></span>
 <span id="index-functions_002c-recursive"></span>
 
-<p>You can write a function that is recursive&mdash;a function that calls
-itself.  Here is an example that computes the factorial of an integer:
+<p>Можно написать функцию, которая является рекурсивной &mdash; функцией, которая
+вызывает саму себя.  Ниже приведен пример, вычисления факториала целого
+числа:
 </p>
 <div class="example">
 <pre class="example">int
@@ -5612,10 +5620,11 @@ factorial (int x)
 }
 </pre></div>
 
-<p>Be careful that you do not write a function that is infinitely recursive.  In
-the above example, once <code>x</code> is 1, the recursion stops.  However, in the
-following example, the recursion does not stop until the program is interrupted
-or runs out of memory:
+<p>Нужно быть осторожным, что не написать функцию, которая является бесконечно
+рекурсивной.  В приведенном выше примере, как только <code>x</code> равно 1, то
+рекурсия останавливается.  Однако, в следующем примере, рекурсия не
+останавливается, пока программа не будет прервана принудительно или пока не
+произойдёт переполнение памяти:
 </p>
 <div class="example">
 <pre class="example">int
@@ -5625,7 +5634,7 @@ watermelon (int x)
 }
 </pre></div>
 
-<p>Functions can also be indirectly recursive, of course.
+<p>Функции могут быть конечно косвенно рекурсивными.  (ВопросFunctions579)
 </p>
 
 <hr>
@@ -5633,13 +5642,13 @@ watermelon (int x)
 <p>
 Next: <a href="#Nested-Functions" accesskey="n" rel="next">Nested Functions</a>, Previous: <a href="#Recursive-Functions" accesskey="p" rel="prev">Recursive Functions</a>, Up: <a href="#Functions" accesskey="u" rel="up">Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Static-Functions-1"></span><h3 class="section">5.9 Static Functions</h3>
+<span id="Staticheskie-Funkcii"></span><h3 class="section">5.9 Статические Функции</h3>
 <span id="index-static-functions"></span>
 <span id="index-functions_002c-static"></span>
 <span id="index-static-linkage"></span>
 
-<p>You can define a function to be static if you want it to be callable only
-within the source file where it is defined:
+<p>Можно определить статическую функцию, если требуется совершать её вызов из
+любого места в пределах исходного файла, в котором она определена:
 </p>
 <div class="example">
 <pre class="example">static int
@@ -5649,12 +5658,13 @@ foo (int x)
 }
 </pre></div>
 
-<p>This is useful if you are building a reusable library of functions and need to
-include some subroutines that should not be callable by the end user.
+<p>Это полезно, если строится библиотека многоразового использования функций и
+она включает в себя некоторые подпрограммы, которые не должно быть вызваны
+конечным пользователем.
 </p>
-<p>Functions which are defined in this way are said to have <em>static
-linkage</em>.  Unfortunately the <code>static</code> keyword has multiple
-meanings; <a href="#Storage-Class-Specifiers">Storage Class Specifiers</a>.
+<p>Функции, которые определены таким образом, имеют так сказать,
+<em>статическую связь</em>.  К сожалению, <code>static</code> ключевое слово имеет
+несколько значений; <a href="#Storage-Class-Specifiers">Storage Class Specifiers</a>.
 </p>
 
 <hr>
@@ -5662,15 +5672,15 @@ meanings; <a href="#Storage-Class-Specifiers">Storage Class Specifiers</a>.
 <p>
 Previous: <a href="#Static-Functions" accesskey="p" rel="prev">Static Functions</a>, Up: <a href="#Functions" accesskey="u" rel="up">Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Nested-Functions-1"></span><h3 class="section">5.10 Nested Functions</h3>
+<span id="Vlozhennye-Funkcii"></span><h3 class="section">5.10 Вложенные Функции</h3>
 <span id="index-nested-functions"></span>
 <span id="index-functions_002c-nested"></span>
  
-<p>As a GNU C extension, you can define functions within other functions, a
-technique known as nesting functions.
+<p>В качестве расширения GNU C, можно определить функции внутри других функций,
+метод, известный как вложенности функций.
 </p> 
-<p>Here is an example of a tail-recursive factorial function, defined
-using a nested function:
+<p>Ниже приведен пример функции факториала хвостовой рекурсии, определенной с
+помощью вложенной функции:
 </p> 
 <div class="example">
 <pre class="example">int
@@ -5693,9 +5703,8 @@ factorial (int x)
 }
 </pre></div>
 
-<p>Note that nested functions must be defined along with variable
-declarations at the beginning of a function, and all other statements
-follow.
+<p>Внимание, вложенные функции должны быть определены вместе с объявлениями
+переменных в начале функции, а все остальные инструкции следуют строго после.
 </p>
 
 
@@ -7320,10 +7329,10 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 и <code>x</code> имеет тип <code>int</code>, мы явно имеем проблему с переполнением.
 See <a href="#Overflow">Overflow</a>.</p>
 <h5><a id="FOOT4" href="#DOCF4">(4)</a></h3>
-<p>Rarely, <code>argv[0]</code> can be a
-null pointer (in
-this case <code>argc</code> is 0) or <code>argv[0][0]</code> can be the null character.
-In any case, <code>argv[argc]</code> is a null pointer.</p>
+<p>Редко, <code>argv[0]</code>
+может быть NULL указателем (в этом случае <code>argc</code> это 0) или
+<code>argv[0][0]</code> может быть нулевым символом.  В любом случае,
+<code>argv[argc]</code> является NULL указателем.</p>
 </div>
 <hr>
 

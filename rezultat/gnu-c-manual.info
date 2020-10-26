@@ -3922,18 +3922,19 @@ File: gnu-c-manual.info,  Node: The typedef Statement,  Prev: The return Stateme
 
 File: gnu-c-manual.info,  Node: Functions,  Next: Program Structure and Scope,  Prev: Statements,  Up: Top
 
-5 Functions
-***********
+5 Функции
+*********
 
-You can write functions to separate parts of your program into distinct
-subprocedures.  To write a function, you must at least create a function
-definition.  It is a good idea also to have an explicit function
-declaration; you don't have to, but if you leave it out, then the
-default implicit declaration might not match the function itself, and
-you will get some compile-time warnings.
+Можно написать функции для разделения частей программы на подпроераммы.
+Чтобы написать функцию, необходимо, по крайней мере создать определение
+функции.  Это хорошая идея также иметь явное объявление функции.  Это не
+требуется в обязательном порядке, но неявное объявление по умолчанию
+может не соответствовать самой функции, и во время компиляции могут
+возникнуть предупреждения.
 
-   Every program requires at least one function, called 'main'.  That is
-where the program's execution begins.
+   В каждой программе требуется, по меньшей мере, одна функция, которая
+именуется 'main'.  То есть, место с чего начинается выполнение
+программы.
 
 * Menu:
 
@@ -3951,79 +3952,79 @@ where the program's execution begins.
 
 File: gnu-c-manual.info,  Node: Function Declarations,  Next: Function Definitions,  Up: Functions
 
-5.1 Function Declarations
-=========================
+5.1 Объявление Функции
+======================
 
-You write a function declaration to specify the name of a function, a
-list of parameters, and the function's return type.  A function
-declaration ends with a semicolon.  Here is the general form:
+В объявление функции, указывается имя функции, список параметров и тип
+возвращаемого функцией значения.  Объявление функции заканчивается
+точкой с запятой.  Вот общий вид:
 
-     RETURN-TYPE FUNCTION-NAME (PARAMETER-LIST);
+     ТИП-ВОЗВРАЩАЕМОГО-ЗНАЧЕНИЯ ИМЯ-ФУНКЦИИ (СПИСОК-ПАРАМЕТРОВ);
 
-   RETURN-TYPE indicates the data type of the value returned by the
-function.  You can declare a function that doesn't return anything by
-using the return type 'void'.
+   ТИП-ВОЗВРАЩАЕМОГО-ЗНАЧЕНИЯ указывает тип данных значения,
+возвращаемого функцией.  Можно объявить функцию, которая не возвращает
+ничего, используя тип возвращаемого значения 'void'.
 
-   FUNCTION-NAME can be any valid identifier (*note Identifiers::).
+   ИМЯ-ФУНКЦИИ может быть любой допустимый идентификатор (*note
+Identifiers::).
 
-   PARAMETER-LIST consists of zero or more parameters, separated by
-commas.  A typical parameter consists of a data type and an optional
-name for the parameter.  You can also declare a function that has a
-variable number of parameters (*note Variable Length Parameter Lists::),
-or no parameters using 'void'.  Leaving out PARAMETER-LIST entirely also
-indicates no parameters, but it is better to specify it explicitly with
-'void'.
+   СПИСОК-ПАРАМЕТРОВ состоит из нуля или более параметров, разделенных
+запятыми.  Типичный запись параметра состоит из типа данных и
+необязательного имени параметра.  Также объявляется функция, которая
+имеет переменное число параметров (*note Variable Length Parameter
+Lists::), или не содержит совсем параметров, отмечается с помощью
+'void'.  Полностью отсутствующий СПИСОК-ПАРАМЕТРОВ, также указывает на
+то, что функция не использует никаких параметров, но лучше явное
+указание отсутствия с помощью 'void'.
 
-   Here is an example of a function declaration with two parameters:
+   Вот пример объявления функции с двумя параметрами:
 
      int foo (int, double);
 
-   If you include a name for a parameter, the name immediately follows
-the data type, like this:
+   Если включить имя параметра, имя следует непосредственно после
+указания типа данных, например:
 
      int foo (int x, double y);
 
-   The parameter names can be any identifier (*note Identifiers::), and
-if you have more than one parameter, you can't use the same name more
-than once within a single declaration.  The parameter names in the
-declaration need not match the names in the definition.
+   Имя параметра может быть любой идентификатор (*note Identifiers::), и
+если есть более одного параметра, нельзя использовать одно и то же имя,
+более одного раза в одном объявлении.  Имена параметров в объявлении не
+обязательно должны совпадать с именами в определении.
 
-   You should write the function declaration above the first use of the
-function.  You can put it in a header file and use the '#include'
-directive to include that function declaration in any source code files
-that use the function.
+   Объявление функции требуется до первого использования этой функции.
+Можне поместить его в заголовочный файл и использовать директиву
+'#include', чтобы включить объявление этой функцию в любых файлах
+исходного кода, которые используют функцию.
 
 
 File: gnu-c-manual.info,  Node: Function Definitions,  Next: Calling Functions,  Prev: Function Declarations,  Up: Functions
 
-5.2 Function Definitions
-========================
+5.2 Определение функции
+=======================
 
-You write a function definition to specify what a function actually
-does.  A function definition consists of information regarding the
-function's name, return type, and types and names of parameters, along
-with the body of the function.  The function body is a series of
-statements enclosed in braces; in fact it is simply a block (*note
-Blocks::).
+Определение функции, служит для того, чтобы указать, что функция на
+самом деле делает.  Определение функции состоит из информации о имени
+функции, типа возвращаемого значения и типов и именах параметров, вместе
+с телом функции.  Тело функции представляет собой ряд инструкций,
+заключенных в скобки, на самом деле это просто блок (*note Blocks::).
 
-   Here is the general form of a function definition:
+   Вот общий вид определения функции:
 
-     RETURN-TYPE
-     FUNCTION-NAME (PARAMETER-LIST)
+     ТИП-ВОЗВРАЩАЕМОГО-ЗНАЧЕНИЯ
+     ИМЯ-ФУНКЦИИ (СПИСОК-ПАРАМЕТРОВ)
      {
-       FUNCTION-BODY
+       ТЕЛО-ФУНКЦИИ
      }
 
-   RETURN-TYPE and FUNCTION-NAME are the same as what you use in the
-function declaration (*note Function Declarations::).
+   ТИП-ВОЗВРАЩИЕМОГО-ЗНАЧЕНИЯ и ИМЯ-ФУНКЦИИ такие же, как используются в
+объявлении функции (*note Function Declarations::).  СПИСОК-ПАРАМЕТРОВ
+такой же, как и список параметров, используемый в объявлении функции
+(*note Function Declarations::), за исключением того, что _обязательно_
+включаются имена параметров в определении функции.
 
-   PARAMETER-LIST is the same as the parameter list used in the function
-declaration (*note Function Declarations::), except you _must_ include
-names for the parameters in a function definition.
-
-   Here is an simple example of a function definition--it takes two
-integers as its parameters and returns the sum of them as its return
-value:
+   Вот простой пример определения функции -- она ​​принимает два целых
+числа, в качестве её параметров и возвращает их сумму в качестве
+возвращаемого значения:
 
      int
      add_values (int x, int y)
@@ -4031,9 +4032,8 @@ value:
        return x + y;
      }
 
-   For compatibility with the original design of C, you can also specify
-the type of the function parameters _after_ the closing parenthesis of
-the parameter list, like this:
+   Для совместимости с оригинальным C, также требуется указать тип
+параметров функции _после_ закрывающей скобкой списка параметров, так:
 
      int
      add_values (x, y)
@@ -4042,80 +4042,82 @@ the parameter list, like this:
        return x + y;
      }
 
-However, we strongly discourage this style of coding; it can cause
-subtle problems with type casting, among other problems.
+Тем не менее, не рекомендуется этот стиль кодирования; это может вызвать
+тонкие проблемы с приведением типов, наряду с другими проблемами.
 
 
 File: gnu-c-manual.info,  Node: Calling Functions,  Next: Function Parameters,  Prev: Function Definitions,  Up: Functions
 
-5.3 Calling Functions
-=====================
+5.3 Вызов Функции
+=================
 
-You can call a function by using its name and supplying any needed
-parameters.  Here is the general form of a function call:
+Можно вызвать функцию, используя её имя и передав значения параметров.
+Вот общий вид вызова функции:
 
-     FUNCTION-NAME (PARAMETERS)
+     ИМЯ-ФУНКЦИИ (ПАРАМЕТРЫ)
 
-   A function call can make up an entire statement, or it can be used as
-a subexpression.  Here is an example of a standalone function call:
+   Вызов функции может составить целую инструкцию, или может быть
+использован в качестве подвыражения.  Вот пример полной инструкции
+вызова функции:
 
      foo (5);
 
-In that example, the function 'foo' is called with the parameter '5'.
+В этом примере функция 'foo' вызывается с параметром '5'.
 
-   Here is an example of a function call used as a subexpression:
+   Ниже приведен пример вызова функции, используемый в качестве
+подвыражения:
 
      a = square (5);
 
-Supposing that the function 'square' squares its parameter, the above
-example assigns the value 25 to 'a'.
+Предпологая, что функция 'square' возводит в квадрат ее параметр,
+приведенный выше пример присваивает значение 25 переменной 'a'.
 
-   If a parameter takes more than one argument, you separate parameters
-with commas:
+   Если список параметров принимает более одного аргумента, то отдельные
+параметры разделяются запятой:
 
      a = quux (5, 10);
 
 
 File: gnu-c-manual.info,  Node: Function Parameters,  Next: Variable Length Parameter Lists,  Prev: Calling Functions,  Up: Functions
 
-5.4 Function Parameters
-=======================
+5.4 Параметры Функции
+=====================
 
-Function parameters can be any expression--a literal value, a value
-stored in variable, an address in memory, or a more complex expression
-built by combining these.
+Параметр функции может быть любым выражением -- буквальным значением,
+значением, сохраненным в переменной, адресом в памяти, или более сложным
+выражением путём объединения этого.
 
-   Within the function body, the parameter is a local copy of the value
-passed into the function; you cannot change the value passed in by
-changing the local copy.
+   В теле функции, параметр является локальной копией значения,
+переданного в функцию, поэтому нельзя изменить само переданное
+параметром значение, изменяя его локальную копию.
 
      int x = 23;
      foo (x);
      ...
-     /* Definition for function 'foo'. */
+     /* Определение функции 'foo'. */
      int foo (int a)
      {
        a = 2 * a;
        return a;
      }
 
-In that example, even though the parameter 'a' is modified in the
-function 'foo', the variable 'x' that is passed to the function does not
-change.  If you wish to use the function to change the original value of
-'x', then you would have to incorporate the function call into an
-assignment statement:
+В этом примере, даже если 'a' параметр изменяется в функции 'foo',
+переменная 'x', которая передается функции как параметр не меняется.
+Если требуется использовать функцию, чтобы изменить исходное значение
+'x', используется вызов функции в операторе присваивания:
 
      x = foo (x);
 
-   If the value that you pass to a function is a memory address (that
-is, a pointer), then you can access (and change) the data stored at the
-memory address.  This achieves an effect similar to pass-by-reference in
-other languages, but is not the same: the memory address is simply a
-value, just like any other value, and cannot itself be changed.  The
-difference between passing a pointer and passing an integer lies in what
-you can do using the value within the function.
+   Если значение, передаваемое функции в качестве параметра является
+адресом памяти (то есть указателем), то можно получить доступ (и
+изменить) данные, хранящиеся в памяти по адресу.  Благодаря этому
+достигается эффект, схожий передачи в параметре по ссылке в других
+языках, но это не то же самое: адрес в памяти - это просто значение, так
+же как и любое другое значение, и само по себе не может быть изменено.
+Разница между передачей указателя и передачи целого числа состоим в том,
+что можно использовать значение указателя в пределах тела функции.
 
-   Here is an example of calling a function with a pointer parameter:
+   Вот пример вызова функции в качестве указателя в параметре:
 
      void
      foo (int *x)
@@ -4126,17 +4128,17 @@ you can do using the value within the function.
      int a = 15;
      foo (&a);
 
-The formal parameter for the function is of type pointer-to-'int', and
-we call the function by passing it the address of a variable of type
-'int'.  By dereferencing the pointer within the function body, we can
-both see and change the value stored in the address.  The above changes
-the value of 'a' to '57'.
+Формальный параметр для функции имеет тип указатель-на-тип-'int', и
+функция вызывается с передачей в качестве параметра значения адреса
+переменной типа 'int'.  Разыменовав указатель в пределах тела функции,
+можно получить и изменить значение, находящееся по значению адреса.
+Выше изменяется значение переменной 'a' в значение '57'.
 
-   Even if you don't want to change the value stored in the address,
-passing the address of a variable rather than the variable itself can be
-useful if the variable type is large and you need to conserve memory
-space or limit the performance impact of parameter copying.  For
-example:
+   Даже если не требуется изменение значения, сохраненного в адресе,
+передавая адрес переменной, а не саму переменную саму по себе, может
+быть полезным, если тип переменной слишком велик, и необходима экономия
+памяти или ограничить влияние на производительность при копировании
+параметра.  Например:
 
      struct foo
      {
@@ -4147,109 +4149,113 @@ example:
 
      void bar (const struct foo *a);
 
-In this case, unless you are working on a computer with very large
-memory addresses, it will take less memory to pass a pointer to the
-structure than to pass an instance of the structure.
+В том случае, если работа выпролняется на компьютере с не очень большими
+адресами памяти, он будет занимать меньше памяти, передача указателя на
+структуру, чем передача экземпляря структуры.
 
-   One type of parameter that is always passed as a pointer is any sort
-of array:
+   Один из типов параметров, который всегда передаётся как указатель -
+это любой вид массива:
 
      void foo (int a[]);
      ...
      int x[100];
      foo (x);
 
-In this example, calling the function 'foo' with the parameter 'a' does
-not copy the entire array into a new local parameter within 'foo';
-rather, it passes 'x' as a pointer to the first element in 'x'.  Be
-careful, though: within the function, you cannot use 'sizeof' to
-determine the size of the array 'x'--'sizeof' instead tells you the size
-of the pointer 'x'.  Indeed, the above code is equivalent to:
+В этом примере, вызов функции 'foo' с параметром 'a' не производит
+копированее всего массива в локальную переменную параметра 'foo',
+передаётся в параметре 'x' указатель на первый элемент массива 'x'.
+Нужно проявлять осторожность: в пределах функции, нельза использовать
+'sizeof', чтобы определить размер массива 'x'--'sizeof' вместо этого
+укажет размер указателя 'x'.  Действительно, указаный выше код
+эквивалентен:
 
      void foo (int *a);
      ...
      int x[100];
      foo (x);
 
-Explicitly specifying the length of the array in the parameter
-declaration will not help.  If you really need to pass an array by
-value, you can wrap it in a 'struct', though doing this will rarely be
-useful (passing a 'const'-qualified pointer is normally sufficient to
-indicate that the caller should not modify the array).
+Явное указание длины массива в объявлении параметра не поможет.  Если
+действительно нужно передать массив по значению, можно обернуть его в
+'struct', хотя это редко бывает полезно (обычно достаточно передавать
+указатель с 'const'-спецификатором, чтобы показать, что вызваший код не
+должен изменять массив).
 
 
 File: gnu-c-manual.info,  Node: Variable Length Parameter Lists,  Next: Calling Functions Through Function Pointers,  Prev: Function Parameters,  Up: Functions
 
-5.5 Variable Length Parameter Lists
-===================================
+5.5 Список Параметров Функции Переменной Длинны
+===============================================
 
-You can write a function that takes a variable number of arguments;
-these are called "variadic functions".  To do this, the function needs
-to have at least one parameter of a known data type, but the remaining
-parameters are optional, and can vary in both quantity and data type.
+Можно написать функцию, которая принимает переменное число аргументов,
+такие функции называются "вариативными функциями".  Чтобы получить это,
+функция должна иметь, по меньшей мере, один параметр известного типа
+данных, а остальные параметры являются необязательными и могут
+различаться по количеству и типу данных.
 
-   You list the initial parameters as normal, but then after that, use
-an ellipsis: '...'.  Here is an example function prototype:
+   Перечисляются начальные параметры, как обычно, но после этого,
+используется многоточие: '...'.  Вот пример прототипа функции:
 
      int add_multiple_values (int number, ...);
 
-   To work with the optional parameters in the function definition, you
-need to use macros that are defined in the library header file
-'<stdarg.h>', so you must '#include' that file.  For a detailed
-description of these macros, see 'The GNU C Library' manual's section on
-variadic functions.
+   Для работы с дополнительными параметрами в определении функции, нужно
+использовать макросц, которые определены в библиотеке заголовочного
+файла '<stdarg.h>', так что требуется включить '#include' этот файл.
+Подробное описание этих макросов, раздел 'The GNU C Library' руководства
+по переменному числу параметров функций.
 
-   Here is an example:
+   Вот пример:
 
      int
      add_multiple_values (int number, ...)
      {
        int counter, total = 0;
 
-       /* Declare a variable of type 'va_list'. */
+       /* Объявляется переменная типа 'va_list'. */
        va_list parameters;
 
-       /* Call the 'va_start' function. */
+       /* Вызов функции 'va_start'. */
        va_start (parameters, number);
 
        for (counter = 0; counter < number; counter++)
          {
-           /* Get the values of the optional parameters. */
+           /* Получение значений дополнительных параметров. */
            total += va_arg (parameters, int);
          }
 
-       /* End use of the 'parameters' variable. */
+       /* Итоговое присвоение переменной 'parameters'. */
        va_end (parameters);
 
        return total;
      }
 
-   To use optional parameters, you need to have a way to know how many
-there are.  This can vary, so it can't be hard-coded, but if you don't
-know how many optional parameters you have, then you could have
-difficulty knowing when to stop using the 'va_arg' function.  In the
-above example, the first parameter to the 'add_multiple_values'
-function, 'number', is the number of optional parameters actually
-passed.  So, we might call the function like this:
+   Для использования дополнительных параметров, нужно знать, сколько их
+есть.  Это количество может варьироваться, поэтому не задаётся жестко,
+но если не известно точное количество необязательных параметров, то
+могут возникнуть трудности, когда требуется прекратить использование
+функции 'va_arg'.  В приведенном выше примере, первый параметр функции
+'add_multiple_values', 'number', это количество для передачи
+необязательных параметров.  Таким образом, можно вызвать функцию так:
 
      sum = add_multiple_values (3, 12, 34, 190);
 
-   The first parameter indicates how many optional parameters follow it.
+   Первый параметр указывает на то, сколько дополнительных параметров
+следуют за ним.
 
-   Also, note that you don't actually need to use 'va_end' function.  In
-fact, with GCC it doesn't do anything at all.  However, you might want
-to include it to maximize compatibility with other compilers.
+   Кроме того, можно обратить внимание, что на самом деле не нужно
+использовать функцию 'va_end'.  В самом деле, при использовании GCC
+совсем ничего не произойдёт.  Тем не менее, можно включить это для
+обеспечения максимальной совместимости с другими компиляторами.
 
    *Note Variadic Functions: (libc)Variadic Functions.
 
 
 File: gnu-c-manual.info,  Node: Calling Functions Through Function Pointers,  Next: The main Function,  Prev: Variable Length Parameter Lists,  Up: Functions
 
-5.6 Calling Functions Through Function Pointers
-===============================================
+5.6 Вызов Функции Через Указатель на Функцию
+============================================
 
-You can also call a function identified by a pointer.  The indirection
-operator '*' is optional when doing this.
+Можно также вызвать функцию, используя на неё указателя.  Оператор
+разыменования '*' не является обязательным при выполнении этого.
 
      #include <stdio.h>
 
@@ -4267,7 +4273,7 @@ operator '*' is optional when doing this.
      {
        int j;
        for (j=0; j<times; ++j)
-         func (j);  /* (*func) (j); would be equivalent. */
+         func (j);  /* (*func) (j); будет эквивалентно. */
      }
 
      void example (int want_foo)
@@ -4281,50 +4287,54 @@ operator '*' is optional when doing this.
 
 File: gnu-c-manual.info,  Node: The main Function,  Next: Recursive Functions,  Prev: Calling Functions Through Function Pointers,  Up: Functions
 
-5.7 The 'main' Function
-=======================
+5.7 Функция 'main'
+==================
 
-Every program requires at least one function, called 'main'.  This is
-where the program begins executing.  You do not need to write a
-declaration or prototype for 'main', but you do need to define it.
+Каждая программа требует, по меньшей мере, одну функцию, которая имеет
+имя 'main'.  Это то, где программа начинает выполняться.  Не нужно
+писать объявление или прототип функции 'main', но требуется определить
+её.
 
-   The return type for 'main' is always 'int'.  You do not have to
-specify the return type for 'main', but you can.  However, you _cannot_
-specify that it has a return type other than 'int'.
+   Возвращаемый тип значения функции 'main' всегда тип 'int'.  Не
+требуется обязательно указывать тип возвращаемого значения 'main', но
+можно.  Тем не менее, _нельзя_ указать, что возвращаемое значение имеет
+тип отличныей от 'int'.
 
-   In general, the return value from 'main' indicates the program's
-"exit status".  A value of zero or EXIT_SUCCESS indicates success and
-EXIT_FAILURE indicates an error.  Otherwise, the significance of the
-value returned is implementation-defined.
+   В общем, возвращаемое значение функцей 'main' указывает "статус
+возврата" программы.  Нулевое значение или EXIT_SUCCESS указывает на
+успех и EXIT_FAILURE указывает на ошибку.  В противном случае, значение
+возвращаемого значения зависит от реализации.
 
-   Reaching the '}' at the end of 'main' without a return, or executing
-a 'return' statement with no value (that is, 'return;') are both
-equivalent.  In C89, the effect of this is undefined, but in C99 the
-effect is equivalent to 'return 0;'.
+   Достижение выполнением программы '}' в конце тела функции 'main' без
+указания возврата значения или использовании 'return' без указания
+возвращаемого значения (то есть, 'return;') являются эквивалентными.  В
+C89, эффект этого не определен, но в C99 эффект эквивалентен вызову
+'return 0;'.
 
-   You can write your 'main' function to have no parameters (that is, as
-'int main (void)'), or to accept parameters from the command line.  Here
-is a very simple 'main' function with no parameters:
+   Можно написать функцию 'main' не имеющую никаких параметров (то есть,
+как 'int main (void)'), или принимающую параметры из командной строки.
+Вот очень простая функция 'main' без параметров:
 
      int
      main (void)
      {
-       puts ("Hi there!");
+       puts ("Всем привет!");
        return 0;
      }
 
-   To accept command line parameters, you need to have two parameters in
-the 'main' function, 'int argc' followed by 'char *argv[]'.  You can
-change the names of those parameters, but they must have those data
-types--'int' and array of pointers to 'char'.  'argc' is the number of
-command line parameters, including the name of the program itself.
-'argv' is an array of the parameters, as character strings.  'argv[0]',
-the first element in the array, is the name of the program as typed at
-the command line(1); any following array elements are the parameters
-that followed the name of the program.
+   Чтобы принять параметры командной строки, необходимо иметь два
+параметра в функции 'main', 'int argc' с последующим 'char *argv[]'.
+Можно изменить имена этих параметров, но они должны иметь типы
+данных--'int' и массив указателей на тип 'char'.  'argc' указывает
+количество параметров командной строки, в том числе параметр с именем
+самой программы.  'argv' представляет собой массив параметров, как
+строки символов.  'argv[0]', первый элемент в массиве, это имя
+программы, как и набирается в командной строке(1); любые следующие
+элементы массива являются параметрами, которые следуют за именем
+программы.
 
-   Here is an example 'main' function that accepts command line
-parameters, and prints out what those parameters are:
+   Ниже приведен пример функции 'main', которая принимает параметры
+командной строки, и выводит то, что передаётся этими параметрами:
 
      int
      main (int argc, char *argv[])
@@ -4339,18 +4349,19 @@ parameters, and prints out what those parameters are:
 
    ---------- Footnotes ----------
 
-   (1) Rarely, 'argv[0]' can be a null pointer (in this case 'argc' is
-0) or 'argv[0][0]' can be the null character.  In any case, 'argv[argc]'
-is a null pointer.
+   (1) Редко, 'argv[0]' может быть NULL указателем (в этом случае 'argc'
+это 0) или 'argv[0][0]' может быть нулевым символом.  В любом случае,
+'argv[argc]' является NULL указателем.
 
 
 File: gnu-c-manual.info,  Node: Recursive Functions,  Next: Static Functions,  Prev: The main Function,  Up: Functions
 
-5.8 Recursive Functions
+5.8 Рекурсивные Функции
 =======================
 
-You can write a function that is recursive--a function that calls
-itself.  Here is an example that computes the factorial of an integer:
+Можно написать функцию, которая является рекурсивной -- функцией,
+которая вызывает саму себя.  Ниже приведен пример, вычисления факториала
+целого числа:
 
      int
      factorial (int x)
@@ -4361,10 +4372,11 @@ itself.  Here is an example that computes the factorial of an integer:
          return (x * factorial (x - 1));
      }
 
-   Be careful that you do not write a function that is infinitely
-recursive.  In the above example, once 'x' is 1, the recursion stops.
-However, in the following example, the recursion does not stop until the
-program is interrupted or runs out of memory:
+   Нужно быть осторожным, что не написать функцию, которая является
+бесконечно рекурсивной.  В приведенном выше примере, как только 'x'
+равно 1, то рекурсия останавливается.  Однако, в следующем примере,
+рекурсия не останавливается, пока программа не будет прервана
+принудительно или пока не произойдёт переполнение памяти:
 
      int
      watermelon (int x)
@@ -4372,16 +4384,17 @@ program is interrupted or runs out of memory:
        return (watermelon (x));
      }
 
-   Functions can also be indirectly recursive, of course.
+   Функции могут быть конечно косвенно рекурсивными.
+(ВопросFunctions579)
 
 
 File: gnu-c-manual.info,  Node: Static Functions,  Next: Nested Functions,  Prev: Recursive Functions,  Up: Functions
 
-5.9 Static Functions
-====================
+5.9 Статические Функции
+=======================
 
-You can define a function to be static if you want it to be callable
-only within the source file where it is defined:
+Можно определить статическую функцию, если требуется совершать её вызов
+из любого места в пределах исходного файла, в котором она определена:
 
      static int
      foo (int x)
@@ -4389,25 +4402,25 @@ only within the source file where it is defined:
        return x + 42;
      }
 
-This is useful if you are building a reusable library of functions and
-need to include some subroutines that should not be callable by the end
-user.
+Это полезно, если строится библиотека многоразового использования
+функций и она включает в себя некоторые подпрограммы, которые не должно
+быть вызваны конечным пользователем.
 
-   Functions which are defined in this way are said to have "static
-linkage".  Unfortunately the 'static' keyword has multiple meanings;
-*note Storage Class Specifiers::.
+   Функции, которые определены таким образом, имеют так сказать,
+"статическую связь".  К сожалению, 'static' ключевое слово имеет
+несколько значений; *note Storage Class Specifiers::.
 
 
 File: gnu-c-manual.info,  Node: Nested Functions,  Prev: Static Functions,  Up: Functions
 
-5.10 Nested Functions
-=====================
+5.10 Вложенные Функции
+======================
 
-As a GNU C extension, you can define functions within other functions, a
-technique known as nesting functions.
+В качестве расширения GNU C, можно определить функции внутри других
+функций, метод, известный как вложенности функций.
 
-   Here is an example of a tail-recursive factorial function, defined
-using a nested function:
+   Ниже приведен пример функции факториала хвостовой рекурсии,
+определенной с помощью вложенной функции:
 
      int
      factorial (int x)
@@ -4428,9 +4441,9 @@ using a nested function:
       return factorial_helper (x, 1);
      }
 
-   Note that nested functions must be defined along with variable
-declarations at the beginning of a function, and all other statements
-follow.
+   Внимание, вложенные функции должны быть определены вместе с
+объявлениями переменных в начале функции, а все остальные инструкции
+следуют строго после.
 
 
 File: gnu-c-manual.info,  Node: Program Structure and Scope,  Next: A Sample Program,  Prev: Functions,  Up: Top
@@ -5678,9 +5691,9 @@ Index
 * enumerations, defining:                Defining Enumerations.
                                                                (line  6)
 * enumerations, incomplete:              Incomplete Types.     (line  6)
-* exit status:                           The main Function.    (line 14)
-* EXIT_FAILURE:                          The main Function.    (line 14)
-* EXIT_SUCCESS:                          The main Function.    (line 14)
+* exit status:                           The main Function.    (line 16)
+* EXIT_FAILURE:                          The main Function.    (line 16)
+* EXIT_SUCCESS:                          The main Function.    (line 16)
 * expression statements:                 Expression Statements.
                                                                (line  6)
 * expressions:                           Expressions.          (line  6)
@@ -5800,7 +5813,7 @@ Index
                                                                (line  6)
 * renaming types:                        Renaming Types.       (line  6)
 * return statement:                      The return Statement. (line  6)
-* return value of main:                  The main Function.    (line 14)
+* return value of main:                  The main Function.    (line 16)
 * sample program:                        A Sample Program.     (line  6)
 * scope:                                 Scope.                (line  6)
 * separators:                            Separators.           (line  6)
@@ -6018,31 +6031,31 @@ Node: The continue Statement209473
 Node: The return Statement210292
 Node: The typedef Statement213336
 Node: Functions215665
-Node: Function Declarations216579
-Node: Function Definitions218381
-Node: Calling Functions219987
-Node: Function Parameters220852
-Node: Variable Length Parameter Lists224343
-Node: Calling Functions Through Function Pointers226746
-Node: The main Function227618
-Ref: The main Function-Footnote-1229935
-Node: Recursive Functions230099
-Node: Static Functions230940
-Node: Nested Functions231615
-Node: Program Structure and Scope232414
-Node: Program Structure232741
-Node: Scope234226
-Node: A Sample Program235253
-Node: hello.c236109
-Node: system.h242454
-Node: Overflow244077
-Node: Integer Overflow Basics245217
-Node: Signed Overflow Examples246936
-Node: Optimization and Wraparound250429
-Node: Signed Overflow Advice253381
-Node: Signed Integer Division256045
-Node: GNU Free Documentation License256646
-Node: Index281773
+Node: Function Declarations217042
+Node: Function Definitions220250
+Node: Calling Functions222822
+Node: Function Parameters224227
+Node: Variable Length Parameter Lists230142
+Node: Calling Functions Through Function Pointers234133
+Node: The main Function235177
+Ref: The main Function-Footnote-1239012
+Node: Recursive Functions239290
+Node: Static Functions240688
+Node: Nested Functions241831
+Node: Program Structure and Scope242987
+Node: Program Structure243314
+Node: Scope244799
+Node: A Sample Program245826
+Node: hello.c246682
+Node: system.h253027
+Node: Overflow254650
+Node: Integer Overflow Basics255790
+Node: Signed Overflow Examples257509
+Node: Optimization and Wraparound261002
+Node: Signed Overflow Advice263954
+Node: Signed Integer Division266618
+Node: GNU Free Documentation License267219
+Node: Index292346
 
 End Tag Table
 

@@ -6,18 +6,19 @@
 @c ----------------------------------------------------------------------------
 
 @node Functions
-@chapter Functions
+@chapter Функции
 @cindex functions
 
-You can write functions to separate parts of your program into distinct
-subprocedures.  To write a function, you must at least create a function
-definition.  It is a good idea also to have an explicit function
-declaration; you don't have to, but if you leave it out, then the
-default implicit declaration might not match the function itself, and
-you will get some compile-time warnings.
+Можно написать функции для разделения частей программы на подпроераммы.
+Чтобы написать функцию, необходимо, по крайней мере создать определение
+функции.  Это хорошая идея также иметь явное объявление функции.  Это не
+требуется в обязательном порядке, но неявное объявление по умолчанию может
+не соответствовать самой функции, и во время компиляции могут возникнуть
+предупреждения.
 
-Every program requires at least one function, called @code{main}.
-That is where the program's execution begins.
+В каждой программе требуется, по меньшей мере, одна функция, которая
+именуется @code{main}.  То есть, место с чего начинается выполнение
+программы.
 
 @menu
 * Function Declarations::
@@ -35,34 +36,36 @@ That is where the program's execution begins.
 @c ----------------------------------------------------------------------------
 
 @node Function Declarations
-@section Function Declarations
+@section Объявление Функции
 @cindex function declarations
 @cindex declarations, function
 
-You write a function declaration to specify the name of a function, a
-list of parameters, and the function's return type.  A function declaration
-ends with a semicolon.  Here is the general form:
+В объявление функции, указывается имя функции, список параметров и
+тип возвращаемого функцией значения.  Объявление функции заканчивается точкой
+с запятой.  Вот общий вид:
 
 @example
 @group
-@var{return-type} @var{function-name} (@var{parameter-list});
+@var{тип-возвращаемого-значения} @var{имя-функции} (@var{список-параметров});
 @end group
 @end example
 
-@var{return-type} indicates the data type of the value returned by the function.
-You can declare a function that doesn't return anything by using the return
-type @code{void}.
+@var{тип-возвращаемого-значения} указывает тип данных значения, возвращаемого
+функцией.  Можно объявить функцию, которая не возвращает ничего, используя
+тип возвращаемого значения @code{void}.
 
-@var{function-name} can be any valid identifier (@pxref{Identifiers}).
+@var{имя-функции} может быть любой допустимый идентификатор
+(@pxref{Identifiers}).
 
-@var{parameter-list} consists of zero or more parameters, separated by commas.
-A typical parameter consists of a data type and an optional name for the
-parameter.  You can also declare a function that has a variable number of
-parameters (@pxref{Variable Length Parameter Lists}), or no parameters using
-@code{void}.  Leaving out @var{parameter-list} entirely also indicates
-no parameters, but it is better to specify it explicitly with @code{void}.
+@var{список-параметров} состоит из нуля или более параметров, разделенных
+запятыми.  Типичный запись параметра состоит из типа данных и необязательного
+имени параметра.  Также объявляется функция, которая имеет переменное число
+параметров (@pxref{Variable Length Parameter Lists}), или не содержит совсем
+параметров, отмечается с помощью @code{void}.  Полностью отсутствующий
+@var{список-параметров}, также указывает на то, что функция не использует
+никаких параметров, но лучше явное указание отсутствия с помощью @code{void}.
 
-Here is an example of a function declaration with two parameters:
+Вот пример объявления функции с двумя параметрами:
 
 @example
 @group
@@ -70,8 +73,8 @@ int foo (int, double);
 @end group
 @end example
 
-If you include a name for a parameter, the name immediately follows the
-data type, like this:
+Если включить имя параметра, имя следует непосредственно после указания
+типа данных, например:
 
 @example
 @group
@@ -79,50 +82,50 @@ int foo (int x, double y);
 @end group
 @end example
 
-The parameter names can be any identifier (@pxref{Identifiers}), and if you
-have more than one parameter, you can't use the same name more than
-once within a single declaration.  The parameter names in the
-declaration need not match the names in the definition.
+Имя параметра может быть любой идентификатор (@pxref{Identifiers}), и если
+есть более одного параметра, нельзя использовать одно и то же имя, более
+одного раза в одном объявлении.  Имена параметров в объявлении не обязательно
+должны совпадать с именами в определении.
 
-You should write the function declaration above the first use of
-the function.  You can put it in a header file and use the @code{#include}
-directive to include that function declaration in any source code files that
-use the function.
+Объявление функции требуется до первого использования этой функции.  Можне
+поместить его в заголовочный файл и использовать директиву @code{#include},
+чтобы включить объявление этой функцию в любых файлах исходного кода, которые
+используют функцию.
 
-@c ----------------------------------------------------------------------------
+@c -------------------------------------------------------------------------
 
 @node Function Definitions
-@section Function Definitions
+@section Определение функции
 @cindex function definitions
 @cindex definitions, function
 
-You write a function definition to specify what a function
-actually does.  A function definition consists of information regarding
-the function's name, return type, and types and names of parameters, along
-with the body of the function.  The function body is a series of statements
-enclosed in braces; in fact it is simply a block (@pxref{Blocks}).
+Определение функции, служит для того, чтобы указать, что функция на самом
+деле делает.  Определение функции состоит из информации о имени функции, типа
+возвращаемого значения и типов и именах параметров, вместе с телом функции.
+Тело функции представляет собой ряд инструкций, заключенных в скобки, на
+самом деле это просто блок (@pxref{Blocks}).
 
-Here is the general form of a function definition:
+Вот общий вид определения функции:
 
 @example
 @group
-@var{return-type}
-@var{function-name} (@var{parameter-list})
+@var{тип-возвращаемого-значения}
+@var{имя-функции} (@var{список-параметров})
 @{
-  @var{function-body}
+  @var{тело-функции}
 @}
 @end group
 @end example
 
-@var{return-type} and @var{function-name} are the same as what you use
-in the function declaration (@pxref{Function Declarations}).
+@var{тип-возвращиемого-значения} и @var{имя-функции} такие же, как
+используются в объявлении функции (@pxref{Function Declarations}).
+@var{список-параметров} такой же, как и список параметров, используемый в
+объявлении функции (@pxref{Function Declarations}), за исключением того,
+что @emph{обязательно} включаются имена параметров в определении функции.
 
-@var{parameter-list} is the same as the parameter list used in the function
-declaration (@pxref{Function Declarations}), except you
-@emph{must} include names for the parameters in a function definition.
-
-Here is an simple example of a function definition---it takes two integers as
-its parameters and returns the sum of them as its return value:
+Вот простой пример определения функции --- она ​​принимает два целых числа,
+в качестве её параметров и возвращает их сумму в качестве возвращаемого
+значения:
 
 @example
 @group
@@ -134,9 +137,8 @@ add_values (int x, int y)
 @end group
 @end example
 
-For compatibility with the original design of C, you can also specify
-the type of the function parameters @emph{after} the closing
-parenthesis of the parameter list, like this:
+Для совместимости с оригинальным C, также требуется указать тип параметров
+функции @emph{после} закрывающей скобкой списка параметров, так:
 
 @example
 @group
@@ -150,25 +152,25 @@ add_values (x, y)
 @end example
 
 @noindent
-However, we strongly discourage this style of coding; it can cause
-subtle problems with type casting, among other problems.
+Тем не менее, не рекомендуется этот стиль кодирования; это может вызвать
+тонкие проблемы с приведением типов, наряду с другими проблемами.
 
-@c ----------------------------------------------------------------------------
+@c --------------------------------------------------------------------------
 
 @node Calling Functions
-@section Calling Functions
+@section Вызов Функции
 @cindex calling functions
 @cindex functions, calling
 
-You can call a function by using its name and supplying any needed parameters.
-Here is the general form of a function call:
+Можно вызвать функцию, используя её имя и передав значения параметров.
+Вот общий вид вызова функции:
 
 @example
-@var{function-name} (@var{parameters})
+@var{имя-функции} (@var{параметры})
 @end example
 
-A function call can make up an entire statement, or it can be used as a
-subexpression.  Here is an example of a standalone function call:
+Вызов функции может составить целую инструкцию, или может быть использован в
+качестве подвыражения.  Вот пример полной инструкции вызова функции:
 
 @example
 @group
@@ -177,10 +179,9 @@ foo (5);
 @end example
 
 @noindent
-In that example, the function @samp{foo} is called with the
-parameter @code{5}.
+В этом примере функция @samp{foo} вызывается с параметром @code{5}.
 
-Here is an example of a function call used as a subexpression:
+Ниже приведен пример вызова функции, используемый в качестве подвыражения:
 
 @example
 @group
@@ -189,10 +190,11 @@ a = square (5);
 @end example
 
 @noindent
-Supposing that the function @samp{square} squares its parameter, the
-above example assigns the value 25 to @code{a}.
+Предпологая, что функция @samp{square} возводит в квадрат ее параметр,
+приведенный выше пример присваивает значение 25 переменной @code{a}.
 
-If a parameter takes more than one argument, you separate parameters with commas:
+Если список параметров принимает более одного аргумента, то отдельные
+параметры разделяются запятой:
 
 @example
 @group
@@ -203,22 +205,23 @@ a = quux (5, 10);
 @c ----------------------------------------------------------------------------
 
 @node Function Parameters
-@section Function Parameters
+@section Параметры Функции
 @cindex function parameters
 @cindex parameters, function
 
-Function parameters can be any expression---a literal value, a value stored in
-variable, an address in memory, or a more complex expression built by
-combining these.
+Параметр функции может быть любым выражением --- буквальным значением,
+значением, сохраненным в переменной, адресом в памяти, или более сложным
+выражением путём объединения этого.
 
-Within the function body, the parameter is a local copy of the value passed into
-the function; you cannot change the value passed in by changing the local copy.
+В теле функции, параметр является локальной копией значения, переданного в
+функцию, поэтому нельзя изменить само переданное параметром значение, изменяя
+его локальную копию.
 
 @example
 int x = 23;
 foo (x);
 @dots{}
-/* @r{Definition for function @code{foo}.} */
+/* @r{Определение функции @code{foo}.} */
 int foo (int a)
 @{
   a = 2 * a;
@@ -227,25 +230,25 @@ int foo (int a)
 @end example
 
 @noindent
-In that example, even though the parameter @code{a} is modified in the
-function @samp{foo}, the variable @code{x} that is passed to
-the function does not change.  If you wish to use the function to change
-the original value of @code{x}, then you would have to incorporate the
-function call into an assignment statement:
+В этом примере, даже если @code{a} параметр изменяется в функции @samp{foo},
+переменная @code{x}, которая передается функции как параметр не меняется.
+Если требуется использовать функцию, чтобы изменить исходное значение
+@code{x}, используется вызов функции в операторе присваивания:
 
 @example
 x = foo (x);
 @end example
 
-If the value that you pass to a function is a memory address (that is, a pointer), then you
-can access (and change) the data stored at the memory address.  This
-achieves an effect similar to pass-by-reference in
-other languages, but is not the same: the memory address is simply a
-value, just like any other value, and cannot itself be changed.  The
-difference between passing a pointer and passing an integer lies in
-what you can do using the value within the function.
+Если значение, передаваемое функции в качестве параметра является адресом
+памяти (то есть указателем), то можно получить доступ (и изменить) данные,
+хранящиеся в памяти по адресу.  Благодаря этому достигается эффект, схожий
+передачи в параметре по ссылке в других языках, но это не то же самое: адрес
+в памяти - это просто значение, так же как и любое другое значение, и само
+по себе не может быть изменено.  Разница между передачей указателя и
+передачи целого числа состоим в том, что можно использовать значение
+указателя в пределах тела функции.
 
-Here is an example of calling a function with a pointer parameter:
+Вот пример вызова функции в качестве указателя в параметре:
 
 @example
 @group
@@ -261,16 +264,17 @@ foo (&a);
 @end example
 
 @noindent
-The formal parameter for the function is of type pointer-to-@code{int}, and we
-call the function by passing it the address of a variable of type @code{int}.  By
-dereferencing the pointer within the function body, we can both see and change
-the value stored in the address.  The above changes the value of
-@code{a} to @samp{57}.
+Формальный параметр для функции имеет тип указатель-на-тип-@code{int}, и
+функция вызывается с передачей в качестве параметра значения адреса
+переменной типа @code{int}.  Разыменовав указатель в пределах тела функции,
+можно получить и изменить значение, находящееся по значению адреса.  Выше
+изменяется значение переменной @code{a} в значение @samp{57}.
 
-Even if you don't want to change the value stored in the address, passing the
-address of a variable rather than the variable itself can be useful if the
-variable type is large and you need to conserve memory space or limit
-the performance impact of parameter copying.  For example:
+Даже если не требуется изменение значения, сохраненного в адресе, передавая
+адрес переменной, а не саму переменную саму по себе, может быть полезным,
+если тип переменной слишком велик, и необходима экономия памяти или
+ограничить влияние на производительность при копировании параметра.
+Например:
 
 @example
 @group
@@ -286,12 +290,12 @@ void bar (const struct foo *a);
 @end example
 
 @noindent
-In this case, unless you are working on a computer with very large memory
-addresses, it will take less memory to pass a pointer to the structure
-than to pass an instance of the structure.
+В том случае, если работа выпролняется на компьютере с не очень большими
+адресами памяти, он будет занимать меньше памяти, передача указателя на
+структуру, чем передача экземпляря структуры.
 
-One type of parameter that is always passed as a pointer is any sort
-of array:
+Один из типов параметров, который всегда передаётся как указатель - это любой
+вид массива:
 
 @example
 @group
@@ -303,12 +307,13 @@ foo (x);
 @end example
 
 @noindent
-In this example, calling the function @code{foo} with the parameter @code{a}
-does not copy the entire array into a new local parameter within @code{foo};
-rather, it passes @code{x} as a pointer to the first element in @code{x}.
-Be careful, though: within the function, you cannot use @code{sizeof} to determine
-the size of the array @code{x}---@code{sizeof} instead tells you the size of the
-pointer @code{x}.   Indeed, the above code is equivalent to:
+В этом примере, вызов функции @code{foo} с параметром @code{a} не производит
+копированее всего массива в локальную переменную параметра @code{foo},
+передаётся в параметре @code{x} указатель на первый элемент массива @code{x}.
+Нужно проявлять осторожность: в пределах функции, нельза использовать
+@code{sizeof}, чтобы определить размер массива @code{x}---@code{sizeof}
+вместо этого укажет размер указателя @code{x}.  Действительно, указаный выше
+код эквивалентен:
 
 @example
 @group
@@ -319,45 +324,45 @@ foo (x);
 @end group
 @end example
 
-@noindent Explicitly specifying the length of the array in the
-parameter declaration will not help.  If you really need to pass an
-array by value, you can wrap it in a @code{struct}, though doing this
-will rarely be useful (passing a @code{const}-qualified pointer is
-normally sufficient to indicate that the caller should not modify the
-array).
+@noindent Явное указание длины массива в объявлении параметра не поможет.
+Если действительно нужно передать массив по значению, можно обернуть его в
+@code{struct}, хотя это редко бывает полезно (обычно достаточно передавать
+указатель с @code{const}-спецификатором, чтобы показать, что вызваший код
+не должен изменять массив).
 
-@c ----------------------------------------------------------------------------
+@c --------------------------------------------------------------------------
 
 @node Variable Length Parameter Lists
-@section Variable Length Parameter Lists
+@section Список Параметров Функции Переменной Длинны
 @cindex variable length parameter lists
 @cindex parameters lists, variable length
 @cindex function parameter lists, variable length
 
-You can write a function that takes a variable number of arguments; these are
-called @dfn{variadic functions}.  To do this, the function needs to have at
-least one parameter of a known data type, but the remaining parameters are
-optional, and can vary in both quantity and data type.
+Можно написать функцию, которая принимает переменное число аргументов, такие
+функции называются @dfn{вариативными функциями}.  Чтобы получить это, функция
+должна иметь, по меньшей мере, один параметр известного типа данных, а
+остальные параметры являются необязательными и могут различаться по
+количеству и типу данных.
 
-You list the initial parameters as normal, but then after that, use an
-ellipsis: @samp{...}.  Here is an example function prototype:
+Перечисляются начальные параметры, как обычно, но после этого, используется
+многоточие: @samp{...}.  Вот пример прототипа функции:
 
 @example
 int add_multiple_values (int number, ...);
 @end example
 
-To work with the optional parameters in the function definition, you need
-to use macros that are defined in the library header file
-@samp{<stdarg.h>}, so you must @code{#include} that file.  For a
-detailed description of these macros, see @cite{The GNU C
-Library} manual's section on variadic functions.
+Для работы с дополнительными параметрами в определении функции, нужно
+использовать макросц, которые определены в библиотеке заголовочного файла
+@samp{<stdarg.h>}, так что требуется включить @code{#include} этот файл.
+Подробное описание этих макросов, раздел @cite{The GNU C Library}
+руководства по переменному числу параметров функций.
 
-@comment The above paragraph previously had a proper @ref tag to the
-@comment GLIBC section in question, but it didn't seem to render
-@comment properly, at least in HTML. Replacing with @cite for now;
-@comment feel free to revisit later.
+@comment Выше указанный пункт ранее имел надлежащую @ref ссылку на раздел
+@comment GLIBC в этом вопросе, но это похоже, не отрабатывает правильно, по
+@comment крайней мере, в HTML.  Замените @cite на @ref; не стесняйтесь
+@comment позже.
 
-Here is an example:
+Вот пример:
 
 @example
 int
@@ -365,54 +370,56 @@ add_multiple_values (int number, ...)
 @{
   int counter, total = 0;
   
-  /* @r{Declare a variable of type @samp{va_list}.} */
+  /* @r{Объявляется переменная типа @samp{va_list}.} */
   va_list parameters;
 
-  /* @r{Call the @samp{va_start} function.} */
+  /* @r{Вызов функции @samp{va_start}.} */
   va_start (parameters, number);
 
   for (counter = 0; counter < number; counter++)
     @{
-      /* @r{Get the values of the optional parameters.} */
+      /* @r{Получение значений дополнительных параметров.} */
       total += va_arg (parameters, int);
     @}
 
-  /* @r{End use of the @samp{parameters} variable.} */
+  /* @r{Итоговое присвоение переменной @samp{parameters}.} */
   va_end (parameters);
 
   return total;
 @}
 @end example
 
-@c Need to describe how the default promotion rules are applied to the
-@c parameters passed in the ``...''.
+@c Нужно описать применения правила по передаче по умолчанию
+@c к параметрам, передаваемым в ``...''.
 
-To use optional parameters, you need to have a way to know how many
-there are.  This can vary, so it can't be hard-coded, but if you
-don't know how many optional parameters you have, then you could
-have difficulty knowing when to stop using the @samp{va_arg} function.
-In the above example, the first parameter to the @samp{add_multiple_values}
-function, @samp{number}, is the number of optional parameters actually passed.
-So, we might call the function like this:
+Для использования дополнительных параметров, нужно знать, сколько их есть.
+Это количество может варьироваться, поэтому не задаётся жестко, но
+если не известно точное количество необязательных параметров, то могут
+возникнуть трудности, когда требуется прекратить использование функции
+@samp{va_arg}.  В приведенном выше примере, первый параметр функции
+@samp{add_multiple_values}, @samp{number}, это количество для передачи
+необязательных параметров.  Таким образом, можно вызвать функцию так:
 
 @example
 sum = add_multiple_values (3, 12, 34, 190);
 @end example
 
-The first parameter indicates how many optional parameters follow it.
+Первый параметр указывает на то, сколько дополнительных параметров следуют
+за ним.
 
-Also, note that you don't actually need to use @samp{va_end} function.
-In fact, with GCC it doesn't do anything at all.  However, you might want
-to include it to maximize compatibility with other compilers.
+Кроме того, можно обратить внимание, что на самом деле не нужно использовать
+функцию @samp{va_end}.  В самом деле, при использовании GCC совсем ничего
+не произойдёт.  Тем не менее, можно включить это для обеспечения максимальной
+совместимости с другими компиляторами.
 
 @xref{Variadic Functions, Variadic Functions, Variadic Functions, libc, The GNU C Library Reference Manual}.
 
 @node Calling Functions Through Function Pointers
-@section Calling Functions Through Function Pointers
+@section Вызов Функции Через Указатель на Функцию
 @cindex function pointers, calling through
 
-You can also call a function identified by a pointer.   The
-indirection operator @code{*} is optional when doing this.
+Можно также вызвать функцию, используя на неё указателя.  Оператор
+разыменования @code{*} не является обязательным при выполнении этого.
 
 @example
 @group
@@ -436,7 +443,7 @@ void message (void (*func)(int), int times)
 @{
   int j;
   for (j=0; j<times; ++j)
-    func (j);  /* (*func) (j); would be equivalent. */
+    func (j);  /* (*func) (j); будет эквивалентно. */
 @}
 
 void example (int want_foo) 
@@ -449,72 +456,72 @@ void example (int want_foo)
 @end group
 @end example 
 
-@c ----------------------------------------------------------------------------
+@c -------------------------------------------------------------------------
 
 @node The main Function
-@section The @code{main} Function
+@section Функция @code{main}
 @cindex main function
 @cindex function, main
 
-Every program requires at least one function, called @samp{main}.
-This is where the program begins executing.  You do not need to write a
-declaration or prototype for @code{main}, but you do need to define it.
+Каждая программа требует, по меньшей мере, одну функцию, которая имеет имя
+@samp{main}.  Это то, где программа начинает выполняться.  Не нужно писать
+объявление или прототип функции @code{main}, но требуется определить её.
 
-The return type for @code{main} is always @code{int}.  You do not have
-to specify the return type for @code{main}, but you can.  However, you
-@emph{cannot} specify that it has a return type other than @code{int}.
+Возвращаемый тип значения функции @code{main} всегда тип @code{int}.  Не
+требуется обязательно указывать тип возвращаемого значения @code{main}, но
+можно.  Тем не менее, @emph{нельзя} указать, что возвращаемое значение имеет
+тип отличныей от @code{int}.
 
-@c ??? The implementation is allowed to support alternative signatures. 
+@c ??? Реализациями разрешено поддерживать альтернативные типы. 
 
 @cindex exit status
 @cindex @code{EXIT_FAILURE}
 @cindex @code{EXIT_SUCCESS}
 @cindex return value of @code{main}
 
-In general, the return value from  @code{main} indicates the program's
-@dfn{exit status}.  A value of zero or EXIT_SUCCESS indicates success
-and EXIT_FAILURE indicates an error.   Otherwise, the significance of
-the value returned is implementation-defined.
+В общем, возвращаемое значение функцей @code{main} указывает
+@dfn{статус возврата} программы.  Нулевое значение или EXIT_SUCCESS указывает
+на успех и EXIT_FAILURE указывает на ошибку.  В противном случае, значение
+возвращаемого значения зависит от реализации.
 
-@c ??? We don't define it here.
+@c ??? Не определяется здесь.
 
-Reaching the @code{@}} at the end of @code{main} without a return, or
-executing a @code{return} statement with no value (that is,
-@code{return;}) are both equivalent.  In C89, the effect of this is
-undefined, but in C99 the effect is equivalent to @code{return 0;}.
+Достижение выполнением программы @code{@}} в конце тела функции @code{main}
+без указания возврата значения или использовании @code{return} без указания
+возвращаемого значения (то есть, @code{return;}) являются эквивалентными.  В
+C89, эффект этого не определен, но в C99 эффект эквивалентен вызову
+@code{return 0;}.
 
-You can write your @code{main} function to have no parameters (that
-is, as @code{int main (void)}), or to accept parameters from the
-command line.  Here is a very simple @code{main} function with no
-parameters:
+Можно написать функцию @code{main} не имеющую никаких параметров (то есть,
+как @code{int main (void)}), или принимающую параметры из командной строки.
+Вот очень простая функция @code{main} без параметров:
 
 @example
 @group
 int
 main (void)
 @{
-  puts ("Hi there!");
+  puts ("Всем привет!");
   return 0;
 @}
 @end group
 @end example
 
-To accept command line parameters, you need to have two parameters in the
-@code{main} function, @code{int argc} followed by @code{char *argv[]}.  You
-can change the names of those parameters, but they must have those data
-types---@code{int} and array of pointers to @code{char}.  @code{argc} is the
-number of command line parameters, including the name of the program itself.
-@code{argv} is an array of the parameters, as character strings.
-@code{argv[0]}, the first element in the array, is the name of the program
-as typed at the command line@footnote{Rarely, @code{argv[0]} can be a
-null pointer (in
-this case @code{argc} is 0) or @code{argv[0][0]} can be the null character.
-In any case, @code{argv[argc]} is a null pointer.};
-any following array elements are the parameters that followed the name
-of the program.
+Чтобы принять параметры командной строки, необходимо иметь два параметра в
+функции @code{main}, @code{int argc} с последующим @code{char *argv[]}.
+Можно изменить имена этих параметров, но они должны иметь типы
+данных---@code{int} и массив указателей на тип @code{char}.  @code{argc}
+указывает количество параметров командной строки, в том числе параметр с
+именем самой программы.  @code{argv} представляет собой массив параметров,
+как строки символов.  @code{argv[0]}, первый элемент в массиве, это имя
+программы, как и набирается в командной строке@footnote{Редко, @code{argv[0]}
+может быть NULL указателем (в этом случае @code{argc} это 0) или
+@code{argv[0][0]} может быть нулевым символом.  В любом случае,
+@code{argv[argc]} является NULL указателем.}; любые следующие элементы
+массива являются параметрами, которые следуют за именем программы.
 
-Here is an example @code{main} function that accepts command line
-parameters, and prints out what those parameters are:
+Ниже приведен пример функции @code{main}, которая принимает параметры
+командной строки, и выводит то, что передаётся этими параметрами:
 
 @example
 @group
@@ -534,12 +541,13 @@ main (int argc, char *argv[])
 @c ----------------------------------------------------------------------------
 
 @node Recursive Functions
-@section Recursive Functions
+@section Рекурсивные Функции
 @cindex recursive functions
 @cindex functions, recursive
 
-You can write a function that is recursive---a function that calls
-itself.  Here is an example that computes the factorial of an integer:
+Можно написать функцию, которая является рекурсивной --- функцией, которая
+вызывает саму себя.  Ниже приведен пример, вычисления факториала целого
+числа:
 
 @example
 int
@@ -552,10 +560,11 @@ factorial (int x)
 @}
 @end example
 
-Be careful that you do not write a function that is infinitely recursive.  In
-the above example, once @code{x} is 1, the recursion stops.  However, in the
-following example, the recursion does not stop until the program is interrupted
-or runs out of memory:
+Нужно быть осторожным, что не написать функцию, которая является бесконечно
+рекурсивной.  В приведенном выше примере, как только @code{x} равно 1, то
+рекурсия останавливается.  Однако, в следующем примере, рекурсия не
+останавливается, пока программа не будет прервана принудительно или пока не
+произойдёт переполнение памяти:
 
 @example
 @group
@@ -567,18 +576,18 @@ watermelon (int x)
 @end group
 @end example
 
-Functions can also be indirectly recursive, of course.
+Функции могут быть конечно косвенно рекурсивными.  (ВопросFunctions579)
 
-@c ----------------------------------------------------------------------------
+@c --------------------------------------------------------------------------
 
 @node Static Functions
-@section Static Functions
+@section Статические Функции
 @cindex static functions
 @cindex functions, static
 @cindex static linkage
 
-You can define a function to be static if you want it to be callable only
-within the source file where it is defined:
+Можно определить статическую функцию, если требуется совершать её вызов из
+любого места в пределах исходного файла, в котором она определена:
 
 @example
 @group
@@ -591,25 +600,26 @@ foo (int x)
 @end example
 
 @noindent
-This is useful if you are building a reusable library of functions and need to
-include some subroutines that should not be callable by the end user.
+Это полезно, если строится библиотека многоразового использования функций и
+она включает в себя некоторые подпрограммы, которые не должно быть вызваны
+конечным пользователем.
 
-Functions which are defined in this way are said to have @dfn{static
-linkage}.  Unfortunately the @code{static} keyword has multiple
-meanings; @ref{Storage Class Specifiers}.
+Функции, которые определены таким образом, имеют так сказать,
+@dfn{статическую связь}.  К сожалению, @code{static} ключевое слово имеет
+несколько значений; @ref{Storage Class Specifiers}.
 
-@c ----------------------------------------------------------------------------
+@c --------------------------------------------------------------------------
 
 @node Nested Functions
-@section Nested Functions
+@section Вложенные Функции
 @cindex nested functions
 @cindex functions, nested
  
-As a GNU C extension, you can define functions within other functions, a
-technique known as nesting functions.
+В качестве расширения GNU C, можно определить функции внутри других функций,
+метод, известный как вложенности функций.
  
-Here is an example of a tail-recursive factorial function, defined
-using a nested function:
+Ниже приведен пример функции факториала хвостовой рекурсии, определенной с
+помощью вложенной функции:
  
 @example
 @group
@@ -634,6 +644,5 @@ factorial (int x)
 @end group
 @end example
 
-Note that nested functions must be defined along with variable
-declarations at the beginning of a function, and all other statements
-follow.
+Внимание, вложенные функции должны быть определены вместе с объявлениями
+переменных в начале функции, а все остальные инструкции следуют строго после.
