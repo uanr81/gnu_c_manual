@@ -6,7 +6,7 @@
   Makefile
   overflow.texi
   preface.texi
-  program.texi
+  program.texi      +
   README
   sample.texi
   statements.texi   +

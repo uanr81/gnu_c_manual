@@ -14,12 +14,12 @@
 разделить отдельные лексемы, это всё описано в этой главе.
 
 @menu
-* Identifiers::
-* Keywords::
-* Constants::
-* Operators::
-* Separators::
-* White Space::
+* Identifiers:: Идентификаторы
+* Keywords:: Ключевые слова
+* Constants:: Константы
+* Operators:: Операторы
+* Separators:: Разделители
+* White Space:: Пропуски
 @end menu
 
 
@@ -84,7 +84,7 @@ restrict
 @end example
 
 @node Constants
-@section Constants
+@section Константы
 @cindex constants
 
 Константа является буквальным числовым или символьным значением, например,
@@ -94,10 +94,10 @@ restrict
 константы.
 
 @menu 
-* Integer Constants::
-* Character Constants::
-* Real Number Constants::
-* String Constants::
+* Integer Constants:: Целочисленные Константы
+* Character Constants:: Символьные Константы
+* Real Number Constants:: Константы Вещественных Чисел
+* String Constants:: Строковые Константы
 @end menu
 
 
@@ -183,7 +183,7 @@ restrict
 
 
 @node Character Constants
-@subsection Character Constants
+@subsection Символьные Константы
 @cindex character constants
 @cindex constants, character
 

@@ -63,10 +63,10 @@ ul.no-bullet {list-style: none}
   <ul class="no-bullet">
     <li><a id="toc-Identifikatory" href="#Identifiers">1.1 Идентификаторы</a></li>
     <li><a id="toc-Kliuchevye-Slova" href="#Keywords">1.2 Ключевые Слова</a></li>
-    <li><a id="toc-Constants-1" href="#Constants">1.3 Constants</a>
+    <li><a id="toc-Konstanty" href="#Constants">1.3 Константы</a>
     <ul class="no-bullet">
       <li><a id="toc-Celochislennye-Konstanty" href="#Integer-Constants">1.3.1 Целочисленные Константы</a></li>
-      <li><a id="toc-Character-Constants-1" href="#Character-Constants">1.3.2 Character Constants</a></li>
+      <li><a id="toc-Simvolxnye-Konstanty" href="#Character-Constants">1.3.2 Символьные Константы</a></li>
       <li><a id="toc-Konstanty-Veshchestvennykh-Chisel" href="#Real-Number-Constants">1.3.3 Константы Вещественных Чисел</a></li>
       <li><a id="toc-Strokovye-Konstanty" href="#String-Constants">1.3.4 Строковые Константы</a></li>
     </ul></li>
@@ -197,10 +197,10 @@ ul.no-bullet {list-style: none}
     <li><a id="toc-Staticheskie-Funkcii" href="#Static-Functions">5.9 Статические Функции</a></li>
     <li><a id="toc-Vlozhennye-Funkcii" href="#Nested-Functions">5.10 Вложенные Функции</a></li>
   </ul></li>
-  <li><a id="toc-Program-Structure-and-Scope-1" href="#Program-Structure-and-Scope">6 Program Structure and Scope</a>
+  <li><a id="toc-Struktura-Programmy-i-Oblasti" href="#Program-Structure-and-Scope">6 Структура Программы и Области</a>
   <ul class="no-bullet">
-    <li><a id="toc-Program-Structure-1" href="#Program-Structure">6.1 Program Structure</a></li>
-    <li><a id="toc-Scope-1" href="#Scope">6.2 Scope</a></li>
+    <li><a id="toc-Struktura-Programmy" href="#Program-Structure">6.1 Структура Программы</a></li>
+    <li><a id="toc-Svyazka" href="#Scope">6.2 Связка</a></li>
   </ul></li>
   <li><a id="toc-A-Sample-Program-1" href="#A-Sample-Program">7 A Sample Program</a>
   <ul class="no-bullet">
@@ -327,17 +327,17 @@ Next: <a href="#Data-Types" accesskey="n" rel="next">Data Types</a>, Previous: <
 разделить отдельные лексемы, это всё описано в этой главе.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Identifiers" accesskey="1">Identifiers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Identifiers" accesskey="1">Identifiers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Идентификаторы
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Keywords" accesskey="2">Keywords</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Keywords" accesskey="2">Keywords</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Ключевые слова
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Constants" accesskey="3">Constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Constants" accesskey="3">Constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Константы
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Operators" accesskey="4">Operators</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Operators" accesskey="4">Operators</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Операторы
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Separators" accesskey="5">Separators</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Separators" accesskey="5">Separators</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Разделители
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#White-Space" accesskey="6">White Space</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#White-Space" accesskey="6">White Space</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Пропуски
 </td></tr>
 </table>
 
@@ -412,7 +412,7 @@ __volatile __volatile__
 <p>
 Next: <a href="#Operators" accesskey="n" rel="next">Operators</a>, Previous: <a href="#Keywords" accesskey="p" rel="prev">Keywords</a>, Up: <a href="#Lexical-Elements" accesskey="u" rel="up">Lexical Elements</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Constants-1"></span><h3 class="section">1.3 Constants</h3>
+<span id="Konstanty"></span><h3 class="section">1.3 Константы</h3>
 <span id="index-constants"></span>
 
 <p>Константа является буквальным числовым или символьным значением, например,
@@ -422,13 +422,13 @@ Next: <a href="#Operators" accesskey="n" rel="next">Operators</a>, Previous: <a 
 константы.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Integer-Constants" accesskey="1">Integer Constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Integer-Constants" accesskey="1">Integer Constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Целочисленные Константы
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Character-Constants" accesskey="2">Character Constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Character-Constants" accesskey="2">Character Constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Символьные Константы
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Real-Number-Constants" accesskey="3">Real Number Constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Real-Number-Constants" accesskey="3">Real Number Constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Константы Вещественных Чисел
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#String-Constants" accesskey="4">String Constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#String-Constants" accesskey="4">String Constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Строковые Константы
 </td></tr>
 </table>
 
@@ -518,7 +518,7 @@ Next: <a href="#Character-Constants" accesskey="n" rel="next">Character Constant
 <p>
 Next: <a href="#Real-Number-Constants" accesskey="n" rel="next">Real Number Constants</a>, Previous: <a href="#Integer-Constants" accesskey="p" rel="prev">Integer Constants</a>, Up: <a href="#Constants" accesskey="u" rel="up">Constants</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Character-Constants-1"></span><h4 class="subsection">1.3.2 Character Constants</h4>
+<span id="Simvolxnye-Konstanty"></span><h4 class="subsection">1.3.2 Символьные Константы</h4>
 <span id="index-character-constants"></span>
 <span id="index-constants_002c-character"></span>
 
@@ -5713,10 +5713,10 @@ factorial (int x)
 <p>
 Next: <a href="#A-Sample-Program" accesskey="n" rel="next">A Sample Program</a>, Previous: <a href="#Functions" accesskey="p" rel="prev">Functions</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Program-Structure-and-Scope-1"></span><h2 class="chapter">6 Program Structure and Scope</h2>
+<span id="Struktura-Programmy-i-Oblasti"></span><h2 class="chapter">6 Структура Программы и Области</h2>
 
-<p>Now that we have seen all of the fundamental elements of C programs, it&rsquo;s time
-to look at the big picture.
+<p>Теперь, когда пказаны все из основных элементов программ C, пришло время
+взглянуть на общую картину.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Program-Structure" accesskey="1">Program Structure</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -5730,23 +5730,27 @@ to look at the big picture.
 <p>
 Next: <a href="#Scope" accesskey="n" rel="next">Scope</a>, Up: <a href="#Program-Structure-and-Scope" accesskey="u" rel="up">Program Structure and Scope</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Program-Structure-1"></span><h3 class="section">6.1 Program Structure</h3>
+<span id="Struktura-Programmy"></span><h3 class="section">6.1 Структура Программы</h3>
 <span id="index-program-structure"></span>
 <span id="index-structure_002c-program"></span>
 
-<p>A C program may exist entirely within a single source file, but more commonly, any non-trivial
-program will consist of several custom header files and source files, and will also include
-and link with files from existing libraries.
+<p>Программа C может существовать полностью в пределах одного исходного файла,
+но чаще всего, любая нетривиальная программа будет состоять из нескольких
+пользовательских заголовочных и исходных файлов, а также включать
+в себя связи с файлами из существующих библиотек.
 </p>
-<p>By convention, header files (with a &ldquo;.h&rdquo; extension) contain variable and function
-declarations, and source files (with a &ldquo;.c&rdquo; extension) contain the corresponding
-definitions.  Source files may also store declarations, if these declarations are
-not for objects which need to be seen by
-other files.  However, header files almost certainly should not contain any definitions.
+<p>По соглашению, заголовочные файлы (с расширением &ldquo;.h&rdquo;) содержат объявления
+переменных и функций, а исходные файлы (с расширением &ldquo;.c&rdquo;) содержат
+соответствующие определения.  Исходные файлы могут также хранить
+объявление, если такие объявления объектов не предназначены для использования
+из других файлов.  Тем не менее, заголовочные файлы почти наверняка не будут
+содержать каких-либо определений.
 </p>
-<p>For example, if you write a function that computes square roots, and you wanted this function
-to be accessible to files other than where you define the function, then you would put the
-function declaration into a header file (with a &ldquo;.h&rdquo; file extension):
+<p>Например, при написании функции, которая вычисляет квадратные корни и если
+для неё требуется реализовать возможность доступа другим функциям,
+определённых не в том же файле, где определена вызываемая функцияи, тогда
+нужно поместить объявление функции в заголовочный файл
+(файв с расширением &ldquo;.h&rdquo;):
 </p>
 <div class="example">
 <pre class="example">/* <span class="roman">sqrt.h</span> */
@@ -5755,11 +5759,12 @@ double
 computeSqrt (double x);
 </pre></div>
 
-<p>This header file could be included by other source files which need to use your function,
-but do not need to know how it was implemented.
+<p>Этот заголовочный файл может быть включен другими исходными файлами, которым
+требуется использовать эту функцию, и для этого не нужно знать, как это было
+реализовано.
 </p>
-<p>The implementation of the function would then go into a corresponding source file
-(with a &ldquo;.c&rdquo; file extension):
+<p>Реализация функции может затем перейти в соответствующий исходный файл
+(с расширением файла &ldquo;.c&rdquo;):  (ВопросPrpgram57)
 </p>
 <div class="example">
 <pre class="example">/* <span class="roman">sqrt.c</span> */
@@ -5781,39 +5786,41 @@ computeSqrt (double x)
 <p>
 Previous: <a href="#Program-Structure" accesskey="p" rel="prev">Program Structure</a>, Up: <a href="#Program-Structure-and-Scope" accesskey="u" rel="up">Program Structure and Scope</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Scope-1"></span><h3 class="section">6.2 Scope</h3>
+<span id="Svyazka"></span><h3 class="section">6.2 Связка</h3>
 <span id="index-scope"></span>
 
 
-<p>Scope refers to what parts of the program can &ldquo;see&rdquo; a declared object.  A declared
-object can be visible only within a particular function, or within a particular file,
-or may be visible to an entire set of files by way of including header files and
-using <code>extern</code> declarations.
+<p>Связка относится к тому, что части программы могут &ldquo;видеть&rdquo; объявленный
+объект.  Объявленный объект может быть виден только в пределах конкретной
+функции, в пределах определенного файла или может быть виден всему набору
+файлов, путем включения заголовочных файлов и использовании объявления
+<code>extern</code>.
 </p>
-<p>Unless explicitly stated otherwise, declarations made at the top-level of a file
-(i.e., not within a function) are visible to the entire file, including from within
-functions, but are not visible outside of the file.
+<p>Если явно не указано иное, объявления, сделанные на верхнем уровне файла
+(т.е. не в нутри функции) видимы для всего файла, в том числе внутри функций,
+но не видны за пределами файла.
 </p>
-<p>Declarations made within functions are visible only within those functions.
+<p>Объявления, сделанные внутри функции видны только в пределах этой функции.
 </p>
-<p>A declaration is not visible to declarations that came before it; for example:
+<p>Вновь созданные объявления, затеняют предыдущие объявления, например:
 </p>
 <div class="example">
 <pre class="example">int x = 5;
 int y = x + 10;
 </pre></div>
 
-<p>will work, but:
+<p>будет работать, но:
 </p>
 <div class="example">
 <pre class="example">int x = y + 10;
 int y = 5;
 </pre></div>
 
-<p>will not.
+<p>не будет.
 </p>
-<p>See <a href="#Storage-Class-Specifiers">Storage Class Specifiers</a>, for more information on changing the scope of
-declared objects.  Also see <a href="#Static-Functions">Static Functions</a>.
+<p>See <a href="#Storage-Class-Specifiers">Storage Class Specifiers</a>, для получения дополнительной информации об
+изменении связки объявленных объектов.  Также смотреть
+<a href="#Static-Functions">Static Functions</a>.
 </p>
 
 

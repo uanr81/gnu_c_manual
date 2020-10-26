@@ -99,12 +99,12 @@ File: gnu-c-manual.info,  Node: Lexical Elements,  Next: Data Types,  Prev: Pref
 
 * Menu:
 
-* Identifiers::
-* Keywords::
-* Constants::
-* Operators::
-* Separators::
-* White Space::
+* Identifiers:: Идентификаторы
+* Keywords:: Ключевые слова
+* Constants:: Константы
+* Operators:: Операторы
+* Separators:: Разделители
+* White Space:: Пропуски
 
 
 File: gnu-c-manual.info,  Node: Identifiers,  Next: Keywords,  Up: Lexical Elements
@@ -161,7 +161,7 @@ ISO C99 добавляет следующие ключевые слова:
 
 File: gnu-c-manual.info,  Node: Constants,  Next: Operators,  Prev: Keywords,  Up: Lexical Elements
 
-1.3 Constants
+1.3 Константы
 =============
 
 Константа является буквальным числовым или символьным значением,
@@ -172,10 +172,10 @@ File: gnu-c-manual.info,  Node: Constants,  Next: Operators,  Prev: Keywords,  U
 
 * Menu:
 
-* Integer Constants::
-* Character Constants::
-* Real Number Constants::
-* String Constants::
+* Integer Constants:: Целочисленные Константы
+* Character Constants:: Символьные Константы
+* Real Number Constants:: Константы Вещественных Чисел
+* String Constants:: Строковые Константы
 
 
 File: gnu-c-manual.info,  Node: Integer Constants,  Next: Character Constants,  Up: Constants
@@ -244,8 +244,8 @@ long int' (целочисленное двойной длинны) и 'unsigned 
 
 File: gnu-c-manual.info,  Node: Character Constants,  Next: Real Number Constants,  Prev: Integer Constants,  Up: Constants
 
-1.3.2 Character Constants
--------------------------
+1.3.2 Символьные Константы
+--------------------------
 
 Символьная константа характер, как правило, это один символ, заключенный
 в одинарные кавычки, например, ''Q''.  Символьная константа имеет тип
@@ -4448,11 +4448,11 @@ File: gnu-c-manual.info,  Node: Nested Functions,  Prev: Static Functions,  Up: 
 
 File: gnu-c-manual.info,  Node: Program Structure and Scope,  Next: A Sample Program,  Prev: Functions,  Up: Top
 
-6 Program Structure and Scope
-*****************************
+6 Структура Программы и Области
+*******************************
 
-Now that we have seen all of the fundamental elements of C programs,
-it's time to look at the big picture.
+Теперь, когда пказаны все из основных элементов программ C, пришло время
+взглянуть на общую картину.
 
 * Menu:
 
@@ -4462,36 +4462,38 @@ it's time to look at the big picture.
 
 File: gnu-c-manual.info,  Node: Program Structure,  Next: Scope,  Up: Program Structure and Scope
 
-6.1 Program Structure
-=====================
+6.1 Структура Программы
+=======================
 
-A C program may exist entirely within a single source file, but more
-commonly, any non-trivial program will consist of several custom header
-files and source files, and will also include and link with files from
-existing libraries.
+Программа C может существовать полностью в пределах одного исходного
+файла, но чаще всего, любая нетривиальная программа будет состоять из
+нескольких пользовательских заголовочных и исходных файлов, а также
+включать в себя связи с файлами из существующих библиотек.
 
-   By convention, header files (with a ".h" extension) contain variable
-and function declarations, and source files (with a ".c" extension)
-contain the corresponding definitions.  Source files may also store
-declarations, if these declarations are not for objects which need to be
-seen by other files.  However, header files almost certainly should not
-contain any definitions.
+   По соглашению, заголовочные файлы (с расширением ".h") содержат
+объявления переменных и функций, а исходные файлы (с расширением ".c")
+содержат соответствующие определения.  Исходные файлы могут также
+хранить объявление, если такие объявления объектов не предназначены для
+использования из других файлов.  Тем не менее, заголовочные файлы почти
+наверняка не будут содержать каких-либо определений.
 
-   For example, if you write a function that computes square roots, and
-you wanted this function to be accessible to files other than where you
-define the function, then you would put the function declaration into a
-header file (with a ".h" file extension):
+   Например, при написании функции, которая вычисляет квадратные корни и
+если для неё требуется реализовать возможность доступа другим функциям,
+определённых не в том же файле, где определена вызываемая функцияи,
+тогда нужно поместить объявление функции в заголовочный файл (файв с
+расширением ".h"):
 
      /* sqrt.h */
 
      double
      computeSqrt (double x);
 
-This header file could be included by other source files which need to
-use your function, but do not need to know how it was implemented.
+Этот заголовочный файл может быть включен другими исходными файлами,
+которым требуется использовать эту функцию, и для этого не нужно знать,
+как это было реализовано.
 
-   The implementation of the function would then go into a corresponding
-source file (with a ".c" file extension):
+   Реализация функции может затем перейти в соответствующий исходный
+файл (с расширением файла ".c"): (ВопросPrpgram57)
 
      /* sqrt.c */
      #include "sqrt.h"
@@ -4507,37 +4509,37 @@ source file (with a ".c" file extension):
 
 File: gnu-c-manual.info,  Node: Scope,  Prev: Program Structure,  Up: Program Structure and Scope
 
-6.2 Scope
-=========
+6.2 Связка
+==========
 
-Scope refers to what parts of the program can "see" a declared object.
-A declared object can be visible only within a particular function, or
-within a particular file, or may be visible to an entire set of files by
-way of including header files and using 'extern' declarations.
+Связка относится к тому, что части программы могут "видеть" объявленный
+объект.  Объявленный объект может быть виден только в пределах
+конкретной функции, в пределах определенного файла или может быть виден
+всему набору файлов, путем включения заголовочных файлов и использовании
+объявления 'extern'.
 
-   Unless explicitly stated otherwise, declarations made at the
-top-level of a file (i.e., not within a function) are visible to the
-entire file, including from within functions, but are not visible
-outside of the file.
+   Если явно не указано иное, объявления, сделанные на верхнем уровне
+файла (т.е.  не в нутри функции) видимы для всего файла, в том числе
+внутри функций, но не видны за пределами файла.
 
-   Declarations made within functions are visible only within those
-functions.
+   Объявления, сделанные внутри функции видны только в пределах этой
+функции.
 
-   A declaration is not visible to declarations that came before it; for
-example:
+   Вновь созданные объявления, затеняют предыдущие объявления, например:
 
      int x = 5;
      int y = x + 10;
 
-will work, but:
+будет работать, но:
 
      int x = y + 10;
      int y = 5;
 
-will not.
+не будет.
 
-   *Note Storage Class Specifiers::, for more information on changing
-the scope of declared objects.  Also see *note Static Functions::.
+   *Note Storage Class Specifiers::, для получения дополнительной
+информации об изменении связки объявленных объектов.  Также смотреть
+*note Static Functions::.
 
 
 File: gnu-c-manual.info,  Node: A Sample Program,  Next: Overflow,  Prev: Program Structure and Scope,  Up: Top
@@ -5933,129 +5935,129 @@ Tag Table:
 Node: Top517
 Node: Preface951
 Node: Lexical Elements3267
-Node: Identifiers4145
-Node: Keywords5201
-Node: Constants6754
-Node: Integer Constants7541
-Node: Character Constants11001
-Node: Real Number Constants14810
-Node: String Constants17085
-Node: Operators21213
-Node: Separators21749
-Node: White Space22220
-Node: Data Types24660
-Node: Primitive Types25000
-Node: Integer Types25242
-Node: Real Number Types31907
-Node: Complex Number Types36637
-Ref: Complex Number Types-Footnote-137275
-Node: Standard Complex Number Types37426
-Node: GNU Extensions for Complex Number Types39453
-Node: Enumerations42395
-Node: Defining Enumerations43550
-Node: Declaring Enumerations45990
-Node: Unions48626
-Node: Defining Unions49505
-Node: Declaring Union Variables51525
-Node: Declaring Union Variables at Definition52187
-Node: Declaring Union Variables After Definition53298
-Node: Initializing Union Members54419
-Node: Accessing Union Members56447
-Node: Size of Unions57504
-Node: Structures58783
-Node: Defining Structures59318
-Node: Declaring Structure Variables61614
-Node: Declaring Structure Variables at Definition62245
-Node: Declaring Structure Variables After Definition63344
-Node: Initializing Structure Members64370
-Node: Accessing Structure Members69540
-Node: Bit Fields71060
-Node: Size of Structures73943
-Node: Arrays75910
-Node: Declaring Arrays76599
-Node: Initializing Arrays78534
-Node: Accessing Array Elements82469
-Node: Multidimensional Arrays83821
-Node: Arrays as Strings85501
-Node: Arrays of Unions89859
-Node: Arrays of Structures91309
-Node: Pointers93870
-Node: Declaring Pointers94535
-Node: Initializing Pointers96275
-Node: Pointers to Unions99349
-Node: Pointers to Structures101111
-Node: Incomplete Types102891
-Node: Type Qualifiers104267
-Node: Storage Class Specifiers106106
-Node: Renaming Types112279
-Node: Expressions and Operators112725
-Node: Expressions113422
-Node: Assignment Operators115255
-Node: Incrementing and Decrementing119878
-Node: Arithmetic Operators122571
-Node: Complex Conjugation126929
-Node: Comparison Operators127990
-Node: Logical Operators131029
-Node: Bit Shifting133280
-Node: Bitwise Logical Operators136193
-Node: Pointer Operators139117
-Node: The sizeof Operator141679
-Node: Type Casts144447
-Node: Array Subscripts146898
-Node: Function Calls as Expressions147981
-Node: The Comma Operator148417
-Node: Member Access Expressions150825
-Node: Conditional Expressions152178
-Node: Statements and Declarations in Expressions154811
-Node: Operator Precedence158418
-Node: Order of Evaluation163114
-Node: Side Effects164705
-Node: Sequence Points166496
-Ref: Sequence Points-Footnote-1171257
-Node: Sequence Points Constrain Expressions171447
-Ref: Sequence Points Constrain Expressions-Footnote-1178291
-Node: Sequence Points and Signal Delivery178497
-Node: Statements181406
-Node: Labels182186
-Node: Expression Statements183465
-Node: The if Statement185129
-Node: The switch Statement187726
-Node: The while Statement193164
-Node: The do Statement194403
-Node: The for Statement195622
-Node: Blocks202115
-Node: The Null Statement204129
-Node: The goto Statement205653
-Node: The break Statement208126
-Node: The continue Statement209473
-Node: The return Statement210292
-Node: The typedef Statement213336
-Node: Functions215665
-Node: Function Declarations217042
-Node: Function Definitions220250
-Node: Calling Functions222822
-Node: Function Parameters224227
-Node: Variable Length Parameter Lists230142
-Node: Calling Functions Through Function Pointers234133
-Node: The main Function235177
-Ref: The main Function-Footnote-1239012
-Node: Recursive Functions239290
-Node: Static Functions240688
-Node: Nested Functions241831
-Node: Program Structure and Scope242987
-Node: Program Structure243314
-Node: Scope244799
-Node: A Sample Program245826
-Node: hello.c246682
-Node: system.h253027
-Node: Overflow254650
-Node: Integer Overflow Basics255790
-Node: Signed Overflow Examples257509
-Node: Optimization and Wraparound261002
-Node: Signed Overflow Advice263954
-Node: Signed Integer Division266618
-Node: GNU Free Documentation License267219
-Node: Index292346
+Node: Identifiers4280
+Node: Keywords5336
+Node: Constants6889
+Node: Integer Constants7864
+Node: Character Constants11324
+Node: Real Number Constants15154
+Node: String Constants17429
+Node: Operators21557
+Node: Separators22093
+Node: White Space22564
+Node: Data Types25004
+Node: Primitive Types25344
+Node: Integer Types25586
+Node: Real Number Types32251
+Node: Complex Number Types36981
+Ref: Complex Number Types-Footnote-137619
+Node: Standard Complex Number Types37770
+Node: GNU Extensions for Complex Number Types39797
+Node: Enumerations42739
+Node: Defining Enumerations43894
+Node: Declaring Enumerations46334
+Node: Unions48970
+Node: Defining Unions49849
+Node: Declaring Union Variables51869
+Node: Declaring Union Variables at Definition52531
+Node: Declaring Union Variables After Definition53642
+Node: Initializing Union Members54763
+Node: Accessing Union Members56791
+Node: Size of Unions57848
+Node: Structures59127
+Node: Defining Structures59662
+Node: Declaring Structure Variables61958
+Node: Declaring Structure Variables at Definition62589
+Node: Declaring Structure Variables After Definition63688
+Node: Initializing Structure Members64714
+Node: Accessing Structure Members69884
+Node: Bit Fields71404
+Node: Size of Structures74287
+Node: Arrays76254
+Node: Declaring Arrays76943
+Node: Initializing Arrays78878
+Node: Accessing Array Elements82813
+Node: Multidimensional Arrays84165
+Node: Arrays as Strings85845
+Node: Arrays of Unions90203
+Node: Arrays of Structures91653
+Node: Pointers94214
+Node: Declaring Pointers94879
+Node: Initializing Pointers96619
+Node: Pointers to Unions99693
+Node: Pointers to Structures101455
+Node: Incomplete Types103235
+Node: Type Qualifiers104611
+Node: Storage Class Specifiers106450
+Node: Renaming Types112623
+Node: Expressions and Operators113069
+Node: Expressions113766
+Node: Assignment Operators115599
+Node: Incrementing and Decrementing120222
+Node: Arithmetic Operators122915
+Node: Complex Conjugation127273
+Node: Comparison Operators128334
+Node: Logical Operators131373
+Node: Bit Shifting133624
+Node: Bitwise Logical Operators136537
+Node: Pointer Operators139461
+Node: The sizeof Operator142023
+Node: Type Casts144791
+Node: Array Subscripts147242
+Node: Function Calls as Expressions148325
+Node: The Comma Operator148761
+Node: Member Access Expressions151169
+Node: Conditional Expressions152522
+Node: Statements and Declarations in Expressions155155
+Node: Operator Precedence158762
+Node: Order of Evaluation163458
+Node: Side Effects165049
+Node: Sequence Points166840
+Ref: Sequence Points-Footnote-1171601
+Node: Sequence Points Constrain Expressions171791
+Ref: Sequence Points Constrain Expressions-Footnote-1178635
+Node: Sequence Points and Signal Delivery178841
+Node: Statements181750
+Node: Labels182530
+Node: Expression Statements183809
+Node: The if Statement185473
+Node: The switch Statement188070
+Node: The while Statement193508
+Node: The do Statement194747
+Node: The for Statement195966
+Node: Blocks202459
+Node: The Null Statement204473
+Node: The goto Statement205997
+Node: The break Statement208470
+Node: The continue Statement209817
+Node: The return Statement210636
+Node: The typedef Statement213680
+Node: Functions216009
+Node: Function Declarations217386
+Node: Function Definitions220594
+Node: Calling Functions223166
+Node: Function Parameters224571
+Node: Variable Length Parameter Lists230486
+Node: Calling Functions Through Function Pointers234477
+Node: The main Function235521
+Ref: The main Function-Footnote-1239356
+Node: Recursive Functions239634
+Node: Static Functions241032
+Node: Nested Functions242175
+Node: Program Structure and Scope243331
+Node: Program Structure243764
+Node: Scope246426
+Node: A Sample Program248087
+Node: hello.c248943
+Node: system.h255288
+Node: Overflow256911
+Node: Integer Overflow Basics258051
+Node: Signed Overflow Examples259770
+Node: Optimization and Wraparound263263
+Node: Signed Overflow Advice266215
+Node: Signed Integer Division268879
+Node: GNU Free Documentation License269480
+Node: Index294607
 
 End Tag Table
 
