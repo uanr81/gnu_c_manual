@@ -207,13 +207,13 @@ ul.no-bullet {list-style: none}
     <li><a id="toc-hello_002ec-1" href="#hello_002ec">7.1 <code>hello.c</code></a></li>
     <li><a id="toc-system_002eh-1" href="#system_002eh">7.2 <code>system.h</code></a></li>
   </ul></li>
-  <li><a id="toc-Overflow-1" href="#Overflow">Appendix A Overflow</a>
+  <li><a id="toc-Perepolnenie" href="#Overflow">Appendix A Переполнение</a>
   <ul class="no-bullet">
-    <li><a id="toc-Basics-of-Integer-Overflow" href="#Integer-Overflow-Basics">A.1 Basics of Integer Overflow</a></li>
-    <li><a id="toc-Examples-of-Code-Assuming-Wraparound-Overflow" href="#Signed-Overflow-Examples">A.2 Examples of Code Assuming Wraparound Overflow</a></li>
-    <li><a id="toc-Optimizations-That-Break-Wraparound-Arithmetic" href="#Optimization-and-Wraparound">A.3 Optimizations That Break Wraparound Arithmetic</a></li>
-    <li><a id="toc-Practical-Advice-for-Signed-Overflow-Issues" href="#Signed-Overflow-Advice">A.4 Practical Advice for Signed Overflow Issues</a></li>
-    <li><a id="toc-Signed-Integer-Division-and-Integer-Overflow" href="#Signed-Integer-Division">A.5 Signed Integer Division and Integer Overflow</a></li>
+    <li><a id="toc-Osnovy-Celochislennogo-Perepolneniya" href="#Integer-Overflow-Basics">A.1 Основы Целочисленного Переполнения</a></li>
+    <li><a id="toc-Primery-Koda_002c-Predpolagaiushchego-Perepolnenie-Cikla" href="#Signed-Overflow-Examples">A.2 Примеры Кода, Предполагающего Переполнение Цикла</a></li>
+    <li><a id="toc-Optimizaciya_002c-Kotorye-Narushaiut-Ciklicheskuiu-Arifmetiku" href="#Optimization-and-Wraparound">A.3 Оптимизация, Которые Нарушают Циклическую Арифметику</a></li>
+    <li><a id="toc-Prakticheskie-Sovety-po-Voprosam-Podpisannogo-Perepolneniya" href="#Signed-Overflow-Advice">A.4 Практические Советы по Вопросам Подписанного Переполнения</a></li>
+    <li><a id="toc-Celochislennoe-Delenie-so-Znakom-i-Celochislennoe-Perepolnenie" href="#Signed-Integer-Division">A.5 Целочисленное Деление со Знаком и Целочисленное Переполнение</a></li>
   </ul></li>
   <li><a id="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></li>
   <li><a id="toc-Index-1" href="#Index" rel="index">Index</a></li>
@@ -6114,30 +6114,33 @@ Previous: <a href="#hello_002ec" accesskey="p" rel="prev">hello.c</a>, Up: <a hr
 <p>
 Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#A-Sample-Program" accesskey="p" rel="prev">A Sample Program</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Overflow-1"></span><h2 class="appendix">Appendix A Overflow</h2>
+<span id="Perepolnenie"></span><h2 class="appendix">Appendix A Переполнение</h2>
 
 
-<p>[This appendix, written principally by Paul Eggert, is from the GNU Autoconf manual. We
-thought that it would be helpful to include here. &ndash;TJR]
+<p>[Это приложение, написанное в основном Полом Эггертом, взято из
+руководства GNU Autoconf.  Мы подумали, что было бы полезно включить
+сюда. &ndash;TJR]
 </p>
-<p>In practice many portable C programs assume that signed integer overflow wraps
-around reliably using two&rsquo;s complement arithmetic.  Yet the C standard
-says that program behavior is undefined on overflow, and in a few cases
-C programs do not work on some modern implementations because their
-overflows do not wrap around as their authors expected.  Conversely, in
-signed integer remainder, the C standard requires overflow
-behavior that is commonly not implemented.
+<p>На практике многие переносимые программы на C предполагают, что знаковое
+целочисленное переполнение надежно оборачивается с использованием арифметики
+с дополнением до двух.  Тем не менее, в стандарте C говорится, что поведение
+программы при переполнении не определено, и в некоторых случаях программы на
+C не работают в некоторых современных реализациях, потому что их переполнениене обрабатывается, как ожидали их авторы.  И наоборот, в целочисленном
+остатке со знаком стандарт C требует поведения переполнения, которое обычно
+не реализуется.  (ВопросOverflow17)
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Integer-Overflow-Basics" accesskey="1">Integer Overflow Basics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Why integer overflow is a problem
+<tr><td align="left" valign="top">&bull; <a href="#Integer-Overflow-Basics" accesskey="1">Integer Overflow Basics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Почему целочисленное переполнение - проблема
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Signed-Overflow-Examples" accesskey="2">Signed Overflow Examples</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Examples of code assuming wraparound
+<tr><td align="left" valign="top">&bull; <a href="#Signed-Overflow-Examples" accesskey="2">Signed Overflow Examples</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Примеры кода, предполагающие переплнение
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Optimization-and-Wraparound" accesskey="3">Optimization and Wraparound</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Optimizations that break uses of wraparound
+<tr><td align="left" valign="top">&bull; <a href="#Optimization-and-Wraparound" accesskey="3">Optimization and Wraparound</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Оптимизация, нарушающая циклические
+                                 обработки
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Signed-Overflow-Advice" accesskey="4">Signed Overflow Advice</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Practical advice for signed overflow issues
+<tr><td align="left" valign="top">&bull; <a href="#Signed-Overflow-Advice" accesskey="4">Signed Overflow Advice</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Практические советы по вопросам
+                                 подписанного переполнения
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Signed-Integer-Division" accesskey="5">Signed Integer Division</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><code>INT_MIN / -1</code> and <code>INT_MIN % -1</code>
+<tr><td align="left" valign="top">&bull; <a href="#Signed-Integer-Division" accesskey="5">Signed Integer Division</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><code>INT_MIN / -1</code> и <code>INT_MIN % -1</code>
 </td></tr>
 </table>
 
@@ -6146,66 +6149,67 @@ behavior that is commonly not implemented.
 <p>
 Next: <a href="#Signed-Overflow-Examples" accesskey="n" rel="next">Signed Overflow Examples</a>, Up: <a href="#Overflow" accesskey="u" rel="up">Overflow</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Basics-of-Integer-Overflow"></span><h3 class="appendixsection">A.1 Basics of Integer Overflow</h3>
+<span id="Osnovy-Celochislennogo-Perepolneniya"></span><h3 class="appendixsection">A.1 Основы Целочисленного Переполнения</h3>
 <span id="index-integer-overflow"></span>
 <span id="index-overflow_002c-signed-integer"></span>
 <span id="index-signed-integer-overflow"></span>
 <span id="index-wraparound-arithmetic"></span>
 
-<p>In languages like C, unsigned integer overflow reliably wraps around;
-e.g., <code>UINT_MAX + 1</code> yields zero.
-This is guaranteed by the C standard and is
-portable in practice, unless you specify aggressive,
-nonstandard optimization options
-suitable only for special applications.
+<p>В таких языках, как C, беззнаковое целочисленное переполнение надежно
+оборачивается; например, <code>UINT_MAX + 1</code> дает ноль.  Это гарантируется
+стандартом C и переносимо на практике, если не указаны агрессивные
+нестандартные параметры оптимизации, подходящие только для специальных
+приложений.
 </p>
-<p>In contrast, the C standard says that signed integer overflow leads to
-undefined behavior where a program can do anything, including dumping
-core or overrunning a buffer.  The misbehavior can even precede the
-overflow.  Such an overflow can occur during addition, subtraction,
-multiplication, division, and left shift.
+<p>Напротив, стандарт C говорит, что целочисленное переполнение со знаком
+приводит к неопределенному поведению, когда программа может делать что
+угодно, включая сброс ядра или переполнение буфера.  Плохое поведение может
+даже предшествовать переполнению.  Такое переполнение может произойти во
+время сложения, вычитания, умножения, деления и сдвига влево.
 </p>
-<p>Despite this requirement of the standard, many C programs
-assume that signed integer overflow silently wraps around modulo a
-power of two, using two&rsquo;s complement arithmetic, so long as you cast the
-resulting value to a signed integer type or store it into a signed
-integer variable.  If you use conservative optimization flags, such
-programs are generally portable to the vast majority of modern
-platforms, with a few exceptions discussed later.
+<p>Несмотря на это требование стандарта, многие программы на C предполагают, что
+подписанное целочисленное переполнение молча оборачивается по модулю двойки,
+используя арифметику дополнения до двух, если приводится полученное значение
+к целочисленному типу со знаком или сохраняется в целочисленной переменной со
+знаком.  Если используются консервативные флаги оптимизации, такие программы
+обычно переносимы на подавляющем большинстве современных платформ, за
+некоторыми исключениями, обсуждаемыми позже.
 </p>
-<p>For historical reasons the C standard also allows implementations with
-ones&rsquo; complement or signed magnitude arithmetic, but it is safe to
-assume two&rsquo;s complement nowadays.
+<p>По историческим причинам стандарт C также допускает реализации с дополнением
+до единици или знаковой величиной арифметики, но в настоящее время можно с
+уверенностью предполагать дополнение до двух.
 </p>
-<p>Also, overflow can occur when converting an out-of-range value to a
-signed integer type.  Here a standard implementation must define what
-happens, but this might include raising an exception.  In practice all
-known implementations support silent wraparound in this case, so you need
-not worry about other possibilities.
+<p>Кроме того, переполнение может произойти при преобразовании значения вне
+допустимого диапазона в целочисленный тип со знаком.  Здесь стандартная
+реализация должна определять, что происходит, но это может включать в себя
+создание исключения.  На практике все известные реализации в этом случае
+поддерживают обход без вывода сообщений, поэтому не нужно беспокоиться о
+других возможностях.
 </p>
 <hr>
 <span id="Signed-Overflow-Examples"></span><div class="header">
 <p>
 Next: <a href="#Optimization-and-Wraparound" accesskey="n" rel="next">Optimization and Wraparound</a>, Previous: <a href="#Integer-Overflow-Basics" accesskey="p" rel="prev">Integer Overflow Basics</a>, Up: <a href="#Overflow" accesskey="u" rel="up">Overflow</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Examples-of-Code-Assuming-Wraparound-Overflow"></span><h3 class="appendixsection">A.2 Examples of Code Assuming Wraparound Overflow</h3>
+<span id="Primery-Koda_002c-Predpolagaiushchego-Perepolnenie-Cikla"></span><h3 class="appendixsection">A.2 Примеры Кода, Предполагающего Переполнение Цикла</h3>
 <span id="index-integer-overflow-1"></span>
 <span id="index-overflow_002c-signed-integer-1"></span>
 <span id="index-signed-integer-overflow-1"></span>
 <span id="index-wraparound-arithmetic-1"></span>
 
-<p>There has long been a tension between what the C standard requires for
-signed integer overflow, and what C programs commonly assume.  The
-standard allows aggressive optimizations based on assumptions that
-overflow never occurs, but many practical C programs rely on overflow
-wrapping around.  These programs do not conform to the standard, but
-they commonly work in practice because compiler writers are
-understandably reluctant to implement optimizations that would break
-many programs, unless perhaps a user specifies aggressive optimization.
+<p>Уже давно существует противоречие между тем, что стандарт C требует для
+целочисленного переполнения со знаком, и тем, что обычно предполагают
+программы C.  Стандарт допускает агрессивную оптимизацию, основанную на
+предположении, что переполнение никогда не происходит, но многие практические
+программы на C полагаются на обертывание переполнения.  Эти программы не
+соответствуют стандарту, но они обычно работают на практике, потому что
+авторы компиляторов по понятным причинам не хотят реализовывать оптимизацию,
+которая нарушит работу многих программ, если, возможно, пользователь не
+укажет агрессивную оптимизацию.
 </p>
-<p>The C Standard says that if a program has signed integer overflow its
-behavior is undefined, and the undefined behavior can even precede the
-overflow.  To take an extreme example:
+<p>Стандарт C говорит, что если программа имеет целочисленное переполнение со
+знаком, ее поведение не определено, а неопределённое поведение может даже
+свидеьельствовать переполнению.  Возьмем крайний пример:
 </p>
 <div class="example">
 <pre class="example">if (password == expected_password)
@@ -6213,27 +6217,28 @@ overflow.  To take an extreme example:
 else if (counter++ == INT_MAX)
   abort ();
 else
-  printf (&quot;%d password mismatches\n&quot;, counter);
+  printf (&quot;%d несоответствие паролей\n&quot;, counter);
 </pre></div>
 
-<p>If the <code>int</code> variable <code>counter</code> equals <code>INT_MAX</code>,
-<code>counter++</code> must overflow and the behavior is undefined, so the C
-standard allows the compiler to optimize away the test against
-<code>INT_MAX</code> and the <code>abort</code> call.
-Worse, if an earlier bug in the program lets the compiler deduce that
-<code>counter == INT_MAX</code> or that <code>counter</code> previously overflowed,
-the C standard allows the compiler to optimize away the password test
-and generate code that allows superuser privileges unconditionally.
+<p>Если переменная типа <code>int</code> <code>counter</code> равняется <code>INT_MAX</code>,
+<code>counter++</code> приведёт к переполнению и поведение станет неопределённым,
+поэтому стандарт C позволяет компилятору оптимизировать условие
+<code>(counter++ == INT_MAX)</code> и вызов <code>abort</code>.  Хуже того, если более
+ранняя ошибка в программе позволяет компилятору сделать вывод о том, что
+<code>counter == INT_MAX</code> или <code>counter</code> уже привело к переполнению,
+стандарт C позволяет компилятору оптимизировать проверку пароля и
+генерировать код, который безоговорочно разрешает привилегии
+суперпользователя.
 </p>
-<p>Despite this requirement by the standard, it has long been common for C
-code to assume wraparound arithmetic after signed overflow, and all
-known practical C implementations support some C idioms that assume
-wraparound signed arithmetic, even if the idioms do not conform
-strictly to the standard.  If your code looks like the following
-examples it will almost surely work with real-world compilers.
+<p>Несмотря на это требование стандарта, код C долгое время предполагал
+циклическую арифметику после подписанного переполнения, и все известные
+практические реализации C поддерживают некоторые идиомы C, которые
+предполагают циклическую арифметику со знаком, даже если идиомы не
+соответствуют строго стандарту.  Если ваш код похож на следующие примеры, он
+почти наверняка будет работать с реальными компиляторами.
 </p>
-<p>Here is an example derived from the 7th Edition Unix implementation of
-<code>atoi</code> (1979-01-10):
+<p>Вот пример, полученный из реализации <code>atoi</code> для Unix 7-го издания.
+(1979-01-10):
 </p>
 <div class="example">
 <pre class="example">char *p;
@@ -6244,14 +6249,14 @@ while (*p &gt;= '0' &amp;&amp; *p &lt;= '9')
 return (f ? -n : n);
 </pre></div>
 
-<p>Even if the input string is in range, on most modern machines this has
-signed overflow when computing the most negative integer (the <code>-n</code>
-overflows) or a value near an extreme integer (the first <code>+</code>
-overflows).
+<p>Даже если входная строка находится в пределах допустимого диапазона, на
+большинстве современных машин это имеет знаковое переполнение при вычислении
+самого отрицательного целого числа (переполнение <code>-n</code>) или значения,
+близкого к крайнему целому числу (переполнение первого <code>+</code>).
 </p>
-<p>Here is another example, derived from the 7th Edition implementation of
-<code>rand</code> (1979-01-10).  Here the programmer expects both
-multiplication and addition to wrap on overflow:
+<p>Вот еще один пример, полученный из реализации <code>rand</code> 7-го издания
+(1979-01-10).  Здесь программист ожидает, что и умножение, и сложение
+обернутся при переполнении:
 </p>
 <div class="example">
 <pre class="example">static long int randx = 1;
@@ -6260,9 +6265,9 @@ randx = randx * 1103515245 + 12345;
 return (randx &gt;&gt; 16) &amp; 077777;
 </pre></div>
 
-<p>In the following example, derived from the <acronym>GNU</acronym> C Library 2.5
-implementation of <code>mktime</code> (2006-09-09), the code assumes
-wraparound arithmetic in <code>+</code> to detect signed overflow:
+<p>В следующем примере, полученном из реализации <code>mktime</code> библиотеки 2.5
+<acronym>GNU</acronym> C (2009-09-09), код предполагает циклическую арифметику в
+<code>+</code> для обнаружения подписанного переполнения:
 </p>
 <div class="example">
 <pre class="example">time_t t, t1, t2;
@@ -6275,32 +6280,32 @@ if (((t1 &lt; t) != (sec_requested &lt; 0))
   return -1;
 </pre></div>
 
-<p>If your code looks like these examples, it is probably safe even though
-it does not strictly conform to the C standard.  This might lead one to
-believe that one can generally assume wraparound on overflow, but that
-is not always true, as can be seen in the next section.
+<p>Если код выглядит как эти примеры, он, вероятно, безопасен, даже если он не
+строго соответствует стандарту C.  Это может привести к мысли, что обычно
+можно предполагать циклический переход при переполнении, но это не всегда
+верно, как можно увидеть в следующем разделе.
 </p>
 <hr>
 <span id="Optimization-and-Wraparound"></span><div class="header">
 <p>
 Next: <a href="#Signed-Overflow-Advice" accesskey="n" rel="next">Signed Overflow Advice</a>, Previous: <a href="#Signed-Overflow-Examples" accesskey="p" rel="prev">Signed Overflow Examples</a>, Up: <a href="#Overflow" accesskey="u" rel="up">Overflow</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Optimizations-That-Break-Wraparound-Arithmetic"></span><h3 class="appendixsection">A.3 Optimizations That Break Wraparound Arithmetic</h3>
+<span id="Optimizaciya_002c-Kotorye-Narushaiut-Ciklicheskuiu-Arifmetiku"></span><h3 class="appendixsection">A.3 Оптимизация, Которые Нарушают Циклическую Арифметику</h3>
 <span id="index-loop-induction"></span>
 
-<p>Compilers sometimes generate code that is incompatible with wraparound
-integer arithmetic.  A simple example is an algebraic simplification: a
-compiler might translate <code>(i * 2000) / 1000</code> to <code>i * 2</code>
-because it assumes that <code>i * 2000</code> does not overflow.  The
-translation is not equivalent to the original when overflow occurs:
-e.g., in the typical case of 32-bit signed two&rsquo;s complement wraparound
-<code>int</code>, if <code>i</code> has type <code>int</code> and value <code>1073742</code>,
-the original expression returns -2147483 but the optimized
-version returns the mathematically correct value 2147484.
+<p>Компиляторы иногда создают код, несовместимый с циклической целочисленной
+арифметикой.  Простым примером является алгебраическое упрощение: компилятор
+может преобразовать <code>(i * 2000) / 1000</code> в <code>i * 2</code>, потому что он
+предполагает, что <code>i * 2000</code> не переполняется.  Перевод не эквивалентен
+оригиналу, когда происходит переполнение: например, в типичном случае
+32-битного подписанного двойного дополнения обертывания <code>int</code>, если
+<code>i</code> имеет тип <code>int</code> и значение <code>1073742</code>, исходное выражение
+возвращает -2147483, но оптимизированная версия возвращает
+математически правильный значение 2147484.
 </p>
-<p>More subtly, loop induction optimizations often exploit the undefined
-behavior of signed overflow.  Consider the following contrived function
-<code>sumc</code>:
+<p>Более тонко, оптимизации индукции цикла часто используют неопределенное
+поведение подписанного переполнения.  Рассмотрим следующую надуманную
+функцию <code>sumc</code>:
 </p>
 <div class="example">
 <pre class="example">int
@@ -6314,9 +6319,8 @@ sumc (int lo, int hi)
 }
 </pre></div>
 
-<p>To avoid multiplying by 53 each time through the loop, an optimizing
-compiler might internally transform <code>sumc</code> to the equivalent of the
-following:
+<p>Чтобы избежать умножения на 53 при каждом прохождении цикла, оптимизирующий
+компилятор может внутренне преобразовать <code>sumc</code> в эквивалент следующего:
 </p>
 <div class="example">
 <pre class="example">int
@@ -6331,23 +6335,22 @@ transformed_sumc (int lo, int hi)
 }
 </pre></div>
 
-<p>This transformation is allowed by the C standard, but it is invalid for
-wraparound arithmetic when <code>INT_MAX / 53 &lt; hi</code>, because then the
-overflow in computing expressions like <code>hi * 53</code> can cause the
-expression <code>i &lt;= hi</code> to yield a different value from the
-transformed expression <code>ic &lt;= hic</code>.
+<p>Это преобразование разрешено стандартом C, но недопустимо для арифметики с
+циклическим переносом при <code>INT_MAX / 53 &lt; hi</code>, потому что в этом случае
+переполнение в вычислительных выражениях, таких как <code>hi * 53</code>, может
+привести к тому, что выражение <code>i &lt;= hi</code> даст значение, отличное от
+преобразованного выражения <code>ic &lt;= hic</code>.
 </p>
-<p>For this reason, compilers that use loop induction and similar
-techniques often do not support reliable wraparound arithmetic when a
-loop induction variable like <code>ic</code> is involved.  Since loop
-induction variables are generated by the compiler, and are not visible
-in the source code, it is not always trivial to say whether the problem
-affects your code.
+<p>По этой причине компиляторы, которые используют индукцию цикла и аналогичные
+методы, часто не поддерживают надежную арифметику цикла, когда задействована
+переменная индукции цикла, такая как <code>ic</code>. Поскольку переменные индукции
+цикла генерируются компилятором и не отображаются в исходном коде, не всегда
+легко сказать, влияет ли проблема на ваш код.  (ВопросOverflow224)
 </p>
-<p>Hardly any code actually depends on wraparound arithmetic in cases like
-these, so in practice these loop induction optimizations are almost
-always useful.  However, edge cases in this area can cause problems.
-For example:
+<p>Вряд ли какой-либо код на самом деле зависит от арифметики циклического
+преобразования в подобных случаях, поэтому на практике эти оптимизации
+индукции цикла почти всегда полезны.  Однако крайние случаи в этой области
+могут вызвать проблемы.  Например:
 </p>
 <div class="example">
 <pre class="example">int j;
@@ -6355,53 +6358,53 @@ for (j = 1; 0 &lt; j; j *= 2)
   test (j);
 </pre></div>
 
-<p>Here, the loop attempts to iterate through all powers of 2 that
-<code>int</code> can represent, but the C standard allows a compiler to
-optimize away the comparison and generate an infinite loop,
-under the argument that behavior is undefined on overflow.  As of this
-writing this optimization is not done by any production version of
-<acronym>GCC</acronym> with <samp>-O2</samp>, but it might be performed by other
-compilers, or by more aggressive <acronym>GCC</acronym> optimization options,
-and the <acronym>GCC</acronym> developers have not decided whether it will
-continue to work with <acronym>GCC</acronym> and <samp>-O2</samp>.
+<p>Здесь цикл пытается перебрать все степени двойки, которые может представлять
+<code>int</code>, но стандарт C позволяет компилятору оптимизировать сравнение и
+сгенерировать бесконечный цикл при условии, что поведение не определено при
+переполнении.  На момент написания этой статьи эта оптимизация не
+производилась ни одной производственной версии <acronym>GCC</acronym> с <samp>-O2</samp>,
+но могла выполняться другими компиляторами или более агрессивными вариантами
+оптимизации <acronym>GCC</acronym>, и разработчики <acronym>GCC</acronym> не решили, будет ли
+она продолжать работать с <acronym>GCC</acronym> и <samp>-O2</samp>. .
 </p>
 <hr>
 <span id="Signed-Overflow-Advice"></span><div class="header">
 <p>
 Next: <a href="#Signed-Integer-Division" accesskey="n" rel="next">Signed Integer Division</a>, Previous: <a href="#Optimization-and-Wraparound" accesskey="p" rel="prev">Optimization and Wraparound</a>, Up: <a href="#Overflow" accesskey="u" rel="up">Overflow</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Practical-Advice-for-Signed-Overflow-Issues"></span><h3 class="appendixsection">A.4 Practical Advice for Signed Overflow Issues</h3>
+<span id="Prakticheskie-Sovety-po-Voprosam-Podpisannogo-Perepolneniya"></span><h3 class="appendixsection">A.4 Практические Советы по Вопросам Подписанного Переполнения</h3>
 <span id="index-integer-overflow-2"></span>
 <span id="index-overflow_002c-signed-integer-2"></span>
 <span id="index-signed-integer-overflow-2"></span>
 <span id="index-wraparound-arithmetic-2"></span>
 
-<p>Ideally the safest approach is to avoid signed integer overflow
-entirely.  For example, instead of multiplying two signed integers, you
-can convert them to unsigned integers, multiply the unsigned values,
-then test whether the result is in signed range.
+<p>В идеале самый безопасный подход - полностью избежать переполнения целых
+чисел со знаком.  Например, вместо умножения двух целых чисел со знаком вы
+можете преобразовать их в целые числа без знака, умножить значения без знака,
+а затем проверить, находится ли результат в диапазоне со знаком.
 </p>
-<p>Rewriting code in this way will be inconvenient, though, particularly if
-the signed values might be negative.  Also, it may hurt
-performance.  Using unsigned arithmetic to check for overflow is
-particularly painful to do portably and efficiently when dealing with an
-integer type like <code>uid_t</code> whose width and signedness vary from
-platform to platform.
+<p>Однако переписывать код таким образом будет неудобно, особенно если значения
+со знаком могут быть отрицательными.  Кроме того, это может снизить
+производительность.  Использование беззнаковой арифметики для проверки
+переполнения особенно болезненно при переносимости и эффективности при работе
+с целочисленными типами, такими как <code>uid_t</code>, ширина и подписи которых
+варьируются от платформы к платформе.
 </p>
-<p>Furthermore, many C applications pervasively assume wraparound behavior
-and typically it is not easy to find and remove all these assumptions.
-Hence it is often useful to maintain nonstandard code that assumes
-wraparound on overflow, instead of rewriting the code.  The rest of this
-section attempts to give practical advice for this situation.
+<p>Более того, многие приложения C повсеместно предполагают циклическое
+поведение, и обычно нелегко найти и удалить все эти предположения.
+Следовательно, вместо того, чтобы переписывать код, часто бывает полезно
+поддерживать нестандартный код, предполагающий циклический переход при
+переполнении.  В оставшейся части этого раздела делается попытка дать
+практические советы для этой ситуации.
 </p>
-<p>If your code wants to detect signed integer overflow in <code>sum = a +
-b</code>, it is generally safe to use an expression like <code>(sum &lt; a) != (b
-&lt; 0)</code>.
+<p>Если ваш код хочет обнаружить целочисленное переполнение со знаком в
+<code>sum = a + b</code>, обычно безопасно использовать выражение, подобное
+<code>(sum &lt; a) != (b &lt; 0)</code>.
 </p>
-<p>If your code uses a signed loop index, make sure that the index cannot
-overflow, along with all signed expressions derived from the index.
-Here is a contrived example of problematic code with two instances of
-overflow.
+<p>Если в вашем коде используется индекс цикла со знаком, убедитесь, что индекс
+не может переполниться вместе со всеми выражениями со знаком, полученными из
+индекса.  Вот надуманный пример проблемного кода с двумя случаями
+переполнения.
 </p>
 <div class="example">
 <pre class="example">for (i = INT_MAX - 10; i &lt;= INT_MAX; i++)
@@ -6412,42 +6415,40 @@ overflow.
     }
 </pre></div>
 
-<p>Because of the two overflows, a compiler might optimize away or
-transform the two comparisons in a way that is incompatible with the
-wraparound assumption.
+<p>Из-за двух переполнений компилятор может оптимизировать или преобразовать
+два сравнения способом, несовместимым с допущением обертывания.
 </p>
-<p>If your code uses an expression like <code>(i * 2000) / 1000</code> and you
-actually want the multiplication to wrap around on overflow, use
-unsigned arithmetic
-to do it, e.g., <code>((int) (i * 2000u)) / 1000</code>.
+<p>Если в коде используется такое выражение, как <code>(i * 2000) / 1000</code>, и
+действительно требуется, чтобы умножение повторялось при переполнении,
+используется для этого беззнаковая арифметика, например,
+<code>((int) (i * 2000u)) / 1000</code>.
 </p>
-<p>If your code assumes wraparound behavior and you want to insulate it
-against any <acronym>GCC</acronym> optimizations that would fail to support that
-behavior, you should use <acronym>GCC</acronym>&rsquo;s <samp>-fwrapv</samp> option, which
-causes signed overflow to wrap around reliably (except for division and
-remainder, as discussed in the next section).
+<p>Если код предполагает циклическое поведение и нужно изолировать его от любых
+оптимизаций <acronym>GCC</acronym>, которые не смогут поддерживать это поведение,
+огда используется опция <acronym>GCC</acronym>&rsquo;s <samp>-fwrapv</samp>, которая заставляет
+подписанное переполнение надежно переноситься (за исключением омтатка от
+деления, как обсуждается в следующем раздел).
 </p>
-<p>If you need to port to platforms where signed integer overflow does not
-reliably wrap around (e.g., due to hardware overflow checking, or to
-highly aggressive optimizations), you should consider debugging with
-<acronym>GCC</acronym>&rsquo;s <samp>-ftrapv</samp> option, which causes signed overflow to
-raise an exception.
+<p>Если нужно выполнить перенос на платформы, где подписанное целочисленное
+переполнение не надежно завершается (например, из-за проверки аппаратного
+переполнения или из-за очень агрессивных оптимизаций), следует рассмотреть
+возможность отладки с опцией <acronym>GCC</acronym>&rsquo;s <samp>-ftrapv</samp>, которая
+вызывает подписанное переполнение, вызывающее исключение.
 </p>
 <hr>
 <span id="Signed-Integer-Division"></span><div class="header">
 <p>
 Previous: <a href="#Signed-Overflow-Advice" accesskey="p" rel="prev">Signed Overflow Advice</a>, Up: <a href="#Overflow" accesskey="u" rel="up">Overflow</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Signed-Integer-Division-and-Integer-Overflow"></span><h3 class="appendixsection">A.5 Signed Integer Division and Integer Overflow</h3>
+<span id="Celochislennoe-Delenie-so-Znakom-i-Celochislennoe-Perepolnenie"></span><h3 class="appendixsection">A.5 Целочисленное Деление со Знаком и Целочисленное Переполнение</h3>
 <span id="index-division_002c-integer"></span>
 
-<p>Overflow in signed
-integer division is not always harmless: for example, on CPUs of the
-i386 family, dividing <code>INT_MIN</code> by <code>-1</code> yields a SIGFPE signal
-which by default terminates the program.  Worse, taking the remainder
-of these two values typically yields the same signal on these CPUs,
-even though the C standard requires <code>INT_MIN % -1</code> to yield zero
-because the expression does not overflow.
+<p>Переполнение при целочисленном делении со знаком не всегда безобидно:
+например, на процессорах семейства i386 деление <code>INT_MIN</code> на <code>-1</code>
+дает сигнал SIGFPE, который по умолчанию завершает программу.  Хуже того,
+получение оставшейся части этих двух значений обычно дает один и тот же
+сигнал для этих процессоров, даже несмотря на то, что стандарт C требует, что
+бы <code>INT_MIN % -1</code> возвращал ноль, потому что выражение не переполняется.
 </p>
 <hr>
 <span id="GNU-Free-Documentation-License"></span><div class="header">
