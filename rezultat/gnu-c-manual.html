@@ -55,7 +55,7 @@ ul.no-bullet {list-style: none}
 <div class="contents">
 
 <ul class="no-bullet">
-  <li><a id="toc-Preface-1" href="#Preface">Preface</a>
+  <li><a id="toc-Predislovie" href="#Preface">Предисловие</a>
   <ul class="no-bullet">
     <li><a id="toc-Credits" href="#Credits">Credits</a></li>
   </ul></li>
@@ -202,7 +202,7 @@ ul.no-bullet {list-style: none}
     <li><a id="toc-Struktura-Programmy" href="#Program-Structure">6.1 Структура Программы</a></li>
     <li><a id="toc-Svyazka" href="#Scope">6.2 Связка</a></li>
   </ul></li>
-  <li><a id="toc-A-Sample-Program-1" href="#A-Sample-Program">7 A Sample Program</a>
+  <li><a id="toc-Primery-Programm" href="#A-Sample-Program">7 Примеры Программ</a>
   <ul class="no-bullet">
     <li><a id="toc-hello_002ec-1" href="#hello_002ec">7.1 <code>hello.c</code></a></li>
     <li><a id="toc-system_002eh-1" href="#system_002eh">7.2 <code>system.h</code></a></li>
@@ -261,39 +261,40 @@ Next: <a href="#Preface" accesskey="n" rel="next">Preface</a> &nbsp; [<a href="#
 <p>
 Next: <a href="#Lexical-Elements" accesskey="n" rel="next">Lexical Elements</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Preface-1"></span><h2 class="unnumbered">Preface</h2>
+<span id="Predislovie"></span><h2 class="unnumbered">Предисловие</h2>
 <span id="index-preface"></span>
 
-<p>This is a reference manual for the C programming language as implemented
-by the GNU Compiler Collection (GCC). Specifically, this manual aims to
-document:
+<p>Это справочное руководство по языку программирования C, реализованному в GNU
+Compiler Collection (GCC). В частности, это руководство направлено на
+документирование:
 </p>
 <ul>
-<li> The 1989 ANSI C standard, commonly known as &ldquo;C89&rdquo;
-</li><li> The 1999 ISO C standard, commonly known as &ldquo;C99&rdquo;, to the extent that C99 is implemented by GCC
-</li><li> The current state of GNU extensions to standard C
+<li> Стандарт ANSI C 1989 года, широко известный как &ldquo;C89&rdquo;
+</li><li> Стандарт ISO C 1999 года, широко известный как &ldquo;C99&rdquo;, в той степени,
+в которой C99 реализуется через GCC
+</li><li> Текущее состояние расширений GNU для стандарта C
 
 </li></ul>
 
-<p>This manual describes C89 as its baseline. C99 features and GNU extensions are
-explicitly labeled as such.
+<p>В этом руководстве C89 рассматривается как базовый.  Возможности C99 и
+расширения GNU явно обозначены.
 </p>
-<p>By default, GCC will compile code as C89 plus GNU-specific extensions.  Much
-of C99 is supported; once full support is available, the default compilation
-dialect will be C99 plus GNU-specific extensions.  (Some of the
-GNU extensions to C89 ended up, sometimes slightly modified, as standard
-language features in C99.)
+<p>По умолчанию GCC компилирует код как C89 плюс расширения GNU.  Поддерживается
+большая часть C99; как только станет доступна полная поддержка, диалект
+компиляции по умолчанию будет C99 плюс специфичные для GNU расширения.
+(Некоторые из расширений GNU для C89 в конечном итоге, иногда слегка
+измененные, стали стандартными языковыми функциями в C99.)
 </p>
-<p>The C language includes a set of preprocessor directives, which are used for
-things such as macro text replacement, conditional compilation, and file
-inclusion.  Although normally described in a C language manual, the GNU C 
-preprocessor has been thoroughly documented in <cite>The C Preprocessor</cite>,
-a separate manual which covers preprocessing for C, C++, and Objective-C
-programs, so it is not included here.
+<p>Язык C включает набор директив препроцессора, которые используются для таких
+вещей, как замена текста макроса, условная компиляция и включение файлов.
+Хотя обычно препроцессор GNU C описывается в руководстве по языку C, он
+подробно описан в <cite>The C Preprocessor</cite>, отдельном руководстве, которое
+охватывает предварительную обработку для программ C, C++, и Objective-C,
+поэтому здесь он не включен.
 </p>
 <span id="Credits"></span><h3 class="section">Credits</h3>
-<p>Thanks to everyone who has helped with editing, proofreading, ideas,
-typesetting, and administrivia, including: Diego Andres Alvarez Marin,
+<p>Спасибо всем, кто помогал с редактированием, корректурой, идеями, набором и
+администрированием, включая: Diego Andres Alvarez Marin,
 Nelson H.&nbsp;F.&nbsp;Beebe, Karl Berry, Robert Chassell, Hanfeng
 Chen, Mark de Volld, Antonio Diaz Diaz, dine, Andreas Foerster, Denver
 Gingerich, Lisa Goldstein, Robert Hansen, Jean-Christophe Helary,
@@ -302,14 +303,14 @@ Dutch Ingraham, Adam Johansen, Vladimir Kadlec, Benjamin Kagia, Dright
 Kayorent, Sugun Kedambadi, Felix Lee, Bjorn Liencres, Steve
 Morningthunder, Aljosha Papsch, Matthew Plant, Jonathan Sisti, Richard
 Stallman, J.&nbsp;Otto Tennant, Ole Tetlie, Keith Thompson,
-T.F. Torrey, James Youngman, and Steve Zachar. Trevis Rothwell serves
-as project maintainer and, along with James Youngman, wrote the bulk
-of the text.
+T.F. Torrey, James Youngman, и Steve Zachar.  Тревис Ротвелл выполняет
+функции сопровождающего проекта и вместе с Джеймсом Янгманом написал
+основную часть текста.
 </p>
-<p>Some example programs are based on algorithms in Donald Knuth&rsquo;s <cite>The Art
-of Computer Programming</cite>.
+<p>Некоторые примеры программ основаны на алгоритмах из Donald Knuth&rsquo;s
+<cite>The Art of Computer Programming</cite>.
 </p>
-<p>Please send bug reports and suggestions to <a href="mailto:gnu-c-manual@gnu.org">gnu-c-manual@gnu.org</a>.
+<p>Присылайте отчеты об ошибках и предложения на <a href="mailto:gnu-c-manual@gnu.org">gnu-c-manual@gnu.org</a>.
 </p>
 
 <hr>
@@ -5830,20 +5831,21 @@ int y = 5;
 <p>
 Next: <a href="#Overflow" accesskey="n" rel="next">Overflow</a>, Previous: <a href="#Program-Structure-and-Scope" accesskey="p" rel="prev">Program Structure and Scope</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="A-Sample-Program-1"></span><h2 class="chapter">7 A Sample Program</h2>
+<span id="Primery-Programm"></span><h2 class="chapter">7 Примеры Программ</h2>
 <span id="index-sample-program"></span>
 <span id="index-hello-program"></span>
 
-<p>To conclude our description of C, here is a complete program written in C, 
-consisting of both a C source file and a header file.  This
-program is an expanded version of the quintessential &ldquo;hello world&rdquo; program, and
-serves as an example of how to format and structure C code for use in programs
-for FSF Project GNU.  (You can always download the most recent version of this
-program, including sample makefiles and other examples of how to produce GNU
-software, from <code>http://www.gnu.org/software/hello</code>.)
+<p>Чтобы завершить наше описание C, вот полная программа, написанная на C,
+состоящая как из исходного файла C, так и из файла заголовка.  Эта программа
+является расширенной версией типичной программы &ldquo;привет мир&rdquo; и служит
+примером того, как форматировать и структурировать код C для использования в
+программах для FSF Project GNU.  (Вы всегда можете загрузить самую последнюю
+версию этой программы, включая образцы make-файлов и другие примеры создания
+программного обеспечения GNU, с <code>http://www.gnu.org/software/hello</code>.)
 </p>
-<p>This program uses features of the preprocessor; for a description of preprocessor
-macros, see <cite>The C Preprocessor</cite>, available as part of the GCC documentation.
+<p>Эта программа использует возможности препроцессора; для описания макросов
+препроцессора смотреть <cite>The C Preprocessor</cite>, доступна как часть
+документации GCC.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#hello_002ec" accesskey="1">hello.c</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -5862,29 +5864,29 @@ Next: <a href="#system_002eh" accesskey="n" rel="next">system.h</a>, Up: <a href
 <span id="index-hello_002ec"></span>
 
 <div class="example">
-<pre class="example">/* hello.c -- print a greeting message and exit.
+<pre class="example">/* hello.c -- распечатать приветственное сообщение и выйти.
 
    Copyright (C) 1992, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
    2005, 2006, 2007 Free Software Foundation, Inc.
 
-   This program is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3, or (at your option)
-   any later version.
+   Это бесплатное программное обеспечение; вы можете распространять и/или
+   изменять его в соответствии с условиями Стандартной общественной лицензии
+   GNU, опубликованной Free Software Foundation; либо версии 3, либо (по
+   вашему выбору) любой более поздней версии.
 
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
+   Эта программа распространяется в надежде, что она будет полезной, но
+   БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемой гарантии
+   КОММЕРЧЕСКОЙ ЦЕННОСТИ или ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ. Подробнее
+   смотреть Стандартную общественную лицензию GNU.
 
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software Foundation,
+   Вы должны были получить копию Стандартной общественной лицензии GNU вместе
+   с этой программой; если нет, напишите в Free Software Foundation,
    Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.  */
 
 #include &lt;config.h&gt;
 #include &quot;system.h&quot;
 
-/* String containing name the program is called with.  */
+/* Строка, содержащая имя, с которым вызывается программа.  */
 const char *program_name;
 
 static const struct option longopts[] =
@@ -5909,27 +5911,27 @@ main (int argc, char *argv[])
 
   program_name = argv[0];
 
-  /* Set locale via LC_ALL.  */
+  /* Установить локаль через LC_ALL.  */
   setlocale (LC_ALL, &quot;&quot;);
 
 #if ENABLE_NLS
-  /* Set the text message domain.  */
+  /* Установить домен текстового сообщения.  */
   bindtextdomain (PACKAGE, LOCALEDIR);
   textdomain (PACKAGE);
 #endif
 
-  /* Even exiting has subtleties.  The /dev/full device on GNU/Linux
-     can be used for testing whether writes are checked properly.  For
-     instance, hello &gt;/dev/full should exit unsuccessfully.  On exit,
-     if any writes failed, change the exit status.  This is
-     implemented in the Gnulib module &quot;closeout&quot;.  */
+  /* Даже у вывода есть свои тонкости.  Устройство /dev/full на GNU/Linux
+  можно использовать для проверки правильности проверки записи.  Например,
+  hello &gt;/dev/full должно завершиться неудачно.  При выходе, если какая-либо
+  запись не удалась, измените статус возврата.  Это реализовано в модуле
+  Gnulib &quot;closeout&quot;..  */
   atexit (close_stdout);
 
   while ((optc = getopt_long (argc, argv, &quot;g:hntv&quot;, longopts, NULL)) != -1)
     switch (optc)
       {
-      /* One goal here is having --help and --version exit immediately,
-         per GNU coding standards.  */
+      /* Одна из целей здесь - немедленный выход после --help и --version в
+      соответствии со стандартами кодирования GNU.  */
       case 'v':
         print_version ();
         exit (EXIT_SUCCESS);
@@ -5954,36 +5956,36 @@ main (int argc, char *argv[])
 
   if (lose || optind &lt; argc)
     {
-      /* Print error message and exit.  */
+      /* Распечатать сообщение об ошибке и выйти.  */
       if (optind &lt; argc)
-        fprintf (stderr, _(&quot;%s: extra operand: %s\n&quot;),
+        fprintf (stderr, _(&quot;%s: дополнительный операнд: %s\n&quot;),
 		 program_name, argv[optind]);
-      fprintf (stderr, _(&quot;Try `%s --help' for more information.\n&quot;),
+      fprintf (stderr, _(&quot;Попробуйте `%s --help' для доп. информации.\n&quot;),
                program_name);
       exit (EXIT_FAILURE);
     }
 
-  /* Print greeting message and exit. */
+  /* Распечатать сообщение приветствия и выйти. */
   if (t)
-    printf (_(&quot;hello, world\n&quot;));
+    printf (_(&quot;привет, мир\n&quot;));
 
   else if (n)
-    /* TRANSLATORS: Use box drawing characters or other fancy stuff
-       if your encoding (e.g., UTF-8) allows it.  If done so add the
-       following note, please:
+    /* ПЕРЕВОДЧИКИ: используйте символы рисования прямоугольников или другие
+    причудливые вещи, если ваша кодировка (например, UTF-8) это позволяет.
+    В этом случае добавьте следующее примечание:
 
-       [Note: For best viewing results use a UTF-8 locale, please.]
+       [Примечание.  Для наилучшего просмотра используйте локаль UTF-8.]
     */
 	printf (_(&quot;\
 +---------------+\n\
-| Hello, world! |\n\
+| Привет, мир!  |\n\
 +---------------+\n\
 &quot;));
 
   else
     {
       if (!greeting)
-        greeting = _(&quot;Hello, world!&quot;);
+        greeting = _(&quot;Привет, мир!&quot;);
       puts (greeting);
     }
   
@@ -5992,29 +5994,28 @@ main (int argc, char *argv[])
 
 
 &#12;
-/* Print help info.  This long message is split into
-   several pieces to help translators be able to align different
-   blocks and identify the various pieces.  */
+/* Распечатать справочную информацию.  Это длинное сообщение разделено на
+несколько частей, чтобы переводчики могли выровнять разные блоки и
+идентифицировать различные части.  */
 
 static void
 print_help (void)
 {
-  /* TRANSLATORS: --help output 1 (synopsis)
-     no-wrap */
+  /* ПЕРЕВОДЧИКИ: --help output 1 (synopsis) не-заворачивать */
         printf (_(&quot;\
-Usage: %s [OPTION]...\n&quot;), program_name);
+Использовать: %s [OPTION]...\n&quot;), program_name);
 
-  /* TRANSLATORS: --help output 2 (brief description)
-     no-wrap */
+  /* ПЕРЕВОДЧИКИ: --help output 2 (краткое описание)
+     не-оборачивать */
   fputs (_(&quot;\
-Print a friendly, customizable greeting.\n&quot;), stdout);
+Распечатайте дружелюбное, настраиваемое приветствие.\n&quot;), stdout);
 
   puts (&quot;&quot;);
-  /* TRANSLATORS: --help output 3: options 1/2
-     no-wrap */
+  /* ПЕРЕВОДЧИКИ: --help вывод 3: опции 1/2
+     не-оборачивать */
   fputs (_(&quot;\
-  -h, --help          display this help and exit\n\
-  -v, --version       display version information and exit\n&quot;), stdout);
+  -h, --help          отобразить эту справку и выйти\n\
+  -v, --version       отобразить информацию о версии и выйти\n&quot;), stdout);
 
   puts (&quot;&quot;);
   /* TRANSLATORS: --help output 4: options 2/2
@@ -6022,38 +6023,39 @@ Print a friendly, customizable greeting.\n&quot;), stdout);
   fputs (_(&quot;\
   -t, --traditional       use traditional greeting format\n\
   -n, --next-generation   use next-generation greeting format\n\
-  -g, --greeting=TEXT     use TEXT as the greeting message\n&quot;), stdout);
+  -g, --greeting=TEXT     TEXT текст сообщения приветствия\n&quot;), stdout);
 
   printf (&quot;\n&quot;);
-  /* TRANSLATORS: --help output 5 (end)
-     TRANSLATORS: the placeholder indicates the bug-reporting address
-     for this application.  Please add _another line_ with the
-     address for translation bugs.
-     no-wrap */
+  /* ПЕРЕВОДЧИКИ: --help вывод 5 (завершить)
+     ПЕРЕВОДЧИКИ: заполнитель указывает адрес сообщения об ошибке для
+     этого приложения.  Пожалуйста, добавьте _another line_ с адресом для
+     ошибок перевода.
+     не-оборачивать */
   printf (_(&quot;\
 Report bugs to &lt;%s&gt;.\n&quot;), PACKAGE_BUGREPORT);
 }
 
 
 &#12;
-/* Print version and copyright information.  */
+/* Версия для печати и информация об авторских правах.  */
 
 static void
 print_version (void)
 {
-  printf (&quot;hello (GNU %s) %s\n&quot;, PACKAGE, VERSION);
+  printf (&quot;привет (GNU %s) %s\n&quot;, PACKAGE, VERSION);
   /* xgettext: no-wrap */
   puts (&quot;&quot;);
   
-  /* It is important to separate the year from the rest of the message,
-     as done here, to avoid having to retranslate the message when a new
-     year comes around.  */
+  /* Важно отделить год от остальной части сообщения, как это сделано здесь,
+  чтобы избежать необходимости повторно переводить сообщение, когда
+  наступает новый год.  */
   printf (_(&quot;\
 Copyright (C) %s Free Software Foundation, Inc.\n\
 License GPLv3+: GNU GPL version 3 or later\
 &lt;http://gnu.org/licenses/gpl.html&gt;\n\
-This is free software: you are free to change and redistribute it.\n\
-There is NO WARRANTY, to the extent permitted by law.\n&quot;),
+Это бесплатное программное обеспечение: можно изменять и\
+распространять его.\n\
+НИКАКИХ ГАРАНТИЙ в пределах, разрешенных законом..\n&quot;),
               &quot;2007&quot;);
 }
 </pre></div>
@@ -6068,43 +6070,45 @@ Previous: <a href="#hello_002ec" accesskey="p" rel="prev">hello.c</a>, Up: <a hr
 <span id="index-system_002eh"></span>
 
 <div class="example">
-<pre class="example">/* system.h: system-dependent declarations; include this first.
+<pre class="example">/* system.h: системно-зависимые объявления; включите это в первую очередь.
+   Copyright (C) 1992, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
+   2005, 2006, 2007 Free Software Foundation, Inc.
+
+   Это бесплатное программное обеспечение; вы можете распространять и/или
+   изменять его в соответствии с условиями Стандартной общественной лицензии
+   GNU, опубликованной Free Software Foundation; либо версии 3, либо (по
+   вашему выбору) любой более поздней версии.
+
+   Эта программа распространяется в надежде, что она будет полезной, но
+   БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемой гарантии
+   КОММЕРЧЕСКОЙ ЦЕННОСТИ или ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ. Подробнее
+   смотреть Стандартную общественную лицензию GNU.
+
+   Вы должны были получить копию Стандартной общественной лицензии GNU вместе
+   с этой программой; если нет, напишите в Free Software Foundation,
+   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
    Copyright (C) 1996, 2005, 2006, 2007 Free Software Foundation, Inc.
-
-   This program is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3, or (at your option)
-   any later version.
-
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software Foundation,
-   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.  */
 
 #ifndef HELLO_SYSTEM_H
 #define HELLO_SYSTEM_H
 
-/* Assume ANSI C89 headers are available.  */
+/* Предположим, что заголовки ANSI C89 доступны.  */
 #include &lt;locale.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
 
-/* Use POSIX headers.  If they are not available, we use the substitute
-   provided by gnulib.  */
+/* Используйте заголовки POSIX.  Если они недоступны, мы используем замену,
+предоставленную gnulib.  */
 #include &lt;getopt.h&gt;
 #include &lt;unistd.h&gt;
 
-/* Internationalization.  */
+/* Интернационализация.  */
 #include &quot;gettext.h&quot;
 #define _(str) gettext (str)
 #define N_(str) gettext_noop (str)
 
-/* Check for errors on write.  */
+/* Проверить на наличие ошибок при записи.  */
 #include &quot;closeout.h&quot;
 
 #endif /* HELLO_SYSTEM_H */

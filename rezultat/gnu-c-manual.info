@@ -35,39 +35,40 @@ GNU C Справочное руководство
 
 File: gnu-c-manual.info,  Node: Preface,  Next: Lexical Elements,  Prev: Top,  Up: Top
 
-Preface
-*******
+Предисловие
+***********
 
-This is a reference manual for the C programming language as implemented
-by the GNU Compiler Collection (GCC). Specifically, this manual aims to
-document:
+Это справочное руководство по языку программирования C, реализованному в
+GNU Compiler Collection (GCC). В частности, это руководство направлено
+на документирование:
 
-   * The 1989 ANSI C standard, commonly known as "C89"
-   * The 1999 ISO C standard, commonly known as "C99", to the extent
-     that C99 is implemented by GCC
-   * The current state of GNU extensions to standard C
+   * Стандарт ANSI C 1989 года, широко известный как "C89"
+   * Стандарт ISO C 1999 года, широко известный как "C99", в той
+     степени, в которой C99 реализуется через GCC
+   * Текущее состояние расширений GNU для стандарта C
 
-This manual describes C89 as its baseline.  C99 features and GNU
-extensions are explicitly labeled as such.
+В этом руководстве C89 рассматривается как базовый.  Возможности C99 и
+расширения GNU явно обозначены.
 
-   By default, GCC will compile code as C89 plus GNU-specific
-extensions.  Much of C99 is supported; once full support is available,
-the default compilation dialect will be C99 plus GNU-specific
-extensions.  (Some of the GNU extensions to C89 ended up, sometimes
-slightly modified, as standard language features in C99.)
+   По умолчанию GCC компилирует код как C89 плюс расширения GNU.
+Поддерживается большая часть C99; как только станет доступна полная
+поддержка, диалект компиляции по умолчанию будет C99 плюс специфичные
+для GNU расширения.  (Некоторые из расширений GNU для C89 в конечном
+итоге, иногда слегка измененные, стали стандартными языковыми функциями
+в C99.)
 
-   The C language includes a set of preprocessor directives, which are
-used for things such as macro text replacement, conditional compilation,
-and file inclusion.  Although normally described in a C language manual,
-the GNU C preprocessor has been thoroughly documented in 'The C
-Preprocessor', a separate manual which covers preprocessing for C, C++,
-and Objective-C programs, so it is not included here.
+   Язык C включает набор директив препроцессора, которые используются
+для таких вещей, как замена текста макроса, условная компиляция и
+включение файлов.  Хотя обычно препроцессор GNU C описывается в
+руководстве по языку C, он подробно описан в 'The C Preprocessor',
+отдельном руководстве, которое охватывает предварительную обработку для
+программ C, C++, и Objective-C, поэтому здесь он не включен.
 
 Credits
 =======
 
-Thanks to everyone who has helped with editing, proofreading, ideas,
-typesetting, and administrivia, including: Diego Andres Alvarez Marin,
+Спасибо всем, кто помогал с редактированием, корректурой, идеями,
+набором и администрированием, включая: Diego Andres Alvarez Marin,
 Nelson H. F. Beebe, Karl Berry, Robert Chassell, Hanfeng Chen, Mark de
 Volld, Antonio Diaz Diaz, dine, Andreas Foerster, Denver Gingerich, Lisa
 Goldstein, Robert Hansen, Jean-Christophe Helary, Mogens Hetsholm, Teddy
@@ -75,14 +76,14 @@ Hogeborn, Joe Humphries, J. Wren Hunt, Dutch Ingraham, Adam Johansen,
 Vladimir Kadlec, Benjamin Kagia, Dright Kayorent, Sugun Kedambadi, Felix
 Lee, Bjorn Liencres, Steve Morningthunder, Aljosha Papsch, Matthew
 Plant, Jonathan Sisti, Richard Stallman, J. Otto Tennant, Ole Tetlie,
-Keith Thompson, T.F. Torrey, James Youngman, and Steve Zachar.  Trevis
-Rothwell serves as project maintainer and, along with James Youngman,
-wrote the bulk of the text.
+Keith Thompson, T.F. Torrey, James Youngman, и Steve Zachar.  Тревис
+Ротвелл выполняет функции сопровождающего проекта и вместе с Джеймсом
+Янгманом написал основную часть текста.
 
-   Some example programs are based on algorithms in Donald Knuth's 'The
-Art of Computer Programming'.
+   Некоторые примеры программ основаны на алгоритмах из Donald Knuth's
+'The Art of Computer Programming'.
 
-   Please send bug reports and suggestions to <gnu-c-manual@gnu.org>.
+   Присылайте отчеты об ошибках и предложения на <gnu-c-manual@gnu.org>.
 
 
 File: gnu-c-manual.info,  Node: Lexical Elements,  Next: Data Types,  Prev: Preface,  Up: Top
@@ -4544,21 +4545,21 @@ File: gnu-c-manual.info,  Node: Scope,  Prev: Program Structure,  Up: Program St
 
 File: gnu-c-manual.info,  Node: A Sample Program,  Next: Overflow,  Prev: Program Structure and Scope,  Up: Top
 
-7 A Sample Program
+7 Примеры Программ
 ******************
 
-To conclude our description of C, here is a complete program written in
-C, consisting of both a C source file and a header file.  This program
-is an expanded version of the quintessential "hello world" program, and
-serves as an example of how to format and structure C code for use in
-programs for FSF Project GNU. (You can always download the most recent
-version of this program, including sample makefiles and other examples
-of how to produce GNU software, from
+Чтобы завершить наше описание C, вот полная программа, написанная на C,
+состоящая как из исходного файла C, так и из файла заголовка.  Эта
+программа является расширенной версией типичной программы "привет мир" и
+служит примером того, как форматировать и структурировать код C для
+использования в программах для FSF Project GNU. (Вы всегда можете
+загрузить самую последнюю версию этой программы, включая образцы
+make-файлов и другие примеры создания программного обеспечения GNU, с
 'http://www.gnu.org/software/hello'.)
 
-   This program uses features of the preprocessor; for a description of
-preprocessor macros, see 'The C Preprocessor', available as part of the
-GCC documentation.
+   Эта программа использует возможности препроцессора; для описания
+макросов препроцессора смотреть 'The C Preprocessor', доступна как часть
+документации GCC.
 
 * Menu:
 
@@ -4571,29 +4572,29 @@ File: gnu-c-manual.info,  Node: hello.c,  Next: system.h,  Up: A Sample Program
 7.1 'hello.c'
 =============
 
-     /* hello.c -- print a greeting message and exit.
+     /* hello.c -- распечатать приветственное сообщение и выйти.
 
         Copyright (C) 1992, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
         2005, 2006, 2007 Free Software Foundation, Inc.
 
-        This program is free software; you can redistribute it and/or modify
-        it under the terms of the GNU General Public License as published by
-        the Free Software Foundation; either version 3, or (at your option)
-        any later version.
+        Это бесплатное программное обеспечение; вы можете распространять и/или
+        изменять его в соответствии с условиями Стандартной общественной лицензии
+        GNU, опубликованной Free Software Foundation; либо версии 3, либо (по
+        вашему выбору) любой более поздней версии.
 
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
+        Эта программа распространяется в надежде, что она будет полезной, но
+        БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемой гарантии
+        КОММЕРЧЕСКОЙ ЦЕННОСТИ или ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ. Подробнее
+        смотреть Стандартную общественную лицензию GNU.
 
-        You should have received a copy of the GNU General Public License
-        along with this program; if not, write to the Free Software Foundation,
+        Вы должны были получить копию Стандартной общественной лицензии GNU вместе
+        с этой программой; если нет, напишите в Free Software Foundation,
         Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.  */
 
      #include <config.h>
      #include "system.h"
 
-     /* String containing name the program is called with.  */
+     /* Строка, содержащая имя, с которым вызывается программа.  */
      const char *program_name;
 
      static const struct option longopts[] =
@@ -4618,27 +4619,27 @@ File: gnu-c-manual.info,  Node: hello.c,  Next: system.h,  Up: A Sample Program
 
        program_name = argv[0];
 
-       /* Set locale via LC_ALL.  */
+       /* Установить локаль через LC_ALL.  */
        setlocale (LC_ALL, "");
 
      #if ENABLE_NLS
-       /* Set the text message domain.  */
+       /* Установить домен текстового сообщения.  */
        bindtextdomain (PACKAGE, LOCALEDIR);
        textdomain (PACKAGE);
      #endif
 
-       /* Even exiting has subtleties.  The /dev/full device on GNU/Linux
-          can be used for testing whether writes are checked properly.  For
-          instance, hello >/dev/full should exit unsuccessfully.  On exit,
-          if any writes failed, change the exit status.  This is
-          implemented in the Gnulib module "closeout".  */
+       /* Даже у вывода есть свои тонкости.  Устройство /dev/full на GNU/Linux
+       можно использовать для проверки правильности проверки записи.  Например,
+       hello >/dev/full должно завершиться неудачно.  При выходе, если какая-либо
+       запись не удалась, измените статус возврата.  Это реализовано в модуле
+       Gnulib "closeout"..  */
        atexit (close_stdout);
 
        while ((optc = getopt_long (argc, argv, "g:hntv", longopts, NULL)) != -1)
          switch (optc)
            {
-           /* One goal here is having --help and --version exit immediately,
-              per GNU coding standards.  */
+           /* Одна из целей здесь - немедленный выход после --help и --version в
+           соответствии со стандартами кодирования GNU.  */
            case 'v':
              print_version ();
              exit (EXIT_SUCCESS);
@@ -4663,36 +4664,36 @@ File: gnu-c-manual.info,  Node: hello.c,  Next: system.h,  Up: A Sample Program
 
        if (lose || optind < argc)
          {
-           /* Print error message and exit.  */
+           /* Распечатать сообщение об ошибке и выйти.  */
            if (optind < argc)
-             fprintf (stderr, _("%s: extra operand: %s\n"),
+             fprintf (stderr, _("%s: дополнительный операнд: %s\n"),
      		 program_name, argv[optind]);
-           fprintf (stderr, _("Try `%s --help' for more information.\n"),
+           fprintf (stderr, _("Попробуйте `%s --help' для доп. информации.\n"),
                     program_name);
            exit (EXIT_FAILURE);
          }
 
-       /* Print greeting message and exit. */
+       /* Распечатать сообщение приветствия и выйти. */
        if (t)
-         printf (_("hello, world\n"));
+         printf (_("привет, мир\n"));
 
        else if (n)
-         /* TRANSLATORS: Use box drawing characters or other fancy stuff
-            if your encoding (e.g., UTF-8) allows it.  If done so add the
-            following note, please:
+         /* ПЕРЕВОДЧИКИ: используйте символы рисования прямоугольников или другие
+         причудливые вещи, если ваша кодировка (например, UTF-8) это позволяет.
+         В этом случае добавьте следующее примечание:
 
-            [Note: For best viewing results use a UTF-8 locale, please.]
+            [Примечание.  Для наилучшего просмотра используйте локаль UTF-8.]
          */
      	printf (_("\
      +---------------+\n\
-     | Hello, world! |\n\
+     | Привет, мир!  |\n\
      +---------------+\n\
      "));
 
        else
          {
            if (!greeting)
-             greeting = _("Hello, world!");
+             greeting = _("Привет, мир!");
            puts (greeting);
          }
 
@@ -4701,29 +4702,28 @@ File: gnu-c-manual.info,  Node: hello.c,  Next: system.h,  Up: A Sample Program
 
 
 
-     /* Print help info.  This long message is split into
-        several pieces to help translators be able to align different
-        blocks and identify the various pieces.  */
+     /* Распечатать справочную информацию.  Это длинное сообщение разделено на
+     несколько частей, чтобы переводчики могли выровнять разные блоки и
+     идентифицировать различные части.  */
 
      static void
      print_help (void)
      {
-       /* TRANSLATORS: --help output 1 (synopsis)
-          no-wrap */
+       /* ПЕРЕВОДЧИКИ: --help output 1 (synopsis) не-заворачивать */
              printf (_("\
-     Usage: %s [OPTION]...\n"), program_name);
+     Использовать: %s [OPTION]...\n"), program_name);
 
-       /* TRANSLATORS: --help output 2 (brief description)
-          no-wrap */
+       /* ПЕРЕВОДЧИКИ: --help output 2 (краткое описание)
+          не-оборачивать */
        fputs (_("\
-     Print a friendly, customizable greeting.\n"), stdout);
+     Распечатайте дружелюбное, настраиваемое приветствие.\n"), stdout);
 
        puts ("");
-       /* TRANSLATORS: --help output 3: options 1/2
-          no-wrap */
+       /* ПЕРЕВОДЧИКИ: --help вывод 3: опции 1/2
+          не-оборачивать */
        fputs (_("\
-       -h, --help          display this help and exit\n\
-       -v, --version       display version information and exit\n"), stdout);
+       -h, --help          отобразить эту справку и выйти\n\
+       -v, --version       отобразить информацию о версии и выйти\n"), stdout);
 
        puts ("");
        /* TRANSLATORS: --help output 4: options 2/2
@@ -4731,38 +4731,39 @@ File: gnu-c-manual.info,  Node: hello.c,  Next: system.h,  Up: A Sample Program
        fputs (_("\
        -t, --traditional       use traditional greeting format\n\
        -n, --next-generation   use next-generation greeting format\n\
-       -g, --greeting=TEXT     use TEXT as the greeting message\n"), stdout);
+       -g, --greeting=TEXT     TEXT текст сообщения приветствия\n"), stdout);
 
        printf ("\n");
-       /* TRANSLATORS: --help output 5 (end)
-          TRANSLATORS: the placeholder indicates the bug-reporting address
-          for this application.  Please add _another line_ with the
-          address for translation bugs.
-          no-wrap */
+       /* ПЕРЕВОДЧИКИ: --help вывод 5 (завершить)
+          ПЕРЕВОДЧИКИ: заполнитель указывает адрес сообщения об ошибке для
+          этого приложения.  Пожалуйста, добавьте _another line_ с адресом для
+          ошибок перевода.
+          не-оборачивать */
        printf (_("\
      Report bugs to <%s>.\n"), PACKAGE_BUGREPORT);
      }
 
 
 
-     /* Print version and copyright information.  */
+     /* Версия для печати и информация об авторских правах.  */
 
      static void
      print_version (void)
      {
-       printf ("hello (GNU %s) %s\n", PACKAGE, VERSION);
+       printf ("привет (GNU %s) %s\n", PACKAGE, VERSION);
        /* xgettext: no-wrap */
        puts ("");
 
-       /* It is important to separate the year from the rest of the message,
-          as done here, to avoid having to retranslate the message when a new
-          year comes around.  */
+       /* Важно отделить год от остальной части сообщения, как это сделано здесь,
+       чтобы избежать необходимости повторно переводить сообщение, когда
+       наступает новый год.  */
        printf (_("\
      Copyright (C) %s Free Software Foundation, Inc.\n\
      License GPLv3+: GNU GPL version 3 or later\
      <http://gnu.org/licenses/gpl.html>\n\
-     This is free software: you are free to change and redistribute it.\n\
-     There is NO WARRANTY, to the extent permitted by law.\n"),
+     Это бесплатное программное обеспечение: можно изменять и\
+     распространять его.\n\
+     НИКАКИХ ГАРАНТИЙ в пределах, разрешенных законом..\n"),
                    "2007");
      }
 
@@ -4772,43 +4773,45 @@ File: gnu-c-manual.info,  Node: system.h,  Prev: hello.c,  Up: A Sample Program
 7.2 'system.h'
 ==============
 
-     /* system.h: system-dependent declarations; include this first.
+     /* system.h: системно-зависимые объявления; включите это в первую очередь.
+        Copyright (C) 1992, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
+        2005, 2006, 2007 Free Software Foundation, Inc.
+
+        Это бесплатное программное обеспечение; вы можете распространять и/или
+        изменять его в соответствии с условиями Стандартной общественной лицензии
+        GNU, опубликованной Free Software Foundation; либо версии 3, либо (по
+        вашему выбору) любой более поздней версии.
+
+        Эта программа распространяется в надежде, что она будет полезной, но
+        БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемой гарантии
+        КОММЕРЧЕСКОЙ ЦЕННОСТИ или ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ. Подробнее
+        смотреть Стандартную общественную лицензию GNU.
+
+        Вы должны были получить копию Стандартной общественной лицензии GNU вместе
+        с этой программой; если нет, напишите в Free Software Foundation,
+        Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
         Copyright (C) 1996, 2005, 2006, 2007 Free Software Foundation, Inc.
-
-        This program is free software; you can redistribute it and/or modify
-        it under the terms of the GNU General Public License as published by
-        the Free Software Foundation; either version 3, or (at your option)
-        any later version.
-
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
-
-        You should have received a copy of the GNU General Public License
-        along with this program; if not, write to the Free Software Foundation,
-        Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.  */
 
      #ifndef HELLO_SYSTEM_H
      #define HELLO_SYSTEM_H
 
-     /* Assume ANSI C89 headers are available.  */
+     /* Предположим, что заголовки ANSI C89 доступны.  */
      #include <locale.h>
      #include <stdio.h>
      #include <stdlib.h>
      #include <string.h>
 
-     /* Use POSIX headers.  If they are not available, we use the substitute
-        provided by gnulib.  */
+     /* Используйте заголовки POSIX.  Если они недоступны, мы используем замену,
+     предоставленную gnulib.  */
      #include <getopt.h>
      #include <unistd.h>
 
-     /* Internationalization.  */
+     /* Интернационализация.  */
      #include "gettext.h"
      #define _(str) gettext (str)
      #define N_(str) gettext_noop (str)
 
-     /* Check for errors on write.  */
+     /* Проверить на наличие ошибок при записи.  */
      #include "closeout.h"
 
      #endif /* HELLO_SYSTEM_H */
@@ -5953,130 +5956,130 @@ Index
 Tag Table:
 Node: Top517
 Node: Preface951
-Node: Lexical Elements3267
-Node: Identifiers4280
-Node: Keywords5336
-Node: Constants6889
-Node: Integer Constants7864
-Node: Character Constants11324
-Node: Real Number Constants15154
-Node: String Constants17429
-Node: Operators21557
-Node: Separators22093
-Node: White Space22564
-Node: Data Types25004
-Node: Primitive Types25344
-Node: Integer Types25586
-Node: Real Number Types32251
-Node: Complex Number Types36981
-Ref: Complex Number Types-Footnote-137619
-Node: Standard Complex Number Types37770
-Node: GNU Extensions for Complex Number Types39797
-Node: Enumerations42739
-Node: Defining Enumerations43894
-Node: Declaring Enumerations46334
-Node: Unions48970
-Node: Defining Unions49849
-Node: Declaring Union Variables51869
-Node: Declaring Union Variables at Definition52531
-Node: Declaring Union Variables After Definition53642
-Node: Initializing Union Members54763
-Node: Accessing Union Members56791
-Node: Size of Unions57848
-Node: Structures59127
-Node: Defining Structures59662
-Node: Declaring Structure Variables61958
-Node: Declaring Structure Variables at Definition62589
-Node: Declaring Structure Variables After Definition63688
-Node: Initializing Structure Members64714
-Node: Accessing Structure Members69884
-Node: Bit Fields71404
-Node: Size of Structures74287
-Node: Arrays76254
-Node: Declaring Arrays76943
-Node: Initializing Arrays78878
-Node: Accessing Array Elements82813
-Node: Multidimensional Arrays84165
-Node: Arrays as Strings85845
-Node: Arrays of Unions90203
-Node: Arrays of Structures91653
-Node: Pointers94214
-Node: Declaring Pointers94879
-Node: Initializing Pointers96619
-Node: Pointers to Unions99693
-Node: Pointers to Structures101455
-Node: Incomplete Types103235
-Node: Type Qualifiers104611
-Node: Storage Class Specifiers106450
-Node: Renaming Types112623
-Node: Expressions and Operators113069
-Node: Expressions113766
-Node: Assignment Operators115599
-Node: Incrementing and Decrementing120222
-Node: Arithmetic Operators122915
-Node: Complex Conjugation127273
-Node: Comparison Operators128334
-Node: Logical Operators131373
-Node: Bit Shifting133624
-Node: Bitwise Logical Operators136537
-Node: Pointer Operators139461
-Node: The sizeof Operator142023
-Node: Type Casts144791
-Node: Array Subscripts147242
-Node: Function Calls as Expressions148325
-Node: The Comma Operator148761
-Node: Member Access Expressions151169
-Node: Conditional Expressions152522
-Node: Statements and Declarations in Expressions155155
-Node: Operator Precedence158762
-Node: Order of Evaluation163458
-Node: Side Effects165049
-Node: Sequence Points166840
-Ref: Sequence Points-Footnote-1171601
-Node: Sequence Points Constrain Expressions171791
-Ref: Sequence Points Constrain Expressions-Footnote-1178635
-Node: Sequence Points and Signal Delivery178841
-Node: Statements181750
-Node: Labels182530
-Node: Expression Statements183809
-Node: The if Statement185473
-Node: The switch Statement188070
-Node: The while Statement193508
-Node: The do Statement194747
-Node: The for Statement195966
-Node: Blocks202459
-Node: The Null Statement204473
-Node: The goto Statement205997
-Node: The break Statement208470
-Node: The continue Statement209817
-Node: The return Statement210636
-Node: The typedef Statement213680
-Node: Functions216009
-Node: Function Declarations217386
-Node: Function Definitions220594
-Node: Calling Functions223166
-Node: Function Parameters224571
-Node: Variable Length Parameter Lists230486
-Node: Calling Functions Through Function Pointers234477
-Node: The main Function235521
-Ref: The main Function-Footnote-1239356
-Node: Recursive Functions239634
-Node: Static Functions241032
-Node: Nested Functions242175
-Node: Program Structure and Scope243331
-Node: Program Structure243764
-Node: Scope246426
-Node: A Sample Program248087
-Node: hello.c248943
-Node: system.h255288
-Node: Overflow256911
-Node: Integer Overflow Basics258998
-Node: Signed Overflow Examples262417
-Node: Optimization and Wraparound268339
-Node: Signed Overflow Advice273296
-Node: Signed Integer Division278278
-Node: GNU Free Documentation License279324
-Node: Index304451
+Node: Lexical Elements4490
+Node: Identifiers5503
+Node: Keywords6559
+Node: Constants8112
+Node: Integer Constants9087
+Node: Character Constants12547
+Node: Real Number Constants16377
+Node: String Constants18652
+Node: Operators22780
+Node: Separators23316
+Node: White Space23787
+Node: Data Types26227
+Node: Primitive Types26567
+Node: Integer Types26809
+Node: Real Number Types33474
+Node: Complex Number Types38204
+Ref: Complex Number Types-Footnote-138842
+Node: Standard Complex Number Types38993
+Node: GNU Extensions for Complex Number Types41020
+Node: Enumerations43962
+Node: Defining Enumerations45117
+Node: Declaring Enumerations47557
+Node: Unions50193
+Node: Defining Unions51072
+Node: Declaring Union Variables53092
+Node: Declaring Union Variables at Definition53754
+Node: Declaring Union Variables After Definition54865
+Node: Initializing Union Members55986
+Node: Accessing Union Members58014
+Node: Size of Unions59071
+Node: Structures60350
+Node: Defining Structures60885
+Node: Declaring Structure Variables63181
+Node: Declaring Structure Variables at Definition63812
+Node: Declaring Structure Variables After Definition64911
+Node: Initializing Structure Members65937
+Node: Accessing Structure Members71107
+Node: Bit Fields72627
+Node: Size of Structures75510
+Node: Arrays77477
+Node: Declaring Arrays78166
+Node: Initializing Arrays80101
+Node: Accessing Array Elements84036
+Node: Multidimensional Arrays85388
+Node: Arrays as Strings87068
+Node: Arrays of Unions91426
+Node: Arrays of Structures92876
+Node: Pointers95437
+Node: Declaring Pointers96102
+Node: Initializing Pointers97842
+Node: Pointers to Unions100916
+Node: Pointers to Structures102678
+Node: Incomplete Types104458
+Node: Type Qualifiers105834
+Node: Storage Class Specifiers107673
+Node: Renaming Types113846
+Node: Expressions and Operators114292
+Node: Expressions114989
+Node: Assignment Operators116822
+Node: Incrementing and Decrementing121445
+Node: Arithmetic Operators124138
+Node: Complex Conjugation128496
+Node: Comparison Operators129557
+Node: Logical Operators132596
+Node: Bit Shifting134847
+Node: Bitwise Logical Operators137760
+Node: Pointer Operators140684
+Node: The sizeof Operator143246
+Node: Type Casts146014
+Node: Array Subscripts148465
+Node: Function Calls as Expressions149548
+Node: The Comma Operator149984
+Node: Member Access Expressions152392
+Node: Conditional Expressions153745
+Node: Statements and Declarations in Expressions156378
+Node: Operator Precedence159985
+Node: Order of Evaluation164681
+Node: Side Effects166272
+Node: Sequence Points168063
+Ref: Sequence Points-Footnote-1172824
+Node: Sequence Points Constrain Expressions173014
+Ref: Sequence Points Constrain Expressions-Footnote-1179858
+Node: Sequence Points and Signal Delivery180064
+Node: Statements182973
+Node: Labels183753
+Node: Expression Statements185032
+Node: The if Statement186696
+Node: The switch Statement189293
+Node: The while Statement194731
+Node: The do Statement195970
+Node: The for Statement197189
+Node: Blocks203682
+Node: The Null Statement205696
+Node: The goto Statement207220
+Node: The break Statement209693
+Node: The continue Statement211040
+Node: The return Statement211859
+Node: The typedef Statement214903
+Node: Functions217232
+Node: Function Declarations218609
+Node: Function Definitions221817
+Node: Calling Functions224389
+Node: Function Parameters225794
+Node: Variable Length Parameter Lists231709
+Node: Calling Functions Through Function Pointers235700
+Node: The main Function236744
+Ref: The main Function-Footnote-1240579
+Node: Recursive Functions240857
+Node: Static Functions242255
+Node: Nested Functions243398
+Node: Program Structure and Scope244554
+Node: Program Structure244987
+Node: Scope247649
+Node: A Sample Program249310
+Node: hello.c250682
+Node: system.h259373
+Node: Overflow261901
+Node: Integer Overflow Basics263988
+Node: Signed Overflow Examples267407
+Node: Optimization and Wraparound273329
+Node: Signed Overflow Advice278286
+Node: Signed Integer Division283268
+Node: GNU Free Documentation License284314
+Node: Index309441
 
 End Tag Table
 

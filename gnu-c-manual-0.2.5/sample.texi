@@ -3,23 +3,24 @@
 @c Copyright (C) 2007-2009 Free Software Foundation, Inc.
 @c See the file gnu-c-manual.texi for copying conditions.
 
-@c ----------------------------------------------------------------------------
+@c -------------------------------------------------------------------------
 
 @node A Sample Program
-@chapter A Sample Program
+@chapter Примеры Программ
 @cindex sample program
 @cindex hello program
 
-To conclude our description of C, here is a complete program written in C, 
-consisting of both a C source file and a header file.  This
-program is an expanded version of the quintessential ``hello world'' program, and
-serves as an example of how to format and structure C code for use in programs
-for FSF Project GNU.  (You can always download the most recent version of this
-program, including sample makefiles and other examples of how to produce GNU
-software, from @code{http://www.gnu.org/software/hello}.)
+Чтобы завершить наше описание C, вот полная программа, написанная на C,
+состоящая как из исходного файла C, так и из файла заголовка.  Эта программа
+является расширенной версией типичной программы ``привет мир'' и служит
+примером того, как форматировать и структурировать код C для использования в
+программах для FSF Project GNU.  (Вы всегда можете загрузить самую последнюю
+версию этой программы, включая образцы make-файлов и другие примеры создания
+программного обеспечения GNU, с @code{http://www.gnu.org/software/hello}.)
 
-This program uses features of the preprocessor; for a description of preprocessor
-macros, see @cite{The C Preprocessor}, available as part of the GCC documentation.
+Эта программа использует возможности препроцессора; для описания макросов
+препроцессора смотреть @cite{The C Preprocessor}, доступна как часть
+документации GCC.
 
 @menu
 * hello.c::
@@ -33,29 +34,29 @@ macros, see @cite{The C Preprocessor}, available as part of the GCC documentatio
 @cindex hello.c
 
 @smallexample
-/* hello.c -- print a greeting message and exit.
+/* hello.c -- распечатать приветственное сообщение и выйти.
 
    Copyright (C) 1992, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
    2005, 2006, 2007 Free Software Foundation, Inc.
 
-   This program is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3, or (at your option)
-   any later version.
+   Это бесплатное программное обеспечение; вы можете распространять и/или
+   изменять его в соответствии с условиями Стандартной общественной лицензии
+   GNU, опубликованной Free Software Foundation; либо версии 3, либо (по
+   вашему выбору) любой более поздней версии.
 
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
+   Эта программа распространяется в надежде, что она будет полезной, но
+   БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемой гарантии
+   КОММЕРЧЕСКОЙ ЦЕННОСТИ или ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ. Подробнее
+   смотреть Стандартную общественную лицензию GNU.
 
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software Foundation,
+   Вы должны были получить копию Стандартной общественной лицензии GNU вместе
+   с этой программой; если нет, напишите в Free Software Foundation,
    Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.  */
 
 #include <config.h>
 #include "system.h"
 
-/* String containing name the program is called with.  */
+/* Строка, содержащая имя, с которым вызывается программа.  */
 const char *program_name;
 
 static const struct option longopts[] =
@@ -80,27 +81,27 @@ main (int argc, char *argv[])
 
   program_name = argv[0];
 
-  /* Set locale via LC_ALL.  */
+  /* Установить локаль через LC_ALL.  */
   setlocale (LC_ALL, "");
 
 #if ENABLE_NLS
-  /* Set the text message domain.  */
+  /* Установить домен текстового сообщения.  */
   bindtextdomain (PACKAGE, LOCALEDIR);
   textdomain (PACKAGE);
 #endif
 
-  /* Even exiting has subtleties.  The /dev/full device on GNU/Linux
-     can be used for testing whether writes are checked properly.  For
-     instance, hello >/dev/full should exit unsuccessfully.  On exit,
-     if any writes failed, change the exit status.  This is
-     implemented in the Gnulib module "closeout".  */
+  /* Даже у вывода есть свои тонкости.  Устройство /dev/full на GNU/Linux
+  можно использовать для проверки правильности проверки записи.  Например,
+  hello >/dev/full должно завершиться неудачно.  При выходе, если какая-либо
+  запись не удалась, измените статус возврата.  Это реализовано в модуле
+  Gnulib "closeout"..  */
   atexit (close_stdout);
 
   while ((optc = getopt_long (argc, argv, "g:hntv", longopts, NULL)) != -1)
     switch (optc)
       @{
-      /* One goal here is having --help and --version exit immediately,
-         per GNU coding standards.  */
+      /* Одна из целей здесь - немедленный выход после --help и --version в
+      соответствии со стандартами кодирования GNU.  */
       case 'v':
         print_version ();
         exit (EXIT_SUCCESS);
@@ -125,36 +126,36 @@ main (int argc, char *argv[])
 
   if (lose || optind < argc)
     @{
-      /* Print error message and exit.  */
+      /* Распечатать сообщение об ошибке и выйти.  */
       if (optind < argc)
-        fprintf (stderr, _("%s: extra operand: %s\n"),
+        fprintf (stderr, _("%s: дополнительный операнд: %s\n"),
 		 program_name, argv[optind]);
-      fprintf (stderr, _("Try `%s --help' for more information.\n"),
+      fprintf (stderr, _("Попробуйте `%s --help' для доп. информации.\n"),
                program_name);
       exit (EXIT_FAILURE);
     @}
 
-  /* Print greeting message and exit. */
+  /* Распечатать сообщение приветствия и выйти. */
   if (t)
-    printf (_("hello, world\n"));
+    printf (_("привет, мир\n"));
 
   else if (n)
-    /* TRANSLATORS: Use box drawing characters or other fancy stuff
-       if your encoding (e.g., UTF-8) allows it.  If done so add the
-       following note, please:
+    /* ПЕРЕВОДЧИКИ: используйте символы рисования прямоугольников или другие
+    причудливые вещи, если ваша кодировка (например, UTF-8) это позволяет.
+    В этом случае добавьте следующее примечание:
 
-       [Note: For best viewing results use a UTF-8 locale, please.]
+       [Примечание.  Для наилучшего просмотра используйте локаль UTF-8.]
     */
 	printf (_("\
 +---------------+\n\
-| Hello, world! |\n\
+| Привет, мир!  |\n\
 +---------------+\n\
 "));
 
   else
     @{
       if (!greeting)
-        greeting = _("Hello, world!");
+        greeting = _("Привет, мир!");
       puts (greeting);
     @}
   
@@ -163,29 +164,28 @@ main (int argc, char *argv[])
 
 
 
-/* Print help info.  This long message is split into
-   several pieces to help translators be able to align different
-   blocks and identify the various pieces.  */
+/* Распечатать справочную информацию.  Это длинное сообщение разделено на
+несколько частей, чтобы переводчики могли выровнять разные блоки и
+идентифицировать различные части.  */
 
 static void
 print_help (void)
 @{
-  /* TRANSLATORS: --help output 1 (synopsis)
-     no-wrap */
+  /* ПЕРЕВОДЧИКИ: --help output 1 (synopsis) не-заворачивать */
         printf (_("\
-Usage: %s [OPTION]...\n"), program_name);
+Использовать: %s [OPTION]...\n"), program_name);
 
-  /* TRANSLATORS: --help output 2 (brief description)
-     no-wrap */
+  /* ПЕРЕВОДЧИКИ: --help output 2 (краткое описание)
+     не-оборачивать */
   fputs (_("\
-Print a friendly, customizable greeting.\n"), stdout);
+Распечатайте дружелюбное, настраиваемое приветствие.\n"), stdout);
 
   puts ("");
-  /* TRANSLATORS: --help output 3: options 1/2
-     no-wrap */
+  /* ПЕРЕВОДЧИКИ: --help вывод 3: опции 1/2
+     не-оборачивать */
   fputs (_("\
-  -h, --help          display this help and exit\n\
-  -v, --version       display version information and exit\n"), stdout);
+  -h, --help          отобразить эту справку и выйти\n\
+  -v, --version       отобразить информацию о версии и выйти\n"), stdout);
 
   puts ("");
   /* TRANSLATORS: --help output 4: options 2/2
@@ -193,86 +193,89 @@ Print a friendly, customizable greeting.\n"), stdout);
   fputs (_("\
   -t, --traditional       use traditional greeting format\n\
   -n, --next-generation   use next-generation greeting format\n\
-  -g, --greeting=TEXT     use TEXT as the greeting message\n"), stdout);
+  -g, --greeting=TEXT     TEXT текст сообщения приветствия\n"), stdout);
 
   printf ("\n");
-  /* TRANSLATORS: --help output 5 (end)
-     TRANSLATORS: the placeholder indicates the bug-reporting address
-     for this application.  Please add _another line_ with the
-     address for translation bugs.
-     no-wrap */
+  /* ПЕРЕВОДЧИКИ: --help вывод 5 (завершить)
+     ПЕРЕВОДЧИКИ: заполнитель указывает адрес сообщения об ошибке для
+     этого приложения.  Пожалуйста, добавьте _another line_ с адресом для
+     ошибок перевода.
+     не-оборачивать */
   printf (_("\
 Report bugs to <%s>.\n"), PACKAGE_BUGREPORT);
 @}
 
 
 
-/* Print version and copyright information.  */
+/* Версия для печати и информация об авторских правах.  */
 
 static void
 print_version (void)
 @{
-  printf ("hello (GNU %s) %s\n", PACKAGE, VERSION);
+  printf ("привет (GNU %s) %s\n", PACKAGE, VERSION);
   /* xgettext: no-wrap */
   puts ("");
   
-  /* It is important to separate the year from the rest of the message,
-     as done here, to avoid having to retranslate the message when a new
-     year comes around.  */
+  /* Важно отделить год от остальной части сообщения, как это сделано здесь,
+  чтобы избежать необходимости повторно переводить сообщение, когда
+  наступает новый год.  */
   printf (_("\
 Copyright (C) %s Free Software Foundation, Inc.\n\
 License GPLv3+: GNU GPL version 3 or later\
 <http://gnu.org/licenses/gpl.html>\n\
-This is free software: you are free to change and redistribute it.\n\
-There is NO WARRANTY, to the extent permitted by law.\n"),
+Это бесплатное программное обеспечение: можно изменять и\
+распространять его.\n\
+НИКАКИХ ГАРАНТИЙ в пределах, разрешенных законом..\n"),
               "2007");
 @}
 @end smallexample
 
-@c ----------------------------------------------------------------------------
+@c --------------------------------------------------------------------------
 
 @node system.h
 @section @code{system.h}
 @cindex system.h
 
 @smallexample
-/* system.h: system-dependent declarations; include this first.
+/* system.h: системно-зависимые объявления; включите это в первую очередь.
+   Copyright (C) 1992, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
+   2005, 2006, 2007 Free Software Foundation, Inc.
+
+   Это бесплатное программное обеспечение; вы можете распространять и/или
+   изменять его в соответствии с условиями Стандартной общественной лицензии
+   GNU, опубликованной Free Software Foundation; либо версии 3, либо (по
+   вашему выбору) любой более поздней версии.
+
+   Эта программа распространяется в надежде, что она будет полезной, но
+   БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемой гарантии
+   КОММЕРЧЕСКОЙ ЦЕННОСТИ или ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ. Подробнее
+   смотреть Стандартную общественную лицензию GNU.
+
+   Вы должны были получить копию Стандартной общественной лицензии GNU вместе
+   с этой программой; если нет, напишите в Free Software Foundation,
+   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
    Copyright (C) 1996, 2005, 2006, 2007 Free Software Foundation, Inc.
-
-   This program is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3, or (at your option)
-   any later version.
-
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software Foundation,
-   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.  */
 
 #ifndef HELLO_SYSTEM_H
 #define HELLO_SYSTEM_H
 
-/* Assume ANSI C89 headers are available.  */
+/* Предположим, что заголовки ANSI C89 доступны.  */
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-/* Use POSIX headers.  If they are not available, we use the substitute
-   provided by gnulib.  */
+/* Используйте заголовки POSIX.  Если они недоступны, мы используем замену,
+предоставленную gnulib.  */
 #include <getopt.h>
 #include <unistd.h>
 
-/* Internationalization.  */
+/* Интернационализация.  */
 #include "gettext.h"
 #define _(str) gettext (str)
 #define N_(str) gettext_noop (str)
 
-/* Check for errors on write.  */
+/* Проверить на наличие ошибок при записи.  */
 #include "closeout.h"
 
 #endif /* HELLO_SYSTEM_H */
