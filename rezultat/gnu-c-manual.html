@@ -80,10 +80,10 @@ ul.no-bullet {list-style: none}
     <ul class="no-bullet">
       <li><a id="toc-Celochislennye-Tipy" href="#Integer-Types">2.1.1 Целочисленные Типы</a></li>
       <li><a id="toc-Tipy-Deistvitelxnykh-Chisel" href="#Real-Number-Types">2.1.2 Типы Действительных Чисел</a></li>
-      <li><a id="toc-Tipy-Kompleksnye-Chisla" href="#Complex-Number-Types">2.1.3 Типы Комплексные Числа</a>
+      <li><a id="toc-Tipy-Kompleksnykh-Chisel" href="#Complex-Number-Types">2.1.3 Типы Комплексных Чисел</a>
       <ul class="no-bullet">
         <li><a id="toc-Standartnye-tipy-Kompleksnykh-Chisel" href="#Standard-Complex-Number-Types">2.1.3.1 Стандартные типы Комплексных Чисел</a></li>
-        <li><a id="toc-GNU-Rasshirenie-dlya-Tipov-Kompleksnykh-Tipov" href="#GNU-Extensions-for-Complex-Number-Types">2.1.3.2 GNU Расширение для Типов Комплексных Типов</a></li>
+        <li><a id="toc-GNU-Rasshirenie-dlya-Tipov-Kompleksnykh-Chisel" href="#GNU-Extensions-for-Complex-Number-Types">2.1.3.2 GNU Расширение для Типов Комплексных Чисел</a></li>
       </ul></li>
     </ul></li>
     <li><a id="toc-Perechisleniya" href="#Enumerations">2.2 Перечисления</a>
@@ -91,7 +91,7 @@ ul.no-bullet {list-style: none}
       <li><a id="toc-Opredelenie-Perechisleniya" href="#Defining-Enumerations">2.2.1 Определение Перечисления</a></li>
       <li><a id="toc-Obwyavlenie-Perechisleniya" href="#Declaring-Enumerations">2.2.2 Объявление Перечисления</a></li>
     </ul></li>
-    <li><a id="toc-Unions-1" href="#Unions">2.3 Unions</a>
+    <li><a id="toc-Obwedineniya" href="#Unions">2.3 Объединения</a>
     <ul class="no-bullet">
       <li><a id="toc-Opredelenie-Obwedineniya" href="#Defining-Unions">2.3.1 Определение Объединения</a></li>
       <li><a id="toc-Obwyavlenie-Peremennykh-Obwedineniya" href="#Declaring-Union-Variables">2.3.2 Объявление Переменных Объединения</a>
@@ -108,8 +108,8 @@ ul.no-bullet {list-style: none}
       <li><a id="toc-Opredelenie-Struktur" href="#Defining-Structures">2.4.1 Определение Структур</a></li>
       <li><a id="toc-Obwyavlenie-Peremennykh-Struktury" href="#Declaring-Structure-Variables">2.4.2 Объявление Переменных Структуры</a>
       <ul class="no-bullet">
-        <li><a id="toc-Obwyavlenie-Peremennoi-Struktury-v-Opredelenii" href="#Declaring-Structure-Variables-at-Definition">2.4.2.1 Объявление Переменной Структуры в Определении</a></li>
-        <li><a id="toc-Obwyavlenie-Peremennykh-Struktur-Posle-Opredeleniya" href="#Declaring-Structure-Variables-After-Definition">2.4.2.2 Объявление Переменных Структур После Определения</a></li>
+        <li><a id="toc-Opredelenie-Peremennoi-Struktury-v-Obwyavlenii" href="#Declaring-Structure-Variables-at-Definition">2.4.2.1 Определение Переменной Структуры в Объявлении</a></li>
+        <li><a id="toc-Opredelenie-Peremennykh-Struktur-Posle-Obwyavleniya" href="#Declaring-Structure-Variables-After-Definition">2.4.2.2 Определение Переменных Структур После Объявления</a></li>
         <li><a id="toc-Inicializaciya-Elementov-Struktury" href="#Initializing-Structure-Members">2.4.2.3 Инициализация Элементов Структуры</a></li>
       </ul></li>
       <li><a id="toc-Dostup-k-Elementam-Struktury" href="#Accessing-Structure-Members">2.4.3 Доступ к Элементам Структуры</a></li>
@@ -200,7 +200,7 @@ ul.no-bullet {list-style: none}
   <li><a id="toc-Struktura-Programmy-i-Oblasti" href="#Program-Structure-and-Scope">6 Структура Программы и Области</a>
   <ul class="no-bullet">
     <li><a id="toc-Struktura-Programmy" href="#Program-Structure">6.1 Структура Программы</a></li>
-    <li><a id="toc-Svyazka" href="#Scope">6.2 Связка</a></li>
+    <li><a id="toc-Svyazyvanie" href="#Scope">6.2 Связывание</a></li>
   </ul></li>
   <li><a id="toc-Primery-Programm" href="#A-Sample-Program">7 Примеры Программ</a>
   <ul class="no-bullet">
@@ -509,7 +509,7 @@ Next: <a href="#Character-Constants" accesskey="n" rel="next">Character Constant
 <p>Оба расширения ISO C99 и GNU C добавляют целочисленные типы
 <code>long long int</code> (целочисленное двойной длинны) и
 <code>unsigned long long int</code> (беззнаковое целочисленное двойной длинны).
-Вы можете использовать два &lsquo;<samp>L</samp>&rsquo;s, чтобы получить константу
+Вы можете использовать два &lsquo;<samp>L</samp>&rsquo;, чтобы получить константу
 <code>long long int</code>; и добавить &lsquo;<samp>U</samp>&rsquo; тогда, кода константа является
 <code>unsigned long long int</code>. Например: <code>45ULL</code>.
 </p>
@@ -523,18 +523,18 @@ Next: <a href="#Real-Number-Constants" accesskey="n" rel="next">Real Number Cons
 <span id="index-character-constants"></span>
 <span id="index-constants_002c-character"></span>
 
-<p>Символьная константа характер, как правило, это один символ, заключенный в
+<p>Символьная константа, как правило, это один символ, заключенный в
 одинарные кавычки, например, <code>'Q'</code>.  Символьная константа имеет тип
 <code>int</code> по умолчанию.
 </p>
 <p>Некоторые символы, такие как одиночная кавычка, не могут быть представлены
-только самим буквальным символом.  Для представления таких символов, есть
-несколько &ldquo;escape последовательностей&rdquo;, которые вы можете использовать:
+буквально только самим.  Для представления таких символов, есть
+несколько &ldquo;escape последовательностей&rdquo;, которые можно использовать:
 </p>
 
 <dl compact="compact">
 <dt><code>\\</code></dt>
-<dd><p>Символ обратной косой черты.
+<dd><p>Символ обратная косая черта.
 </p>
 </dd>
 <dt><code>\?</code></dt>
@@ -546,7 +546,7 @@ Next: <a href="#Real-Number-Constants" accesskey="n" rel="next">Real Number Cons
 </p>
 </dd>
 <dt><code>\&quot;</code></dt>
-<dd><p>Символ двойные кавычки.
+<dd><p>Символ двойная кавычка.
 </p>
 </dd>
 <dt><code>\a</code></dt>
@@ -570,15 +570,15 @@ Next: <a href="#Real-Number-Constants" accesskey="n" rel="next">Real Number Cons
 </p>
 </dd>
 <dt><code>\r</code></dt>
-<dd><p>Возврат каретки.
+<dd><p>Символ возврат каретки.
 </p>
 </dd>
 <dt><code>\t</code></dt>
-<dd><p>Горизонтальная табуляция.
+<dd><p>Символ горизонтальная табуляция.
 </p>
 </dd>
 <dt><code>\v</code></dt>
-<dd><p>Вертикальная табуляция.
+<dd><p>Символ вертикальная табуляция.
 </p>
 </dd>
 <dt><code>\o, \oo, \ooo</code></dt>
@@ -593,26 +593,26 @@ Next: <a href="#Real-Number-Constants" accesskey="n" rel="next">Real Number Cons
 
 <p>Чтобы использовать любую из этих управляющих последовательностей, заключите
 последовательность в одинарные кавычки, и относитесь к этому, как будто это
-обычный другой символ.  Например, буква м является <code>'м'</code> и символ новой
-строки <code>'\n'</code>.
+обычный другой символ.  Например, буква м является <code>'м'</code> а символ новой
+строки - это <code>'\n'</code>.
 </p>
 <p>Восьмеричная escape-последовательность - это символ обратной косой черты, за
 которым следует один, два или три восьмеричных цифры (от 0 до 7).  Так,
 например, 101 восьмеричный эквивалент 65, который является ASCII-символом
 <code>'A'</code>.  Таким образом, символьная константа <code>'101'</code> является тем
-же внутренним значением что и символьная константа <code>'A'</code>.
+же внутренним значением, что и символьная константа <code>'A'</code>.
 </p>
 <p>Шестнадцатеричная escape-последовательность состоит из символа обратной косой
 черты, за которым следует <code>x</code> и неограниченное количество
-шестнадцатеричных цифр (цифры от 0 до 9, и буквы от <code>a</code> до <code>f</code> и
+шестнадцатеричных цифр (цифры от 0 до 9, и букв от <code>a</code> до <code>f</code> и
 от <code>A</code> до <code>F</code>).
 </p>
-<p>В то время как длина строки возможных шестнадцатеричных цифр не ограничена,
-количество символьных констант в любом заданном наборе символов ограничено.
+<p>В то время как возможная длина строки шестнадцатеричных цифр не ограничена,
+количество символьных констант, в любом заданном наборе символов, ограничено.
 (Широко используется расширенный набор ASCII символов, он например, имеет
-в составе только 256 символов.)  Если вы пытаетесь использовать
-шестнадцатеричное значение, которое находится вне диапазона символов, вы
-получите ошибку компиляции.
+в составе только 256 символов.)  Если попытаться использовать
+шестнадцатеричное значение, которое находится вне диапазона символов, 
+получиться ошибка компиляции.
 </p>
 
 <hr>
@@ -627,12 +627,12 @@ Next: <a href="#String-Constants" accesskey="n" rel="next">String Constants</a>,
 <span id="index-constants_002c-real-number"></span>
 
 <p>Константа вещественного числа является значением, которое представляет собой
-дробное (с плавающей точкой) число.  Она состоит из последовательности цифр,
+дробное (с плавающей точкой) число.  Состоит из последовательности цифр,
 которые представляет собой целое число (или) &ldquo;целую&rdquo; часть числа,
-десятичную точку, и последовательность цифр, которая представляет собой
+десятичную точку, и последовательность цифр, которые представляет собой
 дробную часть числа.
 </p>
-<p>Либо часть числа, целая или дробная часть, может быть опущена, но не обе
+<p>Часть числа, целая или дробная часть, может быть опущена, но не обе
 сразу.  Вот несколько примеров:
 </p>
 
@@ -650,12 +650,12 @@ d = .7;
 e = 0.7;
 </pre></div>
 
-<p>(В третьем операторе присваивания целая константа 4 автоматически
-преобразуется из целочисленного значения до значения числа с плавающей
+<p>(В третьем операторе присваивания, целая константа 4, автоматически
+преобразуется из целочисленного значения в тип значения числа с плавающей
 точкой.)
 </p>
 <p>Константа вещественного числа, также может дополнятся <code>e</code> или <code>E</code>
-целочисленными показателями.  Показатель может быть положительным или
+целочисленным показателем.  Показатель может быть положительным или
 отрицательным.
 </p>
 
@@ -666,10 +666,10 @@ x = 5e2;   /* <span class="roman"><code>x</code> is 5 * 100, or 500.0.</span> */
 y = 5e-2;  /* <span class="roman"><code>y</code> is 5 * (1/100), or 0.05.</span> */
 </pre></div>
 
-<p>Вы можете добавить букву в конце константы вещественного числа, чтобы
+<p>Можно добавить букву в конце константы представляющей вещественное число, чтобы
 определить её тип.  Если добавить букву F (или f) к константе вещественоого
 числа, то её тип будет <code>float</code>.  Если добавить букву L (или l), то её
-тип станет <code>long double</code>.  Если вы не добавляете любые буквы, то её тип
+тип станет <code>long double</code>.  Если не добавлено никаких букв, то её тип
 будет <code>double</code>.
 </p>
 
@@ -690,14 +690,14 @@ Previous: <a href="#Real-Number-Constants" accesskey="p" rel="prev">Real Number 
 неотъемлемого атрибута размера.  Завершающий нулевой символ позволяет
 строковым функциям при обработке знать, где строка заканчивается.
 </p>
-<p>Смежные строковые константы сцепляются (объединяются) в одну строку путём
-добавления нулевого символа завершения к концу завершающей объединение
+<p>Смежные строковые константы сцепляются (объединяются) в одну строку, путём
+добавления нулевого символа завершения в конец завершающей объединение
 строки.
 </p>
-<p>Строка не может содержать двойные кавычки, поскольку строка заключается в
+<p>Строка не может содержать двойные кавычки, поскольку сама строка заключена в
 двойные кавычки.  Чтобы включить символ двойной символ кавычки в строку,
-используйте escape-последовательность <code>\&quot;</code>.  Вы можете использовать
-любую из escape-последовательностей в качестве символьных констант в строках.
+используется escape-последовательность <code>\&quot;</code>.  Можно использовать любую из
+escape-последовательностей в качестве символьных констант в строках.
 Вот некоторые примеры строковых констант:
 </p>
 <div class="example">
@@ -711,8 +711,8 @@ Previous: <a href="#Real-Number-Constants" accesskey="p" rel="prev">Real Number 
 &quot;\&quot;привет, мир!\&quot;&quot;
 </pre></div>
 
-<p>Если строка слишком длинная, чтобы поместиться на одной строке, вы можете
-использовать обратную косую <code>\</code>, чтобы разбить его на отдельные строки.
+<p>Если строка слишком длинная, чтобы поместиться на одной строке, можно
+использовать обратную косую <code>\</code>, чтобы разбить её на отдельные строки.
 </p>
 <div class="example">
 <pre class="example">&quot;Сегодня особый бутерброд на ржаном хлебе \
@@ -735,9 +735,9 @@ Previous: <a href="#Real-Number-Constants" accesskey="p" rel="prev">Real Number 
 из грубой ржаной муки и манной кашей из сельтерской воды.&quot;
 </pre></div>
 
-<p>Для того, чтобы вставить символ новой строки в строку, так чтобы, когда
-строка печаталась, строка выводилась на двух различных строках, вы можете
-использовать escape-последовательность новой строки &lsquo;<samp>\n</samp>&rsquo;.
+<p>Для того, чтобы вставить символ новой строки в строку, так чтобы, при печати
+строки, она выводилась на двух различных строках, можно
+использовать символ escape-последовательности новая строка &lsquo;<samp>\n</samp>&rsquo;.
 </p>
 <div class="example">
 <pre class="example">printf (&quot;картофельная\nкотлета&quot;);
@@ -761,7 +761,7 @@ Next: <a href="#Separators" accesskey="n" rel="next">Separators</a>, Previous: <
 <span id="index-operators-as-lexical-elements"></span>
 
 <p>Оператор является специальным маркером, который выполняет операцию, например,
-сложения или вычитания, с одним, двумя или тремя операндах.  Описание всех
+сложение или вычитание, с одним, двумя или тремя операндами.  Описание всех
 операторов можно найти в следующей главе.  See <a href="#Expressions-and-Operators">Expressions and Operators</a>.
 </p>
 
@@ -773,7 +773,7 @@ Next: <a href="#White-Space" accesskey="n" rel="next">White Space</a>, Previous:
 <span id="Separatory"></span><h3 class="section">1.5 Сепараторы</h3>
 <span id="index-separators"></span>
 
-<p>Сепаратор отделяет операторы.  Пробел (смотрите следующий раздел) является
+<p>Сепаратор отделяет операторы.  Пробел (смотри следующий раздел) является
 сепаратором для операторов.  Все остальные сепараторы - это
 односимвольные операторы:
 </p>
@@ -816,8 +816,8 @@ return 0;}
 
 <p>функционально одна и та же программа.
 </p>
-<p>Хотя вы должны использовать символы пробела для разделения нескольких
-операторов, пробелы не требуется между операторами и операндами, ровно так
+<p>Хотя требуется использовать символы пробела для разделения нескольких
+операторов, пробелы не требуется между операторами и операндами, ровно так же
 не требуется установка пробела между несколькими сепараторами и между тем,
 что они разделяют.
 </p>
@@ -859,7 +859,6 @@ x
 <pre class="example">&quot;картофельная                         котлета&quot;
 </pre></div>
 
-
 <hr>
 <span id="Data-Types"></span><div class="header">
 <p>
@@ -870,25 +869,25 @@ Next: <a href="#Expressions-and-Operators" accesskey="n" rel="next">Expressions 
 <span id="index-types"></span>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Primitive-Types" accesskey="1">Primitive Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Primitive-Types" accesskey="1">Primitive Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Примитивные Типы Данных
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Enumerations" accesskey="2">Enumerations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Enumerations" accesskey="2">Enumerations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Перечисления
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Unions" accesskey="3">Unions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Unions" accesskey="3">Unions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Объединения
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Structures" accesskey="4">Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Structures" accesskey="4">Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Структуры
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Arrays" accesskey="5">Arrays</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Arrays" accesskey="5">Arrays</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Массивы
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Pointers" accesskey="6">Pointers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Pointers" accesskey="6">Pointers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Указатели
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Incomplete-Types" accesskey="7">Incomplete Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Incomplete-Types" accesskey="7">Incomplete Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Неполные Типы
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Type-Qualifiers" accesskey="8">Type Qualifiers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Type-Qualifiers" accesskey="8">Type Qualifiers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Квалификаторы Типов
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Storage-Class-Specifiers" accesskey="9">Storage Class Specifiers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Storage-Class-Specifiers" accesskey="9">Storage Class Specifiers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Спецификаторы Классов Хранения
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Renaming-Types">Renaming Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Renaming-Types">Renaming Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Переименование Типов
 </td></tr>
 </table>
 
@@ -903,11 +902,11 @@ Next: <a href="#Enumerations" accesskey="n" rel="next">Enumerations</a>, Up: <a 
 <span id="index-types_002c-primitive"></span>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Integer-Types" accesskey="1">Integer Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Integer-Types" accesskey="1">Integer Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Целочисленные Типы
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Real-Number-Types" accesskey="2">Real Number Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Real-Number-Types" accesskey="2">Real Number Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Типы Действительных Чисел
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Complex-Number-Types" accesskey="3">Complex Number Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Complex-Number-Types" accesskey="3">Complex Number Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Типы Комплексных Чисел
 </td></tr>
 </table>
 
@@ -1133,7 +1132,7 @@ double bar = 114.3943;
 <p>
 Previous: <a href="#Real-Number-Types" accesskey="p" rel="prev">Real Number Types</a>, Up: <a href="#Primitive-Types" accesskey="u" rel="up">Primitive Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Tipy-Kompleksnye-Chisla"></span><h4 class="subsection">2.1.3 Типы Комплексные Числа</h4>
+<span id="Tipy-Kompleksnykh-Chisel"></span><h4 class="subsection">2.1.3 Типы Комплексных Чисел</h4>
 <span id="index-complex-number-types"></span>
 <span id="index-data-types_002c-complex-number"></span>
 <span id="index-types_002c-complex-number"></span>
@@ -1143,9 +1142,9 @@ Previous: <a href="#Real-Number-Types" accesskey="p" rel="prev">Real Number Type
 Сначала мы опишем стандартные типы комплексных чисел.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Standard-Complex-Number-Types" accesskey="1">Standard Complex Number Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Standard-Complex-Number-Types" accesskey="1">Standard Complex Number Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Стандартные типы Комплексных Чисел
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#GNU-Extensions-for-Complex-Number-Types" accesskey="2">GNU Extensions for Complex Number Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#GNU-Extensions-for-Complex-Number-Types" accesskey="2">GNU Extensions for Complex Number Types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GNU Расширение для Типов Комплексных Чисел
 </td></tr>
 </table>
 
@@ -1202,7 +1201,7 @@ void example (void)
 <p>
 Previous: <a href="#Standard-Complex-Number-Types" accesskey="p" rel="prev">Standard Complex Number Types</a>, Up: <a href="#Complex-Number-Types" accesskey="u" rel="up">Complex Number Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="GNU-Rasshirenie-dlya-Tipov-Kompleksnykh-Tipov"></span><h4 class="subsubsection">2.1.3.2 GNU Расширение для Типов Комплексных Типов</h4>
+<span id="GNU-Rasshirenie-dlya-Tipov-Kompleksnykh-Chisel"></span><h4 class="subsubsection">2.1.3.2 GNU Расширение для Типов Комплексных Чисел</h4>
 <p>GCC также введены комплексные типы, как расширение GNU для C89, но написание
 отличается.  Комплексные типы с плавающей точкой в ​​расширении C89 GCC
 являются:
@@ -1272,9 +1271,9 @@ Next: <a href="#Unions" accesskey="n" rel="next">Unions</a>, Previous: <a href="
 несовместимости.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Defining-Enumerations" accesskey="1">Defining Enumerations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Defining-Enumerations" accesskey="1">Defining Enumerations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Определение Перечисления       
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Declaring-Enumerations" accesskey="2">Declaring Enumerations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Declaring-Enumerations" accesskey="2">Declaring Enumerations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Объявление Перечисления     
 </td></tr>
 </table>
 
@@ -1378,7 +1377,7 @@ enum фрукты мои_фрукты;
 <p>
 Next: <a href="#Structures" accesskey="n" rel="next">Structures</a>, Previous: <a href="#Enumerations" accesskey="p" rel="prev">Enumerations</a>, Up: <a href="#Data-Types" accesskey="u" rel="up">Data Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Unions-1"></span><h3 class="section">2.3 Unions</h3>
+<span id="Obwedineniya"></span><h3 class="section">2.3 Объединения</h3>
 <span id="index-unions"></span>
 <span id="index-types_002c-union"></span>
 <span id="index-data-types_002c-union"></span>
@@ -1391,13 +1390,13 @@ Next: <a href="#Structures" accesskey="n" rel="next">Structures</a>, Previous: <
 </p>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Defining-Unions" accesskey="1">Defining Unions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Defining-Unions" accesskey="1">Defining Unions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Определение Объединения             
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Declaring-Union-Variables" accesskey="2">Declaring Union Variables</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Declaring-Union-Variables" accesskey="2">Declaring Union Variables</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Объявление Переменных Объединения  
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Accessing-Union-Members" accesskey="3">Accessing Union Members</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Accessing-Union-Members" accesskey="3">Accessing Union Members</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Доступ к Элементам Объединения    
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Size-of-Unions" accesskey="4">Size of Unions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Size-of-Unions" accesskey="4">Size of Unions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Размер Объединений             
 </td></tr>
 </table>
 
@@ -1453,11 +1452,11 @@ Next: <a href="#Accessing-Union-Members" accesskey="n" rel="next">Accessing Unio
 объединению имя.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Declaring-Union-Variables-at-Definition" accesskey="1">Declaring Union Variables at Definition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Declaring-Union-Variables-at-Definition" accesskey="1">Declaring Union Variables at Definition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Объявление Переменных Объединения при Определении  
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Declaring-Union-Variables-After-Definition" accesskey="2">Declaring Union Variables After Definition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Declaring-Union-Variables-After-Definition" accesskey="2">Declaring Union Variables After Definition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Объявление Переменных Объединения После его Определения
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Initializing-Union-Members" accesskey="3">Initializing Union Members</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Initializing-Union-Members" accesskey="3">Initializing Union Members</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Инициализация Членов Объединения   
 </td></tr>
 </table>
 
@@ -1641,15 +1640,15 @@ Next: <a href="#Arrays" accesskey="n" rel="next">Arrays</a>, Previous: <a href="
 переменных других типов данных (в том числе, возможно, другие типы структур).
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Defining-Structures" accesskey="1">Defining Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Defining-Structures" accesskey="1">Defining Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Определение Структур        
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Declaring-Structure-Variables" accesskey="2">Declaring Structure Variables</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Declaring-Structure-Variables" accesskey="2">Declaring Structure Variables</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Объявление Переменных Структуры 
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Accessing-Structure-Members" accesskey="3">Accessing Structure Members</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Accessing-Structure-Members" accesskey="3">Accessing Structure Members</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Доступ к Элементам Структуры 
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Bit-Fields" accesskey="4">Bit Fields</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Bit-Fields" accesskey="4">Bit Fields</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Битовы Поля                 
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Size-of-Structures" accesskey="5">Size of Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Size-of-Structures" accesskey="5">Size of Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Размер Cтруктур         
 </td></tr>
 </table>
 
@@ -1707,11 +1706,11 @@ Next: <a href="#Accessing-Structure-Members" accesskey="n" rel="next">Accessing 
 </p>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Declaring-Structure-Variables-at-Definition" accesskey="1">Declaring Structure Variables at Definition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Declaring-Structure-Variables-at-Definition" accesskey="1">Declaring Structure Variables at Definition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Определение Переменной Структуры в Объявлении  
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Declaring-Structure-Variables-After-Definition" accesskey="2">Declaring Structure Variables After Definition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Declaring-Structure-Variables-After-Definition" accesskey="2">Declaring Structure Variables After Definition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Определение Переменных Структур После Объявления  
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Initializing-Structure-Members" accesskey="3">Initializing Structure Members</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Initializing-Structure-Members" accesskey="3">Initializing Structure Members</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Инициализация Элементов Структуры 
 </td></tr>
 </table>
 
@@ -1720,7 +1719,7 @@ Next: <a href="#Accessing-Structure-Members" accesskey="n" rel="next">Accessing 
 <p>
 Next: <a href="#Declaring-Structure-Variables-After-Definition" accesskey="n" rel="next">Declaring Structure Variables After Definition</a>, Up: <a href="#Declaring-Structure-Variables" accesskey="u" rel="up">Declaring Structure Variables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Obwyavlenie-Peremennoi-Struktury-v-Opredelenii"></span><h4 class="subsubsection">2.4.2.1 Объявление Переменной Структуры в Определении</h4>
+<span id="Opredelenie-Peremennoi-Struktury-v-Obwyavlenii"></span><h4 class="subsubsection">2.4.2.1 Определение Переменной Структуры в Объявлении</h4>
 <span id="index-declaring-structure-variables-at-definition"></span>
 <span id="index-structure-variables_002c-declaring-at-definition"></span>
 
@@ -1746,7 +1745,7 @@ Next: <a href="#Declaring-Structure-Variables-After-Definition" accesskey="n" re
 <p>
 Next: <a href="#Initializing-Structure-Members" accesskey="n" rel="next">Initializing Structure Members</a>, Previous: <a href="#Declaring-Structure-Variables-at-Definition" accesskey="p" rel="prev">Declaring Structure Variables at Definition</a>, Up: <a href="#Declaring-Structure-Variables" accesskey="u" rel="up">Declaring Structure Variables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Obwyavlenie-Peremennykh-Struktur-Posle-Opredeleniya"></span><h4 class="subsubsection">2.4.2.2 Объявление Переменных Структур После Определения</h4>
+<span id="Opredelenie-Peremennykh-Struktur-Posle-Obwyavleniya"></span><h4 class="subsubsection">2.4.2.2 Определение Переменных Структур После Объявления</h4>
 <span id="index-declaring-structure-variables-after-definition"></span>
 <span id="index-structure-variables_002c-declaring-after-definition"></span>
 
@@ -2008,19 +2007,19 @@ Next: <a href="#Pointers" accesskey="n" rel="next">Pointers</a>, Previous: <a hr
 индексируются с нулевого значения индекса, а не с единицы.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Declaring-Arrays" accesskey="1">Declaring Arrays</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Declaring-Arrays" accesskey="1">Declaring Arrays</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Объявление Массивов
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Initializing-Arrays" accesskey="2">Initializing Arrays</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Initializing-Arrays" accesskey="2">Initializing Arrays</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Инициализация Массивов
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Accessing-Array-Elements" accesskey="3">Accessing Array Elements</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Accessing-Array-Elements" accesskey="3">Accessing Array Elements</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Доступ к Элементам Массива
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Multidimensional-Arrays" accesskey="4">Multidimensional Arrays</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Multidimensional-Arrays" accesskey="4">Multidimensional Arrays</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Многомерные Массивы
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Arrays-as-Strings" accesskey="5">Arrays as Strings</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Arrays-as-Strings" accesskey="5">Arrays as Strings</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Строки как Массивы
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Arrays-of-Unions" accesskey="6">Arrays of Unions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Arrays-of-Unions" accesskey="6">Arrays of Unions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Массивы Объединений
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Arrays-of-Structures" accesskey="7">Arrays of Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Arrays-of-Structures" accesskey="7">Arrays of Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Массивы Структур
 </td></tr>
 </table>
 
@@ -2407,13 +2406,13 @@ Next: <a href="#Incomplete-Types" accesskey="n" rel="next">Incomplete Types</a>,
 можно создать указатель, который содержит адрес памяти экземпляра этого типа.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Declaring-Pointers" accesskey="1">Declaring Pointers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Declaring-Pointers" accesskey="1">Declaring Pointers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Объявление Указателей
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Initializing-Pointers" accesskey="2">Initializing Pointers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Initializing-Pointers" accesskey="2">Initializing Pointers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Инициализация Указателей
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Pointers-to-Unions" accesskey="3">Pointers to Unions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Pointers-to-Unions" accesskey="3">Pointers to Unions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Указатели на Объединения
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Pointers-to-Structures" accesskey="4">Pointers to Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Pointers-to-Structures" accesskey="4">Pointers to Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Указатели на Структуры
 </td></tr>
 </table>
 
@@ -2493,7 +2492,7 @@ int *ip = &amp;i;
 <pre class="example">int i, j;
 int *ip = &amp;i;  /* <span class="roman">&lsquo;<samp>ip</samp>&rsquo; теперь содержит адрес &lsquo;<samp>i</samp>&rsquo;.</span> */
 ip = &amp;j;       /* <span class="roman">&lsquo;<samp>ip</samp>&rsquo; теперь содержит адрес &lsquo;<samp>j</samp>&rsquo;.</span> */
-*ip = &amp;i;      /* <span class="roman">&lsquo;<samp>j</samp>&rsquo; теперь содержит адрес &lsquo;<samp>i</samp>&rsquo;.</span> */
+<code>*ip = &amp;i;</code>      /* <span class="roman">&lsquo;<samp>j</samp>&rsquo; теперь содержит адрес &lsquo;<samp>i</samp>&rsquo;.</span> */
 </pre></div>
 
 <p>Значение, хранящееся в указателе является целым числом: местоположение в
@@ -4208,7 +4207,6 @@ Previous: <a href="#Sequence-Points-Constrain-Expressions" accesskey="p" rel="pr
 вызывать их из обработчика сигнала тоже.
 </p>
 
-
 <hr>
 <span id="Statements"></span><div class="header">
 <p>
@@ -4219,7 +4217,7 @@ Next: <a href="#Functions" accesskey="n" rel="next">Functions</a>, Previous: <a 
 
 <p>Инструкция вызывает действия и управляет потоком выполнения в программах.
 Можно написать инструкцию, которая не будет делать вообще ничего, или делать
-то, что бесполезно.
+бесполезное действие.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Labels" accesskey="1">Labels</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -4262,7 +4260,7 @@ Next: <a href="#Expression-Statements" accesskey="n" rel="next">Expression State
 <span id="index-labeled-statements"></span>
 <span id="index-statements_002c-labeled"></span>
 
-<p>Можно использовать метки для идентификации места исходного кода для
+<p>Можно устанавливать идентификацию метками мест исходного кода, для
 использования в будущем оператором <code>goto</code> (see <a href="#The-goto-Statement">The goto Statement</a>).
 Метка состоит из идентификатора (например, такого, которые используются для
 имен переменных), с последующим двоеточием. Вот пример:
@@ -4278,10 +4276,10 @@ Next: <a href="#Expression-Statements" accesskey="n" rel="next">Expression State
 treet:            /* <span class="roman"><code>treet</code> это метка.</span> */
 </pre></div>
 
-<p>Стандартные мандаты ISO C, что за меткой следовало, по крайней мере, одно
-выражение, возможно, пустой оператор (see <a href="#The-Null-Statement">The Null Statement</a>).  GCC будет
-компилировать код, который не соответствует этому требованию, но это может
-повлечь проблемы с переносимостью.
+<p>Стандартные мандаты ISO C требуют, что за меткой следовало, по крайней мере,
+одно выражение, возможно, пустой оператор (see <a href="#The-Null-Statement">The Null Statement</a>).  GCC
+будет компилировать код, который не соответствует этому требованию, но это
+может повлечь проблемы с переносимостью.
 </p>
 
 <hr>
@@ -4302,12 +4300,12 @@ Next: <a href="#The-if-Statement" accesskey="n" rel="next">The if Statement</a>,
 10 &gt;= 9;
 </pre></div>
 
-<p>В каждом из них, все, что происходит - это вычисление каждого выражения.  Тем
-не менее, они бесполезны, потому что они нигде не сохраняют результат, здесь
-только происходит оценка выражений.  Компилятор может игнорировать подобные
-инструкции.
+<p>В каждом из них, все, что происходит - это вычисление каждого выражения.
+Тем не менее, это действо бесполезно, потому что нигде не сохраняется
+результат, здесь происходит только оценка выражений.  Компилятор может
+игнорировать подобные инструкции.
 </p>
-<p>Инструкции выражений тогда полезны, когда имеют побочный эффект, такой как
+<p>Инструкции выражений тогда полезны, когда имеется побочный эффект, такой как
 сохранение значения, вызов функции, или (это эзотерическое) вызов сбоя в
 программе.  Вот несколько полезных примеров:
 </p>
@@ -4315,11 +4313,11 @@ Next: <a href="#The-if-Statement" accesskey="n" rel="next">The if Statement</a>,
 <pre class="example">x++;
 y = x + 25;
 puts (&quot;Привет, пользователь!&quot;);
-*cucumber;
+<code>*cucumber;</code>
 </pre></div>
 
 <p>Последняя из этих инструкций, <code>*cucumber;</code>, потенциально может вызвать
-сбой в программе, если значение <code>cucumber</code> одновременно не является
+сбой в программе, если значение <code>cucumber</code> вместе не является
 допустимым указателем и было объявлено не как <code>volatile</code>.
 </p>
 
@@ -4334,7 +4332,7 @@ Next: <a href="#The-switch-Statement" accesskey="n" rel="next">The switch Statem
 <span id="index-else-statements"></span>
 
 <p>Можно использовать условную конструкцию <code>if</code>, чтобы выполнить часть
-программы, на основе истинности заданного выражения.  Вот общий вид
+программы, на основе оценки истинности заданного выражения.  Вот общий вид
 конструкции <code>if</code>:
 </p>
 <div class="example">
@@ -4344,10 +4342,10 @@ else
   <var>иначе-часть</var>
 </pre></div>
 
-<p>Если выражение <var>тест</var> оценено в значение истинна, то выполняется
-<var>тогда-часть</var> а <var>иначе-часть</var> нет.  Если выражение <var>тест</var>
-оценено в значение ложь, то <var>тогда-часть</var> выполняется а
-<var>тогда-часть</var> нет.  Выражение <code>else</code> не является обязательным.
+<p>Если выражение <var>тест</var> оценено в значение истинна, то вычисляется
+<var>тогда-часть</var> а часть <var>иначе-часть</var> нет.  Если выражение <var>тест</var>
+оценено в значение ложь, то <var>тогда-часть</var> не выполняется, а выполняется
+<var>иначе-часть</var>.  Выражение <code>else</code> не является обязательным.
 </p>
 <p>Вот конкретный пример:
 </p>
@@ -4359,7 +4357,7 @@ else
 <p>Если выражение <code>x == 10</code> оценивается как истинна, то выполняется
 инструкция <code>puts (&quot;x это 10&quot;);</code>.  Если <code>x == 10</code>
 оценивается в значение ЛОЖЬ, то инструкция <code>puts (&quot;x это 10&quot;);</code> не
-выполняется.  Ниже приведен пример использования с <code>else</code>:
+выполняется.  Ниже приведен пример с использованием <code>else</code>:
 </p>
 <div class="example">
 <pre class="example">if (x == 10)
@@ -4421,8 +4419,9 @@ Next: <a href="#The-while-Statement" accesskey="n" rel="next">The while Statemen
 <span id="index-switch-statement"></span>
 
 <p>Можно использовать оператор <code>switch</code> для сравнения одного выражения с
-другими, а затем выполнения ряда вспомогательных инструкций, основанных на
-результате сравнения.  Вот общий вид переключателя <code>switch</code>:
+другими для последующего выполнения ряда вспомогательных инструкций,
+основанных на результатах сравнения.  Вот общий вид переключателя
+<code>switch</code>:
 </p>
 <div class="example">
 <pre class="example">switch (<var>тест</var>)
@@ -4438,18 +4437,18 @@ Next: <a href="#The-while-Statement" accesskey="n" rel="next">The while Statemen
 </pre></div>
 
 <p>Инструкция <code>switch</code> сравнивает <var>тест</var> с каждым из выражений
-вариантов <var>сравнитьТест-N</var>, пока не найдет то, которое удовлетворяет
-<var>test</var>.  Затем выполняются вложенные инструкции выбранного варианта.  Все
-сравниваемые выражения, должны быть целочисленного типа, и выражения
+вариантов <var>сравнитьТест-N</var>, пока не находится то, которое удовлетворяет
+<var>test</var>.  Затем выполняются вложенные инструкции выбранного варианта.
+Все сравниваемые выражения, должны быть целочисленного типа, и выражения
 <var>сравнитьТест-N</var> должны быть константами целочисленного типа, как
 константа целого числа (например, буквальное целое число или выражение,
 построенное из литералов целых чисел).
 </p>
-<p>При желании можно указать вариант по умолчанию.  Если <var>тест</var> нет
+<p>При желании можно указать вариант по умолчанию.  Если <var>тест</var> не имеет
 соответствия ни к одному из конкретных вариантов, перечисленных до варианта
 по умолчанию, то выполняются инструкции варианта по умолчанию.  Традиционно,
 вариант по умолчанию записывается в конце всех вариантов, но это не
-требуется обязательно.
+обязательно.
 </p>
 
 <div class="example">
@@ -4468,9 +4467,10 @@ Next: <a href="#The-while-Statement" accesskey="n" rel="next">The while Statemen
 </pre></div>
 
 <p>Использование инструкции <code>break</code> в каждом из вариантов, приводит к
-тому, что, в случае выиграша варианта, выполняются вложенные утверждения и
-управление потоком выполнения передаётся после всей конструкции переключателя
-<code>switch</code> в обход выполнения всех оставшихся инструкций переключателя:
+тому, что, в случае выиграша вариантом, выполняются вложенные утверждения и
+управление потоком выполнения передаётся после всей конструкции
+переключателя <code>switch</code>, в обход выполнения всех оставшихся инструкций
+переключателя:
 </p>
 <div class="example">
 <pre class="example">int x = 0;
@@ -4485,7 +4485,7 @@ switch (x)
   }
 </pre></div>
 
-<p>Выход этого примера без инструкции <code>break;</code>:
+<p>Вывод этого же примера без инструкции <code>break;</code>:
 </p>
 <div class="example">
 <pre class="example">x is 0
@@ -4494,7 +4494,7 @@ x is что-то другое
 </pre></div>
 
 <p>Это часто не желательно.  Инструкции <code>break;</code> в конце каждого варианта
-перенаправляет поток выполнения программы в точку сразу после конструкции
+перенаправляет поток выполнения программы в точку, сразу после конструкции
 переключателя <code>switch</code>.
 </p>
 <p>В качестве расширения GNU C, можно также указать диапазон последовательных
@@ -4505,8 +4505,8 @@ x is что-то другое
 </pre></div>
 
 <p>Это имеет тот же эффект, что и соответствующее число отдельных <code>case</code>
-меток, по одному для каждого целого значения от <var>начало</var> до <var>предел</var>
-включительно.
+меток, по одному для каждого целочисленного значения в диапазоне от
+<var>начало</var> до <var>предел</var> включительно.
 </p>
 <p>Эта функция особенно полезна для диапазонов кодов символов ASCII:
 </p>
@@ -4516,7 +4516,7 @@ x is что-то другое
 
 <p>Будьте осторожны, не нужно добавлять пробелы вокруг <code>...</code>, иначе это
 может быть разобрано неправильно, при использовании с целочисленными
-значениями.  Например, если написать следующим образом:
+значениями.  Например, не нужно писать следующим образом:
 </p>
 <div class="example">
 <pre class="example">case 1 ... 5:
@@ -4543,7 +4543,7 @@ Next: <a href="#The-do-Statement" accesskey="n" rel="next">The do Statement</a>,
 <span id="Konstrukciya-while"></span><h3 class="section">4.5 Конструкция <code>while</code></h3>
 <span id="index-while-statement"></span>
 
-<p>Конструкция <code>while</code> является инструкцией цикла с условием на входе в
+<p>Конструкция <code>while</code> является инструкцией цикла с условием в
 начале цикла.  Вот общая форма конструкции <code>while</code>:
 </p>
 <div class="example">
@@ -4551,11 +4551,11 @@ Next: <a href="#The-do-Statement" accesskey="n" rel="next">The do Statement</a>,
   <var>инструкции</var>
 </pre></div>
 
-<p>Инструкция <code>while</code> вначале оценивает условие <var>тест</var>.  Если выражение
-<var>тест</var> вычислено как истинна, выполняются <var>инструкции</var>, а затем
-<var>тест</var> оценивается снова.  <var>инструкции</var> продолжают выполняться до тех
-пор, пока условие <var>тест</var> оценивается как истина после каждого выполнения
-<var>инструкции</var>.  
+<p>Инструкция <code>while</code> вначале оценивает условие <var>тест</var>.  Если
+выражение <var>тест</var> вычислено как истинна, выполняются <var>инструкции</var>, а
+затем <var>тест</var> оценивается вновь.  <var>инструкции</var> продолжают выполняться
+до тех пор, пока условие <var>тест</var> оценивается как истина после каждого
+выполнения инструкций <var>инструкции</var>.  
 </p>
 <p>Этот пример печатает целые числа от нуля до девяти:
 </p>
@@ -4611,7 +4611,7 @@ Next: <a href="#Blocks" accesskey="n" rel="next">Blocks</a>, Previous: <a href="
 <p>Конструкция <code>for</code> является инструкцией цикла, структура которой
 позволяет легко производить инициализацию переменной, проверку условного
 выражения и модификацию подконтрольной переменной.  Это очень удобно для
-создания счетчика контролируемых циклов.  Вот общая форма конструкции
+создания счёта контролируемых циклов.  Вот общая форма конструкции
 <code>for</code>:
 </p>
 <div class="example">
@@ -4631,8 +4631,8 @@ Next: <a href="#Blocks" accesskey="n" rel="next">Blocks</a>, Previous: <a href="
 <p>Чаще всего, в выражении <var>инициализация</var> присваивается значения одной или
 нескольким переменным, которые обычно используются в качестве счётчиков,
 <var>условие</var> сравнивает значения этих переменных с заранее заданным
-выражением, и выражение <var>шаг</var> модифицирует значения этих переменных.  Вот
-еще один пример, который печатает целые числа от нуля до девяти:
+выражением,выражение <var>шаг</var> модифицирует значения этих переменных.  Вот
+один пример, который печатает целые числа от нуля до девяти:
 </p>
 <div class="example">
 <pre class="example">int x;
@@ -4649,9 +4649,9 @@ for (x = 0; x &lt; 10; x++)
 выражения <var>условие</var>.
 </p>
 <p>Все три из выражений конструкции <code>for</code> не являются обязательными, и
-любая комбинация из трёх является допустимой.  Так как первое выражение
+любая комбинация из трёх - является допустимой.  Так как первое выражение
 вычисляется только один раз, наиболее часто это выражение опущено.  Также
-можете написать приведенный выше пример, как:
+можно переписать приведенный выше пример, как:
 </p>
 <div class="example">
 <pre class="example">int x = 1;
@@ -4666,10 +4666,10 @@ for (; x &lt;= 10; x++)
 бесконечный цикл (если не поставить инструкцию <code>break</code> или <code>goto</code>
 где-то в инструкции <var>инструкции</var>).  Это похоже на использование в
 качестве выражения <var>условие</var> константого значения <code>1</code>, что сделает
-значение этого выражения всегда истина.
+значение условия всегда истинным.
 </p>
 <p>Эта конструкция <code>for</code> начинает печатать числа с 1, а затем продолжается
-до бесконечности, всегда перед печатью <code>x</code> увеличивается на 1:
+до бесконечности, всегда перед печатью, <code>x</code> увеличивается на 1:
 </p>
 <div class="example">
 <pre class="example">for (x = 1; ; x++)
@@ -4677,7 +4677,7 @@ for (; x &lt;= 10; x++)
 </pre></div>
 
 <p>Если опущенно выражение <var>шаг</var>, то не будет никакого процеса завершения
-цикла &mdash; по крайней мере, в разрезе нормального функционирования конструкции
+цикла&mdash; по крайней мере, в разрезе нормального функционирования конструкции
 <code>for</code>.
 </p>
 <p>Этот пример печатает номер 1 снова и снова, бесконечно:
@@ -4688,8 +4688,8 @@ for (; x &lt;= 10; x++)
 </pre></div>
 
 <p>Нельзя использовать оператор запятая (see <a href="#The-Comma-Operator">The Comma Operator</a>) для
-мониторинга нескольких переменных в конструкции <code>for</code>, потому что,
-оператор запятая, отбрасывает результата оценки своего левого операнда.
+мониторинга нескольких переменных в условии конструкции <code>for</code>, потому
+что, оператор запятая, отбрасывает результат оценки своего левого операнда.
 Пример цикла:
 </p>
 <div class="example">
@@ -4725,8 +4725,8 @@ for (x = 1, y = 10; x &lt;= 10 &amp;&amp; y &gt;= 1; x+=2, y--)
 <p>Инструкция <code>break</code> может также произвести выход из цикла <code>for</code>.
 </p>
 <p>Ниже приведен пример функции, которая вычисляет сумму квадратов
-последовательных чисел, заданных диапазоном от исходного числа, до
-максимального допустимого значения этой суммы:
+последовательных чисел, заданных в диапазоне от начального значения числа,
+до максимально допустимого значения итоговой суммы:
 </p>
 <div class="example">
 <pre class="example">int
@@ -4748,10 +4748,10 @@ Next: <a href="#The-Null-Statement" accesskey="n" rel="next">The Null Statement<
 <span id="index-blocks"></span>
 <span id="index-compound-statements"></span>
 
-<p><em>Блок</em> представляет собой набор из нуля или более инструкций, заключенных
-в фигурные скобки.  Блоки также известны как <em>составные инструкции</em>.
-Часто, блок используется как тело конструкции <code>if</code> или конструкций
-цикла, чтобы группировать инструкции вместе.
+<p><em>Блок</em> представляет собой набор из нуля или более инструкций,
+заключенных в фигурные скобки.  Блоки также известны как
+<em>составные инструкции</em>.  Часто, блок используется как тело конструкции
+<code>if</code> или в конструкциях цикла, чтобы группировать инструкции вместе.
 </p>
 <div class="example">
 <pre class="example">for (x = 1; x &lt;= 10; x++)
@@ -4765,7 +4765,7 @@ Next: <a href="#The-Null-Statement" accesskey="n" rel="next">The Null Statement<
   }
 </pre></div>
 
-<p>Также можно поместить блоки внутри других блоков:
+<p>Также можно помещать блоки внутри других блоков:
 </p>
 <div class="example">
 <pre class="example">for (x = 1; x &lt;= 10; x++)
@@ -4783,10 +4783,10 @@ Next: <a href="#The-Null-Statement" accesskey="n" rel="next">The Null Statement<
   }
 </pre></div>
 
-<p>Можно объявлять переменные внутри блока; такие переменные являются локальными
-по отношению к этому блоку.  В C89, объявление переменных должно произойти до
-использования их в инструкциях и поэтому иногда полезно ввести блок просто
-для этой цели:
+<p>Можно объявлять переменные внутри блока; такие переменные являются
+локальными по отношению к этому блоку.  В C89, объявление переменных должно
+происходить до их использования в инструкциях и поэтому иногда полезно
+ввести блок конкретно только для этой цели:
 </p>
 
 <div class="example">
@@ -4808,7 +4808,7 @@ Next: <a href="#The-goto-Statement" accesskey="n" rel="next">The goto Statement<
 <span id="index-null-statement"></span>
 <span id="index-statement_002c-null"></span>
 
-<p><em>NULL инструкция</em> - просто одна точка с запятой.
+<p><em>NULL инструкция</em> - просто точка с запятой.
 </p>
 <div class="example">
 <pre class="example">;
@@ -4848,14 +4848,14 @@ Next: <a href="#The-break-Statement" accesskey="n" rel="next">The break Statemen
 <span id="Instrukciya-goto"></span><h3 class="section">4.10 Инструкция <code>goto</code></h3>
 <span id="index-goto-statement"></span>
 
-<p>Можно использовать инструкцию <code>goto</code> для безоговорочного перехода в
-другое место в программе.  Вот общий вид инструкции <code>goto</code>:
+<p>Можно использовать инструкцию <code>goto</code> для безоговорочного перехода к
+другому месту в программе.  Вот общий вид инструкции <code>goto</code>:
 </p>
 <div class="example">
 <pre class="example">goto <var>метка</var>;
 </pre></div>
 
-<p>Указывается метка для перехода оператором <code>goto</code>, когда программа
+<p>Указана метка для перехода оператором <code>goto</code>, когда программа
 достигает этой метки.  See <a href="#Labels">Labels</a>.  Вот пример:
 </p>
 <div class="example">
@@ -4865,14 +4865,14 @@ end_of_program:
 </pre></div>
 
 <p>Метка может распологаться в той же функции, что и инструкция <code>goto</code> и
-передавать управление к нему, но инструкция <code>goto</code> не может перевести
-выполнение к метке в другой функции.
+передавать управление туда, инструкция <code>goto</code> не может перевести
+управление выполнения к метке расположенной в другой функции.
 </p>
-<p>Инструкцию <code>goto</code> <em>можно</em> использовать  для ИМИТАЦИИ цикла, но не
-рекомендуем так поступать &mdash; это делает программу труднее для чтения, и GCC
-не сможет оптимизировать такой код.  Нужно использовать инструкции для циклов
-<code>for</code>, <code>while</code> и <code>do</code> вместо инструкции <code>goto</code>, когда
-это возможно.
+<p>Инструкцию <code>goto</code> <em>можно</em> использовать для ИМИТАЦИИ цикла, но не
+рекомендуется так поступать &mdash; программа становится трудной для чтения, и
+GCC не сможет оптимизировать такой код.  Нужно использовать конструкции
+циклов <code>for</code>, <code>while</code> и <code>do</code> вместо инструкции <code>goto</code>,
+когда это возможно.
 </p>
 <p>В качестве расширения, GCC позволяет инструкции <code>goto</code> осуществлять
 переход к адресу, указанному в переменной <code>void*</code>.  Для того, чтобы
@@ -4929,8 +4929,8 @@ for (x = 1; x &lt;= 10; x++)
 </p>
 <p>Если присутствует инструкция <code>break</code> внутри инструкции цикла или
 инструкции <code>switch</code>, которая сама находится внутри инструкции цикла или
-инструкции <code>switch</code>, то инструкция  <code>break</code> сработывает только во
-внутреннем цикле или <code>switch</code>.  (ВопросStatements739)
+инструкции <code>switch</code>, то инструкция  <code>break</code> сработывает только для
+вложенного цикла или <code>switch</code>.
 </p>
 
 <hr>
@@ -4942,7 +4942,7 @@ Next: <a href="#The-return-Statement" accesskey="n" rel="next">The return Statem
 <span id="index-continue-statement"></span>
 
 <p>Можно использовать инструкцию <code>continue</code> в циклах для прекращения
-текущей итерации цикла и перехода на следующую итерацию.  Вот пример:
+текущей итерации цикла и перехода к следующей итерации.  Вот пример:
 </p>
 <div class="example">
 <pre class="example">for (x = 0; x &lt; 100; x++)
@@ -4954,8 +4954,8 @@ Next: <a href="#The-return-Statement" accesskey="n" rel="next">The return Statem
   }
 </pre></div>
 
-<p>Если поставить инструкцию <code>continue</code> внутри цикла, который сам находится
-внутри цикла, то это повлияет только на внутренний цикл.
+<p>Если поставить инструкцию <code>continue</code> внутри цикла, который сам
+находится внутри цикла, то это повлияет только на внутренний цикл.
 </p>
 
 
@@ -4976,19 +4976,19 @@ Next: <a href="#The-typedef-Statement" accesskey="n" rel="next">The typedef Stat
 </pre></div>
 
 <p><var>возвращаемое-значение</var> является необязательным выражением для возврата.
-Если тип возвращаемого знечения функцией объявлен как <code>void</code>, то функция
+Если тип возвращаемого знечения функции объявлен как <code>void</code>, то функция
 возвращает значение неопределено.  Можно, однако, использовать оператор
 <code>return</code> без указания возвращаемого значения.
 </p>
 <p>Если возвращаемый тип значения функции не совпадает с указанным типом
 <var>возвращаемое-значение</var> и автоматическое преобразование типа не может
-быть выполнено, то возвращаемое значение <var>возвращаемое-значение</var> является
-неопределенно.
+быть выполнено, то возвращаемое значение <var>возвращаемое-значение</var>
+является неопределенно.
 </p>
 
-<p>Если функция возвращает значение типа отличного от <code>void</code>, то инструкция
-<code>return</code> допустима, если функция вызывается в контексте, который требует
-возврата значения.  Например:
+<p>Если функция возвращает значение типа отличным от <code>void</code>, то инструкция
+<code>return</code> допустима, если функция вызывается в контексте, который
+требует возврата значения.  Например:
 </p>
 <div class="example">
 <pre class="example">x = cosine (y);
@@ -4998,13 +4998,13 @@ Next: <a href="#The-typedef-Statement" accesskey="n" rel="next">The typedef Stat
 возврата значения, так что бы значение могло быть присвоено <code>x</code>.
 </p>
 <p>Даже в условиях, когда не требуется использовать возвращаемое значение
-функции, плохая идея при вызове функции с возвращаемым не-<code>void</code> типом
+функции, плохая идея вызов функции с возвращаемым не-<code>void</code> типом
 значения,  опускать это значение.  В GCC, можно использовать параметр
 командной строки <code><span class="nolinebreak">-Wreturn</span><!-- /@w -->-type</code> для выдачи предупреждений, если
-опускается возвращаемое значение в вызове таких функций.
+опускается возвращаемое значение при вызове таких функций.
 </p>
 <p>Вот некоторые примеры использования оператора <code>return</code>, как в функциях
-с возвращаемым значением <code>void</code> и так и значениями с типом
+с возвращаемым типом значения <code>void</code> и так и значением с типом
 не-<code>void</code>:
 </p>
 <div class="example">
@@ -5042,10 +5042,10 @@ Previous: <a href="#The-return-Statement" accesskey="p" rel="prev">The return St
 
 <p><var>прежднее-имя-типа</var> этого имя существующего типа данных, возможно
 объявленного с использованием более чем одного спецификатора (например,
-<code>unsigned long int</code>).  <var>новое-имя-типа</var> является полученным новым
-именем для данного типа, и должно быть одним идентификатором.  Создание этого
-нового имени для заданного типа не прекращает существование прежднего.  Вот
-некоторые примеры:
+<code>unsigned long int</code>).  <var>новое-имя-типа</var> является назачением нового
+имени для данного типа, и должно быть допустимым идентификатором.  Создание
+этого нового имени для заданного типа не прекращает существование прежднего.
+Вот некоторые примеры:
 </p>
 <div class="example">
 <pre class="example">typedef unsigned char byte_type;
@@ -5073,9 +5073,9 @@ typedef double real_number_type;
 array_of_bytes five_bytes = {0, 1, 2, 3, 4};
 </pre></div>
 
-<p>При выборе имени для типа, нужно избегать завершение имен типов с суффиксом
+<p>При выборе имени типу, нужно избегать завершение имени типа суффиксом
 <code>_t</code>.  Компилятор позволит это сделать, но POSIX резервирует
-использование <code>_t</code> суффикса для имен типов стандартных библиотек.
+использование <code>_t</code> суффикса в именах типов стандартных библиотек.
 </p>
 
 
@@ -5147,7 +5147,7 @@ Next: <a href="#Function-Definitions" accesskey="n" rel="next">Function Definiti
 (see <a href="#Identifiers">Identifiers</a>).
 </p>
 <p><var>список-параметров</var> состоит из нуля или более параметров, разделенных
-запятыми.  Типичный запись параметра состоит из типа данных и необязательного
+запятыми.  Типичная запись параметра состоит из типа данных и необязательного
 имени параметра.  Также объявляется функция, которая имеет переменное число
 параметров (see <a href="#Variable-Length-Parameter-Lists">Variable Length Parameter Lists</a>), или не содержит совсем
 параметров, отмечается с помощью <code>void</code>.  Полностью отсутствующий
@@ -5172,7 +5172,7 @@ Next: <a href="#Function-Definitions" accesskey="n" rel="next">Function Definiti
 одного раза в одном объявлении.  Имена параметров в объявлении не обязательно
 должны совпадать с именами в определении.
 </p>
-<p>Объявление функции требуется до первого использования этой функции.  Можне
+<p>Объявление функции требуется до первого использования этой функции.  Можно
 поместить его в заголовочный файл и использовать директиву <code>#include</code>,
 чтобы включить объявление этой функцию в любых файлах исходного кода, которые
 используют функцию.
@@ -5188,8 +5188,8 @@ Next: <a href="#Calling-Functions" accesskey="n" rel="next">Calling Functions</a
 <span id="index-definitions_002c-function"></span>
 
 <p>Определение функции, служит для того, чтобы указать, что функция на самом
-деле делает.  Определение функции состоит из информации о имени функции, типа
-возвращаемого значения и типов и именах параметров, вместе с телом функции.
+деле делает.  Определение функции состоит из информации: имени функции, типа
+возвращаемого значения, типов и именах параметров, тела функции.
 Тело функции представляет собой ряд инструкций, заключенных в скобки, на
 самом деле это просто блок (see <a href="#Blocks">Blocks</a>).
 </p>
@@ -5209,9 +5209,9 @@ Next: <a href="#Calling-Functions" accesskey="n" rel="next">Calling Functions</a
 объявлении функции (see <a href="#Function-Declarations">Function Declarations</a>), за исключением того,
 что <em>обязательно</em> включаются имена параметров в определении функции.
 </p>
-<p>Вот простой пример определения функции &mdash; она ​​принимает два целых числа,
-в качестве её параметров и возвращает их сумму в качестве возвращаемого
-значения:
+<p>Вот простой пример определения функции &mdash; она ​​принимает два целых числа
+в качестве её параметров и возвращает их сумму в возвращаемом
+значении:
 </p>
 <div class="example">
 <pre class="example">int
@@ -5232,6 +5232,7 @@ add_values (x, y)
   return x + y;
 }
 </pre></div>
+
 
 <p>Тем не менее, не рекомендуется этот стиль кодирования; это может вызвать
 тонкие проблемы с приведением типов, наряду с другими проблемами.
@@ -5716,7 +5717,7 @@ Next: <a href="#A-Sample-Program" accesskey="n" rel="next">A Sample Program</a>,
 </div>
 <span id="Struktura-Programmy-i-Oblasti"></span><h2 class="chapter">6 Структура Программы и Области</h2>
 
-<p>Теперь, когда пказаны все из основных элементов программ C, пришло время
+<p>Теперь, когда показаны все из основных элементов программ C, пришло время
 взглянуть на общую картину.
 </p>
 <table class="menu" border="0" cellspacing="0">
@@ -5742,14 +5743,14 @@ Next: <a href="#Scope" accesskey="n" rel="next">Scope</a>, Up: <a href="#Program
 </p>
 <p>По соглашению, заголовочные файлы (с расширением &ldquo;.h&rdquo;) содержат объявления
 переменных и функций, а исходные файлы (с расширением &ldquo;.c&rdquo;) содержат
-соответствующие определения.  Исходные файлы могут также хранить
-объявление, если такие объявления объектов не предназначены для использования
-из других файлов.  Тем не менее, заголовочные файлы почти наверняка не будут
+соответствующие определения.  Исходные файлы могут также хранить объявление,
+если эти объявления объектов не предназначаются для использования из кода
+других файлов.  Тем не менее, заголовочные файлы почти наверняка не будут
 содержать каких-либо определений.
 </p>
-<p>Например, при написании функции, которая вычисляет квадратные корни и если
-для неё требуется реализовать возможность доступа другим функциям,
-определённых не в том же файле, где определена вызываемая функцияи, тогда
+<p>Например, при написании функции, которая вычисляет квадратные корни и
+требуется реализация возможности доступа к ней из функций,
+определённых не в том же файле, где определена вызываемая функция, тогда
 нужно поместить объявление функции в заголовочный файл
 (файв с расширением &ldquo;.h&rdquo;):
 </p>
@@ -5760,12 +5761,12 @@ double
 computeSqrt (double x);
 </pre></div>
 
-<p>Этот заголовочный файл может быть включен другими исходными файлами, которым
-требуется использовать эту функцию, и для этого не нужно знать, как это было
+<p>Этот заголовочный файл может быть включен в другие исходные файлы, где
+требуется использование этой функцию, и не нужно даже знать, как это было
 реализовано.
 </p>
-<p>Реализация функции может затем перейти в соответствующий исходный файл
-(с расширением файла &ldquo;.c&rdquo;):  (ВопросPrpgram57)
+<p>Реализация самой функции, может затем быть помещена в определённый исходный
+файл (с расширением имени файла &ldquo;.c&rdquo;):
 </p>
 <div class="example">
 <pre class="example">/* <span class="roman">sqrt.c</span> */
@@ -5787,19 +5788,19 @@ computeSqrt (double x)
 <p>
 Previous: <a href="#Program-Structure" accesskey="p" rel="prev">Program Structure</a>, Up: <a href="#Program-Structure-and-Scope" accesskey="u" rel="up">Program Structure and Scope</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Svyazka"></span><h3 class="section">6.2 Связка</h3>
+<span id="Svyazyvanie"></span><h3 class="section">6.2 Связывание</h3>
 <span id="index-scope"></span>
 
 
-<p>Связка относится к тому, что части программы могут &ldquo;видеть&rdquo; объявленный
+<p>Связывание относится к тому, что части программы &ldquo;видят&rdquo; объявленный
 объект.  Объявленный объект может быть виден только в пределах конкретной
 функции, в пределах определенного файла или может быть виден всему набору
-файлов, путем включения заголовочных файлов и использовании объявления
-<code>extern</code>.
+файлов, путем включения заголовочных файлов и использования при объявлении
+идентификатора <code>extern</code>.
 </p>
-<p>Если явно не указано иное, объявления, сделанные на верхнем уровне файла
-(т.е. не в нутри функции) видимы для всего файла, в том числе внутри функций,
-но не видны за пределами файла.
+<p>Если явно не указано иное, объявление, сделанное на верхнем уровне файла
+(т.е. не в нутри функции), видно для всего файла, в том числе внутри
+функции, но не видно за пределами файла.
 </p>
 <p>Объявления, сделанные внутри функции видны только в пределах этой функции.
 </p>
@@ -5820,7 +5821,7 @@ int y = 5;
 <p>не будет.
 </p>
 <p>See <a href="#Storage-Class-Specifiers">Storage Class Specifiers</a>, для получения дополнительной информации об
-изменении связки объявленных объектов.  Также смотреть
+изменении связывания объявленных объектов.  Также смотреть
 <a href="#Static-Functions">Static Functions</a>.
 </p>
 
